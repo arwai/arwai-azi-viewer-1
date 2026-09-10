@@ -64,7 +64,7 @@ if (!empty($tag_colors)) {
      data-override-card-selected-text-color="<?php echo esc_attr($card_styles['card_selected_text'] ?? ''); ?>"
      data-override-card-selected-border-color="<?php echo esc_attr($card_styles['card_selected_border'] ?? ''); ?>"
      data-override-card-selected-shadow="<?php echo esc_attr($card_styles['card_selected_shadow'] ?? ''); ?>"
-     style="gap:<?php echo esc_attr($card_styles['card_gap'] ?? '16px'); ?>; --grid-justify-content:<?php echo esc_attr($card_styles['grid_justify_content'] ?? 'start'); ?>; --card-min-width:<?php echo esc_attr($card_styles['card_min_width'] ?? '280px'); ?>; --card-max-width:<?php echo esc_attr($card_styles['card_max_width'] ?? '100%'); ?>; --card-max-height:<?php echo esc_attr($card_styles['card_max_height'] ?? '180px'); ?>;">
+     style="gap:<?php echo esc_attr($card_styles['card_gap'] ?? '16px'); ?>; --grid-justify-content:<?php echo esc_attr($card_styles['grid_justify_content'] ?? 'start'); ?>; --card-min-width:<?php echo esc_attr($card_styles['card_min_width'] ?? '280px'); ?>; --card-max-width:<?php echo esc_attr($card_styles['card_max_width'] ?? '100%'); ?>;">
     <?php if (empty($all_annotations)) : ?>
         <div class="arwai-azi-viewer-empty-cards">
             <p><?php esc_html_e('No annotations found for this post.', 'arwai-azi-viewer'); ?></p>

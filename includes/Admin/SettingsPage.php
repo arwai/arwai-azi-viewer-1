@@ -76,70 +76,37 @@ class SettingsPage {
 
     public static function get_default_card_styles() {
         return [
-            'card_bg'                     => '#1e293b',
-            'text_color'                  => '#f8fafc',
-            'border_radius'               => '10',
-            'badge_bg'                    => '#2563eb',
-            'badge_text_color'            => '#ffffff',
-            'default_simple_size'         => 'large',
-            'default_osd_size'            => 'full',
-            'default_loading_method'      => 'lazy',
-            'default_image_format'        => 'webp_prefer',
-            'default_stage_height'        => '500px',
-            'default_stage_margin'        => '24px',
-            'default_stage_padding'       => '0px',
-            'default_stage_border_radius' => '6px',
-            'default_stage_border_width'  => '2px',
-            'default_stage_border_color'  => '#e2e8f0',
-            'default_stage_bg_color'      => '#f8fafc',
-            'default_stage_bg_image'      => '',
-            'default_stage_bg_size'       => 'repeat auto',
-            'default_font_family'         => 'inherit',
-            'default_info_msg'            => '',
+            // Default image fallback options
+            'default_simple_size'          => 'large',
+            'default_osd_size'             => 'full',
+            'default_loading_method'       => 'lazy',
+            'default_image_format'         => 'webp_prefer',
+            'default_info_msg'             => '',
             
-            // Default shape/badge states (treated like a default tag)
-            'default_fill_color'          => 'rgba(0,0,0,0.2)',
-            'default_border_color'        => '#2563eb',
-            'default_badge_shadow'        => '0 2px 6px rgba(0, 0, 0, 0.15)',
+            // Annotation shapes & ID badges default canvas styling
+            'badge_bg'                     => '#2563eb',
+            'badge_text_color'             => '#ffffff',
+            'default_fill_color'           => 'rgba(0,0,0,0.2)',
+            'default_border_color'         => '#2563eb',
+            'default_badge_shadow'         => '0 2px 6px rgba(0, 0, 0, 0.15)',
             
-            'default_hover_fill_color'    => 'rgba(0,0,0,0.3)',
-            'default_hover_border_color'  => '#3b82f6',
-            'default_hover_badge_shadow'  => '0 4px 12px rgba(0, 0, 0, 0.25)',
+            'default_hover_fill_color'     => 'rgba(0,0,0,0.3)',
+            'default_hover_border_color'   => '#3b82f6',
+            'default_hover_badge_shadow'   => '0 4px 12px rgba(0, 0, 0, 0.25)',
             
-            'default_selected_fill_color'  => 'rgba(0,0,0,0.3)',
-            'default_selected_border_color'=> '#1d4ed8',
-            'default_selected_badge_shadow'=> '0 4px 12px rgba(0, 0, 0, 0.25)',
+            'default_selected_fill_color'   => 'rgba(0,0,0,0.3)',
+            'default_selected_border_color' => '#1d4ed8',
+            'default_selected_badge_bg'    => '#1d4ed8',
+            'default_selected_badge_text_color' => '#ffffff',
+            'default_selected_badge_shadow' => '0 4px 12px rgba(0, 0, 0, 0.25)',
 
-            // Default card states & layout
-            'card_inner_padding'          => '16px',
-            'card_min_height'             => '0px',
-            'card_gap'                    => '16px',
-            'card_text_alignment'         => 'left',
-            'enable_truncation'           => 1,
-            'card_max_height'             => '180px',
-            'card_max_lines'              => 3,
-            'card_min_width'              => '280px',
-            'card_max_width'              => '100%',
-            'grid_justify_content'        => 'start',
-            'read_more_text'              => '...Read More',
-            'show_less_text'              => 'Show Less',
-            'card_border_color'           => '#cbd5e1',
-            'border_width'                => '0px',
-            'border_style'                => 'solid',
-            'border_radius'               => '10px',
-            'card_shadow'                 => '0 4px 14px rgba(0, 0, 0, 0.08)',
-            'card_hover_bg'               => '#334155',
-            'card_hover_text'             => '#f8fafc',
-            'card_hover_border'           => 'transparent',
-            'card_hover_shadow'           => '0 8px 22px rgba(0, 0, 0, 0.15)',
-            'card_selected_bg'            => '#0f172a',
-            'card_selected_text'          => '#ffffff',
-            'card_selected_border'        => '#2563eb',
-            'card_selected_shadow'        => '0 8px 24px rgba(0, 0, 0, 0.2)',
+            // Card content truncation behavior
+            'enable_truncation'            => 1,
+            'card_max_lines'               => 3,
+            'read_more_text'               => '...Read More',
+            'show_less_text'               => 'Show Less',
         ];
     }
-
-
 
     public static function sanitize_editing_roles($input) {
         if (!is_array($input)) return ['administrator'];
@@ -169,85 +136,32 @@ class SettingsPage {
     public static function sanitize_card_styles($input) {
         if (!is_array($input)) return self::get_default_card_styles();
         return [
-            'card_bg'                     => isset($input['card_bg']) ? sanitize_text_field($input['card_bg']) : '#1e293b',
-            'text_color'                  => isset($input['text_color']) ? sanitize_text_field($input['text_color']) : '#f8fafc',
-            'border_radius'               => isset($input['border_radius']) ? (string) intval($input['border_radius']) : '10',
-            'badge_bg'                    => isset($input['badge_bg']) ? sanitize_text_field($input['badge_bg']) : '#2563eb',
-            'badge_text_color'            => isset($input['badge_text_color']) ? sanitize_text_field($input['badge_text_color']) : '#ffffff',
-            'default_simple_size'         => isset($input['default_simple_size']) ? sanitize_key($input['default_simple_size']) : 'large',
-            'default_osd_size'            => isset($input['default_osd_size']) ? sanitize_key($input['default_osd_size']) : 'full',
-            'default_loading_method'      => isset($input['default_loading_method']) ? sanitize_key($input['default_loading_method']) : 'lazy',
-            'default_image_format'        => isset($input['default_image_format']) ? sanitize_key($input['default_image_format']) : 'webp_prefer',
-            'default_stage_height'        => isset($input['default_stage_height']) ? sanitize_text_field($input['default_stage_height']) : '500px',
-            'default_stage_margin'        => isset($input['default_stage_margin']) ? sanitize_text_field($input['default_stage_margin']) : '24px',
-            'default_stage_padding'       => isset($input['default_stage_padding']) ? sanitize_text_field($input['default_stage_padding']) : '0px',
-            'default_stage_border_radius' => isset($input['default_stage_border_radius']) ? sanitize_text_field($input['default_stage_border_radius']) : '6px',
-            'default_stage_border_width'  => isset($input['default_stage_border_width']) ? sanitize_text_field($input['default_stage_border_width']) : '2px',
-            'default_stage_border_color'  => isset($input['default_stage_border_color']) ? sanitize_text_field($input['default_stage_border_color']) : '#e2e8f0',
-            'default_stage_bg_color'      => isset($input['default_stage_bg_color']) ? sanitize_text_field($input['default_stage_bg_color']) : '#f8fafc',
-            'default_stage_bg_image'      => isset($input['default_stage_bg_image']) ? sanitize_url($input['default_stage_bg_image']) : '',
-            'default_stage_bg_size'       => isset($input['default_stage_bg_size']) ? sanitize_text_field($input['default_stage_bg_size']) : 'repeat auto',
-            'default_font_family'         => isset($input['default_font_family']) ? sanitize_text_field($input['default_font_family']) : 'inherit',
-            'default_info_msg'            => isset($input['default_info_msg']) ? wp_kses_post($input['default_info_msg']) : '',
+            'default_simple_size'          => isset($input['default_simple_size']) ? sanitize_key($input['default_simple_size']) : 'large',
+            'default_osd_size'             => isset($input['default_osd_size']) ? sanitize_key($input['default_osd_size']) : 'full',
+            'default_loading_method'       => isset($input['default_loading_method']) ? sanitize_key($input['default_loading_method']) : 'lazy',
+            'default_image_format'         => isset($input['default_image_format']) ? sanitize_key($input['default_image_format']) : 'webp_prefer',
+            'default_info_msg'             => isset($input['default_info_msg']) ? wp_kses_post($input['default_info_msg']) : '',
             
-            'default_fill_color'          => isset($input['default_fill_color']) ? sanitize_text_field($input['default_fill_color']) : 'rgba(0,0,0,0.2)',
-            'default_border_color'        => isset($input['default_border_color']) ? sanitize_text_field($input['default_border_color']) : '#2563eb',
-            'default_badge_shadow'        => isset($input['default_badge_shadow']) ? sanitize_text_field($input['default_badge_shadow']) : '0 2px 6px rgba(0, 0, 0, 0.15)',
+            'badge_bg'                     => isset($input['badge_bg']) ? sanitize_text_field($input['badge_bg']) : '#2563eb',
+            'badge_text_color'             => isset($input['badge_text_color']) ? sanitize_text_field($input['badge_text_color']) : '#ffffff',
+            'default_fill_color'           => isset($input['default_fill_color']) ? sanitize_text_field($input['default_fill_color']) : 'rgba(0,0,0,0.2)',
+            'default_border_color'         => isset($input['default_border_color']) ? sanitize_text_field($input['default_border_color']) : '#2563eb',
+            'default_badge_shadow'         => isset($input['default_badge_shadow']) ? sanitize_text_field($input['default_badge_shadow']) : '0 2px 6px rgba(0, 0, 0, 0.15)',
             
-            'default_hover_fill_color'    => isset($input['default_hover_fill_color']) ? sanitize_text_field($input['default_hover_fill_color']) : 'rgba(0,0,0,0.3)',
-            'default_hover_border_color'  => isset($input['default_hover_border_color']) ? sanitize_text_field($input['default_hover_border_color']) : '#3b82f6',
-            'default_hover_badge_shadow'  => isset($input['default_hover_badge_shadow']) ? sanitize_text_field($input['default_hover_badge_shadow']) : '0 4px 12px rgba(0, 0, 0, 0.25)',
+            'default_hover_fill_color'     => isset($input['default_hover_fill_color']) ? sanitize_text_field($input['default_hover_fill_color']) : 'rgba(0,0,0,0.3)',
+            'default_hover_border_color'   => isset($input['default_hover_border_color']) ? sanitize_text_field($input['default_hover_border_color']) : '#3b82f6',
+            'default_hover_badge_shadow'   => isset($input['default_hover_badge_shadow']) ? sanitize_text_field($input['default_hover_badge_shadow']) : '0 4px 12px rgba(0, 0, 0, 0.25)',
             
-            'default_selected_fill_color'  => isset($input['default_selected_fill_color']) ? sanitize_text_field($input['default_selected_fill_color']) : 'rgba(0,0,0,0.3)',
-            'default_selected_border_color'=> isset($input['default_selected_border_color']) ? sanitize_text_field($input['default_selected_border_color']) : '#1d4ed8',
-            'default_selected_badge_bg'   => isset($input['default_selected_badge_bg']) ? sanitize_text_field($input['default_selected_badge_bg']) : '#1d4ed8',
-            'default_selected_badge_text_color'=> isset($input['default_selected_badge_text_color']) ? sanitize_text_field($input['default_selected_badge_text_color']) : '#ffffff',
-            'default_selected_badge_shadow'=> isset($input['default_selected_badge_shadow']) ? sanitize_text_field($input['default_selected_badge_shadow']) : '0 4px 12px rgba(0, 0, 0, 0.25)',
+            'default_selected_fill_color'   => isset($input['default_selected_fill_color']) ? sanitize_text_field($input['default_selected_fill_color']) : 'rgba(0,0,0,0.3)',
+            'default_selected_border_color' => isset($input['default_selected_border_color']) ? sanitize_text_field($input['default_selected_border_color']) : '#1d4ed8',
+            'default_selected_badge_bg'    => isset($input['default_selected_badge_bg']) ? sanitize_text_field($input['default_selected_badge_bg']) : '#1d4ed8',
+            'default_selected_badge_text_color' => isset($input['default_selected_badge_text_color']) ? sanitize_text_field($input['default_selected_badge_text_color']) : '#ffffff',
+            'default_selected_badge_shadow' => isset($input['default_selected_badge_shadow']) ? sanitize_text_field($input['default_selected_badge_shadow']) : '0 4px 12px rgba(0, 0, 0, 0.25)',
 
-            'card_border_color'           => isset($input['card_border_color']) ? sanitize_text_field($input['card_border_color']) : '#cbd5e1',
-            'card_shadow'                 => isset($input['card_shadow']) ? sanitize_text_field($input['card_shadow']) : '0 4px 14px rgba(0, 0, 0, 0.08)',
-            'card_hover_bg'               => isset($input['card_hover_bg']) ? sanitize_text_field($input['card_hover_bg']) : '#334155',
-            'card_hover_text'             => isset($input['card_hover_text']) ? sanitize_text_field($input['card_hover_text']) : '#f8fafc',
-            'card_hover_border'           => isset($input['card_hover_border']) ? sanitize_text_field($input['card_hover_border']) : 'transparent',
-            'card_hover_shadow'           => isset($input['card_hover_shadow']) ? sanitize_text_field($input['card_hover_shadow']) : '0 8px 22px rgba(0, 0, 0, 0.15)',
-            
-            'card_selected_bg'            => isset($input['card_selected_bg']) ? sanitize_text_field($input['card_selected_bg']) : '#0f172a',
-            'card_selected_text'          => isset($input['card_selected_text']) ? sanitize_text_field($input['card_selected_text']) : '#ffffff',
-            'card_selected_border'        => isset($input['card_selected_border']) ? sanitize_text_field($input['card_selected_border']) : '#2563eb',
-            'card_selected_shadow'        => isset($input['card_selected_shadow']) ? sanitize_text_field($input['card_selected_shadow']) : '0 8px 24px rgba(0, 0, 0, 0.2)',
-
-            'seq_toolbar_bg'                 => isset($input['seq_toolbar_bg']) ? sanitize_text_field($input['seq_toolbar_bg']) : 'rgba(255,255,255,0.05)',
-            'seq_toolbar_text_color'         => isset($input['seq_toolbar_text_color']) ? sanitize_text_field($input['seq_toolbar_text_color']) : '',
-            'seq_toolbar_border_color'       => isset($input['seq_toolbar_border_color']) ? sanitize_text_field($input['seq_toolbar_border_color']) : 'transparent',
-            'seq_toolbar_border_width'       => isset($input['seq_toolbar_border_width']) ? sanitize_text_field($input['seq_toolbar_border_width']) : '0px',
-            'seq_toolbar_border_radius'      => isset($input['seq_toolbar_border_radius']) ? sanitize_text_field($input['seq_toolbar_border_radius']) : '6px',
-            'seq_toolbar_font_size'          => isset($input['seq_toolbar_font_size']) ? sanitize_text_field($input['seq_toolbar_font_size']) : '14px',
-            'seq_toolbar_font_family'        => isset($input['seq_toolbar_font_family']) ? sanitize_text_field($input['seq_toolbar_font_family']) : 'inherit',
-            'seq_toolbar_hover_bg'           => isset($input['seq_toolbar_hover_bg']) ? sanitize_text_field($input['seq_toolbar_hover_bg']) : 'rgba(255,255,255,0.15)',
-            'seq_toolbar_hover_color'        => isset($input['seq_toolbar_hover_color']) ? sanitize_text_field($input['seq_toolbar_hover_color']) : '#ffffff',
-
-            'action_toolbar_bg'              => isset($input['action_toolbar_bg']) ? sanitize_text_field($input['action_toolbar_bg']) : 'rgba(255,255,255,0.05)',
-            'action_toolbar_text_color'      => isset($input['action_toolbar_text_color']) ? sanitize_text_field($input['action_toolbar_text_color']) : '',
-            'action_toolbar_border_color'    => isset($input['action_toolbar_border_color']) ? sanitize_text_field($input['action_toolbar_border_color']) : 'transparent',
-            'action_toolbar_border_width'    => isset($input['action_toolbar_border_width']) ? sanitize_text_field($input['action_toolbar_border_width']) : '0px',
-            'action_toolbar_border_radius'   => isset($input['action_toolbar_border_radius']) ? sanitize_text_field($input['action_toolbar_border_radius']) : '6px',
-            'action_toolbar_font_size'       => isset($input['action_toolbar_font_size']) ? sanitize_text_field($input['action_toolbar_font_size']) : '14px',
-            'action_toolbar_font_family'     => isset($input['action_toolbar_font_family']) ? sanitize_text_field($input['action_toolbar_font_family']) : 'inherit',
-            'action_toolbar_hover_bg'        => isset($input['action_toolbar_hover_bg']) ? sanitize_text_field($input['action_toolbar_hover_bg']) : 'rgba(255,255,255,0.15)',
-            'action_toolbar_hover_color'     => isset($input['action_toolbar_hover_color']) ? sanitize_text_field($input['action_toolbar_hover_color']) : '#ffffff',
-
-            'toolbar_bg'                     => isset($input['toolbar_bg']) ? sanitize_text_field($input['toolbar_bg']) : 'rgba(255,255,255,0.05)',
-            'toolbar_text_color'             => isset($input['toolbar_text_color']) ? sanitize_text_field($input['toolbar_text_color']) : '',
-            'toolbar_border_color'           => isset($input['toolbar_border_color']) ? sanitize_text_field($input['toolbar_border_color']) : 'transparent',
-            'toolbar_border_width'           => isset($input['toolbar_border_width']) ? sanitize_text_field($input['toolbar_border_width']) : '0px',
-            'toolbar_border_radius'          => isset($input['toolbar_border_radius']) ? sanitize_text_field($input['toolbar_border_radius']) : '6px',
-            'toolbar_font_size'              => isset($input['toolbar_font_size']) ? sanitize_text_field($input['toolbar_font_size']) : '14px',
-            'toolbar_font_family'            => isset($input['toolbar_font_family']) ? sanitize_text_field($input['toolbar_font_family']) : 'inherit',
-            'toolbar_hover_bg'               => isset($input['toolbar_hover_bg']) ? sanitize_text_field($input['toolbar_hover_bg']) : 'rgba(255,255,255,0.15)',
-            'toolbar_hover_color'            => isset($input['toolbar_hover_color']) ? sanitize_text_field($input['toolbar_hover_color']) : '#ffffff',
-            'toolbar_hover_opacity'          => isset($input['toolbar_hover_opacity']) ? sanitize_text_field($input['toolbar_hover_opacity']) : '1',
-            'toolbar_hover_scale'            => isset($input['toolbar_hover_scale']) ? sanitize_text_field($input['toolbar_hover_scale']) : '1.05',
-            'toolbar_hover_shadow'           => isset($input['toolbar_hover_shadow']) ? sanitize_text_field($input['toolbar_hover_shadow']) : '0 4px 12px rgba(0,0,0,0.1)',
+            'enable_truncation'            => !empty($input['enable_truncation']) ? 1 : 0,
+            'card_max_lines'               => isset($input['card_max_lines']) ? intval($input['card_max_lines']) : 3,
+            'read_more_text'               => isset($input['read_more_text']) ? sanitize_text_field($input['read_more_text']) : '...Read More',
+            'show_less_text'               => isset($input['show_less_text']) ? sanitize_text_field($input['show_less_text']) : 'Show Less',
         ];
     }
 
@@ -264,20 +178,17 @@ class SettingsPage {
                 $badge_sh = !empty($rule['badge_shadow']) ? sanitize_text_field($rule['badge_shadow']) : '';
                 
                 $clean[]  = [
-                    'tag'                   => $tag_name,
-                    'fill_color'            => $fill,
-                    'border_color'          => $border,
-                    'badge_bg'              => $badge,
-                    'badge_text_color'      => $badge_tc,
-                    'badge_shadow'          => $badge_sh,
-                    
+                    'tag'              => $tag_name,
+                    'fill_color'       => $fill,
+                    'border_color'     => $border,
+                    'badge_bg'         => $badge,
+                    'badge_text_color' => $badge_tc,
+                    'badge_shadow'     => $badge_sh,
                 ];
             }
         }
         return $clean;
     }
-
-
 
     public static function get_editing_roles() {
         $roles = get_option(self::OPTION_EDITING_ROLES, ['administrator']);
@@ -302,10 +213,10 @@ class SettingsPage {
             return;
         }
 
-        $editing_roles     = self::get_editing_roles();
-        $osd_options       = self::get_osd_options();
-        $card_styles       = self::get_card_styles();
-        $tag_colors        = self::get_tag_colors();
+        $editing_roles = self::get_editing_roles();
+        $osd_options   = self::get_osd_options();
+        $card_styles   = self::get_card_styles();
+        $tag_colors    = self::get_tag_colors();
 
         global $wp_roles;
         $all_roles = $wp_roles ? $wp_roles->get_names() : [];

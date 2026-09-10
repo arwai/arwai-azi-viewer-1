@@ -68,10 +68,6 @@
       "type": "boolean",
       "default": true
     },
-    "cardMaxHeight": {
-      "type": "string",
-      "default": "180px"
-    },
     "cardMaxLines": {
       "type": "number",
       "default": 3

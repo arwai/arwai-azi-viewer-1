@@ -153,7 +153,6 @@ class AnnotationListBlock {
         $card_styles['card_inner_padding']  = !empty($native_padding) ? $native_padding : '16px';
         $card_styles['card_min_height']     = !empty($attributes['style']['dimensions']['minHeight']) ? self::parse_unit($attributes['style']['dimensions']['minHeight']) : '0px';
         $card_styles['enable_truncation']   = isset($attributes['enableTruncation']) ? (bool)$attributes['enableTruncation'] : (bool)($card_styles['enable_truncation'] ?? true);
-        $card_styles['card_max_height']     = !empty($attributes['cardMaxHeight']) ? self::parse_unit($attributes['cardMaxHeight']) : ($card_styles['card_max_height'] ?? '180px');
         $card_styles['card_max_lines']      = !empty($attributes['cardMaxLines']) ? (int) $attributes['cardMaxLines'] : (int) ($card_styles['card_max_lines'] ?? 3);
         $card_styles['card_min_width']      = !empty($attributes['cardMinWidth']) ? self::parse_unit($attributes['cardMinWidth']) : ($card_styles['card_min_width'] ?? '280px');
         $card_styles['card_max_width']      = !empty($attributes['cardMaxWidth']) ? self::parse_unit($attributes['cardMaxWidth']) : ($card_styles['card_max_width'] ?? '100%');
@@ -169,15 +168,13 @@ class AnnotationListBlock {
             'id'                        => $unique_id,
             'data-post-id'              => $post_id,
             'data-enable-truncation'     => $card_styles['enable_truncation'] ? '1' : '0',
-            'data-card-max-height'       => $card_styles['card_max_height'],
             'data-card-max-lines'        => (int) $card_styles['card_max_lines'],
             'data-read-more-text'        => $card_styles['read_more_text'],
             'data-show-less-text'        => $card_styles['show_less_text'],
             'style'                      => sprintf(
-                '--card-min-width:%s; --card-max-width:%s; --card-max-height:%s; --card-max-lines:%d; --grid-justify-content:%s;',
+                '--card-min-width:%s; --card-max-width:%s; --card-max-lines:%d; --grid-justify-content:%s;',
                 esc_attr($card_styles['card_min_width']),
                 esc_attr($card_styles['card_max_width']),
-                esc_attr($card_styles['card_max_height']),
                 (int) $card_styles['card_max_lines'],
                 esc_attr($card_styles['grid_justify_content'])
             )

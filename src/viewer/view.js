@@ -695,7 +695,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
                             // Truncation & Read More Toggle Logic
                             const enableTruncation = getCardOverride('data-enable-truncation', '1') === '1';
-                            const cardMaxHeight = getCardOverride('data-card-max-height', card_styles.card_max_height || '180px');
                             const readMoreText = getCardOverride('data-read-more-text', card_styles.read_more_text || '...Read More');
                             const showLessText = getCardOverride('data-show-less-text', card_styles.show_less_text || 'Show Less');
 

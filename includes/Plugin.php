@@ -1,7 +1,6 @@
 <?php
 namespace Arwai\ImageAnnotator;
 
-use Arwai\ImageAnnotator\Admin\AdminMetaBox;
 use Arwai\ImageAnnotator\Admin\SettingsPage;
 use Arwai\ImageAnnotator\Blocks\ViewerBlock;
 use Arwai\ImageAnnotator\Blocks\AnnotationListBlock;
