@@ -1,0 +1,100 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "arwai/azi-viewer-sequence-filmstrip",
+    "version": "0.1.1",
+    "title": "Image Sequence Filmstrip",
+    "category": "widgets",
+    "icon": "format-gallery",
+    "description": "Displays a horizontal thumbnail filmstrip row linked to an Annotated Image Viewer block.",
+    "keywords": [
+        "sequence",
+        "filmstrip",
+        "thumbnails",
+        "gallery",
+        "carousel"
+    ],
+    "supports": {
+        "align": [
+            "left",
+            "center",
+            "right",
+            "wide",
+            "full"
+        ],
+        "color": {
+            "background": true,
+            "text": true
+        },
+        "spacing": {
+            "margin": true,
+            "padding": true
+        },
+        "border": {
+            "color": true,
+            "radius": true,
+            "style": true,
+            "width": true,
+            "__experimentalSkipSerialization": false
+        },
+        "typography": {
+            "fontSize": true,
+            "lineHeight": true,
+            "fontFamily": true,
+            "__experimentalFontFamily": true,
+            "fontWeight": true,
+            "fontStyle": true,
+            "letterSpacing": true
+        },
+        "shadow": true
+    },
+    "textdomain": "arwai-azi-viewer",
+    "editorScript": "file:./index.js",
+    "style": "file:../../assets/css/public.css",
+    "attributes": {
+        "align": {
+            "type": "string",
+            "default": ""
+        },
+        "targetViewerId": {
+            "type": "string",
+            "default": ""
+        },
+        "showFilmstrip": {
+            "type": "boolean",
+            "default": true
+        },
+        "hideFilmstripMobile": {
+            "type": "boolean",
+            "default": true
+        },
+        "filmstripSize": {
+            "type": "string",
+            "default": "60px"
+        },
+        "filmstripThumbRadius": {
+            "type": "string",
+            "default": "4px"
+        },
+        "filmstripMargin": {
+            "type": "string",
+            "default": "10px"
+        },
+        "filmstripBorderWidth": {
+            "type": "string",
+            "default": "0px"
+        },
+        "filmstripBorderColor": {
+            "type": "string",
+            "default": "#e2e8f0"
+        },
+        "filmstripBorderRadius": {
+            "type": "string",
+            "default": "6px"
+        },
+        "filmstripBgColor": {
+            "type": "string",
+            "default": ""
+        }
+    }
+}

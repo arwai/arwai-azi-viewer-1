@@ -1,0 +1,76 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "arwai/azi-viewer-action-toolbar",
+  "version": "0.1.1",
+  "title": "Action Toolbar Toolbar",
+  "category": "widgets",
+  "icon": "button",
+  "description": "Displays an interactive action toolbar toolbar with Annotations toggle, Enlarge (Deep Zoom), and Info buttons linked to an Annotated Image Viewer block.",
+  "keywords": [
+    "action",
+    "toolbar",
+    "toolbar",
+    "annotations",
+    "buttons"
+  ],
+  "supports": {
+    "align": [
+      "left",
+      "center",
+      "right",
+      "wide",
+      "full"
+    ],
+    "color": {
+      "background": true,
+      "text": true
+    },
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "border": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true,
+      "__experimentalSkipSerialization": false
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "fontFamily": true,
+      "__experimentalFontFamily": true,
+      "fontWeight": true,
+      "fontStyle": true,
+      "letterSpacing": true
+    },
+    "shadow": true
+  },
+  "textdomain": "arwai-azi-viewer",
+  "editorScript": "file:./index.js",
+  "style": "file:../../assets/css/public.css",
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": ""
+    },
+    "targetViewerId": {
+      "type": "string",
+      "default": ""
+    },
+    "showAnnotationsBtn": {
+      "type": "boolean",
+      "default": true
+    },
+    "showEnlargeBtn": {
+      "type": "boolean",
+      "default": true
+    },
+    "showInfoBtn": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

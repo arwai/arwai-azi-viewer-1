@@ -1,0 +1,222 @@
+{
+  "assets/js/admin.js": {
+    "mtime": 1785183583.6077225,
+    "ast_hash": "84f7b8875a7e89d29d3156f8afd7d4e2",
+    "semantic_hash": "84f7b8875a7e89d29d3156f8afd7d4e2"
+  },
+  "image-annotator.php": {
+    "mtime": 1788377309.5971806,
+    "ast_hash": "50bb706bcf9034c0cf92ee45f84b5b43",
+    "semantic_hash": ""
+  },
+  "includes/Admin/AdminMetaBox.php": {
+    "mtime": 1785183583.6119075,
+    "ast_hash": "d940ef0b119a4c45428b2afbd210de6c",
+    "semantic_hash": "d940ef0b119a4c45428b2afbd210de6c"
+  },
+  "includes/Admin/SettingsPage.php": {
+    "mtime": 1788836876.8053734,
+    "ast_hash": "28b1a338e5cafe554d5f4081115d411d",
+    "semantic_hash": ""
+  },
+  "includes/Autoloader.php": {
+    "mtime": 1784843029.558912,
+    "ast_hash": "31a32a8267981b26661ead94d89b2c33",
+    "semantic_hash": "31a32a8267981b26661ead94d89b2c33"
+  },
+  "includes/Blocks/AnnotationListBlock.php": {
+    "mtime": 1788462707.8595486,
+    "ast_hash": "96d71d7e70cd21e9e24920829e383b2d",
+    "semantic_hash": ""
+  },
+  "includes/Blocks/ViewerBlock.php": {
+    "mtime": 1788839001.8530817,
+    "ast_hash": "0307b8ded70d4974d65dd73232f2579c",
+    "semantic_hash": ""
+  },
+  "includes/Database.php": {
+    "mtime": 1787865065.40081,
+    "ast_hash": "8cf6b003fa529a80fd1e114d9f26879f",
+    "semantic_hash": ""
+  },
+  "includes/Plugin.php": {
+    "mtime": 1788838139.328147,
+    "ast_hash": "7b65dcacd483d7388809c262a5fc6fa6",
+    "semantic_hash": ""
+  },
+  "includes/Rest/AnnotationController.php": {
+    "mtime": 1784854469.878106,
+    "ast_hash": "d064a7371728e02ef6d8cd5752ba463f",
+    "semantic_hash": "d064a7371728e02ef6d8cd5752ba463f"
+  },
+  "templates/admin-metabox.php": {
+    "mtime": 1784848355.3742447,
+    "ast_hash": "3c8eb87a26a1546df9b024b93e0e9e9f",
+    "semantic_hash": "3c8eb87a26a1546df9b024b93e0e9e9f"
+  },
+  "templates/admin-settings.php": {
+    "mtime": 1788836883.4746072,
+    "ast_hash": "7584b67eb5038cc2fcd64756985cbbc0",
+    "semantic_hash": ""
+  },
+  "templates/annotation-cards-list.php": {
+    "mtime": 1788462714.5911727,
+    "ast_hash": "be5154675f838b2f4dd02975e9c73c69",
+    "semantic_hash": ""
+  },
+  "templates/frontend-viewer.php": {
+    "mtime": 1788838975.6411757,
+    "ast_hash": "a5f8757e56746c6ed0208f8c3cb80075",
+    "semantic_hash": ""
+  },
+  "templates/single-annotation-viewer.php": {
+    "mtime": 1784843058.361356,
+    "ast_hash": "d5a2d8c9975cebc71a424f81a8c4ff15",
+    "semantic_hash": "d5a2d8c9975cebc71a424f81a8c4ff15"
+  },
+  "uninstall.php": {
+    "mtime": 1784843053.6645424,
+    "ast_hash": "78cfaf0e07f12441c777af934e18716a",
+    "semantic_hash": "78cfaf0e07f12441c777af934e18716a"
+  },
+  ".agents/rules/graphify.md": {
+    "mtime": 1785003650.9658077,
+    "ast_hash": "f1e53ecc9194573d3c28fc116c743a2e",
+    "semantic_hash": ""
+  },
+  ".agents/workflows/graphify.md": {
+    "mtime": 1785003650.9659655,
+    "ast_hash": "0bc020d491fca99550c1ea3de0a5f862",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1788391148.3153436,
+    "ast_hash": "3fddb4e55624344a2241b2983dcf3e8b",
+    "semantic_hash": ""
+  },
+  "package.json": {
+    "mtime": 1788377312.8417957,
+    "ast_hash": "c669292e57938768cc63a8bf9b978b15",
+    "semantic_hash": ""
+  },
+  "src/annotation-list/block.json": {
+    "mtime": 1788836863.567067,
+    "ast_hash": "c3b2315d35073bb2de443020d1329e18",
+    "semantic_hash": ""
+  },
+  "src/annotation-list/edit.js": {
+    "mtime": 1788829797.0320358,
+    "ast_hash": "8f863832314e2c431a016de39153789d",
+    "semantic_hash": ""
+  },
+  "src/annotation-list/index.js": {
+    "mtime": 1785007370.908562,
+    "ast_hash": "47be68040319400f6f909e80c39c525b",
+    "semantic_hash": ""
+  },
+  "src/viewer/block.json": {
+    "mtime": 1788839679.9139843,
+    "ast_hash": "f2384c7d74fc1ff13cd2630c229785f4",
+    "semantic_hash": ""
+  },
+  "src/viewer/edit.js": {
+    "mtime": 1788839663.051246,
+    "ast_hash": "383162d07a67469461bba71afe09f440",
+    "semantic_hash": ""
+  },
+  "src/viewer/index.js": {
+    "mtime": 1785007349.5129569,
+    "ast_hash": "47be68040319400f6f909e80c39c525b",
+    "semantic_hash": ""
+  },
+  "src/viewer/view.js": {
+    "mtime": 1788839051.1925015,
+    "ast_hash": "5ec810675d5a9c5583fef58fd8f9fa8b",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1785008983.4753003,
+    "ast_hash": "ca45ccf255e4ec08d86a0f75ac30a210",
+    "semantic_hash": ""
+  },
+  "src/annotation-list/view.js": {
+    "mtime": 1785194576.018481,
+    "ast_hash": "e65c033abbe3f2fff4d60dda9fa32c12",
+    "semantic_hash": ""
+  },
+  "includes/Blocks/ActionPillBlock.php": {
+    "mtime": 1788836894.2124228,
+    "ast_hash": "911c4bfb7a1224f8b5bc9ac77af21764",
+    "semantic_hash": ""
+  },
+  "src/action-pill/block.json": {
+    "mtime": 1788836867.572802,
+    "ast_hash": "d3f211f688e5f252c813101874061adc",
+    "semantic_hash": ""
+  },
+  "src/action-pill/edit.js": {
+    "mtime": 1788829793.6567836,
+    "ast_hash": "33f24a687ce3482e087d5c898603d764",
+    "semantic_hash": ""
+  },
+  "src/action-pill/index.js": {
+    "mtime": 1788828276.9720745,
+    "ast_hash": "31fe93c4f56deb6c5b2defdcd9608a50",
+    "semantic_hash": ""
+  },
+  "templates/action-pill.php": {
+    "mtime": 1788828288.1150599,
+    "ast_hash": "056f529b28513d955590fa95f0e286f4",
+    "semantic_hash": ""
+  },
+  "includes/Blocks/SequenceFilmstripBlock.php": {
+    "mtime": 1788838096.2369874,
+    "ast_hash": "73686b3bac584a052b2a5ae5724a7d7a",
+    "semantic_hash": ""
+  },
+  "includes/Blocks/SequenceNavPillBlock.php": {
+    "mtime": 1788838078.4096327,
+    "ast_hash": "39f719912acf7b710a0e9cdde2ca89a1",
+    "semantic_hash": ""
+  },
+  "src/sequence-filmstrip/block.json": {
+    "mtime": 1788837630.5463285,
+    "ast_hash": "a27652d973f2f4a49b5ac1836b436337",
+    "semantic_hash": ""
+  },
+  "src/sequence-filmstrip/edit.js": {
+    "mtime": 1788839403.9740715,
+    "ast_hash": "25ad9d672c5e111745a26edd08646b8d",
+    "semantic_hash": ""
+  },
+  "src/sequence-filmstrip/index.js": {
+    "mtime": 1788838057.0164928,
+    "ast_hash": "31fe93c4f56deb6c5b2defdcd9608a50",
+    "semantic_hash": ""
+  },
+  "src/sequence-nav-pill/block.json": {
+    "mtime": 1788837624.5281136,
+    "ast_hash": "9733eec398349dae5869b55181b7053f",
+    "semantic_hash": ""
+  },
+  "src/sequence-nav-pill/edit.js": {
+    "mtime": 1788839341.3764906,
+    "ast_hash": "23b247ebd2da51cfca85af2a4d95608f",
+    "semantic_hash": ""
+  },
+  "src/sequence-nav-pill/index.js": {
+    "mtime": 1788837666.2017076,
+    "ast_hash": "31fe93c4f56deb6c5b2defdcd9608a50",
+    "semantic_hash": ""
+  },
+  "templates/sequence-filmstrip.php": {
+    "mtime": 1788838105.4181812,
+    "ast_hash": "3f6761894fa823272864b539ec98ced5",
+    "semantic_hash": ""
+  },
+  "templates/sequence-nav-pill.php": {
+    "mtime": 1788838085.2223175,
+    "ast_hash": "9b57368f166c7b0b1bbac7dd9d01e368",
+    "semantic_hash": ""
+  }
+}

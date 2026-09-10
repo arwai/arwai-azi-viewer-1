@@ -1,0 +1,147 @@
+{
+  "assets/js/admin.js": {
+    "mtime": 1785183583.6077225,
+    "ast_hash": "84f7b8875a7e89d29d3156f8afd7d4e2",
+    "semantic_hash": "84f7b8875a7e89d29d3156f8afd7d4e2"
+  },
+  "image-annotator.php": {
+    "mtime": 1788377309.5971806,
+    "ast_hash": "50bb706bcf9034c0cf92ee45f84b5b43",
+    "semantic_hash": ""
+  },
+  "includes/Admin/AdminMetaBox.php": {
+    "mtime": 1785183583.6119075,
+    "ast_hash": "d940ef0b119a4c45428b2afbd210de6c",
+    "semantic_hash": "d940ef0b119a4c45428b2afbd210de6c"
+  },
+  "includes/Admin/SettingsPage.php": {
+    "mtime": 1788462695.1208792,
+    "ast_hash": "05fa29f80739648acfaaf9555c521e16",
+    "semantic_hash": ""
+  },
+  "includes/Autoloader.php": {
+    "mtime": 1784843029.558912,
+    "ast_hash": "31a32a8267981b26661ead94d89b2c33",
+    "semantic_hash": "31a32a8267981b26661ead94d89b2c33"
+  },
+  "includes/Blocks/AnnotationListBlock.php": {
+    "mtime": 1788462707.8595486,
+    "ast_hash": "96d71d7e70cd21e9e24920829e383b2d",
+    "semantic_hash": ""
+  },
+  "includes/Blocks/ViewerBlock.php": {
+    "mtime": 1788455937.3709335,
+    "ast_hash": "37021278b2e9db03b1ba80c83944541e",
+    "semantic_hash": ""
+  },
+  "includes/Database.php": {
+    "mtime": 1787865065.40081,
+    "ast_hash": "8cf6b003fa529a80fd1e114d9f26879f",
+    "semantic_hash": ""
+  },
+  "includes/Plugin.php": {
+    "mtime": 1788371561.4109933,
+    "ast_hash": "2cb64f5667d50db1255caccb4b50dfcc",
+    "semantic_hash": ""
+  },
+  "includes/Rest/AnnotationController.php": {
+    "mtime": 1784854469.878106,
+    "ast_hash": "d064a7371728e02ef6d8cd5752ba463f",
+    "semantic_hash": "d064a7371728e02ef6d8cd5752ba463f"
+  },
+  "templates/admin-metabox.php": {
+    "mtime": 1784848355.3742447,
+    "ast_hash": "3c8eb87a26a1546df9b024b93e0e9e9f",
+    "semantic_hash": "3c8eb87a26a1546df9b024b93e0e9e9f"
+  },
+  "templates/admin-settings.php": {
+    "mtime": 1788462702.0853744,
+    "ast_hash": "094b464a8a7c6525e8ad8ee90f09801c",
+    "semantic_hash": ""
+  },
+  "templates/annotation-cards-list.php": {
+    "mtime": 1788462714.5911727,
+    "ast_hash": "be5154675f838b2f4dd02975e9c73c69",
+    "semantic_hash": ""
+  },
+  "templates/frontend-viewer.php": {
+    "mtime": 1788455943.0832188,
+    "ast_hash": "56baf3dd15d1e05b66c87c5e7ddd707a",
+    "semantic_hash": ""
+  },
+  "templates/single-annotation-viewer.php": {
+    "mtime": 1784843058.361356,
+    "ast_hash": "d5a2d8c9975cebc71a424f81a8c4ff15",
+    "semantic_hash": "d5a2d8c9975cebc71a424f81a8c4ff15"
+  },
+  "uninstall.php": {
+    "mtime": 1784843053.6645424,
+    "ast_hash": "78cfaf0e07f12441c777af934e18716a",
+    "semantic_hash": "78cfaf0e07f12441c777af934e18716a"
+  },
+  ".agents/rules/graphify.md": {
+    "mtime": 1785003650.9658077,
+    "ast_hash": "f1e53ecc9194573d3c28fc116c743a2e",
+    "semantic_hash": ""
+  },
+  ".agents/workflows/graphify.md": {
+    "mtime": 1785003650.9659655,
+    "ast_hash": "0bc020d491fca99550c1ea3de0a5f862",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1788391148.3153436,
+    "ast_hash": "3fddb4e55624344a2241b2983dcf3e8b",
+    "semantic_hash": ""
+  },
+  "package.json": {
+    "mtime": 1788377312.8417957,
+    "ast_hash": "c669292e57938768cc63a8bf9b978b15",
+    "semantic_hash": ""
+  },
+  "src/annotation-list/block.json": {
+    "mtime": 1788462689.384676,
+    "ast_hash": "3f46ab70beb0c693c73b5ac0a2196309",
+    "semantic_hash": ""
+  },
+  "src/annotation-list/edit.js": {
+    "mtime": 1788462930.3478284,
+    "ast_hash": "5c04f1afffcded5c1e7f441371e75a18",
+    "semantic_hash": ""
+  },
+  "src/annotation-list/index.js": {
+    "mtime": 1785007370.908562,
+    "ast_hash": "47be68040319400f6f909e80c39c525b",
+    "semantic_hash": ""
+  },
+  "src/viewer/block.json": {
+    "mtime": 1788455926.7816954,
+    "ast_hash": "bd86c5b47feb1c1e5faf8c70a0174fd5",
+    "semantic_hash": ""
+  },
+  "src/viewer/edit.js": {
+    "mtime": 1788456795.4759188,
+    "ast_hash": "e4cd64acd796dddaac77eebe04bcd4ab",
+    "semantic_hash": ""
+  },
+  "src/viewer/index.js": {
+    "mtime": 1785007349.5129569,
+    "ast_hash": "47be68040319400f6f909e80c39c525b",
+    "semantic_hash": ""
+  },
+  "src/viewer/view.js": {
+    "mtime": 1788463540.3103971,
+    "ast_hash": "d8cb6f1eee5ff46368b80b7c7b83bd18",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1785008983.4753003,
+    "ast_hash": "ca45ccf255e4ec08d86a0f75ac30a210",
+    "semantic_hash": ""
+  },
+  "src/annotation-list/view.js": {
+    "mtime": 1785194576.018481,
+    "ast_hash": "e65c033abbe3f2fff4d60dda9fa32c12",
+    "semantic_hash": ""
+  }
+}

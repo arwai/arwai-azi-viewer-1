@@ -1,0 +1,141 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "arwai/azi-viewer",
+  "version": "0.1.1",
+  "title": "Annotated Image Viewer",
+  "category": "media",
+  "icon": "format-gallery",
+  "description": "Renders a modern annotated image viewer stage and carousel. Pair with the Sequence Toolbar and Sequence Filmstrip blocks for navigation.",
+  "keywords": [
+    "annotator",
+    "image",
+    "gallery"
+  ],
+  "supports": {
+    "align": [
+      "left",
+      "center",
+      "right",
+      "wide",
+      "full"
+    ],
+    "color": {
+      "background": true,
+      "text": true,
+      "gradients": true
+    },
+    "background": {
+      "backgroundImage": true,
+      "backgroundSize": true
+    },
+    "spacing": {
+      "margin": true,
+      "padding": true,
+      "blockGap": true
+    },
+    "border": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true,
+      "__experimentalSkipSerialization": false
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "fontFamily": true,
+      "__experimentalFontFamily": true,
+      "fontWeight": true,
+      "fontStyle": true,
+      "letterSpacing": true
+    },
+    "dimensions": {
+      "minHeight": true,
+      "aspectRatio": false
+    },
+    "shadow": true
+  },
+  "textdomain": "arwai-azi-viewer",
+  "editorScript": "file:./index.js",
+  "viewScript": "file:./view.js",
+  "style": "file:../../assets/css/public.css",
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": ""
+    },
+    "postId": {
+      "type": "number",
+      "default": 0
+    },
+    "simpleImageSize": {
+      "type": "string",
+      "default": ""
+    },
+    "osdImageSize": {
+      "type": "string",
+      "default": ""
+    },
+    "loadingMethod": {
+      "type": "string",
+      "default": ""
+    },
+    "imageIds": {
+      "type": "array",
+      "default": []
+    },
+    "viewerId": {
+      "type": "string",
+      "default": ""
+    },
+    "infoMessage": {
+      "type": "string",
+      "default": ""
+    },
+    "overrideDefaultFillColor": {
+      "type": "string",
+      "default": ""
+    },
+    "overrideDefaultBorderColor": {
+      "type": "string",
+      "default": ""
+    },
+    "overrideBadgeBg": {
+      "type": "string",
+      "default": ""
+    },
+    "overrideBadgeTextColor": {
+      "type": "string",
+      "default": ""
+    },
+    "overrideBadgeShadow": {
+      "type": "string",
+      "default": ""
+    },
+    "overrideHoverFillColor": {
+      "type": "string",
+      "default": ""
+    },
+    "overrideHoverBorderColor": {
+      "type": "string",
+      "default": ""
+    },
+    "overrideHoverBadgeShadow": {
+      "type": "string",
+      "default": ""
+    },
+    "overrideSelectedFillColor": {
+      "type": "string",
+      "default": ""
+    },
+    "overrideSelectedBorderColor": {
+      "type": "string",
+      "default": ""
+    },
+    "overrideSelectedBadgeShadow": {
+      "type": "string",
+      "default": ""
+    }
+  }
+}

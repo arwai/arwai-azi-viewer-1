@@ -1,0 +1,26 @@
+{
+  "name": "arwai-azi-viewer-rebuild",
+  "version": "1.1.0",
+  "description": "A high-performance, modern, block-based WordPress plugin for annotating single or collection images. Powered by OpenSeadragon (deep-zoom engine) and Annotorious (polygon and rectangle annotations) with full Gutenberg integration.",
+  "main": "index.js",
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start",
+    "lint:js": "wp-scripts lint-js",
+    "plugin-zip": "wp-scripts plugin-zip"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arwai/arwai-azi-viewer-rebuild.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arwai/arwai-azi-viewer-rebuild/issues"
+  },
+  "homepage": "https://github.com/arwai/arwai-azi-viewer-rebuild#readme",
+  "devDependencies": {
+    "@wordpress/scripts": "^33.0.0"
+  }
+}

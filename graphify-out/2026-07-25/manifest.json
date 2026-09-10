@@ -1,0 +1,107 @@
+{
+  "assets/js/admin.js": {
+    "mtime": 1784848359.3324542,
+    "ast_hash": "84f7b8875a7e89d29d3156f8afd7d4e2",
+    "semantic_hash": "84f7b8875a7e89d29d3156f8afd7d4e2"
+  },
+  "assets/js/blocks.js": {
+    "mtime": 1784929183.5256941,
+    "ast_hash": "5d0a1e47a2b06861da2755652b0c3c05",
+    "semantic_hash": "5d0a1e47a2b06861da2755652b0c3c05"
+  },
+  "assets/js/public.js": {
+    "mtime": 1785001418.9303856,
+    "ast_hash": "ae15d80021fac9693cec874c007c842f",
+    "semantic_hash": "ae15d80021fac9693cec874c007c842f"
+  },
+  "image-annotator.php": {
+    "mtime": 1784921633.6923547,
+    "ast_hash": "06cf9b302fd3618468a97abc248a8ade",
+    "semantic_hash": "06cf9b302fd3618468a97abc248a8ade"
+  },
+  "includes/Admin/AdminMetaBox.php": {
+    "mtime": 1784846706.7481263,
+    "ast_hash": "d940ef0b119a4c45428b2afbd210de6c",
+    "semantic_hash": "d940ef0b119a4c45428b2afbd210de6c"
+  },
+  "includes/Admin/SettingsPage.php": {
+    "mtime": 1784928863.7139735,
+    "ast_hash": "eabcbb69ab0fcd983f6c66fc84c9eeba",
+    "semantic_hash": "eabcbb69ab0fcd983f6c66fc84c9eeba"
+  },
+  "includes/Autoloader.php": {
+    "mtime": 1784843029.558912,
+    "ast_hash": "31a32a8267981b26661ead94d89b2c33",
+    "semantic_hash": "31a32a8267981b26661ead94d89b2c33"
+  },
+  "includes/Blocks/AnnotationListBlock.php": {
+    "mtime": 1784929172.782565,
+    "ast_hash": "79f6d8b8bd56d0407e43bb92b26b5e3f",
+    "semantic_hash": "79f6d8b8bd56d0407e43bb92b26b5e3f"
+  },
+  "includes/Blocks/ViewerBlock.php": {
+    "mtime": 1784925902.576775,
+    "ast_hash": "172ef81f13e4740f9288982591c4e205",
+    "semantic_hash": "172ef81f13e4740f9288982591c4e205"
+  },
+  "includes/Database.php": {
+    "mtime": 1784855695.60937,
+    "ast_hash": "fcea7cb6c8d22bbabcc4807f1efb0508",
+    "semantic_hash": "fcea7cb6c8d22bbabcc4807f1efb0508"
+  },
+  "includes/Plugin.php": {
+    "mtime": 1784923363.5101364,
+    "ast_hash": "5c22ca87bd670de51b1b9d3ed9c2861f",
+    "semantic_hash": "5c22ca87bd670de51b1b9d3ed9c2861f"
+  },
+  "includes/Rest/AnnotationController.php": {
+    "mtime": 1784854469.878106,
+    "ast_hash": "d064a7371728e02ef6d8cd5752ba463f",
+    "semantic_hash": "d064a7371728e02ef6d8cd5752ba463f"
+  },
+  "templates/admin-metabox.php": {
+    "mtime": 1784848355.3742447,
+    "ast_hash": "3c8eb87a26a1546df9b024b93e0e9e9f",
+    "semantic_hash": "3c8eb87a26a1546df9b024b93e0e9e9f"
+  },
+  "templates/admin-settings.php": {
+    "mtime": 1784928882.5359054,
+    "ast_hash": "11e16d397a78b6d601bee2e6853edf56",
+    "semantic_hash": "11e16d397a78b6d601bee2e6853edf56"
+  },
+  "templates/annotation-cards-list.php": {
+    "mtime": 1784929154.734555,
+    "ast_hash": "3bdbf637ac2d9b486d95eafd04ccf960",
+    "semantic_hash": "3bdbf637ac2d9b486d95eafd04ccf960"
+  },
+  "templates/frontend-viewer.php": {
+    "mtime": 1784929131.3762312,
+    "ast_hash": "53b4f1a26af66ec9a8d6ffe486fda370",
+    "semantic_hash": "53b4f1a26af66ec9a8d6ffe486fda370"
+  },
+  "templates/single-annotation-viewer.php": {
+    "mtime": 1784843058.361356,
+    "ast_hash": "d5a2d8c9975cebc71a424f81a8c4ff15",
+    "semantic_hash": "d5a2d8c9975cebc71a424f81a8c4ff15"
+  },
+  "uninstall.php": {
+    "mtime": 1784843053.6645424,
+    "ast_hash": "78cfaf0e07f12441c777af934e18716a",
+    "semantic_hash": "78cfaf0e07f12441c777af934e18716a"
+  },
+  ".agents/rules/graphify.md": {
+    "mtime": 1785003650.9658077,
+    "ast_hash": "f1e53ecc9194573d3c28fc116c743a2e",
+    "semantic_hash": ""
+  },
+  ".agents/workflows/graphify.md": {
+    "mtime": 1785003650.9659655,
+    "ast_hash": "0bc020d491fca99550c1ea3de0a5f862",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1784926193.2980375,
+    "ast_hash": "5e13f2b1b58120a848ee821330604675",
+    "semantic_hash": ""
+  }
+}

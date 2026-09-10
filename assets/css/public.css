@@ -1,0 +1,927 @@
+/* Image Annotator Public Frontend Styles - Instagram Carousel & Reverted Gutenberg Cards */
+
+.arwai-azi-viewer-frontend-wrap {
+    position: relative;
+    max-width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    color: #1e293b;
+    box-sizing: border-box;
+}
+
+/* 1. Main Display Stage - Instagram-Style Smooth Sliding Carousel & Grab Cursor */
+.arwai-azi-viewer-display-stage {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    min-height: 200px;
+    height: auto;
+    background: transparent;
+    border-radius: inherit;
+    overflow: hidden;
+    touch-action: pan-y;
+    cursor: grab;
+    box-sizing: border-box;
+}
+
+.arwai-azi-viewer-display-stage:active {
+    cursor: grabbing;
+}
+
+.carousel-track-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    align-items: center !important;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Ensure picture & Annotorious wrapper containers fit within stage height limit */
+.carousel-slide picture.annotator-target-picture,
+.carousel-slide picture,
+.carousel-slide .a9s-inner-wrapper {
+    max-height: var(--stage-height-limit, 500px) !important;
+    max-width: 100% !important;
+    height: auto !important;
+    width: auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+}
+
+/* Ensure target image scales proportionally inside container matching stage height limit */
+.carousel-slide img.annotator-target-img,
+.carousel-slide picture img,
+.carousel-slide .a9s-inner-wrapper img {
+    max-height: var(--stage-height-limit, 500px) !important;
+    max-width: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: auto !important;
+    box-sizing: border-box !important;
+}
+
+/* Ensure Annotorious SVG overlay aligns over image */
+.carousel-slide .a9s-annotation-layer {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    pointer-events: auto !important;
+}
+
+/* Circular ID Badge Formatter (13, 17, 19, 28) */
+.anno-circular-badge {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    user-select: none;
+}
+
+/* 2. Middle Navigation Toolbar (< 1 / 7 >) */
+.arwai-azi-viewer-toolbar-wrap {
+    margin: 16px 0 12px 0;
+}
+
+.arwai-azi-viewer-toolbar {
+    display: flex;
+    width: max-content;
+    align-items: center;
+    gap: 14px;
+    padding: 6px 18px;
+    background: var(--toolbar-bg, #2d3238);
+    color: var(--toolbar-color, #ffffff);
+    border: var(--toolbar-bwidth, 0px) solid var(--toolbar-bcolor, transparent);
+    border-radius: var(--toolbar-radius, 24px);
+    font-size: var(--toolbar-font-size, 14px);
+    font-family: var(--toolbar-font-family, inherit);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.toolbar-nav-btn {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.toolbar-nav-btn:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
+
+.toolbar-nav-btn:hover {
+    background: var(--toolbar-hover-bg, rgba(255, 255, 255, 0.1));
+    color: var(--toolbar-hover-color, #ffffff);
+    opacity: var(--toolbar-hover-opacity, 1);
+    transform: scale(var(--toolbar-hover-scale, 1));
+    box-shadow: var(--toolbar-hover-shadow, none);
+}
+
+.toolbar-counter {
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* 3. Filmstrip Thumbnails Row */
+.arwai-azi-viewer-filmstrip-row {
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .arwai-azi-viewer-filmstrip-row.hide-on-mobile {
+        display: none !important;
+    }
+}
+
+.filmstrip-scroll-container {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 6px 4px;
+}
+
+.filmstrip-thumb-item {
+    position: relative;
+    width: 68px;
+    height: 68px;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    opacity: 0.7;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.filmstrip-thumb-item.active,
+.filmstrip-thumb-item:hover {
+    opacity: 1;
+    border-color: #0f172a;
+    box-shadow: 0 0 8px rgba(15, 23, 42, 0.3);
+    transform: scale(1.2);
+}
+
+.filmstrip-thumb-item.active img,
+.filmstrip-thumb-item:hover img {
+    transform: scale(1.1);
+}
+
+.filmstrip-thumb-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    -webkit-user-drag: none !important;
+    user-drag: none !important;
+}
+
+/* 4. Bottom Action Toolbar Toolbar (Notes, Enlarge, Info) */
+.arwai-azi-viewer-action-toolbar-wrap {
+    margin-top: 12px;
+}
+
+.arwai-azi-viewer-action-toolbar {
+    display: flex;
+    width: max-content;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: var(--toolbar-bg, #eef2f6);
+    color: var(--toolbar-color, #334155);
+    border: var(--toolbar-bwidth, 1px) solid var(--toolbar-bcolor, #cbd5e1);
+    border-radius: var(--toolbar-radius, 28px);
+    font-family: var(--toolbar-font-family, inherit);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    white-space: nowrap;
+}
+
+.action-toolbar-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 20px;
+    transition: all 0.2s;
+    opacity: 0.7;
+    font-size: inherit;
+    font-family: inherit;
+    white-space: nowrap;
+}
+
+.action-toolbar-btn:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
+
+.action-toolbar-btn span {
+    white-space: nowrap;
+}
+
+.action-toolbar-btn:hover,
+.action-toolbar-btn.active {
+    background: var(--toolbar-hover-bg, rgba(0, 0, 0, 0.05));
+    color: var(--toolbar-hover-color, inherit);
+    opacity: var(--toolbar-hover-opacity, 1);
+    transform: scale(var(--toolbar-hover-scale, 1));
+    box-shadow: var(--toolbar-hover-shadow, none);
+}
+
+.action-toolbar-btn svg {
+    stroke: currentColor;
+}
+
+/* Suppress Native OpenSeadragon Buttons */
+.openseadragon-container .openseadragon-canvas+div,
+.openseadragon-container .navigator {
+    display: none !important;
+}
+
+/* OpenSeadragon Fullscreen Enlarge Modal */
+.arwai-azi-viewer-osd-modal {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.osd-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.88);
+    backdrop-filter: blur(6px);
+}
+
+.osd-modal-stage {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 2;
+}
+
+.osd-canvas-element {
+    width: 100%;
+    height: 100%;
+    background: #000000;
+}
+
+/* Floating Toolbars */
+.osd-toolbar-top-center {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: var(--toolbar-bg, rgba(30, 32, 36, 0.9));
+    color: var(--toolbar-color, #ffffff);
+    border: var(--toolbar-bwidth, 0px) solid var(--toolbar-bcolor, transparent);
+    border-radius: var(--toolbar-radius, 28px);
+    font-size: var(--toolbar-font-size, 11px);
+    font-family: var(--toolbar-font-family, inherit);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.osd-tool-item,
+.osd-icon-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    background: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.2s;
+    padding: 4px 8px;
+    font-size: inherit;
+    font-family: inherit;
+    white-space: nowrap;
+}
+
+.osd-tool-item span {
+    white-space: nowrap;
+}
+
+.osd-tool-item:hover,
+.osd-tool-item.active {
+    background: var(--toolbar-hover-bg, rgba(255, 255, 255, 0.15));
+    color: var(--toolbar-hover-color, #ffffff);
+    opacity: var(--toolbar-hover-opacity, 1);
+    transform: scale(var(--toolbar-hover-scale, 1));
+    box-shadow: var(--toolbar-hover-shadow, none);
+}
+
+.osd-toolbar-top-right {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background: var(--toolbar-bg, rgba(30, 32, 36, 0.9));
+    color: var(--toolbar-color, #ffffff);
+    border: var(--toolbar-bwidth, 0px) solid var(--toolbar-bcolor, transparent);
+    border-radius: var(--toolbar-radius, 24px);
+    font-size: var(--toolbar-font-size, 11px);
+    font-family: var(--toolbar-font-family, inherit);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.osd-tool-group {
+    display: flex;
+    gap: 4px;
+}
+
+.osd-tool-divider {
+    width: 1px;
+    height: 18px;
+    background: currentColor;
+    opacity: 0.2;
+}
+
+.osd-icon-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.osd-icon-btn:hover {
+    background: var(--toolbar-hover-bg, rgba(255, 255, 255, 0.2));
+    color: var(--toolbar-hover-color, #ffffff);
+    opacity: var(--toolbar-hover-opacity, 1);
+    transform: scale(var(--toolbar-hover-scale, 1));
+    box-shadow: var(--toolbar-hover-shadow, none);
+}
+
+/* Info Popup */
+.arwai-azi-viewer-info-popup {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.info-popup-content {
+    position: relative;
+    width: 360px;
+    padding: 24px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.info-close-btn {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    background: transparent;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #64748b;
+}
+
+/* 5. Gutenberg Annotation Cards Grid Block (CSS Masonry Layout) */
+.arwai-azi-viewer-cards-grid {
+    column-count: 2;
+    column-gap: var(--card-gap, 16px);
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.arwai-azi-viewer-cards-grid.cols-1 {
+    column-count: 1;
+}
+
+.arwai-azi-viewer-cards-grid.cols-2 {
+    column-count: 2;
+}
+
+.arwai-azi-viewer-cards-grid.cols-3 {
+    column-count: 3;
+}
+
+.arwai-azi-viewer-cards-grid.cols-4 {
+    column-count: 4;
+}
+
+.arwai-azi-viewer-cards-grid .annotation-card-item {
+    box-sizing: border-box;
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: var(--card-gap, 16px);
+    width: 100%;
+    display: inline-block;
+}
+
+/* Mobile Stacking Rule (< 640px) */
+@media (max-width: 640px) {
+    .arwai-azi-viewer-cards-grid {
+        column-count: 1 !important;
+    }
+}
+
+/* Block Alignment Rules (Center, Left, Right, Wide, Full) */
+.wp-block-arwai-azi-viewer-viewer.aligncenter,
+.wp-block-arwai-azi-viewer-annotation-list.aligncenter,
+.arwai-azi-viewer-cards-grid.aligncenter,
+.arwai-azi-viewer-frontend-wrap.aligncenter {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.wp-block-arwai-azi-viewer-viewer.alignleft,
+.wp-block-arwai-azi-viewer-annotation-list.alignleft,
+.arwai-azi-viewer-cards-grid.alignleft,
+.arwai-azi-viewer-frontend-wrap.alignleft {
+    float: left;
+    margin-right: 2em !important;
+    margin-bottom: 1.5em !important;
+    max-width: 50%;
+}
+
+.wp-block-arwai-azi-viewer-viewer.alignright,
+.wp-block-arwai-azi-viewer-annotation-list.alignright,
+.arwai-azi-viewer-cards-grid.alignright,
+.arwai-azi-viewer-frontend-wrap.alignright {
+    float: right;
+    margin-left: 2em !important;
+    margin-bottom: 1.5em !important;
+    max-width: 50%;
+}
+
+.wp-block-arwai-azi-viewer-viewer.alignwide,
+.wp-block-arwai-azi-viewer-annotation-list.alignwide,
+.arwai-azi-viewer-cards-grid.alignwide,
+.arwai-azi-viewer-frontend-wrap.alignwide {
+    max-width: var(--wp--style--global--wide-size, 1200px);
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100%;
+}
+
+.wp-block-arwai-azi-viewer-viewer.alignfull,
+.wp-block-arwai-azi-viewer-annotation-list.alignfull,
+.arwai-azi-viewer-cards-grid.alignfull,
+.arwai-azi-viewer-frontend-wrap.alignfull {
+    max-width: 100% !important;
+    width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+}
+
+.annotation-card-item {
+    background-color: var(--card-bg, #1e293b);
+    color: var(--card-text, #f8fafc);
+    border-radius: var(--card-border-radius, 6px) !important;
+    border-width: var(--card-border-width, 2px) !important;
+    border-style: var(--card-border-style, solid) !important;
+    border-color: var(--card-border-color, #cbd5e1) !important;
+    padding: 16px;
+    box-shadow: var(--card-shadow, 0 4px 14px rgba(0, 0, 0, 0.08));
+    transition: transform 0.1s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+}
+
+.annotation-card-item:hover,
+.annotation-card-item.hover-active {
+    background-color: var(--card-hover-bg, #334155);
+    color: var(--card-hover-text, #f8fafc);
+    border-color: var(--card-hover-border, var(--card-border-color, #cbd5e1)) !important;
+    border-width: var(--card-border-width, 1px) !important;
+    border-style: var(--card-border-style, solid) !important;
+    box-shadow: var(--card-hover-shadow, 0 8px 22px rgba(0, 0, 0, 0.15));
+    transform: translateY(-3px);
+}
+
+.annotation-card-item.selected-card {
+    background-color: var(--card-selected-bg, #0f172a) !important;
+    color: var(--card-selected-text, #ffffff) !important;
+    border-color: var(--card-selected-border, #2563eb) !important;
+    border-width: var(--card-border-width, 1px) !important;
+    border-style: var(--card-border-style, solid) !important;
+    box-shadow: var(--card-selected-shadow, 0 8px 24px rgba(0, 0, 0, 0.2)) !important;
+}
+
+
+.card-header-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.card-badge-circle {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.card-author-meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-author-meta .author-name {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.card-author-meta .created-time {
+    font-size: 11px;
+    opacity: 0.75;
+}
+
+.card-body-text {
+    font-size: inherit;
+    line-height: 1.5;
+    margin-bottom: auto;
+    padding-bottom: 10px;
+    position: relative;
+    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-body-text.is-truncatable {
+    overflow: hidden;
+}
+
+.card-body-text.is-truncatable:not(.is-expanded) {
+    display: -webkit-box;
+    -webkit-line-clamp: var(--card-max-lines, 3);
+    -webkit-box-orient: vertical;
+}
+
+.card-body-text.is-truncatable.is-expanded {
+    display: block !important;
+    -webkit-line-clamp: unset !important;
+}
+
+.card-expand-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 6px;
+    margin-bottom: 8px;
+    padding: 3px 10px;
+    background: rgba(37, 99, 235, 0.1);
+    color: #2563eb;
+    border: none;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.card-expand-btn:hover {
+    background: rgba(37, 99, 235, 0.2);
+    color: #1d4ed8;
+}
+
+.card-body-text p {
+    margin: 0 0 6px 0;
+}
+
+.card-tags-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.card-tag-badge {
+    padding: 2px 8px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.15);
+    font-size: 11px;
+    font-weight: 500;
+}
+
+
+
+/* 7. Annotorious Popup Cards (Reduce Shadows & Constrain Size) */
+.r6o-editor {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12) !important;
+    max-height: 85vh !important;
+    max-width: 90vw !important;
+    overflow-y: auto !important;
+}
+
+/* 8. Circular Badge Styles & Custom Formatting States */
+.a9s-annotation foreignObject label {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid var(--tag-border, #2563eb);
+    background-color: var(--tag-badge-bg, #2563eb);
+    color: var(--tag-badge-color, #ffffff);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: var(--tag-badge-shadow, 0 2px 6px rgba(0, 0, 0, 0.15));
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+    line-height: 20px;
+}
+
+.a9s-annotation:hover foreignObject label,
+.a9s-annotation.a9s-hover foreignObject label {
+    box-shadow: var(--tag-hover-badge-shadow, 0 4px 12px rgba(0, 0, 0, 0.25)) !important;
+    transform: scale(1.1);
+}
+
+.a9s-annotation.selected foreignObject label {
+    box-shadow: var(--tag-selected-badge-shadow, 0 4px 12px rgba(0, 0, 0, 0.25)) !important;
+    transform: scale(1.1);
+}
+
+/* Annotorious Vector Layer custom styles mapping */
+.a9s-annotation .a9s-inner {
+    stroke: var(--tag-border, #2563eb) !important;
+    transition: stroke 0.2s ease;
+}
+
+.a9s-annotation:hover .a9s-inner,
+.a9s-annotation.a9s-hover .a9s-inner {
+    stroke: var(--tag-hover-border, #f63bd1) !important;
+}
+
+.a9s-annotation.selected .a9s-inner,
+.a9s-annotation.selected .a9s-outer {
+    stroke: var(--tag-selected-border, #1d4ed8) !important;
+    stroke-width: 3px !important;
+}
+
+/* Dynamically injected Fill Colors */
+.a9s-annotation .a9s-inner {
+    fill: var(--tag-fill, rgba(0, 0, 0, 0.2)) !important;
+}
+
+.a9s-annotation:hover .a9s-inner,
+.a9s-annotation.a9s-hover .a9s-inner {
+    fill: var(--tag-hover-fill, rgba(0, 0, 0, 0.3)) !important;
+}
+
+.a9s-annotation.selected .a9s-inner {
+    fill: var(--tag-selected-fill, rgba(0, 0, 0, 0.3)) !important;
+}
+
+/* =========================================
+   6. Mobile Responsiveness Fixes
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    /* Simple Viewer: compact pagination toolbar & 100% width action toolbar on mobile */
+    .arwai-azi-viewer-toolbar-wrap {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        box-sizing: border-box;
+        padding-top: max(4px, env(safe-area-inset-top, 0px));
+    }
+
+    .arwai-azi-viewer-action-toolbar-wrap {
+        width: 100%;
+        box-sizing: border-box;
+        padding-bottom: max(12px, env(safe-area-inset-bottom, 0px));
+        margin-bottom: 8px;
+    }
+
+    .arwai-azi-viewer-toolbar {
+        width: auto;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        box-sizing: border-box;
+        padding: 6px 16px;
+        white-space: nowrap !important;
+        font-size: 13px !important;
+    }
+
+    .arwai-azi-viewer-action-toolbar {
+        width: 100%;
+        box-sizing: border-box;
+        justify-content: space-around;
+        padding: 6px 8px;
+        white-space: nowrap !important;
+    }
+
+    .arwai-azi-viewer-action-toolbar .action-toolbar-btn {
+        flex: 1;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        white-space: nowrap !important;
+        font-size: 11px !important;
+        padding: 4px 4px !important;
+        gap: 3px !important;
+    }
+
+    .action-toolbar-btn span,
+    .osd-tool-item span,
+    .toolbar-counter {
+        white-space: nowrap !important;
+        line-height: 1 !important;
+    }
+
+    /* OSD Modal: Safe-area insets & dynamic viewport height so browser controls never cover toolbars */
+    .arwai-azi-viewer-osd-modal,
+    .osd-modal-stage {
+        height: 100vh !important;
+        height: 100dvh !important;
+    }
+
+    .osd-toolbar-top-center {
+        top: auto !important;
+        bottom: calc(28px + env(safe-area-inset-bottom, 0px)) !important;
+        left: 16px !important;
+        right: 16px !important;
+        transform: none !important;
+        width: calc(100% - 32px) !important;
+        box-sizing: border-box !important;
+        justify-content: space-around !important;
+        padding: 8px 6px !important;
+        z-index: 100000 !important;
+        white-space: nowrap !important;
+    }
+
+    .osd-toolbar-top-center .osd-tool-item {
+        flex: 1;
+        justify-content: center;
+        white-space: nowrap !important;
+        font-size: 11px !important;
+        padding: 3px 4px !important;
+        gap: 2px !important;
+    }
+
+    .osd-toolbar-top-right {
+        top: calc(20px + env(safe-area-inset-top, 0px)) !important;
+        right: 16px !important;
+        left: auto !important;
+        width: auto !important;
+        box-sizing: border-box !important;
+        padding: 6px 12px !important;
+        z-index: 100000 !important;
+        white-space: nowrap !important;
+    }
+
+    /* Filmstrip Swipe Fix: align left so first item isn't pushed off screen, enable momentum scrolling */
+    .filmstrip-scroll-container {
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 12px;
+    }
+}
+
+@media (max-width: 640px) {
+
+    /* Cards Grid: Force flex-direction column & 100% width on small screens */
+    .arwai-azi-viewer-cards-grid {
+        flex-direction: column !important;
+    }
+
+    .arwai-azi-viewer-cards-grid .annotation-card-item {
+        flex: 1 1 100% !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* Ensure main wrapper doesn't overflow the viewport */
+    .arwai-azi-viewer-frontend-wrap {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* =========================================
+   7. Loading Animation
+   ========================================= */
+
+.arwai-azi-viewer-loader-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 50;
+    display: none;
+}
+
+.arwai-azi-viewer-loader {
+    display: inline-grid;
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.8));
+}
+
+.arwai-azi-viewer-loader:before,
+.arwai-azi-viewer-loader:after {
+    content: "";
+    grid-area: 1/1;
+    height: 30px;
+    aspect-ratio: 6;
+    --c: #0000 64%, #000 66% 98%, #0000 101%;
+    background:
+        radial-gradient(35% 146% at 50% 159%, var(--c)) 0 0,
+        radial-gradient(35% 146% at 50% -59%, var(--c)) 25% 100%;
+    background-size: calc(100%/3) 50%;
+    background-repeat: repeat-x;
+    clip-path: inset(0 100% 0 0);
+    animation: l10 1.5s infinite linear;
+}
+
+.arwai-azi-viewer-loader:after {
+    scale: -1;
+}
+
+@keyframes l10 {
+    50% {
+        clip-path: inset(0)
+    }
+
+    to {
+        clip-path: inset(0 0 0 100%)
+    }
+}

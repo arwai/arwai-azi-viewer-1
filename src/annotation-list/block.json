@@ -1,0 +1,152 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "arwai/azi-viewer-annotation-list",
+    "version": "0.1.1",
+    "title": "Annotation Cards List",
+    "category": "widgets",
+    "icon": "list-view",
+    "description": "Displays annotations as clean individual cards with circular ID badges, authors, dates, and tags.",
+    "keywords": [
+        "annotations",
+        "cards",
+        "list"
+    ],
+    "supports": {
+        "align": [
+            "left",
+            "center",
+            "right",
+            "wide",
+            "full"
+        ],
+        "color": {
+            "background": true,
+            "text": true,
+            "gradients": true,
+            "__experimentalSkipSerialization": true
+        },
+        "spacing": {
+            "margin": true,
+            "padding": true,
+            "blockGap": true,
+            "__experimentalSkipSerialization": [
+                "padding"
+            ]
+        },
+        "border": {
+            "color": true,
+            "radius": true,
+            "style": true,
+            "width": true,
+            "__experimentalSkipSerialization": true
+        },
+        "typography": {
+            "fontSize": true,
+            "lineHeight": true,
+            "fontFamily": true,
+            "__experimentalFontFamily": true,
+            "fontWeight": true,
+            "fontStyle": true,
+            "letterSpacing": true,
+            "textAlign": true
+        },
+        "shadow": {
+            "__experimentalSkipSerialization": true
+        }
+    },
+    "textdomain": "arwai-azi-viewer",
+    "editorScript": "file:./index.js",
+    "viewScript": "file:./view.js",
+    "style": "file:../../assets/css/public.css",
+    "attributes": {
+        "align": {
+            "type": "string",
+            "default": ""
+        },
+        "enableTruncation": {
+            "type": "boolean",
+            "default": true
+        },
+        "cardMaxHeight": {
+            "type": "string",
+            "default": "180px"
+        },
+        "cardMaxLines": {
+            "type": "number",
+            "default": 3
+        },
+        "cardMinWidth": {
+            "type": "string",
+            "default": "280px"
+        },
+        "cardMaxWidth": {
+            "type": "string",
+            "default": "100%"
+        },
+        "gridJustifyContent": {
+            "type": "string",
+            "default": "start"
+        },
+        "readMoreText": {
+            "type": "string",
+            "default": "...Read More"
+        },
+        "showLessText": {
+            "type": "string",
+            "default": "Show Less"
+        },
+        "postId": {
+            "type": "number",
+            "default": 0
+        },
+        "columns": {
+            "type": "number",
+            "default": 2
+        },
+        "targetViewerId": {
+            "type": "string",
+            "default": ""
+        },
+        "hoverBackgroundColor": {
+            "type": "string",
+            "default": "#f8fafc"
+        },
+        "hoverTextColor": {
+            "type": "string",
+            "default": ""
+        },
+        "hoverBorderColor": {
+            "type": "string",
+            "default": "#cbd5e1"
+        },
+        "selectedBackgroundColor": {
+            "type": "string",
+            "default": "#f1f5f9"
+        },
+        "selectedTextColor": {
+            "type": "string",
+            "default": "#0f172a"
+        },
+        "selectedBorderColor": {
+            "type": "string",
+            "default": "#0f172a"
+        },
+        "cardBorderWidth": {
+            "type": "string",
+            "default": ""
+        },
+        "cardBorderColor": {
+            "type": "string",
+            "default": ""
+        },
+        "cardBorderRadius": {
+            "type": "string",
+            "default": ""
+        },
+        "cardBorderStyle": {
+            "type": "string",
+            "default": "solid"
+        }
+    }
+}
