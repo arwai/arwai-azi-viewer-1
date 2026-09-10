@@ -48,7 +48,7 @@ if (!empty($tag_colors)) {
 }
 ?>
 
-<div <?php echo isset($wrapper_attributes) ? $wrapper_attributes : 'class="arwai-azi-viewer-cards-grid cols-' . (int) $columns . ' ' . esc_attr($align_class) . '" id="' . esc_attr($unique_id) . '" data-post-id="' . esc_attr($post_id) . '" data-card-inner-padding="' . esc_attr($card_inner_padding) . '" data-card-min-height="' . esc_attr($card_min_height) . '" data-card-gap="' . esc_attr($card_gap) . '" data-card-text-alignment="' . esc_attr($card_text_align) . '"'; ?> <?php if (!empty($target_viewer_id)) : ?>data-target-viewer-id="<?php echo esc_attr($target_viewer_id); ?>"<?php endif; ?>
+<div <?php echo isset($wrapper_attributes) ? $wrapper_attributes : 'class="arwai-aziv-cards-grid cols-' . (int) $columns . ' ' . esc_attr($align_class) . '" id="' . esc_attr($unique_id) . '" data-post-id="' . esc_attr($post_id) . '" data-card-inner-padding="' . esc_attr($card_inner_padding) . '" data-card-min-height="' . esc_attr($card_min_height) . '" data-card-gap="' . esc_attr($card_gap) . '" data-card-text-alignment="' . esc_attr($card_text_align) . '"'; ?> <?php if (!empty($target_viewer_id)) : ?>data-target-viewer-id="<?php echo esc_attr($target_viewer_id); ?>"<?php endif; ?>
      data-override-card-bg="<?php echo esc_attr($card_styles['card_bg'] ?? ''); ?>"
      data-override-card-text-color="<?php echo esc_attr($card_styles['text_color'] ?? ''); ?>"
      data-override-card-border-color="<?php echo esc_attr($card_styles['card_border_color'] ?? ''); ?>"
@@ -66,7 +66,7 @@ if (!empty($tag_colors)) {
      data-override-card-selected-shadow="<?php echo esc_attr($card_styles['card_selected_shadow'] ?? ''); ?>"
      style="gap:<?php echo esc_attr($card_styles['card_gap'] ?? '16px'); ?>; --grid-justify-content:<?php echo esc_attr($card_styles['grid_justify_content'] ?? 'start'); ?>; --card-min-width:<?php echo esc_attr($card_styles['card_min_width'] ?? '280px'); ?>; --card-max-width:<?php echo esc_attr($card_styles['card_max_width'] ?? '100%'); ?>;">
     <?php if (empty($all_annotations)) : ?>
-        <div class="arwai-azi-viewer-empty-cards">
+        <div class="arwai-aziv-empty-cards">
             <p><?php esc_html_e('No annotations found for this post.', 'arwai-azi-viewer'); ?></p>
         </div>
     <?php else : ?>
@@ -164,34 +164,34 @@ if (!empty($tag_colors)) {
                 esc_attr($badge_text_col)
             );
         ?>
-            <div class="annotation-card-item" 
+            <div class="arwai-aziv-annotation-card-item" 
                  data-annotation-id="<?php echo esc_attr($anno_id); ?>" 
                  data-attachment-id="<?php echo esc_attr($att_id); ?>" 
                  style="<?php echo $card_style_attr; ?>">
-                <div class="card-header-bar">
-                    <span class="card-badge-circle" style="<?php echo esc_attr($badge_style_attr); ?>"><?php echo (int) $badge_num; ?></span>
-                    <div class="card-author-meta">
-                        <strong class="author-name anno-user-name" data-display="<?php echo esc_attr($creator); ?>" data-login="<?php echo esc_attr($user_login); ?>" data-fullname="<?php echo esc_attr($full_name); ?>" style="cursor: pointer;"><?php echo esc_html($creator); ?></strong>
+                <div class="arwai-aziv-card-header-bar">
+                    <span class="arwai-aziv-card-badge-circle" style="<?php echo esc_attr($badge_style_attr); ?>"><?php echo (int) $badge_num; ?></span>
+                    <div class="arwai-aziv-card-author-meta">
+                        <strong class="arwai-aziv-author-name arwai-aziv-user-name" data-display="<?php echo esc_attr($creator); ?>" data-login="<?php echo esc_attr($user_login); ?>" data-fullname="<?php echo esc_attr($full_name); ?>" style="cursor: pointer;"><?php echo esc_html($creator); ?></strong>
                         <?php if ($created) : ?>
-                            <span class="created-time"><?php echo esc_html($created); ?></span>
+                            <span class="arwai-aziv-created-time"><?php echo esc_html($created); ?></span>
                         <?php endif; ?>
                     </div>
                 </div>
 
-                <div class="card-body-text">
+                <div class="arwai-aziv-card-body-text">
                     <?php if (!empty($comments)) : ?>
                         <?php foreach ($comments as $comment) : ?>
                             <p><?php echo wp_kses_post($comment); ?></p>
                         <?php endforeach; ?>
                     <?php else : ?>
-                        <p class="empty-comment"><em><?php esc_html_e('No comment text', 'arwai-azi-viewer'); ?></em></p>
+                        <p class="arwai-aziv-empty-comment"><em><?php esc_html_e('No comment text', 'arwai-azi-viewer'); ?></em></p>
                     <?php endif; ?>
                 </div>
 
                 <?php if (!empty($tags)) : ?>
-                    <div class="card-tags-footer">
+                    <div class="arwai-aziv-card-tags-footer">
                         <?php foreach ($tags as $tag_val) : ?>
-                            <span class="card-tag-badge">#<?php echo esc_html($tag_val); ?></span>
+                            <span class="arwai-aziv-card-tag-badge">#<?php echo esc_html($tag_val); ?></span>
                         <?php endforeach; ?>
                     </div>
                 <?php endif; ?>

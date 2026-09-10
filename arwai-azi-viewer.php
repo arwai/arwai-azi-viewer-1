@@ -3,9 +3,9 @@
  * Plugin Name:       Annotate Zoom Image Viewer
  * Plugin URI:        https://arwai.dev
  * Description:       A modern, decoupled image annotation plugin powered by OpenSeadragon, Annotorious, and Swiper.js adhering to W3C Web Annotation standards with Gutenberg Custom Blocks.
- * Version:           1.1.1
+ * Version:           1.1.2
  * Author:            Arwai
- * Text Domain:       image-annotator
+ * Text Domain:       arwai-azi-viewer
  * License:           GPL-2.0+
  */
 

@@ -1,37 +1,37 @@
 {
   "includes/Admin/SettingsPage.php": {
-    "mtime": 1789010798.820074,
+    "mtime": 1789053726.535122,
     "ast_hash": "3dbb2162d406a847d231d8c890124025",
     "semantic_hash": ""
   },
   "includes/Autoloader.php": {
-    "mtime": 1788876553.0,
+    "mtime": 1789053726.5360334,
     "ast_hash": "67a6a61ddfea0cd066ceb765feab5332",
     "semantic_hash": ""
   },
   "includes/Blocks/AnnotationListBlock.php": {
-    "mtime": 1789010781.6412854,
-    "ast_hash": "9a8e604e7122994af510fd6c5ea754f2",
+    "mtime": 1789082727.325258,
+    "ast_hash": "e31caa0b4e5d0459c8fd6aac14d16697",
     "semantic_hash": ""
   },
   "includes/Blocks/ViewerBlock.php": {
-    "mtime": 1788899186.0,
-    "ast_hash": "6c4750a51d54144ca3cf5f384b7562f4",
+    "mtime": 1789081023.7760456,
+    "ast_hash": "0660b8ce7e9e14091092167845cdbce9",
     "semantic_hash": ""
   },
   "includes/Database.php": {
-    "mtime": 1788876553.0,
-    "ast_hash": "6310c111e36fb9947750872f01da5b97",
+    "mtime": 1789078277.816845,
+    "ast_hash": "e42bd2de318cb65e3b91709ae9e1c12b",
     "semantic_hash": ""
   },
   "includes/Plugin.php": {
-    "mtime": 1789010561.417677,
+    "mtime": 1789053726.5355747,
     "ast_hash": "fe4c735f349777b360d864edaab40bc3",
     "semantic_hash": ""
   },
   "includes/Rest/AnnotationController.php": {
-    "mtime": 1788876905.0,
-    "ast_hash": "93d2fa87d3092d98d43373b9a2034a34",
+    "mtime": 1789078286.8234987,
+    "ast_hash": "f2b172fcb47091b54bb1319d877fab68",
     "semantic_hash": ""
   },
   "templates/admin-settings.php": {
@@ -40,19 +40,19 @@
     "semantic_hash": ""
   },
   "templates/annotation-cards-list.php": {
-    "mtime": 1789010786.0957336,
-    "ast_hash": "1a3c5a5a591e4380870f75fbf25db972",
+    "mtime": 1789078318.526178,
+    "ast_hash": "228e7394e9dd701e9ea16da256959f10",
     "semantic_hash": ""
   },
   "templates/frontend-viewer.php": {
-    "mtime": 1788899155.0,
-    "ast_hash": "a0988d22980f7df182e41dc4e7477515",
+    "mtime": 1789081028.4965713,
+    "ast_hash": "051f36ec5b05d3f346c47a1f3858e3d9",
     "semantic_hash": ""
   },
   "uninstall.php": {
-    "mtime": 1784843053.0,
-    "ast_hash": "78cfaf0e07f12441c777af934e18716a",
-    "semantic_hash": "78cfaf0e07f12441c777af934e18716a"
+    "mtime": 1789078281.7167175,
+    "ast_hash": "d6a7766ea91ce1b77fdfa5c76d44b443",
+    "semantic_hash": ""
   },
   ".agents/rules/graphify.md": {
     "mtime": 1785003650.0,
@@ -70,8 +70,8 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1788876553.0,
-    "ast_hash": "0893cf015bfd7dd17b23307bba04f6b9",
+    "mtime": 1789078250.806228,
+    "ast_hash": "7f878e5f1ba714f77fb411bb79211178",
     "semantic_hash": ""
   },
   "src/annotation-list/block.json": {
@@ -80,8 +80,8 @@
     "semantic_hash": ""
   },
   "src/annotation-list/edit.js": {
-    "mtime": 1789006949.0,
-    "ast_hash": "b4649e156f640d6030b71189716d9d02",
+    "mtime": 1789082546.8011234,
+    "ast_hash": "4a4b36d065ae1c448599ad27fe46bfee",
     "semantic_hash": ""
   },
   "src/annotation-list/index.js": {
@@ -90,13 +90,13 @@
     "semantic_hash": ""
   },
   "src/viewer/block.json": {
-    "mtime": 1788998048.0,
-    "ast_hash": "20467ad88e6c7ee1f9ffcabfec60cdf6",
+    "mtime": 1789081019.0730555,
+    "ast_hash": "a31a2a466e6c6aed714243876e0f3b15",
     "semantic_hash": ""
   },
   "src/viewer/edit.js": {
-    "mtime": 1789002705.0,
-    "ast_hash": "308eb197be2c3dc85d256c522159e213",
+    "mtime": 1789082546.8016875,
+    "ast_hash": "5d2091676dc6dfbc32f86e2628d52fe1",
     "semantic_hash": ""
   },
   "src/viewer/index.js": {
@@ -105,8 +105,8 @@
     "semantic_hash": ""
   },
   "src/viewer/view.js": {
-    "mtime": 1789010790.529964,
-    "ast_hash": "b13df68d1c72d4eb349901d873fd4969",
+    "mtime": 1789084723.075174,
+    "ast_hash": "0ce14e81a885af5094f1a7ebf1832217",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -120,18 +120,18 @@
     "semantic_hash": ""
   },
   "includes/Blocks/SequenceFilmstripBlock.php": {
-    "mtime": 1788876905.0,
-    "ast_hash": "fb4659e1761ff3335722ed622a2b8e74",
+    "mtime": 1789083984.8647642,
+    "ast_hash": "d43dd1854fd45d745760dfaa9ef75451",
     "semantic_hash": ""
   },
   "src/sequence-filmstrip/block.json": {
-    "mtime": 1788998047.0,
-    "ast_hash": "6c58ca8a996ed2c7e9a84f0c5a293b15",
+    "mtime": 1789083633.079339,
+    "ast_hash": "e91619734607583ec522e704c4de0e70",
     "semantic_hash": ""
   },
   "src/sequence-filmstrip/edit.js": {
-    "mtime": 1789002696.0,
-    "ast_hash": "04c268908079e970446fdc126e2ddcfc",
+    "mtime": 1789084538.9774244,
+    "ast_hash": "ba5ca10135a778120deecf96168cd406",
     "semantic_hash": ""
   },
   "src/sequence-filmstrip/index.js": {
@@ -140,22 +140,22 @@
     "semantic_hash": ""
   },
   "templates/sequence-filmstrip.php": {
-    "mtime": 1788876553.0,
-    "ast_hash": "96be289c154e1fcc9ba3e5abe2a2021c",
+    "mtime": 1789084482.331872,
+    "ast_hash": "233e2b5c10c94add96c8ba436b746d3c",
     "semantic_hash": ""
   },
   "arwai-azi-viewer.php": {
-    "mtime": 1788913591.0,
-    "ast_hash": "93813b468720b619962ff96c9d5716ce",
+    "mtime": 1789078272.9018123,
+    "ast_hash": "672e7772178c66f29af45e42f0d9b6a9",
     "semantic_hash": ""
   },
   "includes/Blocks/ActionToolbarBlock.php": {
-    "mtime": 1788897522.0,
+    "mtime": 1789053726.5346937,
     "ast_hash": "949ea8643b46408d88170b2c3722f6c8",
     "semantic_hash": ""
   },
   "includes/Blocks/SequenceToolbarBlock.php": {
-    "mtime": 1788897525.0,
+    "mtime": 1789053726.5339153,
     "ast_hash": "6001ee3e12bafee4f1bb3bcb12576ef4",
     "semantic_hash": ""
   },
@@ -165,8 +165,8 @@
     "semantic_hash": ""
   },
   "src/action-toolbar/edit.js": {
-    "mtime": 1788898189.0,
-    "ast_hash": "97ceee5f6f11820ce9c991c73eb43d45",
+    "mtime": 1789082546.8008966,
+    "ast_hash": "ca9e5380cede4160f94d55d25d7d89c6",
     "semantic_hash": ""
   },
   "src/action-toolbar/index.js": {
@@ -180,8 +180,8 @@
     "semantic_hash": ""
   },
   "src/sequence-toolbar/edit.js": {
-    "mtime": 1788898202.0,
-    "ast_hash": "94a6fc6cc256b32e87d7cf4b15fdd5a7",
+    "mtime": 1789082546.80068,
+    "ast_hash": "124feb4090c84a142a822e3e7ddce68a",
     "semantic_hash": ""
   },
   "src/sequence-toolbar/index.js": {
@@ -190,13 +190,13 @@
     "semantic_hash": ""
   },
   "templates/action-toolbar.php": {
-    "mtime": 1788898159.0,
-    "ast_hash": "0f61f4acef10bab945c8b27ddd8fcca6",
+    "mtime": 1789078296.5084913,
+    "ast_hash": "546a835c0d067be8d7787f64ecd69542",
     "semantic_hash": ""
   },
   "templates/sequence-toolbar.php": {
-    "mtime": 1788898161.0,
-    "ast_hash": "8a189de3adde398eac60872b55ae0f48",
+    "mtime": 1789078303.478727,
+    "ast_hash": "52bf4798ed869b28526d23a73d468163",
     "semantic_hash": ""
   },
   "assets/vendor/annotorious/annotorious.min.js": {

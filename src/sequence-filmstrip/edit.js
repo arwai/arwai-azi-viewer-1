@@ -67,13 +67,22 @@ function parseCssUnit(val, defaultUnit = 'px') {
     return str;
 }
 
-export default function Edit({ attributes, setAttributes }) {
+export default function Edit(props) {
+    const { attributes, setAttributes } = props;
+    const { style } = attributes;
+
     /* ── Resolved values ────────────────────────────────────────────── */
-    const marginVal      = parseCssUnit(attributes.filmstripMargin, 'px') || '10px';
-    const borderWidthVal = parseCssUnit(attributes.filmstripBorderWidth, 'px') || '0px';
-    const borderRadiusVal = parseCssUnit(attributes.filmstripBorderRadius, 'px') || '6px';
-    const thumbRadiusVal = parseCssUnit(attributes.filmstripThumbRadius, 'px') || '4px';
-    const sizeVal        = parseCssUnit(attributes.filmstripSize, 'px') || '60px';
+    const thumbRadiusVal = parseCssUnit(attributes.thumbBorderRadius, 'px') || '4px';
+    const borderWidthVal = parseCssUnit(attributes.thumbBorderWidth, 'px') || '1px';
+    const dimWidth       = style?.dimensions?.width ? parseCssUnit(style.dimensions.width, 'px') : '';
+    const dimHeight      = style?.dimensions?.height ? parseCssUnit(style.dimensions.height, 'px') : '';
+    const sizeVal        = dimWidth || dimHeight || parseCssUnit(attributes.filmstripSize, 'px') || '60px';
+
+    const spGap = style?.spacing?.blockGap;
+    let gapVal = '8px';
+    if (typeof spGap === 'string') {
+        gapVal = spGap.replace(/var:preset\|spacing\|([a-zA-Z0-9-]+)/g, 'var(--wp--preset--spacing--$1)');
+    }
 
     /* ── Find all viewer blocks on the page ─────────────────────────── */
     const viewerBlocks = useSelect((select) => {
@@ -121,24 +130,28 @@ export default function Edit({ attributes, setAttributes }) {
         }))
     ];
 
-    /* ── Build filmstrip row inline style ───────────────────────────── */
-    const rowStyle = {
-        marginTop: marginVal,
-        marginBottom: marginVal,
-        backgroundColor: attributes.filmstripBgColor || undefined,
-        border: borderWidthVal !== '0px' ? `${borderWidthVal} solid ${attributes.filmstripBorderColor || 'transparent'}` : undefined,
-        borderRadius: borderRadiusVal,
-        display: 'flex',
-        justifyContent: 'center',
-        padding: '8px 0',
-    };
+    const containerBorderWidthVal  = parseCssUnit(attributes.containerBorderWidth, 'px');
+    const containerBorderRadiusVal = parseCssUnit(attributes.containerBorderRadius, 'px');
 
     const blockProps = useBlockProps({
-        style: { boxSizing: 'border-box' }
+        className: 'arwai-aziv-sequence-filmstrip-wrap arwai-aziv-standalone-sequence-filmstrip',
+        style: {
+            boxSizing: 'border-box',
+            width: '100%',
+            ...(containerBorderWidthVal ? { borderWidth: containerBorderWidthVal } : {}),
+            ...(attributes.containerBorderStyle ? { borderStyle: attributes.containerBorderStyle } : {}),
+            ...(attributes.containerBorderColor ? { borderColor: attributes.containerBorderColor } : {}),
+            ...(containerBorderRadiusVal ? { borderRadius: containerBorderRadiusVal } : {}),
+            '--filmstrip-size': sizeVal,
+            '--thumb-radius': thumbRadiusVal,
+            '--thumb-border-width': borderWidthVal,
+            '--thumb-border-color': attributes.thumbBorderColor || 'rgba(0,0,0,0.12)',
+            '--thumb-hover-border-color': attributes.hoverBorderColor || '#3b82f6',
+            '--thumb-selected-border-color': attributes.selectedBorderColor || '#2563eb',
+        }
     });
 
     /* ── Decide what thumbnails to show ─────────────────────────────── */
-    // Build list: use real media objects if available, fallback to placeholder slots
     const thumbCount = linkedImageIds.length > 0 ? linkedImageIds.length : 3;
     const thumbItems = mediaObjects.length > 0
         ? mediaObjects.map((m, i) => ({
@@ -171,7 +184,7 @@ export default function Edit({ attributes, setAttributes }) {
 
             {/* ── Inspector: Styles ────────────────────────────────────── */}
             <InspectorControls group="styles">
-                <PanelBody title={__('Filmstrip Styling', 'arwai-azi-viewer')} initialOpen={true}>
+                <PanelBody title={__('Thumbnail Styling', 'arwai-azi-viewer')} initialOpen={true}>
                     <UnitControl
                         label={__('Thumbnail Size', 'arwai-azi-viewer')}
                         value={attributes.filmstripSize || '60px'}
@@ -179,80 +192,116 @@ export default function Edit({ attributes, setAttributes }) {
                     />
                     <UnitControl
                         label={__('Thumbnail Corner Radius', 'arwai-azi-viewer')}
-                        value={attributes.filmstripThumbRadius || '4px'}
-                        onChange={(val) => setAttributes({ filmstripThumbRadius: val })}
+                        value={attributes.thumbBorderRadius || '4px'}
+                        onChange={(val) => setAttributes({ thumbBorderRadius: val })}
                     />
                     <UnitControl
-                        label={__('Vertical Margin', 'arwai-azi-viewer')}
-                        value={attributes.filmstripMargin || '10px'}
-                        onChange={(val) => setAttributes({ filmstripMargin: val })}
-                    />
-                    <UnitControl
-                        label={__('Border Width', 'arwai-azi-viewer')}
-                        value={attributes.filmstripBorderWidth || '0px'}
-                        onChange={(val) => setAttributes({ filmstripBorderWidth: val })}
-                    />
-                    <UnitControl
-                        label={__('Border Radius', 'arwai-azi-viewer')}
-                        value={attributes.filmstripBorderRadius || '6px'}
-                        onChange={(val) => setAttributes({ filmstripBorderRadius: val })}
+                        label={__('Thumbnail Border Width', 'arwai-azi-viewer')}
+                        value={attributes.thumbBorderWidth || '1px'}
+                        onChange={(val) => setAttributes({ thumbBorderWidth: val })}
                     />
                     <SimpleColorControl
-                        label={__('Background Color', 'arwai-azi-viewer')}
-                        value={attributes.filmstripBgColor}
-                        onChange={(val) => setAttributes({ filmstripBgColor: val })}
+                        label={__('Default Border Color', 'arwai-azi-viewer')}
+                        value={attributes.thumbBorderColor || 'rgba(0,0,0,0.12)'}
+                        onChange={(val) => setAttributes({ thumbBorderColor: val })}
                     />
                     <SimpleColorControl
-                        label={__('Border Color', 'arwai-azi-viewer')}
-                        value={attributes.filmstripBorderColor}
-                        onChange={(val) => setAttributes({ filmstripBorderColor: val })}
+                        label={__('Hover Border Color', 'arwai-azi-viewer')}
+                        value={attributes.hoverBorderColor || '#3b82f6'}
+                        onChange={(val) => setAttributes({ hoverBorderColor: val })}
+                    />
+                    <SimpleColorControl
+                        label={__('Active/Selected Border Color', 'arwai-azi-viewer')}
+                        value={attributes.selectedBorderColor || '#2563eb'}
+                        onChange={(val) => setAttributes({ selectedBorderColor: val })}
+                    />
+                </PanelBody>
+                <PanelBody title={__('Container Border & Radius', 'arwai-azi-viewer')} initialOpen={false}>
+                    <UnitControl
+                        label={__('Container Border Width', 'arwai-azi-viewer')}
+                        value={attributes.containerBorderWidth || ''}
+                        onChange={(val) => setAttributes({ containerBorderWidth: val })}
+                    />
+                    <SelectControl
+                        label={__('Container Border Style', 'arwai-azi-viewer')}
+                        value={attributes.containerBorderStyle || ''}
+                        options={[
+                            { label: __('Solid', 'arwai-azi-viewer'), value: 'solid' },
+                            { label: __('Dashed', 'arwai-azi-viewer'), value: 'dashed' },
+                            { label: __('Dotted', 'arwai-azi-viewer'), value: 'dotted' },
+                            { label: __('Double', 'arwai-azi-viewer'), value: 'double' },
+                            { label: __('Groove', 'arwai-azi-viewer'), value: 'groove' },
+                            { label: __('Ridge', 'arwai-azi-viewer'), value: 'ridge' },
+                            { label: __('Inset', 'arwai-azi-viewer'), value: 'inset' },
+                            { label: __('Outset', 'arwai-azi-viewer'), value: 'outset' },
+                            { label: __('None', 'arwai-azi-viewer'), value: 'none' }
+                        ]}
+                        onChange={(val) => setAttributes({ containerBorderStyle: val })}
+                    />
+                    <SimpleColorControl
+                        label={__('Container Border Color', 'arwai-azi-viewer')}
+                        value={attributes.containerBorderColor || ''}
+                        onChange={(val) => setAttributes({ containerBorderColor: val })}
+                    />
+                    <UnitControl
+                        label={__('Container Border Radius', 'arwai-azi-viewer')}
+                        value={attributes.containerBorderRadius || ''}
+                        onChange={(val) => setAttributes({ containerBorderRadius: val })}
                     />
                 </PanelBody>
             </InspectorControls>
 
             {/* ── WYSIWYG Canvas ──────────────────────────────────────── */}
             <div {...blockProps}>
-                <div className="arwai-azi-viewer-filmstrip-row" style={rowStyle}>
-                    {isLoading && (
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#64748b', fontSize: '13px' }}>
-                            <Spinner />
-                            {__('Loading thumbnails…', 'arwai-azi-viewer')}
-                        </div>
-                    )}
-                    {!isLoading && (
-                        <div className="filmstrip-scroll-container" style={{ display: 'flex', gap: '8px', overflowX: 'auto', padding: '0 4px' }}>
-                            {thumbItems.map((item, idx) => (
-                                <div
-                                    key={item.key}
-                                    className={`filmstrip-thumb-item${idx === 0 ? ' active' : ''}`}
-                                    title={item.label}
-                                    style={{
-                                        width: sizeVal,
-                                        height: sizeVal,
-                                        borderRadius: thumbRadiusVal,
-                                        overflow: 'hidden',
-                                        border: idx === 0 ? '2px solid #3b82f6' : '1px solid rgba(0,0,0,0.12)',
-                                        opacity: idx === 0 ? 1 : 0.6,
-                                        flexShrink: 0,
-                                        backgroundColor: '#e2e8f0',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        cursor: 'pointer',
-                                        transition: 'opacity 0.15s, border-color 0.15s',
-                                    }}
-                                >
-                                    {item.src
-                                        ? <img src={item.src} alt={item.label}
-                                              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', pointerEvents: 'none' }}
-                                          />
-                                        : <span style={{ fontSize: '10px', color: '#94a3b8', fontWeight: '600' }}>{item.label}</span>
-                                    }
-                                </div>
-                            ))}
-                        </div>
-                    )}
-                </div>
+                <button type="button" className="arwai-aziv-filmstrip-nav-btn arwai-aziv-filmstrip-nav-prev" style={{ pointerEvents: 'none' }}>
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2.5" fill="none"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <div className="arwai-aziv-filmstrip-fade arwai-aziv-filmstrip-fade-left"></div>
+                {isLoading && (
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', color: '#64748b', fontSize: '13px', padding: '12px' }}>
+                        <Spinner />
+                        {__('Loading thumbnails…', 'arwai-azi-viewer')}
+                    </div>
+                )}
+                {!isLoading && (
+                    <div className="arwai-aziv-filmstrip-scroll-container" style={{ display: 'flex', justifyContent: 'safe center', alignItems: 'center', gap: gapVal, overflowX: 'auto', padding: '10px 16px', boxSizing: 'border-box', width: '100%' }}>
+                        {thumbItems.map((item, idx) => (
+                            <div
+                                key={item.key}
+                                className={`arwai-aziv-filmstrip-thumb-item${idx === 0 ? ' active' : ''}`}
+                                title={item.label}
+                                style={{
+                                    width: sizeVal,
+                                    height: sizeVal,
+                                    borderRadius: thumbRadiusVal,
+                                    overflow: 'hidden',
+                                    border: idx === 0
+                                        ? `${borderWidthVal !== '0px' ? borderWidthVal : '2px'} solid ${attributes.selectedBorderColor || '#2563eb'}`
+                                        : `${borderWidthVal} solid ${attributes.thumbBorderColor || 'rgba(0,0,0,0.12)'}`,
+                                    opacity: idx === 0 ? 1 : 0.7,
+                                    flexShrink: 0,
+                                    backgroundColor: '#e2e8f0',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    cursor: 'pointer',
+                                    transition: 'opacity 0.15s, border-color 0.15s, transform 0.15s',
+                                }}
+                            >
+                                {item.src
+                                    ? <img src={item.src} alt={item.label}
+                                          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', pointerEvents: 'none' }}
+                                      />
+                                    : <span style={{ fontSize: '10px', color: '#94a3b8', fontWeight: '600' }}>{item.label}</span>
+                                }
+                            </div>
+                        ))}
+                    </div>
+                )}
+                <div className="arwai-aziv-filmstrip-fade arwai-aziv-filmstrip-fade-right"></div>
+                <button type="button" className="arwai-aziv-filmstrip-nav-btn arwai-aziv-filmstrip-nav-next" style={{ pointerEvents: 'none' }}>
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2.5" fill="none"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
             </div>
         </>
     );

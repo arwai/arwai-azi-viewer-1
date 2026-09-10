@@ -1,16 +1,16 @@
-# Graph Report - arwai-azi-viewer  (2026-09-09)
+# Graph Report - arwai-azi-viewer  (2026-09-10)
 
 ## Corpus Check
-- 43 files · ~40,848 words
+- 43 files · ~41,694 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1538 nodes · 2914 edges · 152 communities (127 shown, 25 thin omitted)
-- Extraction: 79% EXTRACTED · 21% INFERRED · 0% AMBIGUOUS · INFERRED: 607 edges (avg confidence: 0.69)
+- 1550 nodes · 2925 edges · 156 communities (126 shown, 30 thin omitted)
+- Extraction: 79% EXTRACTED · 21% INFERRED · 0% AMBIGUOUS · INFERRED: 606 edges (avg confidence: 0.69)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `b4a7993d`
+- Built from commit: `827d48f2`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -46,6 +46,7 @@
 - Annotorious Vendor
 - OpenSeadragon Vendor
 - Public Frontend
+- Annotorious Vendor
 - sequence-filmstrip/block.json
 - cardBorderRadius
 - Zn
@@ -134,7 +135,7 @@
 - cr
 - CS
 - kS
-- mg
+- hoverBorderColor
 - Ms
 - Uc
 - Be
@@ -149,15 +150,18 @@
 - filmstripBorderRadius
 - filmstripMargin
 - hideFilmstripMobile
-- showFilmstrip
 - targetViewerId
+- loadingMethod
 - spacing
-- Nc
+- ef
 - Kh
 - lx
 - filmstripThumbRadius
 - overrideDefaultBorderColor
 - overrideHoverBadgeShadow
+- Ea
+- Ie
+- viewerId
 
 ## God Nodes (most connected - your core abstractions)
 1. `n()` - 77 edges
@@ -186,11 +190,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (152 total, 25 thin omitted)
-
-### Community 2 - "Annotorious Vendor"
-Cohesion: 0.05
-Nodes (77): a(), bd(), C(), c0(), _d(), dc(), dn(), f0() (+69 more)
+## Communities (156 total, 30 thin omitted)
 
 ### Community 3 - "Annotorious Vendor"
 Cohesion: 0.15
@@ -214,15 +214,19 @@ Nodes (8): background, text, margin, padding, supports, color, shadow, spacing
 
 ### Community 9 - "Annotorious Vendor"
 Cohesion: 0.02
-Nodes (43): Ae(), Ba(), Be(), bg(), bS(), cl(), d1(), E1() (+35 more)
+Nodes (38): ab(), Ae(), Be(), cl(), d1(), E1(), ed(), Ee() (+30 more)
 
 ### Community 13 - "OpenSeadragon Vendor"
 Cohesion: 0.02
-Nodes (43): aa(), ba(), bf(), dh(), Ea(), eb(), ef(), eo() (+35 more)
+Nodes (42): aa(), ba(), bf(), bl(), cd(), dh(), Ea(), ef() (+34 more)
 
 ### Community 14 - "Annotorious Vendor"
 Cohesion: 0.18
 Nodes (11): background, text, center, full, left, right, wide, supports (+3 more)
+
+### Community 15 - "Annotorious Vendor"
+Cohesion: 0.16
+Nodes (18): a0(), i0(), Jy(), Kn(), Me(), n0(), o0(), oe() (+10 more)
 
 ### Community 17 - "Admin Component"
 Cohesion: 0.50
@@ -230,11 +234,11 @@ Nodes (3): Antigravity Agent Directives, Model Hand-off, Workspace Restraints
 
 ### Community 18 - "Annotorious Vendor"
 Cohesion: 0.20
-Nodes (10): attributes, hoverBorderColor, hoverTextColor, targetViewerId, default, type, default, type (+2 more)
+Nodes (10): default, type, attributes, align, hoverBorderColor, hoverTextColor, default, type (+2 more)
 
 ### Community 19 - "OpenSeadragon Vendor"
-Cohesion: 0.67
-Nodes (3): cardBorderColor, default, type
+Cohesion: 0.50
+Nodes (4): hr(), nb(), rb(), tb()
 
 ### Community 20 - "Annotorious Vendor"
 Cohesion: 0.67
@@ -245,8 +249,8 @@ Cohesion: 0.67
 Nodes (3): cardMaxLines, default, type
 
 ### Community 22 - "Database Layer"
-Cohesion: 0.06
-Nodes (16): ab(), cc(), cd(), Ds(), gr(), H0(), IS, mc() (+8 more)
+Cohesion: 0.05
+Nodes (11): cd(), Ds(), gc(), IS, nS(), Qc(), $r(), sn (+3 more)
 
 ### Community 23 - "REST API Controller"
 Cohesion: 0.67
@@ -254,15 +258,15 @@ Nodes (3): hoverBackgroundColor, default, type
 
 ### Community 24 - "Annotorious Vendor"
 Cohesion: 0.20
-Nodes (10): attributes, filmstripBorderWidth, hideFilmstripMobile, showFilmstrip, default, type, default, type (+2 more)
+Nodes (10): default, type, attributes, align, containerBorderStyle, targetViewerId, default, type (+2 more)
 
 ### Community 25 - "Annotorious Vendor"
-Cohesion: 0.50
-Nodes (4): attributes, overrideDefaultFillColor, default, type
+Cohesion: 0.67
+Nodes (3): overrideDefaultFillColor, default, type
 
 ### Community 26 - "Annotorious Vendor"
-Cohesion: 0.13
-Nodes (17): al(), e0(), En(), Fa(), il(), Jn(), jo(), Qt() (+9 more)
+Cohesion: 0.07
+Nodes (32): ac(), Ba(), c0(), _d(), ei(), f0(), Fr(), gd() (+24 more)
 
 ### Community 30 - "Blocks Component"
 Cohesion: 0.67
@@ -280,9 +284,9 @@ Nodes (3): selectedTextColor, default, type
 Cohesion: 0.09
 Nodes (10): ce(), dn(), ix(), lr(), nE(), nx(), Qe(), xn() (+2 more)
 
-### Community 35 - "Public Frontend"
-Cohesion: 0.67
-Nodes (3): viewerId, default, type
+### Community 37 - "Annotorious Vendor"
+Cohesion: 0.14
+Nodes (15): _checkForAPIOverrides(), _cleanupImageData(), constructor(), _createDrawingElement(), _imageUnloadedHandler(), _makeFirstPassShaderProgram(), _makeQuadVertexBuffer(), _raiseDrawerErrorEvent() (+7 more)
 
 ### Community 38 - "sequence-filmstrip/block.json"
 Cohesion: 0.17
@@ -293,16 +297,16 @@ Cohesion: 0.67
 Nodes (3): cardBorderRadius, default, type
 
 ### Community 40 - "Zn"
-Cohesion: 0.16
-Nodes (18): a0(), i0(), Jy(), Kn(), Me(), n0(), o0(), oe() (+10 more)
+Cohesion: 0.13
+Nodes (17): al(), e0(), En(), Fa(), il(), Jn(), jo(), Qt() (+9 more)
 
 ### Community 41 - "openseadragon.min.js"
 Cohesion: 0.06
-Nodes (8): _cleanupImageData(), destroy(), isTainted(), minimumOverlapRequired(), _renderToClippingCanvas(), _setClip(), _unloadTextures(), viewportCoordToDrawerCoord()
+Nodes (5): isTainted(), minimumOverlapRequired(), _renderToClippingCanvas(), _setClip(), viewportCoordToDrawerCoord()
 
 ### Community 42 - "t"
-Cohesion: 0.08
-Nodes (28): ac(), $e(), ei(), fe(), Fr(), gd(), Gf(), Gi() (+20 more)
+Cohesion: 0.50
+Nodes (4): ah(), lS(), qc(), Zs()
 
 ### Community 43 - "t"
 Cohesion: 0.12
@@ -313,20 +317,20 @@ Cohesion: 0.12
 Nodes (27): Ae(), Ai(), aw(), Co(), Di(), ec(), ew(), Hn() (+19 more)
 
 ### Community 45 - "Di"
-Cohesion: 0.11
-Nodes (22): aa(), af(), Bi(), Bt(), Ce(), Di(), ef(), Jc() (+14 more)
+Cohesion: 0.10
+Nodes (24): aa(), af(), Bi(), Bt(), Ce(), Di(), ef(), Jc() (+16 more)
 
 ### Community 46 - "Includes Module"
 Cohesion: 0.67
-Nodes (3): imageIds, default, type
-
-### Community 47 - "Annotorious Vendor"
-Cohesion: 0.67
 Nodes (3): infoMessage, default, type
 
+### Community 47 - "Annotorious Vendor"
+Cohesion: 0.50
+Nodes (3): destroy(), setImageSmoothingEnabled(), _unloadTextures()
+
 ### Community 48 - "Jn"
-Cohesion: 0.17
-Nodes (4): bs(), Jn(), od(), sd()
+Cohesion: 0.50
+Nodes (4): F(), H(), k(), x()
 
 ### Community 49 - "dc"
 Cohesion: 0.40
@@ -337,20 +341,20 @@ Cohesion: 0.17
 Nodes (11): apiVersion, category, description, editorScript, icon, name, $schema, style (+3 more)
 
 ### Community 51 - "_tileReadyHandler"
-Cohesion: 0.15
-Nodes (14): _checkForAPIOverrides(), constructor(), _createDrawingElement(), _imageUnloadedHandler(), _makeFirstPassShaderProgram(), _makeQuadVertexBuffer(), _raiseDrawerErrorEvent(), _resizeRenderer() (+6 more)
+Cohesion: 0.18
+Nodes (11): bg(), hd(), Jr(), ld(), pd(), _u(), ue(), vd() (+3 more)
 
 ### Community 52 - "Annotorious Vendor"
-Cohesion: 0.67
-Nodes (3): osdImageSize, default, type
+Cohesion: 0.50
+Nodes (4): eS(), mh(), Ts(), xs()
 
 ### Community 53 - "supports"
-Cohesion: 0.17
-Nodes (12): backgroundImage, backgroundSize, background, gradients, text, aspectRatio, minHeight, supports (+4 more)
+Cohesion: 0.06
+Nodes (36): backgroundImage, backgroundSize, color, __experimentalSkipSerialization, radius, style, width, background (+28 more)
 
 ### Community 54 - "Annotorious Vendor"
-Cohesion: 0.67
-Nodes (3): postId, default, type
+Cohesion: 0.15
+Nodes (5): bs(), Jn(), od(), sd(), zt()
 
 ### Community 55 - "Annotorious Vendor"
 Cohesion: 0.67
@@ -362,19 +366,19 @@ Nodes (35): padding, color, __experimentalSkipSerialization, radius, style, widt
 
 ### Community 57 - "Annotorious Vendor"
 Cohesion: 0.67
-Nodes (3): default, type, align
+Nodes (3): targetViewerId, default, type
 
 ### Community 58 - "Px"
-Cohesion: 0.12
+Cohesion: 0.11
 Nodes (4): ad(), Ax, ed(), Px
 
 ### Community 59 - "Ts"
-Cohesion: 0.12
-Nodes (18): eb(), Ie(), kl(), ln(), Re(), eh(), En(), mr() (+10 more)
+Cohesion: 0.18
+Nodes (13): eh(), En(), mr(), nh(), Ot(), Pf(), pr(), th() (+5 more)
 
 ### Community 60 - "_drawDebugInfoOnTile"
-Cohesion: 0.19
-Nodes (10): _applyContext2dPipeline(), _drawDebugInfo(), _drawDebugInfoOnTile(), _drawPlaceholder(), _flip(), _offsetForRotation(), _restoreRotationChanges(), setImageSmoothingEnabled() (+2 more)
+Cohesion: 0.23
+Nodes (9): _applyContext2dPipeline(), _drawDebugInfo(), _drawDebugInfoOnTile(), _drawPlaceholder(), _flip(), _offsetForRotation(), _restoreRotationChanges(), _setRotations() (+1 more)
 
 ### Community 61 - "overrideBadgeShadow"
 Cohesion: 0.67
@@ -382,7 +386,7 @@ Nodes (3): overrideBadgeShadow, default, type
 
 ### Community 62 - "overrideBadgeTextColor"
 Cohesion: 0.67
-Nodes (3): loadingMethod, default, type
+Nodes (3): filmstripSize, default, type
 
 ### Community 63 - "overrideDefaultBorderColor"
 Cohesion: 0.17
@@ -390,7 +394,7 @@ Nodes (11): apiVersion, category, description, editorScript, icon, name, $schema
 
 ### Community 64 - "overrideDefaultFillColor"
 Cohesion: 0.67
-Nodes (3): overrideBadgeBg, default, type
+Nodes (3): showFilmstrip, default, type
 
 ### Community 65 - "overrideHoverBadgeShadow"
 Cohesion: 0.67
@@ -399,10 +403,6 @@ Nodes (3): overrideHoverFillColor, default, type
 ### Community 66 - "overrideHoverBorderColor"
 Cohesion: 0.67
 Nodes (3): overrideHoverBorderColor, default, type
-
-### Community 67 - "overrideHoverFillColor"
-Cohesion: 0.12
-Nodes (4): gc(), nS(), pc(), Qc()
 
 ### Community 68 - "overrideSelectedBorderColor"
 Cohesion: 0.67
@@ -420,17 +420,13 @@ Nodes (3): default, type, align
 Cohesion: 0.18
 Nodes (11): Da(), Ar(), ga(), ma(), nf(), Oa(), qd(), Ra() (+3 more)
 
-### Community 73 - "loadingMethod"
-Cohesion: 0.07
-Nodes (28): color, __experimentalSkipSerialization, radius, style, width, background, text, center (+20 more)
-
 ### Community 74 - "viewer/edit.js"
-Cohesion: 0.35
-Nodes (17): a(), b(), C(), f(), g(), H(), i(), k() (+9 more)
+Cohesion: 0.67
+Nodes (3): Fo(), gg(), Wg()
 
 ### Community 75 - "bn"
-Cohesion: 0.22
-Nodes (8): bn(), br(), fd(), la(), pd(), Qs(), Rs(), Ye()
+Cohesion: 0.19
+Nodes (13): at(), bn(), br(), dr(), fd(), la(), ld(), pd() (+5 more)
 
 ### Community 76 - "draw"
 Cohesion: 0.27
@@ -445,8 +441,12 @@ Cohesion: 0.22
 Nodes (8): default, type, attributes, align, targetViewerId, default, type, Edit()
 
 ### Community 81 - "showFilmstrip"
-Cohesion: 0.67
-Nodes (3): overrideBadgeTextColor, default, type
+Cohesion: 0.20
+Nodes (10): attributes, imageIds, overrideBadgeBg, viewerId, default, type, default, type (+2 more)
+
+### Community 82 - "ch"
+Cohesion: 0.32
+Nodes (3): ch(), hh(), oh()
 
 ### Community 83 - "cardMaxWidth"
 Cohesion: 0.67
@@ -485,8 +485,8 @@ Cohesion: 0.15
 Nodes (13): default, type, attributes, align, showAnnotationsBtn, showEnlargeBtn, targetViewerId, default (+5 more)
 
 ### Community 92 - "typography"
-Cohesion: 0.25
-Nodes (8): typography, __experimentalFontFamily, fontFamily, fontSize, fontStyle, fontWeight, letterSpacing, lineHeight
+Cohesion: 0.67
+Nodes (3): thumbBorderRadius, default, type
 
 ### Community 94 - "AdminMetaBox"
 Cohesion: 0.25
@@ -501,8 +501,12 @@ Cohesion: 0.33
 Nodes (4): overrideSelectedBadgeShadow, default, type, Edit()
 
 ### Community 100 - "pE"
-Cohesion: 0.33
-Nodes (6): color, __experimentalSkipSerialization, radius, style, width, border
+Cohesion: 0.67
+Nodes (3): thumbBorderWidth, default, type
+
+### Community 101 - "SequenceFilmstripBlock"
+Cohesion: 0.67
+Nodes (3): mg(), vg(), yg()
 
 ### Community 102 - "fb"
 Cohesion: 0.40
@@ -530,23 +534,19 @@ Nodes (6): center, full, left, right, wide, align
 
 ### Community 109 - "sequence-filmstrip/edit.js"
 Cohesion: 0.32
-Nodes (5): filmstripBgColor, default, type, Edit(), parseCssUnit()
+Nodes (5): containerBorderRadius, default, type, Edit(), parseCssUnit()
 
 ### Community 110 - "align"
-Cohesion: 0.33
-Nodes (6): center, full, left, right, wide, align
+Cohesion: 0.67
+Nodes (3): containerBorderColor, default, type
 
 ### Community 111 - "border"
 Cohesion: 0.33
 Nodes (6): color, __experimentalSkipSerialization, radius, style, width, border
 
-### Community 112 - "Ie"
-Cohesion: 0.50
-Nodes (4): F(), H(), k(), x()
-
 ### Community 113 - "hS"
-Cohesion: 0.50
-Nodes (4): an(), Cc(), Pc(), Ui()
+Cohesion: 0.67
+Nodes (3): height, default, type
 
 ### Community 115 - "qi"
 Cohesion: 0.40
@@ -557,16 +557,16 @@ Cohesion: 0.40
 Nodes (5): action, annotations, buttons, toolbar, keywords
 
 ### Community 117 - "Ts"
-Cohesion: 0.50
-Nodes (4): eS(), mh(), Ts(), xs()
+Cohesion: 0.67
+Nodes (3): loadingMethod, default, type
 
 ### Community 118 - "hr"
-Cohesion: 0.50
-Nodes (4): blockGap, margin, padding, spacing
+Cohesion: 0.67
+Nodes (3): osdImageSize, default, type
 
 ### Community 119 - "ah"
 Cohesion: 0.67
-Nodes (3): Fo(), gg(), Wg()
+Nodes (3): hideFilmstripMobile, default, type
 
 ### Community 120 - "bh"
 Cohesion: 0.50
@@ -574,7 +574,7 @@ Nodes (3): bh(), ji(), Wi()
 
 ### Community 121 - ".draw"
 Cohesion: 0.67
-Nodes (3): hn(), kr(), nf()
+Nodes (3): cardBorderColor, default, type
 
 ### Community 122 - "keywords"
 Cohesion: 0.50
@@ -585,12 +585,12 @@ Cohesion: 0.50
 Nodes (4): cards, list, annotations, keywords
 
 ### Community 126 - "CS"
-Cohesion: 0.10
-Nodes (46): A1(), b(), CS, de(), m(), p(), Ps(), Uc (+38 more)
+Cohesion: 0.05
+Nodes (114): a(), A1(), b(), bd(), C(), dc(), de(), dn() (+106 more)
 
-### Community 128 - "mg"
+### Community 128 - "hoverBorderColor"
 Cohesion: 0.67
-Nodes (3): bl(), fm(), _l()
+Nodes (3): hoverBorderColor, default, type
 
 ### Community 130 - "Uc"
 Cohesion: 0.67
@@ -599,10 +599,6 @@ Nodes (3): Bo(), hr(), Sn()
 ### Community 131 - "Be"
 Cohesion: 0.67
 Nodes (3): Be(), cf(), hf()
-
-### Community 132 - "cd"
-Cohesion: 0.67
-Nodes (3): cd(), gr(), Qn()
 
 ### Community 134 - "wy"
 Cohesion: 0.67
@@ -616,41 +612,37 @@ Nodes (3): gy(), my(), yy()
 Cohesion: 0.67
 Nodes (3): pi(), Qr(), xt()
 
-### Community 139 - "filmstripBorderColor"
-Cohesion: 0.67
-Nodes (3): filmstripBorderColor, default, type
-
 ### Community 140 - "filmstripBorderRadius"
-Cohesion: 0.67
-Nodes (3): filmstripBorderRadius, default, type
+Cohesion: 0.25
+Nodes (8): bS(), cc(), fc(), mc(), pc(), V1(), vc(), yS()
 
 ### Community 141 - "filmstripMargin"
-Cohesion: 0.67
-Nodes (3): filmstripMargin, default, type
+Cohesion: 0.07
+Nodes (28): color, __experimentalDefaultControls, radius, style, width, background, gradients, text (+20 more)
 
 ### Community 142 - "hideFilmstripMobile"
 Cohesion: 0.67
 Nodes (3): columns, default, type
 
-### Community 143 - "showFilmstrip"
+### Community 143 - "targetViewerId"
 Cohesion: 0.67
-Nodes (3): default, type, align
+Nodes (3): width, default, type
 
-### Community 144 - "targetViewerId"
+### Community 144 - "loadingMethod"
 Cohesion: 0.67
-Nodes (3): targetViewerId, default, type
+Nodes (3): containerBorderWidth, default, type
 
 ### Community 145 - "spacing"
 Cohesion: 0.67
 Nodes (3): margin, padding, spacing
 
-### Community 146 - "Nc"
+### Community 146 - "ef"
 Cohesion: 0.67
-Nodes (3): filmstripSize, default, type
+Nodes (3): selectedBorderColor, default, type
 
 ### Community 149 - "filmstripThumbRadius"
 Cohesion: 0.67
-Nodes (3): filmstripThumbRadius, default, type
+Nodes (3): thumbBorderColor, default, type
 
 ### Community 150 - "overrideDefaultBorderColor"
 Cohesion: 0.67
@@ -660,20 +652,28 @@ Nodes (3): overrideDefaultBorderColor, default, type
 Cohesion: 0.67
 Nodes (3): overrideHoverBadgeShadow, default, type
 
+### Community 153 - "Ea"
+Cohesion: 0.67
+Nodes (3): overrideBadgeTextColor, default, type
+
+### Community 154 - "Ie"
+Cohesion: 0.40
+Nodes (5): eb(), Ie(), kl(), ln(), Re()
+
 ## Knowledge Gaps
-- **344 isolated node(s):** `name`, `version`, `description`, `main`, `build` (+339 more)
+- **350 isolated node(s):** `name`, `version`, `description`, `main`, `build` (+345 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **25 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **30 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `n()` connect `Annotorious Vendor` to `Annotorious Vendor`, `t`, `bn`, `viewer/edit.js`, `Di`, `Ke`, `OpenSeadragon Vendor`, `Ie`, `dc`, `ch`, `qi`, `t`, `Database Layer`, `.draw`, `Ts`, `CS`?**
+- **Why does `n()` connect `CS` to `OpenSeadragon Vendor`, `Annotorious Vendor`, `bn`, `filmstripBorderRadius`, `Di`, `Ke`, `OpenSeadragon Vendor`, `Jn`, `dc`, `ch`, `_tileReadyHandler`, `qi`, `Database Layer`, `t`, `Annotorious Vendor`, `Ts`?**
   _High betweenness centrality (0.040) - this node is a cross-community bridge._
-- **Why does `Qe()` connect `OpenSeadragon Vendor` to `Annotorious Vendor`, `Ts`, `OpenSeadragon Vendor`, `CS`?**
+- **Why does `Qe()` connect `OpenSeadragon Vendor` to `Ts`, `OpenSeadragon Vendor`, `CS`?**
   _High betweenness centrality (0.027) - this node is a cross-community bridge._
-- **Why does `e()` connect `Annotorious Vendor` to `openseadragon.min.js`, `t`, `viewer/edit.js`, `OpenSeadragon Vendor`, `Annotorious Vendor`, `qi`, `_tileReadyHandler`, `CS`?**
-  _High betweenness centrality (0.023) - this node is a cross-community bridge._
+- **Why does `e()` connect `CS` to `OpenSeadragon Vendor`, `Annotorious Vendor`, `openseadragon.min.js`, `OpenSeadragon Vendor`, `qi`, `Annotorious Vendor`?**
+  _High betweenness centrality (0.022) - this node is a cross-community bridge._
 - **Are the 58 inferred relationships involving `n()` (e.g. with `Be()` and `$e()`) actually correct?**
   _`n()` has 58 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 52 inferred relationships involving `r()` (e.g. with `bd()` and `.renderWidget()`) actually correct?**

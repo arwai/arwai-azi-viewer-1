@@ -105,7 +105,7 @@ class ViewerBlock {
         }
 
         if (empty($images)) {
-            return '<div class="arwai-azi-viewer-error" style="padding: 16px; background: #fef2f2; color: #991b1b; border: 1px solid #fca5a5; border-radius: 6px; text-align: center;">' . esc_html__('No annotated images found for this post.', 'arwai-azi-viewer') . '</div>';
+            return '<div class="arwai-aziv-error" style="padding: 16px; background: #fef2f2; color: #991b1b; border: 1px solid #fca5a5; border-radius: 6px; text-align: center;">' . esc_html__('No annotated images found for this post.', 'arwai-azi-viewer') . '</div>';
         }
 
         self::enqueue_frontend_assets();
@@ -131,11 +131,12 @@ class ViewerBlock {
         $align_class = !empty($align) ? 'align' . $align : '';
 
         $wrapper_attributes = get_block_wrapper_attributes([
-            'class'           => 'arwai-azi-viewer-frontend-wrap ' . $align_class,
+            'class'           => 'arwai-aziv-frontend-wrap ' . $align_class,
             'id'              => $unique_id,
             'data-images'     => wp_json_encode($images),
             'data-post-id'    => $post_id,
             'data-viewer-id'  => $viewer_id,
+            'style'           => sprintf('height:%s; width:%s; --stage-height-limit:%s;', esc_attr($height), esc_attr($width), esc_attr($height)),
         ]);
 
         ob_start();
@@ -201,7 +202,7 @@ class ViewerBlock {
         }
 
         wp_localize_script('openseadragon-annotorious-js', 'ArwaiAziViewerConfig', [
-            'rest_url'      => esc_url_raw(rest_url('image-annotator/v1/')),
+            'rest_url'      => esc_url_raw(rest_url('arwai-azi-viewer/v1/')),
             'nonce'         => wp_create_nonce('wp_rest'),
             'user_can_edit' => $can_edit,
             'osd_options'   => SettingsPage::get_osd_options(),

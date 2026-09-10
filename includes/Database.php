@@ -23,8 +23,8 @@ class Database {
 
         $charset_collate = $wpdb->get_charset_collate();
 
-        $annotations_table = $wpdb->prefix . 'image_annotations';
-        $history_table     = $wpdb->prefix . 'image_annotations_history';
+        $annotations_table = $wpdb->prefix . 'arwai_azi_viewer_annotations';
+        $history_table     = $wpdb->prefix . 'arwai_azi_viewer_annotations_history';
 
         $sql_annotations = "CREATE TABLE {$annotations_table} (
             id bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -70,7 +70,7 @@ class Database {
     public static function get_annotations_by_attachment($attachment_id) {
         global $wpdb;
 
-        $table = $wpdb->prefix . 'image_annotations';
+        $table = $wpdb->prefix . 'arwai_azi_viewer_annotations';
         $results = $wpdb->get_results(
             $wpdb->prepare("SELECT id, annotation_id, annotation_data FROM {$table} WHERE attachment_id = %d ORDER BY id ASC", $attachment_id),
             ARRAY_A
@@ -103,8 +103,8 @@ class Database {
     public static function save_annotation($attachment_id, $post_id, $annotation_id, array $annotation_data, $user_id = 0) {
         global $wpdb;
 
-        $annotations_table = $wpdb->prefix . 'image_annotations';
-        $history_table     = $wpdb->prefix . 'image_annotations_history';
+        $annotations_table = $wpdb->prefix . 'arwai_azi_viewer_annotations';
+        $history_table     = $wpdb->prefix . 'arwai_azi_viewer_annotations_history';
 
         if (empty($user_id)) {
             $user_id = get_current_user_id();
@@ -317,8 +317,8 @@ class Database {
     public static function delete_annotation($attachment_id, $annotation_id, $annotation_data = null, $user_id = 0) {
         global $wpdb;
 
-        $annotations_table = $wpdb->prefix . 'image_annotations';
-        $history_table     = $wpdb->prefix . 'image_annotations_history';
+        $annotations_table = $wpdb->prefix . 'arwai_azi_viewer_annotations';
+        $history_table     = $wpdb->prefix . 'arwai_azi_viewer_annotations_history';
 
         if (empty($user_id)) {
             $user_id = get_current_user_id();
@@ -476,7 +476,7 @@ class Database {
     public static function get_annotation_history($annotation_id) {
         global $wpdb;
 
-        $history_table = $wpdb->prefix . 'image_annotations_history';
+        $history_table = $wpdb->prefix . 'arwai_azi_viewer_annotations_history';
         $trimmed_id    = ltrim($annotation_id, '#');
         $with_hash     = '#' . $trimmed_id;
 
@@ -520,8 +520,8 @@ class Database {
     public static function on_delete_attachment($post_id) {
         global $wpdb;
 
-        $annotations_table = $wpdb->prefix . 'image_annotations';
-        $history_table     = $wpdb->prefix . 'image_annotations_history';
+        $annotations_table = $wpdb->prefix . 'arwai_azi_viewer_annotations';
+        $history_table     = $wpdb->prefix . 'arwai_azi_viewer_annotations_history';
 
         $wpdb->delete($annotations_table, ['attachment_id' => $post_id], ['%d']);
         $wpdb->delete($history_table, ['attachment_id' => $post_id], ['%d']);

@@ -2,33 +2,51 @@
 if (!defined('ABSPATH')) {
     exit;
 }
-$wrapper_classes = 'arwai-azi-viewer-sequence-filmstrip-wrap standalone-sequence-filmstrip ' . $align_class;
+$wrapper_classes = 'arwai-aziv-sequence-filmstrip-wrap arwai-aziv-standalone-sequence-filmstrip ' . $align_class;
 if ($hide_filmstrip_mobile) {
     $wrapper_classes .= ' hide-on-mobile';
 }
 
-$wrapper_attributes = get_block_wrapper_attributes([
-    'class'                => $wrapper_classes,
-    'id'                   => $unique_id,
-    'data-target-viewer-id'=> esc_attr($target_viewer_id),
-]);
+$style_vars = sprintf(
+    '--filmstrip-size:%s; --filmstrip-gap:%s; --thumb-radius:%s; --thumb-border-width:%s; --thumb-border-color:%s; --thumb-hover-border-color:%s; --thumb-selected-border-color:%s;',
+    esc_attr($filmstrip_size),
+    esc_attr($filmstrip_gap),
+    esc_attr($thumb_radius),
+    esc_attr($thumb_border_width),
+    esc_attr($thumb_border_color),
+    esc_attr($hover_border_color),
+    esc_attr($selected_border_color)
+);
+if (!empty($container_border_width)) {
+    $style_vars .= 'border-width:' . esc_attr($container_border_width) . ';';
+}
+if (!empty($container_border_style)) {
+    $style_vars .= 'border-style:' . esc_attr($container_border_style) . ';';
+}
+if (!empty($container_border_color)) {
+    $style_vars .= 'border-color:' . esc_attr($container_border_color) . ';';
+}
+if (!empty($container_border_radius)) {
+    $style_vars .= 'border-radius:' . esc_attr($container_border_radius) . ';';
+}
 
-$border_css = '';
-if (!empty($filmstrip_border_width) && $filmstrip_border_width !== '0' && $filmstrip_border_width !== '0px') {
-    $border_css .= sprintf('border:%s solid %s;', esc_attr($filmstrip_border_width), esc_attr($filmstrip_border_color));
-}
-if (!empty($filmstrip_radius)) {
-    $border_css .= sprintf('border-radius:%s;', esc_attr($filmstrip_radius));
-}
-if (!empty($filmstrip_bg)) {
-    $border_css .= sprintf('background-color:%s;', esc_attr($filmstrip_bg));
-}
-$row_style = sprintf('margin-top:%s; margin-bottom:%s; %s display:flex; justify-content:center; padding:8px 0;', esc_attr($filmstrip_margin), esc_attr($filmstrip_margin), $border_css);
+$wrapper_attributes = get_block_wrapper_attributes([
+    'class'                 => $wrapper_classes,
+    'id'                    => $unique_id,
+    'data-target-viewer-id' => esc_attr($target_viewer_id),
+    'style'                 => $style_vars,
+]);
 ?>
 <div <?php echo $wrapper_attributes; ?>>
-    <div class="arwai-azi-viewer-filmstrip-row" style="<?php echo esc_attr($row_style); ?>">
-        <div class="filmstrip-scroll-container" style="display:flex; gap:8px; overflow-x:auto;">
-            <!-- Rendered dynamically by frontend view.js or target viewer data -->
-        </div>
+    <button type="button" class="arwai-aziv-filmstrip-nav-btn arwai-aziv-filmstrip-nav-prev" aria-label="<?php esc_attr_e('Previous thumbnails', 'arwai-azi-viewer'); ?>">
+        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.5" fill="none"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <div class="arwai-aziv-filmstrip-fade arwai-aziv-filmstrip-fade-left"></div>
+    <div class="arwai-aziv-filmstrip-scroll-container">
+        <!-- Rendered dynamically by frontend view.js or target viewer data -->
     </div>
+    <div class="arwai-aziv-filmstrip-fade arwai-aziv-filmstrip-fade-right"></div>
+    <button type="button" class="arwai-aziv-filmstrip-nav-btn arwai-aziv-filmstrip-nav-next" aria-label="<?php esc_attr_e('Next thumbnails', 'arwai-azi-viewer'); ?>">
+        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.5" fill="none"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
 </div>

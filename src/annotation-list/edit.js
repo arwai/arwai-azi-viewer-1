@@ -142,7 +142,7 @@ export default function Edit(props) {
     const nativeTextAlign = style?.typography?.textAlign || 'left';
 
     const blockProps = useBlockProps({
-        className: "arwai-azi-viewer-cards-wysiwyg-preview"
+        className: "arwai-aziv-cards-wysiwyg-preview"
     });
 
     const viewerBlocks = useSelect((select) => {
@@ -315,7 +315,7 @@ export default function Edit(props) {
 
             <div {...blockProps}>
                 <div 
-                    className={`arwai-azi-viewer-cards-grid cols-${attributes.columns || 2}`}
+                    className={`arwai-aziv-cards-grid cols-${attributes.columns || 2}`}
                     style={{
                         gap: nativeGap,
                         justifyContent: attributes.gridJustifyContent || 'start',
@@ -330,7 +330,7 @@ export default function Edit(props) {
                 >
                     {/* Card 1: Standard State */}
                     <div
-                        className="annotation-card-item"
+                        className="arwai-aziv-annotation-card-item"
                         style={{
                             flex: `1 1 ${parseCssUnit(attributes.cardMinWidth, 'px') || '280px'}`,
                             maxWidth: parseCssUnit(attributes.cardMaxWidth, 'px') || '100%',
@@ -366,9 +366,22 @@ export default function Edit(props) {
                             </span>
                             <strong style={{ fontSize: '1em' }}>{__('Standard State Card', 'arwai-azi-viewer')}</strong>
                         </div>
-                        <p style={{ fontSize: '1em', margin: '0 0 8px 0', opacity: 0.9, flexGrow: 1 }}>{__('Demonstrates standard background, text, border, and flex card layout.', 'arwai-azi-viewer')}</p>
+                        <p style={{
+                            fontSize: '1em',
+                            margin: '0 0 8px 0',
+                            opacity: 0.9,
+                            flexGrow: 1,
+                            ...(attributes.enableTruncation ? {
+                                WebkitLineClamp: attributes.cardMaxLines || 3,
+                                WebkitBoxOrient: 'vertical',
+                                display: '-webkit-box',
+                                overflow: 'hidden'
+                            } : {})
+                        }}>
+                            {__('Demonstrates standard background, text, border, and flex card layout.', 'arwai-azi-viewer')}
+                        </p>
                         {attributes.enableTruncation && (
-                            <button type="button" className="card-expand-btn" style={{ pointerEvents: 'none', marginTop: 'auto' }}>
+                            <button type="button" className="arwai-aziv-card-expand-btn" style={{ pointerEvents: 'none', marginTop: 'auto' }}>
                                 {attributes.readMoreText || '...Read More'}
                             </button>
                         )}
@@ -379,7 +392,7 @@ export default function Edit(props) {
 
                     {/* Card 2: Hover State */}
                     <div
-                        className="annotation-card-item hover-active"
+                        className="arwai-aziv-annotation-card-item arwai-aziv-hover-active"
                         style={{
                             flex: `1 1 ${parseCssUnit(attributes.cardMinWidth, 'px') || '280px'}`,
                             maxWidth: parseCssUnit(attributes.cardMaxWidth, 'px') || '100%',
@@ -419,7 +432,7 @@ export default function Edit(props) {
                     {/* Card 3: Selected State (if columns >= 3) */}
                     {(attributes.columns >= 3) && (
                         <div
-                            className="annotation-card-item selected-card"
+                            className="arwai-aziv-annotation-card-item arwai-aziv-selected-card"
                             style={{
                                 flex: `1 1 ${parseCssUnit(attributes.cardMinWidth, 'px') || '280px'}`,
                                 maxWidth: parseCssUnit(attributes.cardMaxWidth, 'px') || '100%',
@@ -460,7 +473,7 @@ export default function Edit(props) {
                     {/* Card 4: Additional Card (if columns >= 4) */}
                     {(attributes.columns >= 4) && (
                         <div
-                            className="annotation-card-item"
+                            className="arwai-aziv-annotation-card-item"
                             style={{
                                 flex: `1 1 ${parseCssUnit(attributes.cardMinWidth, 'px') || '280px'}`,
                                 maxWidth: parseCssUnit(attributes.cardMaxWidth, 'px') || '100%',

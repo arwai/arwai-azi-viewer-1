@@ -64,7 +64,7 @@ export default function Edit(props) {
     const { attributes, setAttributes, clientId } = props;
 
     const blockProps = useBlockProps({
-        className: attributes.imageIds?.length > 0 ? "arwai-azi-viewer-frontend-wrap arwai-azi-viewer-wysiwyg-preview-wrap" : "",
+        className: attributes.imageIds?.length > 0 ? "arwai-aziv-frontend-wrap arwai-aziv-wysiwyg-preview-wrap" : "",
     });
 
     const isDuplicateId = useSelect((select) => {
@@ -142,7 +142,17 @@ export default function Edit(props) {
 
             <InspectorControls>
 
-                <PanelBody title={__('Image Loading & Sizes', 'arwai-azi-viewer')} initialOpen={false}>
+                <PanelBody title={__('Stage Dimensions & Loading', 'arwai-azi-viewer')} initialOpen={false}>
+                    <UnitControl
+                        label={__('Stage Height', 'arwai-azi-viewer')}
+                        value={attributes.height || '500px'}
+                        onChange={(val) => setAttributes({ height: val })}
+                    />
+                    <UnitControl
+                        label={__('Stage Width', 'arwai-azi-viewer')}
+                        value={attributes.width || '100%'}
+                        onChange={(val) => setAttributes({ width: val })}
+                    />
                     <SelectControl
                         label={__('Simple Viewer Image Size', 'arwai-azi-viewer')}
                         value={attributes.simpleImageSize || ''}
@@ -264,10 +274,10 @@ export default function Edit(props) {
             {inspectorControls}
             <div {...blockProps}>
                 <div
-                    className="arwai-azi-viewer-display-stage"
+                    className="arwai-aziv-display-stage"
                     style={{
-                        height: '100%',
-                        width: '100%',
+                        height: attributes.height || '500px',
+                        width: attributes.width || '100%',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -293,7 +303,7 @@ export default function Edit(props) {
                             />
                             {/* Live WYSIWYG Sample Annotation Box & ID Badge Overlay */}
                             <div
-                                className="sample-wysiwyg-annotation-box"
+                                className="arwai-aziv-sample-wysiwyg-annotation-box"
                                 style={{
                                     position: 'absolute',
                                     top: '25%',

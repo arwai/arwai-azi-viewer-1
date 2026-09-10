@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('click', (e) => {
         // Do not deselect anything if click occurred inside OSD modal or Annotorious elements
         if (
-            e.target.closest('.arwai-azi-viewer-osd-modal') ||
+            e.target.closest('.arwai-aziv-osd-modal') ||
             e.target.closest('.r6o-editor') ||
             e.target.closest('.r6o-widget') ||
             e.target.closest('.r6o-comment-dropdown-menu') ||
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.target.closest('.a9s-annotation')
         ) {
             // Check username toggle inside OSD modal or widgets if clicked
-            const target = e.target.closest('.anno-user-name');
+            const target = e.target.closest('.arwai-aziv-user-name');
             if (target) {
                 const display = target.getAttribute('data-display') || target.textContent;
                 const login = target.getAttribute('data-login');
@@ -54,12 +54,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Deselect card and annotation if clicking outside cards and viewers
-        if (!e.target.closest('.annotation-card-item') && !e.target.closest('.arwai-azi-viewer-frontend-wrap')) {
-            document.querySelectorAll('.annotation-card-item').forEach(c => c.classList.remove('selected-card'));
+        if (!e.target.closest('.arwai-aziv-annotation-card-item') && !e.target.closest('.arwai-aziv-frontend-wrap')) {
+            document.querySelectorAll('.arwai-aziv-annotation-card-item').forEach(c => c.classList.remove('arwai-aziv-selected-card'));
             window.dispatchEvent(new CustomEvent('image-annotator:cancel-selected'));
         }
 
-        const target = e.target.closest('.anno-user-name');
+        const target = e.target.closest('.arwai-aziv-user-name');
         if (target) {
             const display = target.getAttribute('data-display') || target.textContent;
             const login = target.getAttribute('data-login');
@@ -96,18 +96,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const container = document.createElement('div');
-        container.className = 'r6o-widget anno-popup-history-widget';
+        container.className = 'r6o-widget arwai-aziv-popup-history-widget';
         container.addEventListener('click', (e) => e.stopPropagation());
         container.addEventListener('mousedown', (e) => e.stopPropagation());
 
         const button = document.createElement('button');
         button.type = 'button';
-        button.className = 'r6o-btn anno-history-toggle-btn';
+        button.className = 'r6o-btn arwai-aziv-history-toggle-btn';
         button.innerHTML = '<span>🕒 View History</span>';
         button.style.cssText = 'width: 100%; text-align: left; background: #ffffff; color: #334155; border-top: 1px solid #e2e8f0; border-bottom: none; border-left: none; border-right: none; padding: 10px 14px; font-size: 13px; cursor: pointer; font-weight: 500; display: flex; align-items: center; gap: 6px;';
 
         const historyBox = document.createElement('div');
-        historyBox.className = 'anno-history-box';
+        historyBox.className = 'arwai-aziv-history-box';
         historyBox.style.cssText = 'display: none; padding: 14px; background: #ffffff; border-top: 1px solid #e2e8f0; max-height: 160px; overflow-y: auto; font-size: 12px; color: #334155;';
 
         button.addEventListener('click', (e) => {
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                             html += `
                                 <div style="margin-bottom: 12px; text-align: center; border-bottom: 1px solid #f1f5f9; padding-bottom: 8px;">
-                                    <strong class="anno-user-name" data-display="${escapeHTML(userName)}" data-login="${escapeHTML(userLogin)}" data-fullname="${escapeHTML(fullName)}" style="color: #0073aa; cursor: pointer; font-size: 13px;">${escapeHTML(userName)}</strong>
+                                    <strong class="arwai-aziv-user-name" data-display="${escapeHTML(userName)}" data-login="${escapeHTML(userLogin)}" data-fullname="${escapeHTML(fullName)}" style="color: #0073aa; cursor: pointer; font-size: 13px;">${escapeHTML(userName)}</strong>
                                     <div style="color: #94a3b8; font-size: 11px; margin-top: 2px;">${dateStr}</div>
                                     <div style="margin-top: 4px; color: #1e293b; font-weight: 500;">${escapeHTML(diffText)}</div>
                                 </div>
@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // --- Main Frontend Viewers Instantiation ---
-    const wraps = document.querySelectorAll('.arwai-azi-viewer-frontend-wrap');
+    const wraps = document.querySelectorAll('.arwai-aziv-frontend-wrap');
     wraps.forEach(wrap => initFrontendViewer(wrap));
 
     function initFrontendViewer(wrap) {
@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
             foreignObject.setAttribute('style', 'transform: translate(-14px, -14px); overflow: visible; pointer-events: none;');
 
             const label = document.createElementNS('http://www.w3.org/1999/xhtml', 'div');
-            label.className = 'anno-circular-badge';
+            label.className = 'arwai-aziv-circular-badge';
             label.textContent = String(badgeNum);
             label.style.backgroundColor = badgeBg;
             label.style.color = badgeTextCol;
@@ -231,13 +231,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             return {
                 element: foreignObject,
-                className: matchedTagColor ? `anno-tag-custom anno-tag-${safeTagName}` : '',
+                className: matchedTagColor ? `arwai-aziv-tag-custom arwai-aziv-tag-${safeTagName}` : '',
                 style: `--tag-fill:${fillColor}; --tag-hover-fill:${hoverFill}; --tag-selected-fill:${selectedFill}; --tag-border:${borderColor}; --tag-badge-bg:${badgeBg}; --tag-badge-color:${badgeTextCol}; --tag-badge-shadow:${badgeShadow}; --tag-hover-border:${hoverBorder}; --tag-hover-badge:${hoverBadge}; --tag-hover-badge-text:${hoverBadgeText}; --tag-hover-badge-shadow:${hoverBadgeShadow}; --tag-selected-border:${selectedBorder}; --tag-selected-badge-shadow:${selectedBadgeShadow}; stroke: var(--tag-border); stroke-width: 2px; cursor: pointer;`,
                 'data-id': annotation.id
             };
         };
         const wrapId = wrap.id;
-        const stageEl = wrap.querySelector('.arwai-azi-viewer-display-stage');
+        const stageEl = wrap.querySelector('.arwai-aziv-display-stage');
         const carouselTrack = document.getElementById(`${wrapId}-track`);
 
 
@@ -245,15 +245,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function getActionToolbarForViewer() {
             if (viewerId) {
-                const exactMatch = document.querySelector(`.arwai-azi-viewer-action-toolbar-wrap[data-target-viewer-id="${viewerId}"]`);
+                const exactMatch = document.querySelector(`.arwai-aziv-action-toolbar-wrap[data-target-viewer-id="${viewerId}"]`);
                 if (exactMatch) return exactMatch;
             }
 
             const postContainer = wrap.closest('article, .post, .entry-content, .type-post, .wp-block-post, .single-post, .page');
             if (postContainer) {
-                const scopedToolbars = Array.from(postContainer.querySelectorAll('.arwai-azi-viewer-action-toolbar-wrap'));
+                const scopedToolbars = Array.from(postContainer.querySelectorAll('.arwai-aziv-action-toolbar-wrap'));
                 if (scopedToolbars.length > 0) {
-                    const postViewers = Array.from(postContainer.querySelectorAll('.arwai-azi-viewer-frontend-wrap'));
+                    const postViewers = Array.from(postContainer.querySelectorAll('.arwai-aziv-frontend-wrap'));
                     const myPostIndex = postViewers.indexOf(wrap);
                     if (myPostIndex !== -1 && scopedToolbars[myPostIndex]) {
                         return scopedToolbars[myPostIndex];
@@ -262,9 +262,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            const allViewers = Array.from(document.querySelectorAll('.arwai-azi-viewer-frontend-wrap'));
+            const allViewers = Array.from(document.querySelectorAll('.arwai-aziv-frontend-wrap'));
             const myIndex = allViewers.indexOf(wrap);
-            const untargetedToolbars = Array.from(document.querySelectorAll('.arwai-azi-viewer-action-toolbar-wrap')).filter(p => {
+            const untargetedToolbars = Array.from(document.querySelectorAll('.arwai-aziv-action-toolbar-wrap')).filter(p => {
                 const target = p.getAttribute('data-target-viewer-id');
                 return !target || target.trim() === '' || target === viewerId;
             });
@@ -272,20 +272,20 @@ document.addEventListener('DOMContentLoaded', () => {
             if (myIndex !== -1 && untargetedToolbars[myIndex]) {
                 return untargetedToolbars[myIndex];
             }
-            return document.querySelector('.arwai-azi-viewer-action-toolbar-wrap');
+            return document.querySelector('.arwai-aziv-action-toolbar-wrap');
         }
 
         function getToolbarsForViewer() {
-            const targeted = Array.from(document.querySelectorAll('.standalone-sequence-toolbar')).filter(p => {
+            const targeted = Array.from(document.querySelectorAll('.arwai-aziv-standalone-sequence-toolbar')).filter(p => {
                 const target = p.getAttribute('data-target-viewer-id');
                 return target && target.trim() === viewerId;
             });
             if (targeted.length > 0) return targeted;
 
             // Positional fallback: match by index when no targetViewerId is set
-            const allViewers = Array.from(document.querySelectorAll('.arwai-azi-viewer-frontend-wrap'));
+            const allViewers = Array.from(document.querySelectorAll('.arwai-aziv-frontend-wrap'));
             const myIndex = allViewers.indexOf(wrap);
-            const untargeted = Array.from(document.querySelectorAll('.standalone-sequence-toolbar')).filter(p => {
+            const untargeted = Array.from(document.querySelectorAll('.arwai-aziv-standalone-sequence-toolbar')).filter(p => {
                 const target = p.getAttribute('data-target-viewer-id');
                 return !target || target.trim() === '';
             });
@@ -296,16 +296,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function getFilmstripsForViewer() {
-            const targeted = Array.from(document.querySelectorAll('.standalone-sequence-filmstrip')).filter(f => {
+            const targeted = Array.from(document.querySelectorAll('.arwai-aziv-standalone-sequence-filmstrip')).filter(f => {
                 const target = f.getAttribute('data-target-viewer-id');
                 return target && target.trim() === viewerId;
             });
             if (targeted.length > 0) return targeted;
 
             // Positional fallback: match by index when no targetViewerId is set
-            const allViewers = Array.from(document.querySelectorAll('.arwai-azi-viewer-frontend-wrap'));
+            const allViewers = Array.from(document.querySelectorAll('.arwai-aziv-frontend-wrap'));
             const myIndex = allViewers.indexOf(wrap);
-            const untargeted = Array.from(document.querySelectorAll('.standalone-sequence-filmstrip')).filter(f => {
+            const untargeted = Array.from(document.querySelectorAll('.arwai-aziv-standalone-sequence-filmstrip')).filter(f => {
                 const target = f.getAttribute('data-target-viewer-id');
                 return !target || target.trim() === '';
             });
@@ -316,9 +316,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const actionToolbarWrap = getActionToolbarForViewer();
-        const btnNotes = actionToolbarWrap ? actionToolbarWrap.querySelector('.btn-notes') : null;
-        const btnEnlarge = actionToolbarWrap ? actionToolbarWrap.querySelector('.btn-enlarge') : null;
-        const btnInfo = actionToolbarWrap ? actionToolbarWrap.querySelector('.btn-info') : null;
+        const btnNotes = actionToolbarWrap ? actionToolbarWrap.querySelector('.arwai-aziv-btn-notes') : null;
+        const btnEnlarge = actionToolbarWrap ? actionToolbarWrap.querySelector('.arwai-aziv-btn-enlarge') : null;
+        const btnInfo = actionToolbarWrap ? actionToolbarWrap.querySelector('.arwai-aziv-btn-info') : null;
         const infoPopup = document.getElementById(`${wrapId}-info-popup`);
         const osdModal = document.getElementById(`${wrapId}-osd-modal`);
         const simpleLoader = document.getElementById(`${wrapId}-loader`);
@@ -345,7 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
         function getActiveImageEl() {
             if (!carouselTrack) return null;
             const activeSlide = carouselTrack.children[activeIndex];
-            return activeSlide ? activeSlide.querySelector('img.annotator-target-img') : null;
+            return activeSlide ? activeSlide.querySelector('img.arwai-aziv-target-img') : null;
         }
 
         function initMainAnnotorious() {
@@ -375,16 +375,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 mainAnno.setVisible(notesVisible);
 
                 mainAnno.on('selectAnnotation', (annotation) => {
-                    document.querySelectorAll('.annotation-card-item').forEach(c => c.classList.remove('selected-card'));
-                    const cardEl = document.querySelector(`.annotation-card-item[data-annotation-id="${annotation.id}"]`);
+                    document.querySelectorAll('.arwai-aziv-annotation-card-item').forEach(c => c.classList.remove('arwai-aziv-selected-card'));
+                    const cardEl = document.querySelector(`.arwai-aziv-annotation-card-item[data-annotation-id="${annotation.id}"]`);
                     if (cardEl) {
-                        cardEl.classList.add('selected-card');
+                        cardEl.classList.add('arwai-aziv-selected-card');
                         cardEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                     }
                 });
 
                 mainAnno.on('cancelSelected', () => {
-                    document.querySelectorAll('.annotation-card-item').forEach(c => c.classList.remove('selected-card'));
+                    document.querySelectorAll('.arwai-aziv-annotation-card-item').forEach(c => c.classList.remove('arwai-aziv-selected-card'));
                 });
 
                 loadMainAnnotations(images[activeIndex].attachment_id);
@@ -399,7 +399,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function getActionNotesBtn() {
             const currentToolbar = getActionToolbarForViewer();
-            return currentToolbar ? currentToolbar.querySelector('.btn-notes') : btnNotes;
+            return currentToolbar ? currentToolbar.querySelector('.arwai-aziv-btn-notes') : btnNotes;
         }
 
         function updateNotesButtonsState(count) {
@@ -419,8 +419,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     btn.setAttribute('title', notesVisible ? 'Hide Annotations' : 'Show Annotations');
                 }
 
-                const iconEyeOpen = btn.querySelector('.icon-eye-open');
-                const iconEyeOff = btn.querySelector('.icon-eye-off');
+                const iconEyeOpen = btn.querySelector('.arwai-aziv-icon-eye-open');
+                const iconEyeOff = btn.querySelector('.arwai-aziv-icon-eye-off');
                 if (iconEyeOpen && iconEyeOff) {
                     iconEyeOpen.style.display = notesVisible ? 'inline-block' : 'none';
                     iconEyeOff.style.display = notesVisible ? 'none' : 'inline-block';
@@ -432,8 +432,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function setNotesVisibility(visible) {
             notesVisible = visible;
-            if (mainAnno) mainAnno.setVisible(notesVisible);
-            if (osdAnno) osdAnno.setVisible(notesVisible);
+            if (mainAnno) {
+                mainAnno.setVisible(notesVisible);
+                if (notesVisible) {
+                    const currentAnnos = mainAnno.getAnnotations();
+                    if (Array.isArray(currentAnnos) && currentAnnos.length > 0) {
+                        mainAnno.setAnnotations(currentAnnos);
+                    }
+                }
+            }
+            if (osdAnno) {
+                osdAnno.setVisible(notesVisible);
+                if (notesVisible) {
+                    const currentAnnos = osdAnno.getAnnotations();
+                    if (Array.isArray(currentAnnos) && currentAnnos.length > 0) {
+                        osdAnno.setAnnotations(currentAnnos);
+                    }
+                }
+            }
             toggleCardsVisibility(notesVisible);
 
             const osdBtnNotes = document.getElementById(`${wrapId}-osd-notes`);
@@ -441,8 +457,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             [notesButton, osdBtnNotes].forEach(btn => {
                 if (!btn) return;
-                const iconEyeOpen = btn.querySelector('.icon-eye-open');
-                const iconEyeOff = btn.querySelector('.icon-eye-off');
+                const iconEyeOpen = btn.querySelector('.arwai-aziv-icon-eye-open');
+                const iconEyeOff = btn.querySelector('.arwai-aziv-icon-eye-off');
                 if (iconEyeOpen && iconEyeOff) {
                     iconEyeOpen.style.display = notesVisible ? 'inline-block' : 'none';
                     iconEyeOff.style.display = notesVisible ? 'none' : 'inline-block';
@@ -493,14 +509,14 @@ document.addEventListener('DOMContentLoaded', () => {
             // Priority 1: Search INSIDE the exact same post container first!
             if (postContainer) {
                 if (viewerId) {
-                    const scopedTargetGrids = Array.from(postContainer.querySelectorAll(`.arwai-azi-viewer-cards-grid[data-target-viewer-id="${viewerId}"]`));
+                    const scopedTargetGrids = Array.from(postContainer.querySelectorAll(`.arwai-aziv-cards-grid[data-target-viewer-id="${viewerId}"]`));
                     if (scopedTargetGrids.length > 0) {
                         return scopedTargetGrids;
                     }
                 }
-                const scopedAllGrids = Array.from(postContainer.querySelectorAll('.arwai-azi-viewer-cards-grid'));
+                const scopedAllGrids = Array.from(postContainer.querySelectorAll('.arwai-aziv-cards-grid'));
                 if (scopedAllGrids.length > 0) {
-                    const postViewers = Array.from(postContainer.querySelectorAll('.arwai-azi-viewer-frontend-wrap'));
+                    const postViewers = Array.from(postContainer.querySelectorAll('.arwai-aziv-frontend-wrap'));
                     const myPostIndex = postViewers.indexOf(wrap);
                     if (myPostIndex !== -1 && scopedAllGrids[myPostIndex]) {
                         return [scopedAllGrids[myPostIndex]];
@@ -512,18 +528,18 @@ document.addEventListener('DOMContentLoaded', () => {
             // Priority 2: Match by data-post-id if available
             if (currentPostId) {
                 if (viewerId) {
-                    const postTargetGrids = Array.from(document.querySelectorAll(`.arwai-azi-viewer-cards-grid[data-post-id="${currentPostId}"][data-target-viewer-id="${viewerId}"]`));
+                    const postTargetGrids = Array.from(document.querySelectorAll(`.arwai-aziv-cards-grid[data-post-id="${currentPostId}"][data-target-viewer-id="${viewerId}"]`));
                     if (postTargetGrids.length > 0) return postTargetGrids;
                 }
-                const postGrids = Array.from(document.querySelectorAll(`.arwai-azi-viewer-cards-grid[data-post-id="${currentPostId}"]`));
+                const postGrids = Array.from(document.querySelectorAll(`.arwai-aziv-cards-grid[data-post-id="${currentPostId}"]`));
                 if (postGrids.length > 0) return postGrids;
             }
 
             // Priority 3: Match globally by viewerId ONLY if viewerId is unique across the page
             if (viewerId) {
-                const globalGrids = Array.from(document.querySelectorAll(`.arwai-azi-viewer-cards-grid[data-target-viewer-id="${viewerId}"]`));
+                const globalGrids = Array.from(document.querySelectorAll(`.arwai-aziv-cards-grid[data-target-viewer-id="${viewerId}"]`));
                 if (globalGrids.length > 0) {
-                    const viewersWithSameId = document.querySelectorAll(`.arwai-azi-viewer-frontend-wrap[data-viewer-id="${viewerId}"]`);
+                    const viewersWithSameId = document.querySelectorAll(`.arwai-aziv-frontend-wrap[data-viewer-id="${viewerId}"]`);
                     if (viewersWithSameId.length <= 1) {
                         return globalGrids;
                     }
@@ -531,9 +547,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Priority 4: Global index fallback
-            const allViewers = Array.from(document.querySelectorAll('.arwai-azi-viewer-frontend-wrap'));
+            const allViewers = Array.from(document.querySelectorAll('.arwai-aziv-frontend-wrap'));
             const myIndex = allViewers.indexOf(wrap);
-            const untargetedGrids = Array.from(document.querySelectorAll('.arwai-azi-viewer-cards-grid')).filter(g => {
+            const untargetedGrids = Array.from(document.querySelectorAll('.arwai-aziv-cards-grid')).filter(g => {
                 const target = g.getAttribute('data-target-viewer-id');
                 return !target || target.trim() === '';
             });
@@ -565,7 +581,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         grid.innerHTML = '';
 
                         if (!Array.isArray(annotations) || annotations.length === 0) {
-                            grid.innerHTML = '<div class="arwai-azi-viewer-empty-cards" style="padding: 16px; text-align: center; color: #64748b; font-style: italic; width: 100%;"><p>No annotations for this image.</p></div>';
+                            grid.innerHTML = '<div class="arwai-aziv-empty-cards" style="padding: 16px; text-align: center; color: #64748b; font-style: italic; width: 100%;"><p>No annotations for this image.</p></div>';
                             return;
                         }
 
@@ -616,7 +632,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             });
 
                             const card = document.createElement('div');
-                            card.className = 'annotation-card-item';
+                            card.className = 'arwai-aziv-annotation-card-item';
                             card.setAttribute('data-annotation-id', annoId);
                             card.setAttribute('data-attachment-id', activeAttachmentId);
 
@@ -672,23 +688,23 @@ document.addEventListener('DOMContentLoaded', () => {
                             `;
 
                             let commentsHtml = comments.map(c => `<p>${escapeHTML(c)}</p>`).join('') || '<p><em>No comment text</em></p>';
-                            let tagsHtml = tags.map(t => `<span class="card-tag-badge">#${escapeHTML(t)}</span>`).join('');
+                            let tagsHtml = tags.map(t => `<span class="arwai-aziv-card-tag-badge">#${escapeHTML(t)}</span>`).join('');
 
                             const justifyHeader = cardTextAlignment === 'center' ? 'center' : cardTextAlignment === 'right' ? 'flex-end' : 'flex-start';
 
                             card.innerHTML = `
-                                <div class="card-header-bar" style="justify-content:${justifyHeader};">
-                                    <span class="card-badge-circle" style="background:${matchedBadge}; color:${matchedBadgeText};">${badgeNum}</span>
-                                    <div class="card-author-meta">
-                                        <strong class="author-name anno-user-name" data-display="${escapeHTML(creator)}" data-login="${escapeHTML(userLogin)}" data-fullname="${escapeHTML(fullName)}" style="cursor:pointer;">${escapeHTML(creator)}</strong>
-                                        ${timeAgo ? `<span class="created-time">${escapeHTML(timeAgo)}</span>` : ''}
+                                <div class="arwai-aziv-card-header-bar" style="justify-content:${justifyHeader};">
+                                    <span class="arwai-aziv-card-badge-circle" style="background:${matchedBadge}; color:${matchedBadgeText};">${badgeNum}</span>
+                                    <div class="arwai-aziv-card-author-meta">
+                                        <strong class="arwai-aziv-author-name arwai-aziv-user-name" data-display="${escapeHTML(creator)}" data-login="${escapeHTML(userLogin)}" data-fullname="${escapeHTML(fullName)}" style="cursor:pointer;">${escapeHTML(creator)}</strong>
+                                        ${timeAgo ? `<span class="arwai-aziv-created-time">${escapeHTML(timeAgo)}</span>` : ''}
                                     </div>
                                 </div>
-                                <div class="card-body-text">
+                                <div class="arwai-aziv-card-body-text">
                                     ${commentsHtml}
-                                    <div class="card-fade-mask"></div>
+                                    <div class="arwai-aziv-card-fade-mask"></div>
                                 </div>
-                                ${tagsHtml ? `<div class="card-tags-footer" style="justify-content:${justifyHeader};">${tagsHtml}</div>` : ''}
+                                ${tagsHtml ? `<div class="arwai-aziv-card-tags-footer" style="justify-content:${justifyHeader};">${tagsHtml}</div>` : ''}
                             `;
 
                             grid.appendChild(card);
@@ -699,7 +715,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             const showLessText = getCardOverride('data-show-less-text', card_styles.show_less_text || 'Show Less');
 
                             if (enableTruncation) {
-                                const bodyEl = card.querySelector('.card-body-text');
+                                const bodyEl = card.querySelector('.arwai-aziv-card-body-text');
                                 if (bodyEl) {
                                     const cardMaxLines = parseInt(getCardOverride('data-card-max-lines', card_styles.card_max_lines || '3'), 10) || 3;
                                     bodyEl.style.setProperty('--card-max-lines', cardMaxLines);
@@ -713,16 +729,16 @@ document.addEventListener('DOMContentLoaded', () => {
                                     const maxAllowedHeight = lineHeight * cardMaxLines + 6;
 
                                     if (bodyEl.scrollHeight > maxAllowedHeight) {
-                                        bodyEl.classList.add('is-truncatable');
+                                        bodyEl.classList.add('arwai-aziv-is-truncatable');
                                         bodyEl.style.maxHeight = `${maxAllowedHeight}px`;
 
                                         const btn = document.createElement('button');
                                         btn.type = 'button';
-                                        btn.className = 'card-expand-btn';
+                                        btn.className = 'arwai-aziv-card-expand-btn';
                                         btn.innerText = readMoreText;
                                         btn.addEventListener('click', (e) => {
                                             e.stopPropagation();
-                                            const isExpanded = bodyEl.classList.toggle('is-expanded');
+                                            const isExpanded = bodyEl.classList.toggle('arwai-aziv-is-expanded');
                                             if (isExpanded) {
                                                 bodyEl.style.maxHeight = `${bodyEl.scrollHeight + 10}px`;
                                             } else {
@@ -743,8 +759,8 @@ document.addEventListener('DOMContentLoaded', () => {
                                         mainAnno.selectAnnotation(annoObj);
                                     }
                                 }
-                                document.querySelectorAll('.annotation-card-item').forEach(c => c.classList.remove('selected-card'));
-                                card.classList.add('selected-card');
+                                document.querySelectorAll('.arwai-aziv-annotation-card-item').forEach(c => c.classList.remove('arwai-aziv-selected-card'));
+                                card.classList.add('arwai-aziv-selected-card');
                             });
                         });
                     });
@@ -767,9 +783,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             getToolbarsForViewer().forEach(toolbarWrap => {
-                const pPrev = toolbarWrap.querySelector('.btn-prev');
-                const pNext = toolbarWrap.querySelector('.btn-next');
-                const pCounter = toolbarWrap.querySelector('.toolbar-counter');
+                const pPrev = toolbarWrap.querySelector('.arwai-aziv-btn-prev');
+                const pNext = toolbarWrap.querySelector('.arwai-aziv-btn-next');
+                const pCounter = toolbarWrap.querySelector('.arwai-aziv-toolbar-counter');
                 if (pPrev) {
                     pPrev.disabled = activeIndex === 0;
                     pPrev.style.opacity = activeIndex === 0 ? '0.3' : '';
@@ -786,9 +802,15 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             getFilmstripsForViewer().forEach(fs => {
-                const thumbs = fs.querySelectorAll('.filmstrip-thumb-item');
+                const container = fs.querySelector('.arwai-aziv-filmstrip-scroll-container');
+                const thumbs = fs.querySelectorAll('.arwai-aziv-filmstrip-thumb-item');
                 thumbs.forEach((t, i) => {
-                    t.classList.toggle('active', i === activeIndex);
+                    const isActive = i === activeIndex;
+                    t.classList.toggle('active', isActive);
+                    t.style.opacity = isActive ? '1' : '0.7';
+                    if (isActive && container) {
+                        scrollToCenterThumb(container, t);
+                    }
                 });
             });
 
@@ -896,9 +918,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Bind Navigation Toolbar (< 1 / 7 >) — embedded + all standalone instances
         getToolbarsForViewer().forEach(toolbarWrap => {
-            const pPrev = toolbarWrap.querySelector('.btn-prev');
-            const pNext = toolbarWrap.querySelector('.btn-next');
-            const pCounter = toolbarWrap.querySelector('.toolbar-counter');
+            const pPrev = toolbarWrap.querySelector('.arwai-aziv-btn-prev');
+            const pNext = toolbarWrap.querySelector('.arwai-aziv-btn-next');
+            const pCounter = toolbarWrap.querySelector('.arwai-aziv-toolbar-counter');
             // Init counter
             if (pCounter) pCounter.textContent = `${activeIndex + 1} / ${images.length}`;
             // Hide single-image toolbars
@@ -913,17 +935,58 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
+        // Helper: Calculate exact scroll position to center active thumbnail
+        function scrollToCenterThumb(container, thumb) {
+            if (!container || !thumb) return;
+            const containerWidth = container.clientWidth;
+            const thumbLeft = thumb.offsetLeft;
+            const thumbWidth = thumb.offsetWidth;
+            const targetLeft = thumbLeft - (containerWidth / 2) + (thumbWidth / 2);
+            container.scrollTo({
+                left: Math.max(0, targetLeft),
+                behavior: 'smooth'
+            });
+        }
+
+        // Helper: Update filmstrip chevron buttons and fade overlays visibility
+        function updateFilmstripScrollState(fs) {
+            const container = fs.querySelector('.arwai-aziv-filmstrip-scroll-container');
+            if (!container) return;
+
+            const btnPrev = fs.querySelector('.arwai-aziv-filmstrip-nav-prev');
+            const btnNext = fs.querySelector('.arwai-aziv-filmstrip-nav-next');
+            const fadeLeft = fs.querySelector('.arwai-aziv-filmstrip-fade-left');
+            const fadeRight = fs.querySelector('.arwai-aziv-filmstrip-fade-right');
+
+            const scrollLeft = container.scrollLeft;
+            const scrollWidth = container.scrollWidth;
+            const clientWidth = container.clientWidth;
+
+            const hasOverflow = scrollWidth - clientWidth > 2;
+            const canScrollLeft = hasOverflow && scrollLeft > 2;
+            const canScrollRight = hasOverflow && (scrollLeft + clientWidth < scrollWidth - 4);
+
+            if (btnPrev) btnPrev.classList.toggle('is-visible', canScrollLeft);
+            if (btnNext) btnNext.classList.toggle('is-visible', canScrollRight);
+            if (fadeLeft) fadeLeft.classList.toggle('is-visible', canScrollLeft);
+            if (fadeRight) fadeRight.classList.toggle('is-visible', canScrollRight);
+        }
+
         // Populate & Bind Filmstrip Thumbnails — embedded + all standalone instances
         function buildFilmstripThumbs(fs) {
-            const container = fs.querySelector('.filmstrip-scroll-container');
+            const container = fs.querySelector('.arwai-aziv-filmstrip-scroll-container');
             if (!container) return;
-            // Only build if the container is empty (standalone block renders no PHP thumbs)
+
+            const btnPrev = fs.querySelector('.arwai-aziv-filmstrip-nav-prev');
+            const btnNext = fs.querySelector('.arwai-aziv-filmstrip-nav-next');
+
+            // Populate thumbnails if container is empty (standalone block)
             if (container.children.length === 0) {
                 images.forEach((img, i) => {
                     const item = document.createElement('div');
-                    item.className = `filmstrip-thumb-item ${i === 0 ? 'active' : ''}`;
+                    item.className = `arwai-aziv-filmstrip-thumb-item ${i === 0 ? 'active' : ''}`;
                     item.setAttribute('data-index', i);
-                    item.style.cssText = `flex-shrink:0; overflow:hidden; cursor:pointer; opacity:${i === 0 ? '1' : '0.6'};`;
+                    item.style.cssText = `flex-shrink:0; overflow:hidden; cursor:pointer; opacity:${i === 0 ? '1' : '0.7'};`;
                     const thumb = document.createElement('img');
                     thumb.src = img.thumb_url || img.simple_url;
                     thumb.alt = '';
@@ -932,13 +995,46 @@ document.addEventListener('DOMContentLoaded', () => {
                     container.appendChild(item);
                 });
             }
-            const thumbs = fs.querySelectorAll('.filmstrip-thumb-item');
+
+            const thumbs = fs.querySelectorAll('.arwai-aziv-filmstrip-thumb-item');
             thumbs.forEach(t => {
                 t.addEventListener('click', () => {
                     const idx = parseInt(t.getAttribute('data-index'), 10);
                     switchSlide(idx);
                 });
             });
+
+            // Bind Left / Right Nav Buttons
+            if (btnPrev && !btnPrev.dataset.bound) {
+                btnPrev.dataset.bound = '1';
+                btnPrev.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const step = Math.max(160, container.clientWidth * 0.6);
+                    container.scrollBy({ left: -step, behavior: 'smooth' });
+                });
+            }
+
+            if (btnNext && !btnNext.dataset.bound) {
+                btnNext.dataset.bound = '1';
+                btnNext.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const step = Math.max(160, container.clientWidth * 0.6);
+                    container.scrollBy({ left: step, behavior: 'smooth' });
+                });
+            }
+
+            // Bind Scroll & Resize observers for fade/chevron updates
+            if (!container.dataset.boundScroll) {
+                container.dataset.boundScroll = '1';
+                container.addEventListener('scroll', () => updateFilmstripScrollState(fs), { passive: true });
+                if (typeof ResizeObserver !== 'undefined') {
+                    new ResizeObserver(() => updateFilmstripScrollState(fs)).observe(container);
+                } else {
+                    window.addEventListener('resize', () => updateFilmstripScrollState(fs));
+                }
+            }
+
+            setTimeout(() => updateFilmstripScrollState(fs), 50);
         }
 
         getFilmstripsForViewer().forEach(fs => buildFilmstripThumbs(fs));
@@ -946,9 +1042,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Action Toolbar Toolbar Buttons
         const activeToolbar = getActionToolbarForViewer();
         if (activeToolbar) {
-            const bNotes = activeToolbar.querySelector('.btn-notes');
-            const bInfo = activeToolbar.querySelector('.btn-info');
-            const bEnlarge = activeToolbar.querySelector('.btn-enlarge');
+            const bNotes = activeToolbar.querySelector('.arwai-aziv-btn-notes');
+            const bInfo = activeToolbar.querySelector('.arwai-aziv-btn-info');
+            const bEnlarge = activeToolbar.querySelector('.arwai-aziv-btn-enlarge');
 
             if (bNotes) {
                 bNotes.onclick = (e) => {
@@ -962,8 +1058,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 bInfo.onclick = (e) => {
                     e.preventDefault();
                     const currentAtt = images[activeIndex];
-                    const infoRes = infoPopup.querySelector('.info-res');
-                    const infoAttId = infoPopup.querySelector('.info-att-id');
+                    const infoRes = infoPopup.querySelector('.arwai-aziv-info-res');
+                    const infoAttId = infoPopup.querySelector('.arwai-aziv-info-att-id');
                     if (infoRes) infoRes.textContent = `${currentAtt.width} x ${currentAtt.height} px`;
                     if (infoAttId) infoAttId.textContent = currentAtt.attachment_id;
                     infoPopup.style.display = 'flex';
@@ -978,7 +1074,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         if (infoPopup) {
-            const closeInfo = infoPopup.querySelector('.info-close-btn');
+            const closeInfo = infoPopup.querySelector('.arwai-aziv-info-close-btn');
             if (closeInfo) closeInfo.onclick = () => infoPopup.style.display = 'none';
         }
 
@@ -1027,15 +1123,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     osdAnno.setVisible(notesVisible);
 
                     osdAnno.on('selectAnnotation', (annotation) => {
-                        document.querySelectorAll('.annotation-card-item').forEach(c => c.classList.remove('selected-card'));
-                        const cardEl = document.querySelector(`.annotation-card-item[data-annotation-id="${annotation.id}"]`);
+                        document.querySelectorAll('.arwai-aziv-annotation-card-item').forEach(c => c.classList.remove('arwai-aziv-selected-card'));
+                        const cardEl = document.querySelector(`.arwai-aziv-annotation-card-item[data-annotation-id="${annotation.id}"]`);
                         if (cardEl) {
-                            cardEl.classList.add('selected-card');
+                            cardEl.classList.add('arwai-aziv-selected-card');
                             cardEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                         }
                     });
                     osdAnno.on('cancelSelected', () => {
-                        document.querySelectorAll('.annotation-card-item').forEach(c => c.classList.remove('selected-card'));
+                        document.querySelectorAll('.arwai-aziv-annotation-card-item').forEach(c => c.classList.remove('arwai-aziv-selected-card'));
                     });
 
                     const pageIdx = osdViewer.currentPage();
@@ -1056,6 +1152,10 @@ document.addEventListener('DOMContentLoaded', () => {
             osdViewer.addHandler('page', (e) => {
                 if (osdLoader) osdLoader.style.display = 'block';
                 switchSlide(e.page);
+                const currentAtt = images[e.page];
+                if (currentAtt) {
+                    loadOsdAnnotations(currentAtt.attachment_id);
+                }
             });
 
             bindOsdFloatingToolbars(wrapId, osdViewer, () => {
@@ -1145,8 +1245,8 @@ document.addEventListener('DOMContentLoaded', () => {
             refreshAnnotationCards(images[0].attachment_id);
             // Set initial disabled state on all toolbar instances
             getToolbarsForViewer().forEach(toolbarWrap => {
-                const pPrev = toolbarWrap.querySelector('.btn-prev');
-                const pNext = toolbarWrap.querySelector('.btn-next');
+                const pPrev = toolbarWrap.querySelector('.arwai-aziv-btn-prev');
+                const pNext = toolbarWrap.querySelector('.arwai-aziv-btn-next');
                 if (pPrev) {
                     pPrev.disabled = true;
                     pPrev.style.opacity = '0.3';

@@ -135,7 +135,7 @@ class AnnotationListBlock {
         if (!empty($attributes['style']['spacing']['padding'])) {
             $p = $attributes['style']['spacing']['padding'];
             if (is_string($p)) {
-                $native_padding = str_replace('var:preset|spacing|', 'var(--wp--preset--spacing--', $p);
+                $native_padding = preg_replace('/var:preset\|spacing\|([a-zA-Z0-9-]+)/', 'var(--wp--preset--spacing--$1)', $p);
             } elseif (is_array($p)) {
                 $top = $p['top'] ?? '0px';
                 $right = $p['right'] ?? '0px';
@@ -163,8 +163,16 @@ class AnnotationListBlock {
         $align       = !empty($attributes['align']) ? sanitize_html_class($attributes['align']) : '';
         $align_class = !empty($align) ? 'align' . $align : '';
 
+        $native_gap = '16px';
+        if (!empty($attributes['style']['spacing']['blockGap'])) {
+            $g = $attributes['style']['spacing']['blockGap'];
+            if (is_string($g)) {
+                $native_gap = preg_replace('/var:preset\|spacing\|([a-zA-Z0-9-]+)/', 'var(--wp--preset--spacing--$1)', $g);
+            }
+        }
+
         $wrapper_attributes = get_block_wrapper_attributes([
-            'class'                     => 'arwai-azi-viewer-cards-grid cols-' . (int) $columns . ' ' . $align_class,
+            'class'                     => 'arwai-aziv-cards-grid cols-' . (int) $columns . ' ' . $align_class,
             'id'                        => $unique_id,
             'data-post-id'              => $post_id,
             'data-enable-truncation'     => $card_styles['enable_truncation'] ? '1' : '0',
@@ -172,11 +180,13 @@ class AnnotationListBlock {
             'data-read-more-text'        => $card_styles['read_more_text'],
             'data-show-less-text'        => $card_styles['show_less_text'],
             'style'                      => sprintf(
-                '--card-min-width:%s; --card-max-width:%s; --card-max-lines:%d; --grid-justify-content:%s;',
+                '--card-min-width:%s; --card-max-width:%s; --card-max-lines:%d; --grid-justify-content:%s; --card-gap:%s; column-gap:%s;',
                 esc_attr($card_styles['card_min_width']),
                 esc_attr($card_styles['card_max_width']),
                 (int) $card_styles['card_max_lines'],
-                esc_attr($card_styles['grid_justify_content'])
+                esc_attr($card_styles['grid_justify_content']),
+                esc_attr($native_gap),
+                esc_attr($native_gap)
             )
         ]);
 

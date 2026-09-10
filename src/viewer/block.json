@@ -65,9 +65,13 @@
             "type": "string",
             "default": ""
         },
-        "postId": {
-            "type": "number",
-            "default": 0
+        "height": {
+            "type": "string",
+            "default": "500px"
+        },
+        "width": {
+            "type": "string",
+            "default": "100%"
         },
         "simpleImageSize": {
             "type": "string",

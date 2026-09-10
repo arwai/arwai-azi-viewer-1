@@ -14,13 +14,13 @@ if (!defined('ABSPATH')) {
 }
 
 class AnnotationController extends WP_REST_Controller {
-    protected $namespace = 'arwai-image-annotator/v1';
+    protected $namespace = 'arwai-azi-viewer/v1';
 
     /**
      * Register REST API routes.
      */
     public function register_routes() {
-        $namespaces = [$this->namespace, 'image-annotator/v1'];
+        $namespaces = [$this->namespace];
 
         foreach ($namespaces as $ns) {
             register_rest_route($ns, '/annotations/attachment/(?P<attachment_id>\d+)', [

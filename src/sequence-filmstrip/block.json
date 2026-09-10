@@ -24,29 +24,31 @@
         ],
         "color": {
             "background": true,
-            "text": true
+            "text": true,
+            "gradients": true
         },
         "spacing": {
             "margin": true,
-            "padding": true
+            "padding": true,
+            "blockGap": true
         },
         "border": {
             "color": true,
             "radius": true,
             "style": true,
             "width": true,
-            "__experimentalSkipSerialization": false
+            "__experimentalDefaultControls": {
+                "color": true,
+                "radius": true,
+                "style": true,
+                "width": true
+            }
         },
-        "typography": {
-            "fontSize": true,
-            "lineHeight": true,
-            "fontFamily": true,
-            "__experimentalFontFamily": true,
-            "fontWeight": true,
-            "fontStyle": true,
-            "letterSpacing": true
-        },
-        "shadow": true
+        "shadow": {
+            "__experimentalDefaultControls": {
+                "shadow": true
+            }
+        }
     },
     "textdomain": "arwai-azi-viewer",
     "editorScript": "file:./index.js",
@@ -72,27 +74,39 @@
             "type": "string",
             "default": "60px"
         },
-        "filmstripThumbRadius": {
+        "thumbBorderRadius": {
             "type": "string",
             "default": "4px"
         },
-        "filmstripMargin": {
+        "thumbBorderWidth": {
             "type": "string",
-            "default": "10px"
+            "default": "1px"
         },
-        "filmstripBorderWidth": {
+        "thumbBorderColor": {
             "type": "string",
-            "default": "0px"
+            "default": "rgba(0,0,0,0.12)"
         },
-        "filmstripBorderColor": {
+        "hoverBorderColor": {
             "type": "string",
-            "default": "#e2e8f0"
+            "default": "#3b82f6"
         },
-        "filmstripBorderRadius": {
+        "selectedBorderColor": {
             "type": "string",
-            "default": "6px"
+            "default": "#2563eb"
         },
-        "filmstripBgColor": {
+        "containerBorderWidth": {
+            "type": "string",
+            "default": ""
+        },
+        "containerBorderStyle": {
+            "type": "string",
+            "default": ""
+        },
+        "containerBorderColor": {
+            "type": "string",
+            "default": ""
+        },
+        "containerBorderRadius": {
             "type": "string",
             "default": ""
         }

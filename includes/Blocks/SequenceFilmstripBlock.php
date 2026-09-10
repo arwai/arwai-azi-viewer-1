@@ -35,17 +35,37 @@ class SequenceFilmstripBlock {
         ViewerBlock::enqueue_frontend_assets();
 
         $target_viewer_id      = !empty($attributes['targetViewerId']) ? sanitize_text_field($attributes['targetViewerId']) : '';
-        $card_styles           = SettingsPage::get_card_styles();
 
         $show_filmstrip        = isset($attributes['showFilmstrip']) ? (bool) $attributes['showFilmstrip'] : true;
         $hide_filmstrip_mobile = isset($attributes['hideFilmstripMobile']) ? (bool) $attributes['hideFilmstripMobile'] : true;
+
+        // Dimensions (Width/Height) set on block map to thumbnail size (default 60px)
         $filmstrip_size        = isset($attributes['filmstripSize']) ? self::parse_unit($attributes['filmstripSize']) : '60px';
-        $filmstrip_margin      = isset($attributes['filmstripMargin']) ? self::parse_unit($attributes['filmstripMargin']) : '10px';
-        $filmstrip_bg          = !empty($attributes['filmstripBgColor']) ? sanitize_text_field($attributes['filmstripBgColor']) : (!empty($card_styles['default_stage_bg_color']) ? $card_styles['default_stage_bg_color'] : 'rgba(0,0,0,0.2)');
-        $filmstrip_border_color= !empty($attributes['filmstripBorderColor']) ? sanitize_text_field($attributes['filmstripBorderColor']) : 'transparent';
-        $filmstrip_border_width= isset($attributes['filmstripBorderWidth']) ? self::parse_unit($attributes['filmstripBorderWidth']) : '0px';
-        $filmstrip_radius      = isset($attributes['filmstripBorderRadius']) ? self::parse_unit($attributes['filmstripBorderRadius']) : '6px';
-        $filmstrip_thumb_radius= isset($attributes['filmstripThumbRadius']) ? self::parse_unit($attributes['filmstripThumbRadius']) : '4px';
+        if (!empty($attributes['style']['dimensions']['width'])) {
+            $filmstrip_size    = self::parse_unit($attributes['style']['dimensions']['width']);
+        } elseif (!empty($attributes['style']['dimensions']['height'])) {
+            $filmstrip_size    = self::parse_unit($attributes['style']['dimensions']['height']);
+        }
+
+        // Block spacing (blockGap) maps to space between thumbnails (default 8px)
+        $filmstrip_gap         = '8px';
+        if (!empty($attributes['style']['spacing']['blockGap'])) {
+            $g = $attributes['style']['spacing']['blockGap'];
+            if (is_string($g)) {
+                $filmstrip_gap = preg_replace('/var:preset\|spacing\|([a-zA-Z0-9-]+)/', 'var(--wp--preset--spacing--$1)', $g);
+            }
+        }
+
+        $thumb_radius          = !empty($attributes['thumbBorderRadius']) ? self::parse_unit($attributes['thumbBorderRadius']) : '4px';
+        $thumb_border_width    = !empty($attributes['thumbBorderWidth']) ? self::parse_unit($attributes['thumbBorderWidth']) : '1px';
+        $thumb_border_color    = !empty($attributes['thumbBorderColor']) ? sanitize_text_field($attributes['thumbBorderColor']) : 'rgba(0,0,0,0.12)';
+        $hover_border_color    = !empty($attributes['hoverBorderColor']) ? sanitize_text_field($attributes['hoverBorderColor']) : '#3b82f6';
+        $selected_border_color = !empty($attributes['selectedBorderColor']) ? sanitize_text_field($attributes['selectedBorderColor']) : '#2563eb';
+
+        $container_border_width  = !empty($attributes['containerBorderWidth']) ? self::parse_unit($attributes['containerBorderWidth']) : (!empty($attributes['style']['border']['width']) ? self::parse_unit($attributes['style']['border']['width']) : '');
+        $container_border_style  = !empty($attributes['containerBorderStyle']) ? sanitize_text_field($attributes['containerBorderStyle']) : (!empty($attributes['style']['border']['style']) ? sanitize_text_field($attributes['style']['border']['style']) : '');
+        $container_border_color  = !empty($attributes['containerBorderColor']) ? sanitize_text_field($attributes['containerBorderColor']) : (!empty($attributes['style']['border']['color']) ? sanitize_text_field($attributes['style']['border']['color']) : '');
+        $container_border_radius = !empty($attributes['containerBorderRadius']) ? self::parse_unit($attributes['containerBorderRadius']) : (!empty($attributes['style']['border']['radius']) ? self::parse_unit($attributes['style']['border']['radius']) : '');
 
         $align       = !empty($attributes['align']) ? sanitize_html_class($attributes['align']) : '';
         $align_class = !empty($align) ? 'align' . $align : '';

@@ -1,6 +1,6 @@
 /* Image Annotator Public Frontend Styles - Instagram Carousel & Reverted Gutenberg Cards */
 
-.arwai-azi-viewer-frontend-wrap {
+.arwai-aziv-frontend-wrap {
     position: relative;
     max-width: 100%;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -9,7 +9,7 @@
 }
 
 /* 1. Main Display Stage - Instagram-Style Smooth Sliding Carousel & Grab Cursor */
-.arwai-azi-viewer-display-stage {
+.arwai-aziv-display-stage {
     position: relative;
     width: 100%;
     max-width: 100%;
@@ -23,18 +23,18 @@
     box-sizing: border-box;
 }
 
-.arwai-azi-viewer-display-stage:active {
+.arwai-aziv-display-stage:active {
     cursor: grabbing;
 }
 
-.carousel-track-wrapper {
+.arwai-aziv-carousel-track-wrapper {
     width: 100%;
     height: 100%;
     overflow: hidden;
     position: relative;
 }
 
-.carousel-track {
+.arwai-aziv-carousel-track {
     display: flex;
     align-items: center !important;
     justify-content: flex-start;
@@ -44,7 +44,7 @@
     will-change: transform;
 }
 
-.carousel-slide {
+.arwai-aziv-carousel-slide {
     min-width: 100%;
     width: 100%;
     height: 100%;
@@ -57,9 +57,9 @@
 }
 
 /* Ensure picture & Annotorious wrapper containers fit within stage height limit */
-.carousel-slide picture.annotator-target-picture,
-.carousel-slide picture,
-.carousel-slide .a9s-inner-wrapper {
+.arwai-aziv-carousel-slide picture.arwai-aziv-target-picture,
+.arwai-aziv-carousel-slide picture,
+.arwai-aziv-carousel-slide .a9s-inner-wrapper {
     max-height: var(--stage-height-limit, 500px) !important;
     max-width: 100% !important;
     height: auto !important;
@@ -73,9 +73,9 @@
 }
 
 /* Ensure target image scales proportionally inside container matching stage height limit */
-.carousel-slide img.annotator-target-img,
-.carousel-slide picture img,
-.carousel-slide .a9s-inner-wrapper img {
+.arwai-aziv-carousel-slide img.arwai-aziv-target-img,
+.arwai-aziv-carousel-slide picture img,
+.arwai-aziv-carousel-slide .a9s-inner-wrapper img {
     max-height: var(--stage-height-limit, 500px) !important;
     max-width: 100% !important;
     width: auto !important;
@@ -87,7 +87,7 @@
 }
 
 /* Ensure Annotorious SVG overlay aligns over image */
-.carousel-slide .a9s-annotation-layer {
+.arwai-aziv-carousel-slide .a9s-annotation-layer {
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
@@ -99,7 +99,7 @@
 }
 
 /* Circular ID Badge Formatter (13, 17, 19, 28) */
-.anno-circular-badge {
+.arwai-aziv-circular-badge {
     width: 24px;
     height: 24px;
     border-radius: 50%;
@@ -115,11 +115,11 @@
 }
 
 /* 2. Middle Navigation Toolbar (< 1 / 7 >) */
-.arwai-azi-viewer-toolbar-wrap {
+.arwai-aziv-toolbar-wrap {
     margin: 16px 0 12px 0;
 }
 
-.arwai-azi-viewer-toolbar {
+.arwai-aziv-toolbar {
     display: flex;
     width: max-content;
     align-items: center;
@@ -134,10 +134,10 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.toolbar-nav-btn {
+.arwai-aziv-toolbar-nav-btn {
     background: transparent;
     border: none;
-    color: #94a3b8;
+    color: inherit;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -147,12 +147,12 @@
     transition: all 0.2s ease;
 }
 
-.toolbar-nav-btn:focus-visible {
+.arwai-aziv-toolbar-nav-btn:focus-visible {
     outline: 2px solid currentColor;
     outline-offset: 2px;
 }
 
-.toolbar-nav-btn:hover {
+.arwai-aziv-toolbar-nav-btn:hover {
     background: var(--toolbar-hover-bg, rgba(255, 255, 255, 0.1));
     color: var(--toolbar-hover-color, #ffffff);
     opacity: var(--toolbar-hover-opacity, 1);
@@ -160,7 +160,7 @@
     box-shadow: var(--toolbar-hover-shadow, none);
 }
 
-.toolbar-counter {
+.arwai-aziv-toolbar-counter {
     font-size: inherit;
     font-family: inherit;
     font-weight: 600;
@@ -168,53 +168,131 @@
 }
 
 /* 3. Filmstrip Thumbnails Row */
-.arwai-azi-viewer-filmstrip-row {
-    margin-bottom: 8px;
-    overflow: hidden;
-    padding: 8px 1rem;
+.arwai-aziv-sequence-filmstrip-wrap {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.arwai-aziv-filmstrip-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 28px;
+    height: calc(100% - 12px);
+    max-height: 72px;
+    min-height: 44px;
+    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.85);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.arwai-aziv-filmstrip-nav-btn.is-visible {
+    opacity: 0.9;
+    pointer-events: auto;
+}
+
+.arwai-aziv-filmstrip-nav-btn:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.06);
+    background: #2563eb;
+    border-color: #3b82f6;
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+}
+
+.arwai-aziv-filmstrip-nav-prev {
+    left: 8px;
+}
+
+.arwai-aziv-filmstrip-nav-next {
+    right: 8px;
+}
+
+.arwai-aziv-filmstrip-fade {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 36px;
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.arwai-aziv-filmstrip-fade-left {
+    left: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.2), transparent);
+    border-top-left-radius: inherit;
+    border-bottom-left-radius: inherit;
+}
+
+.arwai-aziv-filmstrip-fade-right {
+    right: 0;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.2), transparent);
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+}
+
+.arwai-aziv-filmstrip-fade.is-visible {
+    opacity: 1;
 }
 
 @media (max-width: 768px) {
-    .arwai-azi-viewer-filmstrip-row.hide-on-mobile {
+    .arwai-aziv-sequence-filmstrip-wrap.hide-on-mobile {
         display: none !important;
     }
 }
 
-.filmstrip-scroll-container {
+.arwai-aziv-filmstrip-scroll-container {
     display: flex;
-    justify-content: center;
-    gap: 12px;
+    justify-content: safe center;
+    align-items: center;
+    gap: var(--filmstrip-gap, 8px);
     overflow-x: auto;
-    padding: 6px 4px;
+    padding: 10px 16px;
+    box-sizing: border-box;
+    width: 100%;
 }
 
-.filmstrip-thumb-item {
+.arwai-aziv-filmstrip-thumb-item {
     position: relative;
-    width: 68px;
-    height: 68px;
-    border-radius: 6px;
+    width: var(--filmstrip-size, 60px);
+    height: var(--filmstrip-size, 60px);
+    border-radius: var(--thumb-radius, 4px);
     overflow: hidden;
     cursor: pointer;
-    border: 2px solid transparent;
+    border: var(--thumb-border-width, 1px) solid var(--thumb-border-color, rgba(0,0,0,0.12));
+    background-color: #e2e8f0;
     opacity: 0.7;
     transition: all 0.2s ease;
     flex-shrink: 0;
 }
 
-.filmstrip-thumb-item.active,
-.filmstrip-thumb-item:hover {
+.arwai-aziv-filmstrip-thumb-item:hover {
     opacity: 1;
-    border-color: #0f172a;
-    box-shadow: 0 0 8px rgba(15, 23, 42, 0.3);
-    transform: scale(1.2);
+    border-color: var(--thumb-hover-border-color, #3b82f6);
+    transform: scale(1.08);
 }
 
-.filmstrip-thumb-item.active img,
-.filmstrip-thumb-item:hover img {
-    transform: scale(1.1);
+.arwai-aziv-filmstrip-thumb-item.active {
+    opacity: 1;
+    border-color: var(--thumb-selected-border-color, #2563eb);
+    box-shadow: 0 0 8px rgba(37, 99, 235, 0.35);
+    transform: scale(1.08);
 }
 
-.filmstrip-thumb-item img {
+.arwai-aziv-filmstrip-thumb-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -224,11 +302,11 @@
 }
 
 /* 4. Bottom Action Toolbar Toolbar (Notes, Enlarge, Info) */
-.arwai-azi-viewer-action-toolbar-wrap {
+.arwai-aziv-action-toolbar-wrap {
     margin-top: 12px;
 }
 
-.arwai-azi-viewer-action-toolbar {
+.arwai-aziv-action-toolbar {
     display: flex;
     width: max-content;
     align-items: center;
@@ -243,7 +321,7 @@
     white-space: nowrap;
 }
 
-.action-toolbar-btn {
+.arwai-aziv-action-toolbar-btn {
     display: flex;
     align-items: center;
     gap: 6px;
@@ -260,17 +338,17 @@
     white-space: nowrap;
 }
 
-.action-toolbar-btn:focus-visible {
+.arwai-aziv-action-toolbar-btn:focus-visible {
     outline: 2px solid currentColor;
     outline-offset: 2px;
 }
 
-.action-toolbar-btn span {
+.arwai-aziv-action-toolbar-btn span {
     white-space: nowrap;
 }
 
-.action-toolbar-btn:hover,
-.action-toolbar-btn.active {
+.arwai-aziv-action-toolbar-btn:hover,
+.arwai-aziv-action-toolbar-btn.active {
     background: var(--toolbar-hover-bg, rgba(0, 0, 0, 0.05));
     color: var(--toolbar-hover-color, inherit);
     opacity: var(--toolbar-hover-opacity, 1);
@@ -278,7 +356,7 @@
     box-shadow: var(--toolbar-hover-shadow, none);
 }
 
-.action-toolbar-btn svg {
+.arwai-aziv-action-toolbar-btn svg {
     stroke: currentColor;
 }
 
@@ -289,7 +367,7 @@
 }
 
 /* OpenSeadragon Fullscreen Enlarge Modal */
-.arwai-azi-viewer-osd-modal {
+.arwai-aziv-osd-modal {
     position: fixed;
     inset: 0;
     width: 100vw;
@@ -301,14 +379,14 @@
     justify-content: center;
 }
 
-.osd-modal-backdrop {
+.arwai-aziv-osd-modal-backdrop {
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.88);
     backdrop-filter: blur(6px);
 }
 
-.osd-modal-stage {
+.arwai-aziv-osd-modal-stage {
     position: relative;
     width: 100vw;
     height: 100vh;
@@ -316,14 +394,14 @@
     z-index: 2;
 }
 
-.osd-canvas-element {
+.arwai-aziv-osd-canvas-element {
     width: 100%;
     height: 100%;
     background: #000000;
 }
 
 /* Floating Toolbars */
-.osd-toolbar-top-center {
+.arwai-aziv-osd-toolbar-top-center {
     position: absolute;
     top: 20px;
     left: 50%;
@@ -343,8 +421,8 @@
     z-index: 9999;
 }
 
-.osd-tool-item,
-.osd-icon-btn {
+.arwai-aziv-osd-tool-item,
+.arwai-aziv-osd-icon-btn {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -362,12 +440,12 @@
     white-space: nowrap;
 }
 
-.osd-tool-item span {
+.arwai-aziv-osd-tool-item span {
     white-space: nowrap;
 }
 
-.osd-tool-item:hover,
-.osd-tool-item.active {
+.arwai-aziv-osd-tool-item:hover,
+.arwai-aziv-osd-tool-item.active {
     background: var(--toolbar-hover-bg, rgba(255, 255, 255, 0.15));
     color: var(--toolbar-hover-color, #ffffff);
     opacity: var(--toolbar-hover-opacity, 1);
@@ -375,7 +453,7 @@
     box-shadow: var(--toolbar-hover-shadow, none);
 }
 
-.osd-toolbar-top-right {
+.arwai-aziv-osd-toolbar-top-right {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -394,25 +472,25 @@
     z-index: 9999;
 }
 
-.osd-tool-group {
+.arwai-aziv-osd-tool-group {
     display: flex;
     gap: 4px;
 }
 
-.osd-tool-divider {
+.arwai-aziv-osd-tool-divider {
     width: 1px;
     height: 18px;
     background: currentColor;
     opacity: 0.2;
 }
 
-.osd-icon-btn {
+.arwai-aziv-osd-icon-btn {
     width: 32px;
     height: 32px;
     border-radius: 50%;
 }
 
-.osd-icon-btn:hover {
+.arwai-aziv-osd-icon-btn:hover {
     background: var(--toolbar-hover-bg, rgba(255, 255, 255, 0.2));
     color: var(--toolbar-hover-color, #ffffff);
     opacity: var(--toolbar-hover-opacity, 1);
@@ -421,7 +499,7 @@
 }
 
 /* Info Popup */
-.arwai-azi-viewer-info-popup {
+.arwai-aziv-info-popup {
     position: fixed;
     inset: 0;
     z-index: 99999;
@@ -431,7 +509,7 @@
     background: rgba(0, 0, 0, 0.6);
 }
 
-.info-popup-content {
+.arwai-aziv-info-popup-content {
     position: relative;
     width: 360px;
     padding: 24px;
@@ -440,7 +518,7 @@
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
-.info-close-btn {
+.arwai-aziv-info-close-btn {
     position: absolute;
     top: 12px;
     right: 14px;
@@ -452,30 +530,30 @@
 }
 
 /* 5. Gutenberg Annotation Cards Grid Block (CSS Masonry Layout) */
-.arwai-azi-viewer-cards-grid {
+.arwai-aziv-cards-grid {
     column-count: 2;
     column-gap: var(--card-gap, 16px);
     box-sizing: border-box;
     width: 100%;
 }
 
-.arwai-azi-viewer-cards-grid.cols-1 {
+.arwai-aziv-cards-grid.cols-1 {
     column-count: 1;
 }
 
-.arwai-azi-viewer-cards-grid.cols-2 {
+.arwai-aziv-cards-grid.cols-2 {
     column-count: 2;
 }
 
-.arwai-azi-viewer-cards-grid.cols-3 {
+.arwai-aziv-cards-grid.cols-3 {
     column-count: 3;
 }
 
-.arwai-azi-viewer-cards-grid.cols-4 {
+.arwai-aziv-cards-grid.cols-4 {
     column-count: 4;
 }
 
-.arwai-azi-viewer-cards-grid .annotation-card-item {
+.arwai-aziv-cards-grid .arwai-aziv-annotation-card-item {
     box-sizing: border-box;
     break-inside: avoid;
     -webkit-column-break-inside: avoid;
@@ -487,7 +565,7 @@
 
 /* Mobile Stacking Rule (< 640px) */
 @media (max-width: 640px) {
-    .arwai-azi-viewer-cards-grid {
+    .arwai-aziv-cards-grid {
         column-count: 1 !important;
     }
 }
@@ -495,16 +573,16 @@
 /* Block Alignment Rules (Center, Left, Right, Wide, Full) */
 .wp-block-arwai-azi-viewer-viewer.aligncenter,
 .wp-block-arwai-azi-viewer-annotation-list.aligncenter,
-.arwai-azi-viewer-cards-grid.aligncenter,
-.arwai-azi-viewer-frontend-wrap.aligncenter {
+.arwai-aziv-cards-grid.aligncenter,
+.arwai-aziv-frontend-wrap.aligncenter {
     margin-left: auto !important;
     margin-right: auto !important;
 }
 
 .wp-block-arwai-azi-viewer-viewer.alignleft,
 .wp-block-arwai-azi-viewer-annotation-list.alignleft,
-.arwai-azi-viewer-cards-grid.alignleft,
-.arwai-azi-viewer-frontend-wrap.alignleft {
+.arwai-aziv-cards-grid.alignleft,
+.arwai-aziv-frontend-wrap.alignleft {
     float: left;
     margin-right: 2em !important;
     margin-bottom: 1.5em !important;
@@ -513,8 +591,8 @@
 
 .wp-block-arwai-azi-viewer-viewer.alignright,
 .wp-block-arwai-azi-viewer-annotation-list.alignright,
-.arwai-azi-viewer-cards-grid.alignright,
-.arwai-azi-viewer-frontend-wrap.alignright {
+.arwai-aziv-cards-grid.alignright,
+.arwai-aziv-frontend-wrap.alignright {
     float: right;
     margin-left: 2em !important;
     margin-bottom: 1.5em !important;
@@ -523,8 +601,8 @@
 
 .wp-block-arwai-azi-viewer-viewer.alignwide,
 .wp-block-arwai-azi-viewer-annotation-list.alignwide,
-.arwai-azi-viewer-cards-grid.alignwide,
-.arwai-azi-viewer-frontend-wrap.alignwide {
+.arwai-aziv-cards-grid.alignwide,
+.arwai-aziv-frontend-wrap.alignwide {
     max-width: var(--wp--style--global--wide-size, 1200px);
     margin-left: auto !important;
     margin-right: auto !important;
@@ -533,15 +611,15 @@
 
 .wp-block-arwai-azi-viewer-viewer.alignfull,
 .wp-block-arwai-azi-viewer-annotation-list.alignfull,
-.arwai-azi-viewer-cards-grid.alignfull,
-.arwai-azi-viewer-frontend-wrap.alignfull {
+.arwai-aziv-cards-grid.alignfull,
+.arwai-aziv-frontend-wrap.alignfull {
     max-width: 100% !important;
     width: 100vw !important;
     margin-left: calc(50% - 50vw) !important;
     margin-right: calc(50% - 50vw) !important;
 }
 
-.annotation-card-item {
+.arwai-aziv-annotation-card-item {
     background-color: var(--card-bg, #1e293b);
     color: var(--card-text, #f8fafc);
     border-radius: var(--card-border-radius, 6px) !important;
@@ -559,8 +637,8 @@
     hyphens: auto;
 }
 
-.annotation-card-item:hover,
-.annotation-card-item.hover-active {
+.arwai-aziv-annotation-card-item:hover,
+.arwai-aziv-annotation-card-item.arwai-aziv-hover-active {
     background-color: var(--card-hover-bg, #334155);
     color: var(--card-hover-text, #f8fafc);
     border-color: var(--card-hover-border, var(--card-border-color, #cbd5e1)) !important;
@@ -570,7 +648,7 @@
     transform: translateY(-3px);
 }
 
-.annotation-card-item.selected-card {
+.arwai-aziv-annotation-card-item.arwai-aziv-selected-card {
     background-color: var(--card-selected-bg, #0f172a) !important;
     color: var(--card-selected-text, #ffffff) !important;
     border-color: var(--card-selected-border, #2563eb) !important;
@@ -580,14 +658,14 @@
 }
 
 
-.card-header-bar {
+.arwai-aziv-card-header-bar {
     display: flex;
     align-items: center;
     gap: 10px;
     margin-bottom: 12px;
 }
 
-.card-badge-circle {
+.arwai-aziv-card-badge-circle {
     width: 26px;
     height: 26px;
     border-radius: 50%;
@@ -599,22 +677,22 @@
     flex-shrink: 0;
 }
 
-.card-author-meta {
+.arwai-aziv-card-author-meta {
     display: flex;
     flex-direction: column;
 }
 
-.card-author-meta .author-name {
+.arwai-aziv-card-author-meta .arwai-aziv-author-name {
     font-size: 13px;
     font-weight: 600;
 }
 
-.card-author-meta .created-time {
+.arwai-aziv-card-author-meta .arwai-aziv-created-time {
     font-size: 11px;
     opacity: 0.75;
 }
 
-.card-body-text {
+.arwai-aziv-card-body-text {
     font-size: inherit;
     line-height: 1.5;
     margin-bottom: auto;
@@ -623,22 +701,22 @@
     transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.card-body-text.is-truncatable {
+.arwai-aziv-card-body-text.arwai-aziv-is-truncatable {
     overflow: hidden;
 }
 
-.card-body-text.is-truncatable:not(.is-expanded) {
+.arwai-aziv-card-body-text.arwai-aziv-is-truncatable:not(.arwai-aziv-is-expanded) {
     display: -webkit-box;
     -webkit-line-clamp: var(--card-max-lines, 3);
     -webkit-box-orient: vertical;
 }
 
-.card-body-text.is-truncatable.is-expanded {
+.arwai-aziv-card-body-text.arwai-aziv-is-truncatable.arwai-aziv-is-expanded {
     display: block !important;
     -webkit-line-clamp: unset !important;
 }
 
-.card-expand-btn {
+.arwai-aziv-card-expand-btn {
     display: inline-flex;
     align-items: center;
     gap: 4px;
@@ -655,22 +733,22 @@
     transition: all 0.2s ease;
 }
 
-.card-expand-btn:hover {
+.arwai-aziv-card-expand-btn:hover {
     background: rgba(37, 99, 235, 0.2);
     color: #1d4ed8;
 }
 
-.card-body-text p {
+.arwai-aziv-card-body-text p {
     margin: 0 0 6px 0;
 }
 
-.card-tags-footer {
+.arwai-aziv-card-tags-footer {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
 }
 
-.card-tag-badge {
+.arwai-aziv-card-tag-badge {
     padding: 2px 8px;
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.15);
@@ -689,6 +767,7 @@
 }
 
 /* 8. Circular Badge Styles & Custom Formatting States */
+.a9s-annotation foreignObject .arwai-aziv-circular-badge,
 .a9s-annotation foreignObject label {
     width: 24px;
     height: 24px;
@@ -708,12 +787,15 @@
     line-height: 20px;
 }
 
+.a9s-annotation:hover foreignObject .arwai-aziv-circular-badge,
 .a9s-annotation:hover foreignObject label,
+.a9s-annotation.a9s-hover foreignObject .arwai-aziv-circular-badge,
 .a9s-annotation.a9s-hover foreignObject label {
     box-shadow: var(--tag-hover-badge-shadow, 0 4px 12px rgba(0, 0, 0, 0.25)) !important;
     transform: scale(1.1);
 }
 
+.a9s-annotation.selected foreignObject .arwai-aziv-circular-badge,
 .a9s-annotation.selected foreignObject label {
     box-shadow: var(--tag-selected-badge-shadow, 0 4px 12px rgba(0, 0, 0, 0.25)) !important;
     transform: scale(1.1);
@@ -757,7 +839,7 @@
 @media (max-width: 768px) {
 
     /* Simple Viewer: compact pagination toolbar & 100% width action toolbar on mobile */
-    .arwai-azi-viewer-toolbar-wrap {
+    .arwai-aziv-toolbar-wrap {
         display: flex;
         justify-content: center;
         width: 100%;
@@ -765,14 +847,14 @@
         padding-top: max(4px, env(safe-area-inset-top, 0px));
     }
 
-    .arwai-azi-viewer-action-toolbar-wrap {
+    .arwai-aziv-action-toolbar-wrap {
         width: 100%;
         box-sizing: border-box;
         padding-bottom: max(12px, env(safe-area-inset-bottom, 0px));
         margin-bottom: 8px;
     }
 
-    .arwai-azi-viewer-toolbar {
+    .arwai-aziv-toolbar {
         width: auto;
         display: inline-flex;
         align-items: center;
@@ -783,7 +865,7 @@
         font-size: 13px !important;
     }
 
-    .arwai-azi-viewer-action-toolbar {
+    .arwai-aziv-action-toolbar {
         width: 100%;
         box-sizing: border-box;
         justify-content: space-around;
@@ -791,7 +873,7 @@
         white-space: nowrap !important;
     }
 
-    .arwai-azi-viewer-action-toolbar .action-toolbar-btn {
+    .arwai-aziv-action-toolbar .arwai-aziv-action-toolbar-btn {
         flex: 1;
         display: flex !important;
         flex-direction: column !important;
@@ -803,21 +885,21 @@
         gap: 3px !important;
     }
 
-    .action-toolbar-btn span,
-    .osd-tool-item span,
-    .toolbar-counter {
+    .arwai-aziv-action-toolbar-btn span,
+    .arwai-aziv-osd-tool-item span,
+    .arwai-aziv-toolbar-counter {
         white-space: nowrap !important;
         line-height: 1 !important;
     }
 
     /* OSD Modal: Safe-area insets & dynamic viewport height so browser controls never cover toolbars */
-    .arwai-azi-viewer-osd-modal,
-    .osd-modal-stage {
+    .arwai-aziv-osd-modal,
+    .arwai-aziv-osd-modal-stage {
         height: 100vh !important;
         height: 100dvh !important;
     }
 
-    .osd-toolbar-top-center {
+    .arwai-aziv-osd-toolbar-top-center {
         top: auto !important;
         bottom: calc(28px + env(safe-area-inset-bottom, 0px)) !important;
         left: 16px !important;
@@ -831,7 +913,7 @@
         white-space: nowrap !important;
     }
 
-    .osd-toolbar-top-center .osd-tool-item {
+    .arwai-aziv-osd-toolbar-top-center .arwai-aziv-osd-tool-item {
         flex: 1;
         justify-content: center;
         white-space: nowrap !important;
@@ -840,7 +922,7 @@
         gap: 2px !important;
     }
 
-    .osd-toolbar-top-right {
+    .arwai-aziv-osd-toolbar-top-right {
         top: calc(20px + env(safe-area-inset-top, 0px)) !important;
         right: 16px !important;
         left: auto !important;
@@ -852,7 +934,7 @@
     }
 
     /* Filmstrip Swipe Fix: align left so first item isn't pushed off screen, enable momentum scrolling */
-    .filmstrip-scroll-container {
+    .arwai-aziv-filmstrip-scroll-container {
         justify-content: flex-start;
         -webkit-overflow-scrolling: touch;
         padding-bottom: 12px;
@@ -862,18 +944,18 @@
 @media (max-width: 640px) {
 
     /* Cards Grid: Force flex-direction column & 100% width on small screens */
-    .arwai-azi-viewer-cards-grid {
+    .arwai-aziv-cards-grid {
         flex-direction: column !important;
     }
 
-    .arwai-azi-viewer-cards-grid .annotation-card-item {
+    .arwai-aziv-cards-grid .arwai-aziv-annotation-card-item {
         flex: 1 1 100% !important;
         width: 100% !important;
         max-width: 100% !important;
     }
 
     /* Ensure main wrapper doesn't overflow the viewport */
-    .arwai-azi-viewer-frontend-wrap {
+    .arwai-aziv-frontend-wrap {
         max-width: 100%;
         box-sizing: border-box;
     }
@@ -883,7 +965,7 @@
    7. Loading Animation
    ========================================= */
 
-.arwai-azi-viewer-loader-wrapper {
+.arwai-aziv-loader-wrapper {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -892,13 +974,13 @@
     display: none;
 }
 
-.arwai-azi-viewer-loader {
+.arwai-aziv-loader {
     display: inline-grid;
     filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.8));
 }
 
-.arwai-azi-viewer-loader:before,
-.arwai-azi-viewer-loader:after {
+.arwai-aziv-loader:before,
+.arwai-aziv-loader:after {
     content: "";
     grid-area: 1/1;
     height: 30px;
@@ -913,7 +995,7 @@
     animation: l10 1.5s infinite linear;
 }
 
-.arwai-azi-viewer-loader:after {
+.arwai-aziv-loader:after {
     scale: -1;
 }
 

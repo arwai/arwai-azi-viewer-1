@@ -5,12 +5,12 @@ if (!defined('WP_UNINSTALL_PLUGIN')) {
 
 global $wpdb;
 
-$annotations_table = $wpdb->prefix . 'image_annotations';
-$history_table     = $wpdb->prefix . 'image_annotations_history';
+$annotations_table = $wpdb->prefix . 'arwai_azi_viewer_annotations';
+$history_table     = $wpdb->prefix . 'arwai_azi_viewer_annotations_history';
 
 // Drop Custom Tables
 $wpdb->query("DROP TABLE IF EXISTS {$annotations_table}");
 $wpdb->query("DROP TABLE IF EXISTS {$history_table}");
 
 // Delete Options
-delete_option('image_annotator_db_version');
+delete_option('arwai_azi_viewer_db_version');

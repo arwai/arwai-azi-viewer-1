@@ -72,7 +72,7 @@ export default function Edit({ attributes, setAttributes }) {
     };
 
     const blockProps = useBlockProps({
-        className: 'arwai-azi-viewer-toolbar arwai-azi-viewer-toolbar-wrap arwai-azi-viewer-sequence-toolbar-wrap standalone-sequence-toolbar arwai-azi-viewer-action-toolbar-wysiwyg-preview',
+        className: 'arwai-aziv-toolbar arwai-aziv-toolbar-wrap arwai-aziv-sequence-toolbar-wrap arwai-aziv-standalone-sequence-toolbar arwai-aziv-action-toolbar-wysiwyg-preview',
         style: { boxSizing: 'border-box' },
         "data-target-viewer-id": attributes.targetViewerId || ''
     });
