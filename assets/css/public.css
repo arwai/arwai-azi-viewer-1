@@ -29,7 +29,7 @@
 
 .arwai-aziv-carousel-track-wrapper {
     width: 100%;
-    height: 98%;
+    height: 100%;
     overflow: hidden;
     position: relative;
 }
@@ -539,6 +539,13 @@
     column-gap: var(--card-gap, 16px);
     box-sizing: border-box;
     width: 100%;
+}
+
+/* Ensure Annotation List Block is always visible in Gutenberg Block Editor canvas */
+.editor-styles-wrapper .arwai-aziv-cards-grid,
+.block-editor-block-list__block .arwai-aziv-cards-grid,
+.arwai-aziv-cards-wysiwyg-preview {
+    display: block !important;
 }
 
 .arwai-aziv-cards-grid.cols-1 {

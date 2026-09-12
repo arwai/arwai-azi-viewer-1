@@ -315,8 +315,9 @@ export default function Edit(props) {
 
             <div {...blockProps}>
                 <div 
-                    className={`arwai-aziv-cards-grid cols-${attributes.columns || 2}`}
+                    className={`arwai-aziv-cards-grid cols-${attributes.columns || 2} arwai-aziv-cards-wysiwyg-preview`}
                     style={{
+                        display: 'block',
                         gap: nativeGap,
                         justifyContent: attributes.gridJustifyContent || 'start',
                         '--grid-justify-content': attributes.gridJustifyContent || 'start',
