@@ -22,6 +22,33 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Global In-Memory Cache for Attachment Annotations (Key: attachmentId, Value: Array)
+    const annotationCache = new Map();
+
+    function fetchAnnotationsForAttachment(attachmentId, forceRefresh = false) {
+        if (!attachmentId) return Promise.resolve([]);
+        const cacheKey = String(attachmentId);
+
+        if (!forceRefresh && annotationCache.has(cacheKey)) {
+            return Promise.resolve(annotationCache.get(cacheKey));
+        }
+
+        return fetch(`${rest_url}annotations/attachment/${attachmentId}`)
+            .then(res => res.json())
+            .then(data => {
+                const list = Array.isArray(data) ? data : [];
+                list.forEach((item, idx) => {
+                    if (!item.db_id) item._index = idx + 1;
+                });
+                annotationCache.set(cacheKey, list);
+                return list;
+            })
+            .catch(err => {
+                console.error('Error loading annotations for attachment:', attachmentId, err);
+                return [];
+            });
+    }
+
     // --- Username Click-to-Toggle Full Name & Parentheses Helper ---
     document.addEventListener('click', (e) => {
         // Do not deselect anything if click occurred inside OSD modal or Annotorious elements
@@ -245,74 +272,113 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function getActionToolbarForViewer() {
             if (viewerId) {
-                const exactMatch = document.querySelector(`.arwai-aziv-action-toolbar-wrap[data-target-viewer-id="${viewerId}"]`);
-                if (exactMatch) return exactMatch;
+                const targeted = Array.from(document.querySelectorAll('.arwai-aziv-action-toolbar-wrap')).filter(p => {
+                    const target = p.getAttribute('data-target-viewer-id');
+                    return target && target.trim() === viewerId;
+                });
+                if (targeted.length > 0) return targeted[0];
             }
 
-            const postContainer = wrap.closest('article, .post, .entry-content, .type-post, .wp-block-post, .single-post, .page');
-            if (postContainer) {
-                const scopedToolbars = Array.from(postContainer.querySelectorAll('.arwai-aziv-action-toolbar-wrap'));
-                if (scopedToolbars.length > 0) {
-                    const postViewers = Array.from(postContainer.querySelectorAll('.arwai-aziv-frontend-wrap'));
-                    const myPostIndex = postViewers.indexOf(wrap);
-                    if (myPostIndex !== -1 && scopedToolbars[myPostIndex]) {
-                        return scopedToolbars[myPostIndex];
-                    }
-                    return scopedToolbars[0];
-                }
-            }
-
-            const allViewers = Array.from(document.querySelectorAll('.arwai-aziv-frontend-wrap'));
-            const myIndex = allViewers.indexOf(wrap);
-            const untargetedToolbars = Array.from(document.querySelectorAll('.arwai-aziv-action-toolbar-wrap')).filter(p => {
+            const untargeted = Array.from(document.querySelectorAll('.arwai-aziv-action-toolbar-wrap')).filter(p => {
                 const target = p.getAttribute('data-target-viewer-id');
-                return !target || target.trim() === '' || target === viewerId;
+                return !target || target.trim() === '';
             });
 
-            if (myIndex !== -1 && untargetedToolbars[myIndex]) {
-                return untargetedToolbars[myIndex];
-            }
-            return document.querySelector('.arwai-aziv-action-toolbar-wrap');
+            if (untargeted.length === 0) return null;
+            if (untargeted.length === 1) return untargeted[0];
+
+            const allNodes = Array.from(document.querySelectorAll('.arwai-aziv-frontend-wrap, .arwai-aziv-action-toolbar-wrap'));
+            const myIndex = allNodes.indexOf(wrap);
+
+            let nearest = untargeted[0];
+            let minDistance = Infinity;
+
+            untargeted.forEach(tb => {
+                const tbIndex = allNodes.indexOf(tb);
+                if (tbIndex !== -1 && myIndex !== -1) {
+                    const dist = Math.abs(myIndex - tbIndex);
+                    if (dist < minDistance) {
+                        minDistance = dist;
+                        nearest = tb;
+                    }
+                }
+            });
+
+            return nearest;
         }
 
         function getToolbarsForViewer() {
-            const targeted = Array.from(document.querySelectorAll('.arwai-aziv-standalone-sequence-toolbar')).filter(p => {
-                const target = p.getAttribute('data-target-viewer-id');
-                return target && target.trim() === viewerId;
-            });
-            if (targeted.length > 0) return targeted;
+            if (viewerId) {
+                const targeted = Array.from(document.querySelectorAll('.arwai-aziv-standalone-sequence-toolbar')).filter(p => {
+                    const target = p.getAttribute('data-target-viewer-id');
+                    return target && target.trim() === viewerId;
+                });
+                if (targeted.length > 0) return targeted;
+            }
 
-            // Positional fallback: match by index when no targetViewerId is set
-            const allViewers = Array.from(document.querySelectorAll('.arwai-aziv-frontend-wrap'));
-            const myIndex = allViewers.indexOf(wrap);
             const untargeted = Array.from(document.querySelectorAll('.arwai-aziv-standalone-sequence-toolbar')).filter(p => {
                 const target = p.getAttribute('data-target-viewer-id');
                 return !target || target.trim() === '';
             });
-            if (myIndex !== -1 && untargeted[myIndex]) {
-                return [untargeted[myIndex]];
-            }
-            return [];
+
+            if (untargeted.length === 0) return [];
+            if (untargeted.length === 1) return untargeted;
+
+            const allNodes = Array.from(document.querySelectorAll('.arwai-aziv-frontend-wrap, .arwai-aziv-standalone-sequence-toolbar'));
+            const myIndex = allNodes.indexOf(wrap);
+
+            let nearest = untargeted[0];
+            let minDistance = Infinity;
+
+            untargeted.forEach(tb => {
+                const tbIndex = allNodes.indexOf(tb);
+                if (tbIndex !== -1 && myIndex !== -1) {
+                    const dist = Math.abs(myIndex - tbIndex);
+                    if (dist < minDistance) {
+                        minDistance = dist;
+                        nearest = tb;
+                    }
+                }
+            });
+
+            return [nearest];
         }
 
         function getFilmstripsForViewer() {
-            const targeted = Array.from(document.querySelectorAll('.arwai-aziv-standalone-sequence-filmstrip')).filter(f => {
-                const target = f.getAttribute('data-target-viewer-id');
-                return target && target.trim() === viewerId;
-            });
-            if (targeted.length > 0) return targeted;
+            if (viewerId) {
+                const targeted = Array.from(document.querySelectorAll('.arwai-aziv-standalone-sequence-filmstrip')).filter(f => {
+                    const target = f.getAttribute('data-target-viewer-id');
+                    return target && target.trim() === viewerId;
+                });
+                if (targeted.length > 0) return targeted;
+            }
 
-            // Positional fallback: match by index when no targetViewerId is set
-            const allViewers = Array.from(document.querySelectorAll('.arwai-aziv-frontend-wrap'));
-            const myIndex = allViewers.indexOf(wrap);
             const untargeted = Array.from(document.querySelectorAll('.arwai-aziv-standalone-sequence-filmstrip')).filter(f => {
                 const target = f.getAttribute('data-target-viewer-id');
                 return !target || target.trim() === '';
             });
-            if (myIndex !== -1 && untargeted[myIndex]) {
-                return [untargeted[myIndex]];
-            }
-            return [];
+
+            if (untargeted.length === 0) return [];
+            if (untargeted.length === 1) return untargeted;
+
+            const allNodes = Array.from(document.querySelectorAll('.arwai-aziv-frontend-wrap, .arwai-aziv-standalone-sequence-filmstrip'));
+            const myIndex = allNodes.indexOf(wrap);
+
+            let nearest = untargeted[0];
+            let minDistance = Infinity;
+
+            untargeted.forEach(fs => {
+                const fsIndex = allNodes.indexOf(fs);
+                if (fsIndex !== -1 && myIndex !== -1) {
+                    const dist = Math.abs(myIndex - fsIndex);
+                    if (dist < minDistance) {
+                        minDistance = dist;
+                        nearest = fs;
+                    }
+                }
+            });
+
+            return [nearest];
         }
 
         const actionToolbarWrap = getActionToolbarForViewer();
@@ -340,7 +406,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let mainAnno = null;
         let osdViewer = null;
         let osdAnno = null;
-        let notesVisible = true;
+        let notesVisible = false;
 
         function getActiveImageEl() {
             if (!carouselTrack) return null;
@@ -409,21 +475,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
             [notesButton, osdBtnNotes].forEach(btn => {
                 if (!btn) return;
-                btn.disabled = !hasAnnos;
-                btn.style.opacity = hasAnnos ? '' : '0.4';
-                btn.style.cursor = hasAnnos ? '' : 'not-allowed';
-                btn.style.pointerEvents = hasAnnos ? '' : 'none';
-                if (!hasAnnos) {
-                    btn.setAttribute('title', 'No annotations available for this image');
-                } else {
-                    btn.setAttribute('title', notesVisible ? 'Hide Annotations' : 'Show Annotations');
-                }
+                btn.disabled = false;
+                btn.style.opacity = hasAnnos ? '' : '0.6';
+                btn.style.cursor = 'pointer';
+                btn.style.pointerEvents = 'auto';
+                btn.setAttribute('title', notesVisible ? 'Hide Annotations' : 'Show Annotations');
 
                 const iconEyeOpen = btn.querySelector('.arwai-aziv-icon-eye-open');
                 const iconEyeOff = btn.querySelector('.arwai-aziv-icon-eye-off');
                 if (iconEyeOpen && iconEyeOff) {
-                    iconEyeOpen.style.display = notesVisible ? 'inline-block' : 'none';
-                    iconEyeOff.style.display = notesVisible ? 'none' : 'inline-block';
+                    iconEyeOpen.style.display = notesVisible ? 'none' : 'inline-block';
+                    iconEyeOff.style.display = notesVisible ? 'inline-block' : 'none';
+                }
+                const textSpan = btn.querySelector('span');
+                if (textSpan) {
+                    textSpan.textContent = notesVisible ? 'Hide Annotations' : 'Show Annotations';
                 }
                 btn.classList.toggle('active', notesVisible);
                 btn.setAttribute('aria-pressed', notesVisible ? 'true' : 'false');
@@ -439,6 +505,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (Array.isArray(currentAnnos) && currentAnnos.length > 0) {
                         mainAnno.setAnnotations(currentAnnos);
                     }
+                }
+                const svgLayer = wrap.querySelector('.a9s-annotation-layer');
+                if (svgLayer) {
+                    svgLayer.style.display = notesVisible ? '' : 'none';
                 }
             }
             if (osdAnno) {
@@ -460,8 +530,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 const iconEyeOpen = btn.querySelector('.arwai-aziv-icon-eye-open');
                 const iconEyeOff = btn.querySelector('.arwai-aziv-icon-eye-off');
                 if (iconEyeOpen && iconEyeOff) {
-                    iconEyeOpen.style.display = notesVisible ? 'inline-block' : 'none';
-                    iconEyeOff.style.display = notesVisible ? 'none' : 'inline-block';
+                    iconEyeOpen.style.display = notesVisible ? 'none' : 'inline-block';
+                    iconEyeOff.style.display = notesVisible ? 'inline-block' : 'none';
+                }
+                const textSpan = btn.querySelector('span');
+                if (textSpan) {
+                    textSpan.textContent = notesVisible ? 'Hide Annotations' : 'Show Annotations';
                 }
                 btn.classList.toggle('active', notesVisible);
                 btn.setAttribute('title', notesVisible ? 'Hide Annotations' : 'Show Annotations');
@@ -471,24 +545,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function loadMainAnnotations(attachmentId) {
             if (!mainAnno || !attachmentId) return;
-            mainAnno.clearAnnotations();
 
-            fetch(`${rest_url}annotations/attachment/${attachmentId}`)
-                .then(res => res.json())
+            fetchAnnotationsForAttachment(attachmentId)
                 .then(data => {
-                    if (Array.isArray(data)) {
-                        data.forEach((item, idx) => {
-                            if (!item.db_id) item._index = idx + 1;
-                        });
-                        mainAnno.setAnnotations(data);
-                        mainAnno.setVisible(notesVisible);
-                        updateNotesButtonsState(data.length);
-                    } else {
-                        updateNotesButtonsState(0);
+                    if (!mainAnno) return;
+                    mainAnno.clearAnnotations();
+                    mainAnno.setAnnotations(data);
+                    mainAnno.setVisible(notesVisible);
+                    const svgLayer = wrap.querySelector('.a9s-annotation-layer');
+                    if (svgLayer) {
+                        svgLayer.style.display = notesVisible ? '' : 'none';
                     }
+                    updateNotesButtonsState(data.length);
                 })
                 .catch(err => {
-                    console.error('Error loading main annotations:', err);
+                    console.error('Error displaying main annotations:', err);
                     updateNotesButtonsState(0);
                 });
         }
@@ -503,62 +574,40 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         function getTargetCardGrids() {
-            const currentPostId = wrap.getAttribute('data-post-id');
-            const postContainer = wrap.closest('article, .post, .entry-content, .type-post, .wp-block-post, .single-post, .page');
-
-            // Priority 1: Search INSIDE the exact same post container first!
-            if (postContainer) {
-                if (viewerId) {
-                    const scopedTargetGrids = Array.from(postContainer.querySelectorAll(`.arwai-aziv-cards-grid[data-target-viewer-id="${viewerId}"]`));
-                    if (scopedTargetGrids.length > 0) {
-                        return scopedTargetGrids;
-                    }
-                }
-                const scopedAllGrids = Array.from(postContainer.querySelectorAll('.arwai-aziv-cards-grid'));
-                if (scopedAllGrids.length > 0) {
-                    const postViewers = Array.from(postContainer.querySelectorAll('.arwai-aziv-frontend-wrap'));
-                    const myPostIndex = postViewers.indexOf(wrap);
-                    if (myPostIndex !== -1 && scopedAllGrids[myPostIndex]) {
-                        return [scopedAllGrids[myPostIndex]];
-                    }
-                    return scopedAllGrids;
-                }
-            }
-
-            // Priority 2: Match by data-post-id if available
-            if (currentPostId) {
-                if (viewerId) {
-                    const postTargetGrids = Array.from(document.querySelectorAll(`.arwai-aziv-cards-grid[data-post-id="${currentPostId}"][data-target-viewer-id="${viewerId}"]`));
-                    if (postTargetGrids.length > 0) return postTargetGrids;
-                }
-                const postGrids = Array.from(document.querySelectorAll(`.arwai-aziv-cards-grid[data-post-id="${currentPostId}"]`));
-                if (postGrids.length > 0) return postGrids;
-            }
-
-            // Priority 3: Match globally by viewerId ONLY if viewerId is unique across the page
             if (viewerId) {
-                const globalGrids = Array.from(document.querySelectorAll(`.arwai-aziv-cards-grid[data-target-viewer-id="${viewerId}"]`));
-                if (globalGrids.length > 0) {
-                    const viewersWithSameId = document.querySelectorAll(`.arwai-aziv-frontend-wrap[data-viewer-id="${viewerId}"]`);
-                    if (viewersWithSameId.length <= 1) {
-                        return globalGrids;
-                    }
-                }
+                const targeted = Array.from(document.querySelectorAll('.arwai-aziv-cards-grid')).filter(g => {
+                    const target = g.getAttribute('data-target-viewer-id');
+                    return target && target.trim() === viewerId;
+                });
+                if (targeted.length > 0) return targeted;
             }
 
-            // Priority 4: Global index fallback
-            const allViewers = Array.from(document.querySelectorAll('.arwai-aziv-frontend-wrap'));
-            const myIndex = allViewers.indexOf(wrap);
-            const untargetedGrids = Array.from(document.querySelectorAll('.arwai-aziv-cards-grid')).filter(g => {
+            const untargeted = Array.from(document.querySelectorAll('.arwai-aziv-cards-grid')).filter(g => {
                 const target = g.getAttribute('data-target-viewer-id');
                 return !target || target.trim() === '';
             });
 
-            if (myIndex !== -1 && untargetedGrids[myIndex]) {
-                return [untargetedGrids[myIndex]];
-            }
+            if (untargeted.length === 0) return [];
+            if (untargeted.length === 1) return untargeted;
 
-            return [];
+            const allNodes = Array.from(document.querySelectorAll('.arwai-aziv-frontend-wrap, .arwai-aziv-cards-grid'));
+            const myIndex = allNodes.indexOf(wrap);
+
+            let nearest = untargeted[0];
+            let minDistance = Infinity;
+
+            untargeted.forEach(g => {
+                const gIndex = allNodes.indexOf(g);
+                if (gIndex !== -1 && myIndex !== -1) {
+                    const dist = Math.abs(myIndex - gIndex);
+                    if (dist < minDistance) {
+                        minDistance = dist;
+                        nearest = g;
+                    }
+                }
+            });
+
+            return [nearest];
         }
 
         function toggleCardsVisibility(visible) {
@@ -568,20 +617,19 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Re-fetch and re-render Gutenberg Annotation List Block cards
+        // Re-render Gutenberg Annotation List Block cards using cached attachment annotations
         function refreshAnnotationCards(activeAttachmentId) {
             const cardGrids = getTargetCardGrids();
-            if (cardGrids.length === 0) return;
+            if (cardGrids.length === 0 || !activeAttachmentId) return;
 
-            fetch(`${rest_url}annotations/attachment/${activeAttachmentId}`)
-                .then(res => res.json())
+            fetchAnnotationsForAttachment(activeAttachmentId)
                 .then(annotations => {
                     cardGrids.forEach(grid => {
                         grid.style.display = notesVisible ? 'block' : 'none';
                         grid.innerHTML = '';
 
                         if (!Array.isArray(annotations) || annotations.length === 0) {
-                            grid.innerHTML = '<div class="arwai-aziv-empty-cards" style="padding: 16px; text-align: center; color: #64748b; font-style: italic; width: 100%;"><p>No annotations for this image.</p></div>';
+                            grid.innerHTML = '<div class="arwai-aziv-empty-cards"><p>No annotations for this image.</p></div>';
                             return;
                         }
 
@@ -1049,7 +1097,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (bNotes) {
                 bNotes.onclick = (e) => {
                     e.preventDefault();
-                    if (bNotes.disabled) return;
                     setNotesVisibility(!notesVisible);
                 };
             }
@@ -1122,7 +1169,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     osdAnno.setVisible(notesVisible);
 
+                    osdAnno.on('startSelection', () => {
+                        if (osdViewer) osdViewer.setMouseNavEnabled(false);
+                    });
+
                     osdAnno.on('selectAnnotation', (annotation) => {
+                        if (osdViewer) osdViewer.setMouseNavEnabled(false);
                         document.querySelectorAll('.arwai-aziv-annotation-card-item').forEach(c => c.classList.remove('arwai-aziv-selected-card'));
                         const cardEl = document.querySelector(`.arwai-aziv-annotation-card-item[data-annotation-id="${annotation.id}"]`);
                         if (cardEl) {
@@ -1130,7 +1182,9 @@ document.addEventListener('DOMContentLoaded', () => {
                             cardEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                         }
                     });
+
                     osdAnno.on('cancelSelected', () => {
+                        if (osdViewer) osdViewer.setMouseNavEnabled(true);
                         document.querySelectorAll('.arwai-aziv-annotation-card-item').forEach(c => c.classList.remove('arwai-aziv-selected-card'));
                     });
 
@@ -1142,9 +1196,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     if (!isReadOnly) {
                         const currentPostId = parseInt(wrap.getAttribute('data-post-id'), 10) || 0;
-                        osdAnno.on('createAnnotation', (annotation) => saveAnnotation(currentAtt.attachment_id, currentPostId, annotation));
-                        osdAnno.on('updateAnnotation', (annotation) => saveAnnotation(currentAtt.attachment_id, currentPostId, annotation));
-                        osdAnno.on('deleteAnnotation', (annotation) => deleteAnnotation(currentAtt.attachment_id, annotation));
+                        osdAnno.on('createAnnotation', (annotation) => {
+                            if (osdViewer) osdViewer.setMouseNavEnabled(true);
+                            saveAnnotation(currentAtt.attachment_id, currentPostId, annotation);
+                        });
+                        osdAnno.on('updateAnnotation', (annotation) => {
+                            if (osdViewer) osdViewer.setMouseNavEnabled(true);
+                            saveAnnotation(currentAtt.attachment_id, currentPostId, annotation);
+                        });
+                        osdAnno.on('deleteAnnotation', (annotation) => {
+                            if (osdViewer) osdViewer.setMouseNavEnabled(true);
+                            deleteAnnotation(currentAtt.attachment_id, annotation);
+                        });
                     }
                 }
             });
@@ -1166,23 +1229,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function loadOsdAnnotations(attachmentId) {
             if (!osdAnno || !attachmentId) return;
-            fetch(`${rest_url}annotations/attachment/${attachmentId}`)
-                .then(res => res.json())
+
+            fetchAnnotationsForAttachment(attachmentId)
                 .then(data => {
-                    if (Array.isArray(data) && osdAnno) {
-                        data.forEach((item, idx) => {
-                            if (!item.db_id) item._index = idx + 1;
-                        });
+                    if (osdAnno) {
                         osdAnno.clearAnnotations();
                         osdAnno.setAnnotations(data);
                         osdAnno.setVisible(notesVisible);
                         updateNotesButtonsState(data.length);
-                    } else {
-                        updateNotesButtonsState(0);
                     }
                 })
                 .catch(err => {
-                    console.error('Error loading OSD annotations:', err);
+                    console.error('Error displaying OSD annotations:', err);
                     updateNotesButtonsState(0);
                 });
         }
@@ -1202,8 +1260,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data && data.success) {
-                        loadOsdAnnotations(attachmentId);
-                        refreshAnnotationCards(attachmentId);
+                        // Force refresh cache for this attachment and sync all active views
+                        fetchAnnotationsForAttachment(attachmentId, true).then(() => {
+                            loadOsdAnnotations(attachmentId);
+                            loadMainAnnotations(attachmentId);
+                            refreshAnnotationCards(attachmentId);
+                        });
                     }
                 })
                 .catch(err => console.error('Error saving OSD annotation:', err));
@@ -1222,7 +1284,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data && data.success) {
-                        refreshAnnotationCards(attachmentId);
+                        // Force refresh cache for this attachment and sync all active views
+                        fetchAnnotationsForAttachment(attachmentId, true).then(() => {
+                            loadOsdAnnotations(attachmentId);
+                            loadMainAnnotations(attachmentId);
+                            refreshAnnotationCards(attachmentId);
+                        });
                     }
                 })
                 .catch(err => console.error('Error deleting OSD annotation:', err));
@@ -1240,6 +1307,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         initMainAnnotorious();
+        toggleCardsVisibility(notesVisible);
 
         if (images.length > 0) {
             refreshAnnotationCards(images[0].attachment_id);
@@ -1284,7 +1352,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (btnNotes) {
             btnNotes.onclick = () => {
-                if (btnNotes.disabled) return;
                 toggleNotesCallback();
             };
         }

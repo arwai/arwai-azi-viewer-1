@@ -29,7 +29,7 @@
 
 .arwai-aziv-carousel-track-wrapper {
     width: 100%;
-    height: 100%;
+    height: 98%;
     overflow: hidden;
     position: relative;
 }
@@ -84,6 +84,7 @@
     display: block !important;
     margin: auto !important;
     box-sizing: border-box !important;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 /* Ensure Annotorious SVG overlay aligns over image */
@@ -116,12 +117,12 @@
 
 /* 2. Middle Navigation Toolbar (< 1 / 7 >) */
 .arwai-aziv-toolbar-wrap {
-    margin: 16px 0 12px 0;
+    margin: 16px auto 12px auto;
 }
 
 .arwai-aziv-toolbar {
     display: flex;
-    width: max-content;
+    width: fit-content;
     align-items: center;
     gap: 14px;
     padding: 6px 18px;
@@ -272,7 +273,7 @@
     border-radius: var(--thumb-radius, 4px);
     overflow: hidden;
     cursor: pointer;
-    border: var(--thumb-border-width, 1px) solid var(--thumb-border-color, rgba(0,0,0,0.12));
+    border: var(--thumb-border-width, 1px) solid var(--thumb-border-color, rgba(0, 0, 0, 0.12));
     background-color: #e2e8f0;
     opacity: 0.7;
     transition: all 0.2s ease;
@@ -303,12 +304,12 @@
 
 /* 4. Bottom Action Toolbar Toolbar (Notes, Enlarge, Info) */
 .arwai-aziv-action-toolbar-wrap {
-    margin-top: 12px;
+    margin: 12px auto;
 }
 
 .arwai-aziv-action-toolbar {
     display: flex;
-    width: max-content;
+    width: fit-content;
     align-items: center;
     gap: 6px;
     padding: 6px 14px;
@@ -438,6 +439,7 @@
     font-size: inherit;
     font-family: inherit;
     white-space: nowrap;
+    border-radius: 0.5rem;
 }
 
 .arwai-aziv-osd-tool-item span {
@@ -451,6 +453,7 @@
     opacity: var(--toolbar-hover-opacity, 1);
     transform: scale(var(--toolbar-hover-scale, 1));
     box-shadow: var(--toolbar-hover-shadow, none);
+    border-radius: 2rem;
 }
 
 .arwai-aziv-osd-toolbar-top-right {
@@ -531,6 +534,7 @@
 
 /* 5. Gutenberg Annotation Cards Grid Block (CSS Masonry Layout) */
 .arwai-aziv-cards-grid {
+    display: none;
     column-count: 2;
     column-gap: var(--card-gap, 16px);
     box-sizing: border-box;
@@ -563,6 +567,30 @@
     display: inline-block;
 }
 
+.arwai-aziv-cards-grid .arwai-aziv-empty-cards,
+.arwai-aziv-empty-cards {
+    column-span: all;
+    -webkit-column-span: all;
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px;
+    text-align: center;
+    color: #64748b;
+    font-style: italic;
+    display: block;
+}
+
+.arwai-aziv-empty-cards p {
+    margin: 0;
+    display: block;
+    word-break: normal;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
 /* Mobile Stacking Rule (< 640px) */
 @media (max-width: 640px) {
     .arwai-aziv-cards-grid {
@@ -573,6 +601,11 @@
 /* Block Alignment Rules (Center, Left, Right, Wide, Full) */
 .wp-block-arwai-azi-viewer-viewer.aligncenter,
 .wp-block-arwai-azi-viewer-annotation-list.aligncenter,
+.wp-block-arwai-azi-viewer-sequence-toolbar.aligncenter,
+.wp-block-arwai-azi-viewer-action-toolbar.aligncenter,
+.wp-block-arwai-azi-viewer-sequence-filmstrip.aligncenter,
+.arwai-aziv-toolbar-wrap.aligncenter,
+.arwai-aziv-action-toolbar-wrap.aligncenter,
 .arwai-aziv-cards-grid.aligncenter,
 .arwai-aziv-frontend-wrap.aligncenter {
     margin-left: auto !important;
@@ -581,21 +614,31 @@
 
 .wp-block-arwai-azi-viewer-viewer.alignleft,
 .wp-block-arwai-azi-viewer-annotation-list.alignleft,
+.wp-block-arwai-azi-viewer-sequence-toolbar.alignleft,
+.wp-block-arwai-azi-viewer-action-toolbar.alignleft,
+.wp-block-arwai-azi-viewer-sequence-filmstrip.alignleft,
+.arwai-aziv-toolbar-wrap.alignleft,
+.arwai-aziv-action-toolbar-wrap.alignleft,
 .arwai-aziv-cards-grid.alignleft,
 .arwai-aziv-frontend-wrap.alignleft {
     float: left;
     margin-right: 2em !important;
-    margin-bottom: 1.5em !important;
+    /* margin-bottom: 1.5em !important; */
     max-width: 50%;
 }
 
 .wp-block-arwai-azi-viewer-viewer.alignright,
 .wp-block-arwai-azi-viewer-annotation-list.alignright,
+.wp-block-arwai-azi-viewer-sequence-toolbar.alignright,
+.wp-block-arwai-azi-viewer-action-toolbar.alignright,
+.wp-block-arwai-azi-viewer-sequence-filmstrip.alignright,
+.arwai-aziv-toolbar-wrap.alignright,
+.arwai-aziv-action-toolbar-wrap.alignright,
 .arwai-aziv-cards-grid.alignright,
 .arwai-aziv-frontend-wrap.alignright {
     float: right;
     margin-left: 2em !important;
-    margin-bottom: 1.5em !important;
+    /* margin-bottom: 1.5em !important; */
     max-width: 50%;
 }
 
@@ -622,11 +665,11 @@
 .arwai-aziv-annotation-card-item {
     background-color: var(--card-bg, #1e293b);
     color: var(--card-text, #f8fafc);
-    border-radius: var(--card-border-radius, 6px) !important;
+    border-radius: var(--card-border-radius, .5rem) !important;
     border-width: var(--card-border-width, 2px) !important;
     border-style: var(--card-border-style, solid) !important;
     border-color: var(--card-border-color, #cbd5e1) !important;
-    padding: 16px;
+    padding: 1rem;
     box-shadow: var(--card-shadow, 0 4px 14px rgba(0, 0, 0, 0.08));
     transition: transform 0.1s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
     box-sizing: border-box;
@@ -855,8 +898,8 @@
     }
 
     .arwai-aziv-toolbar {
-        width: auto;
-        display: inline-flex;
+        width: fit-content;
+        display: flex;
         align-items: center;
         gap: 12px;
         box-sizing: border-box;

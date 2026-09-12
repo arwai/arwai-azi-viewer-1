@@ -6,7 +6,7 @@
     "title": "Image Sequence Toolbar",
     "category": "widgets",
     "icon": "ellipsis",
-    "description": "Displays an interactive image sequence navigation toolbar toolbar with Previous/Next controls and image count indicator linked to an Annotated Image Viewer block.",
+    "description": "Displays an interactive image sequence navigation toolbar with Previous/Next controls and image count indicator linked to an Annotated Image Viewer block.",
     "keywords": [
         "sequence",
         "nav",
@@ -57,6 +57,22 @@
             "default": ""
         },
         "targetViewerId": {
+            "type": "string",
+            "default": ""
+        },
+        "containerBorderWidth": {
+            "type": "string",
+            "default": ""
+        },
+        "containerBorderStyle": {
+            "type": "string",
+            "default": ""
+        },
+        "containerBorderColor": {
+            "type": "string",
+            "default": ""
+        },
+        "containerBorderRadius": {
             "type": "string",
             "default": ""
         }

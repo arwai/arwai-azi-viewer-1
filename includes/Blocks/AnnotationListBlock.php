@@ -180,7 +180,7 @@ class AnnotationListBlock {
             'data-read-more-text'        => $card_styles['read_more_text'],
             'data-show-less-text'        => $card_styles['show_less_text'],
             'style'                      => sprintf(
-                '--card-min-width:%s; --card-max-width:%s; --card-max-lines:%d; --grid-justify-content:%s; --card-gap:%s; column-gap:%s;',
+                'display: none; --card-min-width:%s; --card-max-width:%s; --card-max-lines:%d; --grid-justify-content:%s; --card-gap:%s; column-gap:%s;',
                 esc_attr($card_styles['card_min_width']),
                 esc_attr($card_styles['card_max_width']),
                 (int) $card_styles['card_max_lines'],

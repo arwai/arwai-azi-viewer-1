@@ -3,13 +3,12 @@
     "apiVersion": 3,
     "name": "arwai/azi-viewer-action-toolbar",
     "version": "0.1.1",
-    "title": "Action Toolbar Toolbar",
+    "title": "Action Toolbar",
     "category": "widgets",
     "icon": "button",
-    "description": "Displays an interactive action toolbar toolbar with Annotations toggle, Enlarge (Deep Zoom), and Info buttons linked to an Annotated Image Viewer block.",
+    "description": "Displays an interactive action toolbar with Annotations toggle, Enlarge (Deep Zoom), and Info buttons linked to an Annotated Image Viewer block.",
     "keywords": [
         "action",
-        "toolbar",
         "toolbar",
         "annotations",
         "buttons"
@@ -71,6 +70,22 @@
         "showInfoBtn": {
             "type": "boolean",
             "default": true
+        },
+        "containerBorderWidth": {
+            "type": "string",
+            "default": ""
+        },
+        "containerBorderStyle": {
+            "type": "string",
+            "default": ""
+        },
+        "containerBorderColor": {
+            "type": "string",
+            "default": ""
+        },
+        "containerBorderRadius": {
+            "type": "string",
+            "default": ""
         }
     }
 }

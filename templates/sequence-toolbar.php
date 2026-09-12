@@ -3,10 +3,25 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+$style_vars = '';
+if (!empty($container_border_width)) {
+    $style_vars .= 'border-width:' . esc_attr($container_border_width) . ';';
+}
+if (!empty($container_border_style)) {
+    $style_vars .= 'border-style:' . esc_attr($container_border_style) . ';';
+}
+if (!empty($container_border_color)) {
+    $style_vars .= 'border-color:' . esc_attr($container_border_color) . ';';
+}
+if (!empty($container_border_radius)) {
+    $style_vars .= 'border-radius:' . esc_attr($container_border_radius) . ';';
+}
+
 $wrapper_attributes = get_block_wrapper_attributes([
     'class'                => 'arwai-aziv-toolbar arwai-aziv-toolbar-wrap arwai-aziv-sequence-toolbar-wrap arwai-aziv-standalone-sequence-toolbar',
     'id'                   => $unique_id,
     'data-target-viewer-id'=> esc_attr($target_viewer_id),
+    'style'                => $style_vars,
 ]);
 ?>
 <div <?php echo $wrapper_attributes; ?>>

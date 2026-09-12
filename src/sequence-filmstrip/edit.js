@@ -87,28 +87,36 @@ export default function Edit(props) {
     /* ── Find all viewer blocks on the page ─────────────────────────── */
     const viewerBlocks = useSelect((select) => {
         const { getBlocksByName, getBlock, getBlocks } = select('core/block-editor');
+        let blocks = [];
         if (typeof getBlocksByName === 'function') {
-            return (getBlocksByName('arwai/azi-viewer') || []).map(id => getBlock(id)).filter(Boolean);
+            const clientIds = getBlocksByName('arwai/azi-viewer') || [];
+            blocks = clientIds.map(id => getBlock(id)).filter(Boolean);
         }
-        return (getBlocks() || []).filter(b => b.name === 'arwai/azi-viewer');
+        if (!blocks || blocks.length === 0) {
+            const findRecursive = (list) => {
+                let res = [];
+                (list || []).forEach(b => {
+                    if (b && b.name === 'arwai/azi-viewer') res.push(b);
+                    if (b && b.innerBlocks && b.innerBlocks.length > 0) {
+                        res = res.concat(findRecursive(b.innerBlocks));
+                    }
+                });
+                return res;
+            };
+            blocks = findRecursive(getBlocks() || []);
+        }
+        return blocks;
     }, []);
 
     /* ── Resolve imageIds from linked/nearest viewer ─────────────────── */
     const linkedImageIds = useSelect((select) => {
-        const { getBlocksByName, getBlock, getBlocks } = select('core/block-editor');
-        let blocks = [];
-        if (typeof getBlocksByName === 'function') {
-            blocks = (getBlocksByName('arwai/azi-viewer') || []).map(id => getBlock(id)).filter(Boolean);
-        } else {
-            blocks = (getBlocks() || []).filter(b => b.name === 'arwai/azi-viewer');
-        }
         if (attributes.targetViewerId) {
-            const linked = blocks.find(b => b.attributes.viewerId === attributes.targetViewerId);
-            if (linked) return linked.attributes.imageIds || [];
+            const linked = viewerBlocks.find(b => b.attributes?.viewerId === attributes.targetViewerId);
+            if (linked) return linked.attributes?.imageIds || [];
         }
-        if (blocks.length > 0) return blocks[0].attributes.imageIds || [];
+        if (viewerBlocks.length > 0) return viewerBlocks[0].attributes?.imageIds || [];
         return [];
-    }, [attributes.targetViewerId]);
+    }, [attributes.targetViewerId, viewerBlocks]);
 
     /* ── Fetch WP Media objects for linked image IDs (for thumbs) ─────── */
     const mediaObjects = useSelect((select) => {

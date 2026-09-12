@@ -10,8 +10,8 @@
     "semantic_hash": ""
   },
   "includes/Blocks/AnnotationListBlock.php": {
-    "mtime": 1789082727.325258,
-    "ast_hash": "e31caa0b4e5d0459c8fd6aac14d16697",
+    "mtime": 1789139713.8885636,
+    "ast_hash": "8b68b0bc09a0d2fa3700c756b91985ff",
     "semantic_hash": ""
   },
   "includes/Blocks/ViewerBlock.php": {
@@ -40,12 +40,12 @@
     "semantic_hash": ""
   },
   "templates/annotation-cards-list.php": {
-    "mtime": 1789078318.526178,
-    "ast_hash": "228e7394e9dd701e9ea16da256959f10",
+    "mtime": 1789139719.0725517,
+    "ast_hash": "78d2d234ea6e5b02714ca8b2f19694c8",
     "semantic_hash": ""
   },
   "templates/frontend-viewer.php": {
-    "mtime": 1789081028.4965713,
+    "mtime": 1789148337.3933318,
     "ast_hash": "051f36ec5b05d3f346c47a1f3858e3d9",
     "semantic_hash": ""
   },
@@ -95,8 +95,8 @@
     "semantic_hash": ""
   },
   "src/viewer/edit.js": {
-    "mtime": 1789082546.8016875,
-    "ast_hash": "5d2091676dc6dfbc32f86e2628d52fe1",
+    "mtime": 1789162863.6944075,
+    "ast_hash": "2a3433e594c2a827a2d0db6665c97839",
     "semantic_hash": ""
   },
   "src/viewer/index.js": {
@@ -105,8 +105,8 @@
     "semantic_hash": ""
   },
   "src/viewer/view.js": {
-    "mtime": 1789084723.075174,
-    "ast_hash": "0ce14e81a885af5094f1a7ebf1832217",
+    "mtime": 1789222957.0961723,
+    "ast_hash": "b9c9d46d8beba2529d5ebcfb941a5bfe",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -130,8 +130,8 @@
     "semantic_hash": ""
   },
   "src/sequence-filmstrip/edit.js": {
-    "mtime": 1789084538.9774244,
-    "ast_hash": "ba5ca10135a778120deecf96168cd406",
+    "mtime": 1789138718.398916,
+    "ast_hash": "4f4cc603ba7d092d97984c80dec3c5de",
     "semantic_hash": ""
   },
   "src/sequence-filmstrip/index.js": {
@@ -150,23 +150,23 @@
     "semantic_hash": ""
   },
   "includes/Blocks/ActionToolbarBlock.php": {
-    "mtime": 1789053726.5346937,
-    "ast_hash": "949ea8643b46408d88170b2c3722f6c8",
+    "mtime": 1789085246.004315,
+    "ast_hash": "700466cab18f94dd29f9eaa6dbbcafb9",
     "semantic_hash": ""
   },
   "includes/Blocks/SequenceToolbarBlock.php": {
-    "mtime": 1789053726.5339153,
-    "ast_hash": "6001ee3e12bafee4f1bb3bcb12576ef4",
+    "mtime": 1789085265.2126443,
+    "ast_hash": "5493a33389ebf26df79c6159825b0a6e",
     "semantic_hash": ""
   },
   "src/action-toolbar/block.json": {
-    "mtime": 1788998044.0,
-    "ast_hash": "ef60b5f0fd9eaef437bd1f5bd65b9367",
+    "mtime": 1789137226.0792077,
+    "ast_hash": "4b966230d2e213adf281769f080a59bd",
     "semantic_hash": ""
   },
   "src/action-toolbar/edit.js": {
-    "mtime": 1789082546.8008966,
-    "ast_hash": "ca9e5380cede4160f94d55d25d7d89c6",
+    "mtime": 1789138704.1946406,
+    "ast_hash": "ece9935a632945e8778a356ad775b289",
     "semantic_hash": ""
   },
   "src/action-toolbar/index.js": {
@@ -175,13 +175,13 @@
     "semantic_hash": ""
   },
   "src/sequence-toolbar/block.json": {
-    "mtime": 1788998045.0,
-    "ast_hash": "9d21761213d3bea08e7da1d40b242164",
+    "mtime": 1789137226.0795262,
+    "ast_hash": "45fd411f107010173c8a50e864c8ae84",
     "semantic_hash": ""
   },
   "src/sequence-toolbar/edit.js": {
-    "mtime": 1789082546.80068,
-    "ast_hash": "124feb4090c84a142a822e3e7ddce68a",
+    "mtime": 1789138711.79081,
+    "ast_hash": "88ea34c2e1c872c5e17181dcfcae3d3a",
     "semantic_hash": ""
   },
   "src/sequence-toolbar/index.js": {
@@ -190,13 +190,13 @@
     "semantic_hash": ""
   },
   "templates/action-toolbar.php": {
-    "mtime": 1789078296.5084913,
-    "ast_hash": "546a835c0d067be8d7787f64ecd69542",
+    "mtime": 1789138404.8287754,
+    "ast_hash": "816a2163e2ea30d80f0955770fde9206",
     "semantic_hash": ""
   },
   "templates/sequence-toolbar.php": {
-    "mtime": 1789078303.478727,
-    "ast_hash": "52bf4798ed869b28526d23a73d468163",
+    "mtime": 1789085268.1547694,
+    "ast_hash": "89dfdc49d17c809bd94f4dffb4b97012",
     "semantic_hash": ""
   },
   "assets/vendor/annotorious/annotorious.min.js": {
