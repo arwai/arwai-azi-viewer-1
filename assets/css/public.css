@@ -101,13 +101,13 @@
 
 /* Circular ID Badge Formatter (13, 17, 19, 28) */
 .arwai-aziv-circular-badge {
-    width: 24px;
+    width: 2rem;
     height: 24px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 11px;
+    font-size: 0.6rem;
     font-weight: 700;
     line-height: 1;
     border: 2px solid #ffffff;
@@ -676,7 +676,7 @@
     border-width: var(--card-border-width, 2px) !important;
     border-style: var(--card-border-style, solid) !important;
     border-color: var(--card-border-color, #cbd5e1) !important;
-    padding: 1rem;
+    padding: .25rem !important;
     box-shadow: var(--card-shadow, 0 4px 14px rgba(0, 0, 0, 0.08));
     transition: transform 0.1s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
     box-sizing: border-box;
@@ -712,28 +712,34 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 12px;
+    margin-bottom: 0px;
+    float: left;
 }
 
 .arwai-aziv-card-badge-circle {
-    width: 26px;
-    height: 26px;
+    width: 2rem;
+    height: 2rem;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
+    font-size: clamp(.4rem, 0.7rem, 2rem);
     font-weight: 700;
     flex-shrink: 0;
+    transform: translate(-1.2rem, -1.2rem);
 }
 
 .arwai-aziv-card-author-meta {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 8px;
 }
 
 .arwai-aziv-card-author-meta .arwai-aziv-author-name {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
 }
 
@@ -746,7 +752,7 @@
     font-size: inherit;
     line-height: 1.5;
     margin-bottom: auto;
-    padding-bottom: 10px;
+    padding-bottom: 0px;
     position: relative;
     transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -819,8 +825,8 @@
 /* 8. Circular Badge Styles & Custom Formatting States */
 .a9s-annotation foreignObject .arwai-aziv-circular-badge,
 .a9s-annotation foreignObject label {
-    width: 24px;
-    height: 24px;
+    width: 2rem;
+    height: 2rem;
     border-radius: 50%;
     border: 2px solid var(--tag-border, #2563eb);
     background-color: var(--tag-badge-bg, #2563eb);
@@ -828,7 +834,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 11px;
+    font-size: 0.6rem;
     font-weight: bold;
     text-align: center;
     box-shadow: var(--tag-badge-shadow, 0 2px 6px rgba(0, 0, 0, 0.15));
@@ -1057,4 +1063,48 @@
     to {
         clip-path: inset(0 0 0 100%)
     }
+}
+
+/* =========================================
+   8. Accessibility & Focus Visibility
+   ========================================= */
+
+.visually-hidden:where(:not(:focus-within, :active)) {
+    position: absolute !important;
+    clip-path: inset(50%) !important;
+    overflow: hidden !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    white-space: nowrap !important;
+}
+
+/* Focus Visibility for OpenSeadragon Canvas & Controls */
+.arwai-aziv-osd-canvas-element:focus,
+.arwai-aziv-osd-canvas-element:focus-visible,
+.arwai-aziv-osd-canvas-element .openseadragon-container:focus,
+.arwai-aziv-osd-canvas-element .openseadragon-canvas:focus {
+    outline: 3px solid #2563eb !important;
+    outline-offset: -3px !important;
+    box-shadow: inset 0 0 0 2px #ffffff, 0 0 0 4px rgba(37, 99, 235, 0.5) !important;
+}
+
+.arwai-aziv-osd-tool-item:focus-visible,
+.arwai-aziv-osd-icon-btn:focus-visible,
+.arwai-aziv-btn-osd-close:focus-visible,
+.arwai-aziv-info-close-btn:focus-visible,
+.arwai-aziv-osd-tool-item:focus,
+.arwai-aziv-osd-icon-btn:focus {
+    outline: 2px solid #2563eb !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.4) !important;
+}
+
+.a9s-annotation:focus,
+.a9s-annotation:focus-visible {
+    outline: 3px solid #2563eb !important;
+    outline-offset: 2px !important;
+    cursor: pointer;
 }

@@ -33,7 +33,7 @@ function SimpleColorControl({ label, value, onChange }) {
                     />
                     {isOpen && (
                         <Popover position="bottom left" onClose={() => setIsOpen(false)}>
-                            <div style={{ padding: '16px', minWidth: '260px', maxWidth: '300px' }}>
+                            <div style={{ padding: '16px', minWidth: '300px', maxWidth: '400px' }}>
                                 <ColorPalette
                                     colors={themeColors}
                                     value={value}
@@ -314,7 +314,7 @@ export default function Edit(props) {
             </InspectorControls>
 
             <div {...blockProps}>
-                <div 
+                <div
                     className={`arwai-aziv-cards-grid cols-${attributes.columns || 2} arwai-aziv-cards-wysiwyg-preview`}
                     style={{
                         display: 'block',
@@ -361,11 +361,8 @@ export default function Edit(props) {
                             '--card-shadow': nativeShadow
                         }}
                     >
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', justifyContent: nativeTextAlign === 'center' ? 'center' : nativeTextAlign === 'right' ? 'flex-end' : 'flex-start' }}>
-                            <span style={{ background: '#2563eb', color: '#fff', width: '22px', height: '22px', borderRadius: '50%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', fontWeight: 'bold' }}>
-                                1
-                            </span>
-                            <strong style={{ fontSize: '1em' }}>{__('Standard State Card', 'arwai-azi-viewer')}</strong>
+                        <div className="arwai-aziv-card-header-bar" style={{ justifyContent: nativeTextAlign === 'center' ? 'center' : nativeTextAlign === 'right' ? 'flex-end' : 'flex-start' }}>
+                            <span className="arwai-aziv-card-badge-circle" style={{ background: '#2563eb', color: '#fff' }}>1</span>
                         </div>
                         <p style={{
                             fontSize: '1em',
@@ -382,12 +379,16 @@ export default function Edit(props) {
                             {__('Demonstrates standard background, text, border, and flex card layout.', 'arwai-azi-viewer')}
                         </p>
                         {attributes.enableTruncation && (
-                            <button type="button" className="arwai-aziv-card-expand-btn" style={{ pointerEvents: 'none', marginTop: 'auto' }}>
+                            <button type="button" className="arwai-aziv-card-expand-btn" style={{ pointerEvents: 'none' }}>
                                 {attributes.readMoreText || '...Read More'}
                             </button>
                         )}
-                        <div style={{ marginTop: attributes.enableTruncation ? '6px' : 'auto' }}>
-                            <span style={{ background: 'rgba(255,255,255,0.15)', padding: '2px 8px', borderRadius: '10px', fontSize: '10px' }}>#standard</span>
+                        <div className="arwai-aziv-card-tags-footer" style={{ justifyContent: nativeTextAlign === 'center' ? 'center' : nativeTextAlign === 'right' ? 'flex-end' : 'flex-start' }}>
+                            <span className="arwai-aziv-card-tag-badge">#standard</span>
+                        </div>
+                        <div className="arwai-aziv-card-author-meta" style={{ justifyContent: nativeTextAlign === 'center' ? 'center' : nativeTextAlign === 'right' ? 'flex-end' : 'flex-start' }}>
+                            <strong className="arwai-aziv-author-name">{__('Standard State Card', 'arwai-azi-viewer')}</strong>
+                            <span className="arwai-aziv-created-time">{__('2 hours ago', 'arwai-azi-viewer')}</span>
                         </div>
                     </div>
 
@@ -420,14 +421,17 @@ export default function Edit(props) {
                             '--card-shadow': attributes.hoverShadow || nativeShadow || '0 8px 22px rgba(0, 0, 0, 0.15)'
                         }}
                     >
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', justifyContent: nativeTextAlign === 'center' ? 'center' : nativeTextAlign === 'right' ? 'flex-end' : 'flex-start' }}>
-                            <span style={{ background: '#2563eb', color: '#fff', width: '22px', height: '22px', borderRadius: '50%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', fontWeight: 'bold' }}>
-                                2
-                            </span>
-                            <strong style={{ fontSize: '12px' }}>{__('Hover State Card', 'arwai-azi-viewer')}</strong>
+                        <div className="arwai-aziv-card-header-bar" style={{ justifyContent: nativeTextAlign === 'center' ? 'center' : nativeTextAlign === 'right' ? 'flex-end' : 'flex-start' }}>
+                            <span className="arwai-aziv-card-badge-circle" style={{ background: '#2563eb', color: '#fff' }}>2</span>
                         </div>
                         <p style={{ fontSize: '12px', margin: '0 0 8px 0', opacity: 0.9, flexGrow: 1 }}>{__('Demonstrates hover background, text, border, and shadow styles.', 'arwai-azi-viewer')}</p>
-                        <span style={{ background: 'rgba(255,255,255,0.15)', padding: '2px 8px', borderRadius: '10px', fontSize: '10px', alignSelf: nativeTextAlign === 'center' ? 'center' : nativeTextAlign === 'right' ? 'flex-end' : 'flex-start', marginTop: 'auto' }}>#hover</span>
+                        <div className="arwai-aziv-card-tags-footer" style={{ justifyContent: nativeTextAlign === 'center' ? 'center' : nativeTextAlign === 'right' ? 'flex-end' : 'flex-start' }}>
+                            <span className="arwai-aziv-card-tag-badge">#hover</span>
+                        </div>
+                        <div className="arwai-aziv-card-author-meta" style={{ justifyContent: nativeTextAlign === 'center' ? 'center' : nativeTextAlign === 'right' ? 'flex-end' : 'flex-start' }}>
+                            <strong className="arwai-aziv-author-name">{__('Hover State Card', 'arwai-azi-viewer')}</strong>
+                            <span className="arwai-aziv-created-time">{__('1 hour ago', 'arwai-azi-viewer')}</span>
+                        </div>
                     </div>
 
                     {/* Card 3: Selected State (if columns >= 3) */}
@@ -460,14 +464,17 @@ export default function Edit(props) {
                                 '--card-shadow': attributes.selectedShadow || nativeShadow || '0 8px 24px rgba(0, 0, 0, 0.2)'
                             }}
                         >
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', justifyContent: nativeTextAlign === 'center' ? 'center' : nativeTextAlign === 'right' ? 'flex-end' : 'flex-start' }}>
-                                <span style={{ background: '#2563eb', color: '#fff', width: '22px', height: '22px', borderRadius: '50%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', fontWeight: 'bold' }}>
-                                    3
-                                </span>
-                                <strong style={{ fontSize: '12px' }}>{__('Selected State Card', 'arwai-azi-viewer')}</strong>
+                            <div className="arwai-aziv-card-header-bar" style={{ justifyContent: nativeTextAlign === 'center' ? 'center' : nativeTextAlign === 'right' ? 'flex-end' : 'flex-start' }}>
+                                <span className="arwai-aziv-card-badge-circle" style={{ background: '#2563eb', color: '#fff' }}>3</span>
                             </div>
                             <p style={{ fontSize: '12px', margin: '0 0 8px 0', opacity: 0.9, flexGrow: 1 }}>{__('Demonstrates selected background, text, border, and shadow styles.', 'arwai-azi-viewer')}</p>
-                            <span style={{ background: 'rgba(255,255,255,0.15)', padding: '2px 8px', borderRadius: '10px', fontSize: '10px', alignSelf: nativeTextAlign === 'center' ? 'center' : nativeTextAlign === 'right' ? 'flex-end' : 'flex-start', marginTop: 'auto' }}>#selected</span>
+                            <div className="arwai-aziv-card-tags-footer" style={{ justifyContent: nativeTextAlign === 'center' ? 'center' : nativeTextAlign === 'right' ? 'flex-end' : 'flex-start' }}>
+                                <span className="arwai-aziv-card-tag-badge">#selected</span>
+                            </div>
+                            <div className="arwai-aziv-card-author-meta" style={{ justifyContent: nativeTextAlign === 'center' ? 'center' : nativeTextAlign === 'right' ? 'flex-end' : 'flex-start' }}>
+                                <strong className="arwai-aziv-author-name">{__('Selected State Card', 'arwai-azi-viewer')}</strong>
+                                <span className="arwai-aziv-created-time">{__('Just now', 'arwai-azi-viewer')}</span>
+                            </div>
                         </div>
                     )}
 
@@ -501,14 +508,17 @@ export default function Edit(props) {
                                 '--card-shadow': nativeShadow
                             }}
                         >
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', justifyContent: nativeTextAlign === 'center' ? 'center' : nativeTextAlign === 'right' ? 'flex-end' : 'flex-start' }}>
-                                <span style={{ background: '#2563eb', color: '#fff', width: '22px', height: '22px', borderRadius: '50%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', fontWeight: 'bold' }}>
-                                    4
-                                </span>
-                                <strong style={{ fontSize: '12px' }}>{__('Card Item #4', 'arwai-azi-viewer')}</strong>
+                            <div className="arwai-aziv-card-header-bar" style={{ justifyContent: nativeTextAlign === 'center' ? 'center' : nativeTextAlign === 'right' ? 'flex-end' : 'flex-start' }}>
+                                <span className="arwai-aziv-card-badge-circle" style={{ background: '#2563eb', color: '#fff' }}>4</span>
                             </div>
                             <p style={{ fontSize: '12px', margin: '0 0 8px 0', opacity: 0.9, flexGrow: 1 }}>{__('Grid column layout preview.', 'arwai-azi-viewer')}</p>
-                            <span style={{ background: 'rgba(255,255,255,0.15)', padding: '2px 8px', borderRadius: '10px', fontSize: '10px', alignSelf: nativeTextAlign === 'center' ? 'center' : nativeTextAlign === 'right' ? 'flex-end' : 'flex-start', marginTop: 'auto' }}>#preview</span>
+                            <div className="arwai-aziv-card-tags-footer" style={{ justifyContent: nativeTextAlign === 'center' ? 'center' : nativeTextAlign === 'right' ? 'flex-end' : 'flex-start' }}>
+                                <span className="arwai-aziv-card-tag-badge">#preview</span>
+                            </div>
+                            <div className="arwai-aziv-card-author-meta" style={{ justifyContent: nativeTextAlign === 'center' ? 'center' : nativeTextAlign === 'right' ? 'flex-end' : 'flex-start' }}>
+                                <strong className="arwai-aziv-author-name">{__('Card Item #4', 'arwai-azi-viewer')}</strong>
+                                <span className="arwai-aziv-created-time">{__('5 mins ago', 'arwai-azi-viewer')}</span>
+                            </div>
                         </div>
                     )}
                 </div>

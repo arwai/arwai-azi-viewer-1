@@ -113,6 +113,40 @@ The plugin uses a native CSS Custom Properties architecture for zero-lag, JS-fre
    ```
 4. **Annotorious Vector Formatter**: `view.js` uses `idBadgeAndColorFormatter` to inject inline CSS variables (`--tag-fill`, `--tag-border`) directly into SVG `<foreignObject>` badges and `<path>` vectors based on Tag rules.
 
+## ♿ Accessibility & Keyboard Navigation
+
+The plugin conforms to modern Web Content Accessibility Guidelines (WCAG) and provides native screen reader support and keyboard control in both the Simple Viewer and OpenSeadragon (OSD) Fullscreen Viewer.
+
+### 1. Screen Reader & ARIA Architecture
+- **Accessible Modal Dialog**: Fullscreen OpenSeadragon stage is structured with `role="dialog"`, `aria-modal="true"`, and `aria-label="Full Screen Image Viewer"`.
+- **Screen Reader Live Region (`aria-live="polite"`)**: Dynamic status updates (`.arwai-aziv-osd-a11y-status`) announce modal states, image changes (*"Showing image 2 of 5"*), zoom levels (*"Zoom level 150%"*), rotation angles, and annotation toggles.
+- **SVG Annotation Semantics**: SVG annotation groups (`.a9s-annotation`) are assigned `tabindex="0"`, `role="button"`, and screen reader labels (`Annotation N: Comment text`).
+- **Interactive Control Labels**: All toolbar buttons, icon buttons, and close controls feature descriptive `aria-label` attributes and dynamic `aria-pressed` toggle states.
+
+### 2. Focus Management & Focus Trap
+- **Focus Rings (`:focus-visible`)**: Prominent high-contrast focus rings (`outline: 3px solid #2563eb; outline-offset: 2px;`) ensure clear focus visibility across viewer canvases, toolbar buttons, and SVG shapes.
+- **Strict Modal Focus Trap**: Keyboard focus is trapped within the fullscreen modal when open (`Tab` / `Shift+Tab` wrap-around and global `focusin` guard).
+- **Background Page Isolation**: Sibling DOM elements outside the fullscreen modal are marked `aria-hidden="true"` while the viewer modal is active to prevent keyboard leaks into background page content.
+
+### 3. Keyboard Shortcuts Reference Table
+
+| Key / Shortcut | Context | Action |
+| :--- | :--- | :--- |
+| `Tab` / `Shift+Tab` | Viewer / Modal | Navigate sequentially through toolbar controls, canvas element, and SVG annotations |
+| `Arrow Keys` (Up/Down/Left/Right) | OSD Canvas Focused | Pan the image view smoothly across the stage |
+| `+` or `=` | OSD Viewer | Zoom in |
+| `-` or `_` | OSD Viewer | Zoom out |
+| `0` or `Home` | OSD Viewer | Reset image zoom and pan to home view |
+| `PageUp` or `[` | OSD Viewer | Jump to previous image in sequence |
+| `PageDown` or `]` | OSD Viewer | Jump to next image in sequence |
+| `r` / `R` | OSD Viewer | Rotate image (90-degree right / left) |
+| `a` / `A` or `Alt + ArrowDown` | OSD Viewer | Cycle to and select **next annotation** natively via Annotorious |
+| `Shift + A` or `Alt + ArrowUp` | OSD Viewer | Cycle to and select **previous annotation** natively via Annotorious |
+| `Enter` or `Space` | Focused SVG Annotation | Select focused annotation natively and scroll its matching card into view |
+| `Escape` | Modal / Annotation | Deselect active annotation if selected (`osdAnno.cancelSelected()`), or close OSD fullscreen modal |
+
+---
+
 ## 📝 Recent Updates (v1.1.0)
 
 ### 1. Tabbed Admin Settings Interface
@@ -131,4 +165,5 @@ The admin settings page has been completely reorganized into a clean, tabbed int
 ### 3. Accessibility Enhancements
 - **Screenreader Support**: Added descriptive `aria-label` attributes to the Previous/Next buttons, as well as the Annotations, Enlarge, and Info buttons.
 - **Dynamic Aria States**: The Annotations toggle button now dynamically updates its `aria-pressed` state when annotations are shown or hidden.
-- **Keyboard Navigation**: Implemented explicit `:focus-visible` CSS rules (`outline: 2px solid currentColor; outline-offset: 2px;`) to ensure all interactive pill buttons display a clear, high-contrast focus ring when navigating via the `Tab` key, regardless of the active theme's default styles.
+- **Keyboard Navigation & Shortcuts**: Implemented explicit `:focus-visible` CSS rules (`outline: 3px solid #2563eb`) and keyboard shortcuts for zooming, panning, sequence navigation, rotation, and native Annotorious annotation selection (`a` / `Shift+A` / `Enter`).
+

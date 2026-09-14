@@ -743,16 +743,16 @@ document.addEventListener('DOMContentLoaded', () => {
                             card.innerHTML = `
                                 <div class="arwai-aziv-card-header-bar" style="justify-content:${justifyHeader};">
                                     <span class="arwai-aziv-card-badge-circle" style="background:${matchedBadge}; color:${matchedBadgeText};">${badgeNum}</span>
-                                    <div class="arwai-aziv-card-author-meta">
-                                        <strong class="arwai-aziv-author-name arwai-aziv-user-name" data-display="${escapeHTML(creator)}" data-login="${escapeHTML(userLogin)}" data-fullname="${escapeHTML(fullName)}" style="cursor:pointer;">${escapeHTML(creator)}</strong>
-                                        ${timeAgo ? `<span class="arwai-aziv-created-time">${escapeHTML(timeAgo)}</span>` : ''}
-                                    </div>
                                 </div>
                                 <div class="arwai-aziv-card-body-text">
                                     ${commentsHtml}
                                     <div class="arwai-aziv-card-fade-mask"></div>
                                 </div>
                                 ${tagsHtml ? `<div class="arwai-aziv-card-tags-footer" style="justify-content:${justifyHeader};">${tagsHtml}</div>` : ''}
+                                <div class="arwai-aziv-card-author-meta" style="justify-content:${justifyHeader};">
+                                    <strong class="arwai-aziv-author-name arwai-aziv-user-name" data-display="${escapeHTML(creator)}" data-login="${escapeHTML(userLogin)}" data-fullname="${escapeHTML(fullName)}" style="cursor:pointer;">${escapeHTML(creator)}</strong>
+                                    ${timeAgo ? `<span class="arwai-aziv-created-time">${escapeHTML(timeAgo)}</span>` : ''}
+                                </div>
                             `;
 
                             grid.appendChild(card);
@@ -1125,12 +1125,53 @@ document.addEventListener('DOMContentLoaded', () => {
             if (closeInfo) closeInfo.onclick = () => infoPopup.style.display = 'none';
         }
 
+        let previousActiveElement = null;
+
+        function announceOsdStatus(msg) {
+            const statusEl = document.getElementById(`${wrapId}-osd-status`);
+            if (statusEl) {
+                statusEl.textContent = '';
+                setTimeout(() => { statusEl.textContent = msg; }, 50);
+            }
+        }
+
+        function setBackgroundInert(isInert) {
+            if (!wrap) return;
+            Array.from(wrap.children).forEach(child => {
+                if (child !== osdModal && !child.contains(osdModal)) {
+                    if (isInert) {
+                        child.setAttribute('aria-hidden', 'true');
+                    } else {
+                        child.removeAttribute('aria-hidden');
+                    }
+                }
+            });
+        }
+
+        function getOsdFocusables() {
+            if (!osdModal) return [];
+            return Array.from(
+                osdModal.querySelectorAll('button:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled]), a[href], input:not([disabled]), textarea:not([disabled]), select:not([disabled])')
+            ).filter(el => {
+                return (el.offsetWidth > 0 || el.offsetHeight > 0 || el === document.activeElement) && window.getComputedStyle(el).display !== 'none' && window.getComputedStyle(el).visibility !== 'hidden';
+            });
+        }
+
         function openOsdModal() {
             if (!osdModal) return;
+            previousActiveElement = document.activeElement;
             osdModal.style.display = 'flex';
+            setBackgroundInert(true);
             if (osdLoader) osdLoader.style.display = 'block';
 
             const canvasId = `${wrapId}-osd-canvas`;
+            const canvasEl = document.getElementById(canvasId);
+            if (canvasEl) {
+                canvasEl.setAttribute('tabindex', '0');
+                canvasEl.setAttribute('role', 'region');
+                canvasEl.setAttribute('aria-label', 'Interactive image viewer. Use arrow keys to pan, plus and minus keys to zoom, home key to reset view, page up and page down to switch images.');
+            }
+
             const tileSources = images.map(img => ({ type: 'image', url: img.full_url }));
 
             if (osdViewer) {
@@ -1149,10 +1190,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 animationTime: parseFloat(osd_options.animationTime || '1.2'),
                 showNavigator: osd_options.showNavigator === '1',
                 gestureSettingsMouse: { clickToZoom: osd_options.gestureSettingsMouse === '1' },
+                tabIndex: 0,
             });
 
             osdViewer.addHandler('open', () => {
                 if (osdLoader) osdLoader.style.display = 'none';
+                if (canvasEl) canvasEl.focus();
+                announceOsdStatus(`Opened full screen image viewer. Image ${osdViewer.currentPage() + 1} of ${images.length}`);
+
                 if (typeof OpenSeadragon.Annotorious === 'function') {
                     if (osdAnno) { try { osdAnno.destroy(); } catch (e) { } }
 
@@ -1169,12 +1214,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     osdAnno.setVisible(notesVisible);
 
-                    osdAnno.on('startSelection', () => {
-                        if (osdViewer) osdViewer.setMouseNavEnabled(false);
-                    });
-
                     osdAnno.on('selectAnnotation', (annotation) => {
-                        if (osdViewer) osdViewer.setMouseNavEnabled(false);
                         document.querySelectorAll('.arwai-aziv-annotation-card-item').forEach(c => c.classList.remove('arwai-aziv-selected-card'));
                         const cardEl = document.querySelector(`.arwai-aziv-annotation-card-item[data-annotation-id="${annotation.id}"]`);
                         if (cardEl) {
@@ -1184,7 +1224,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
 
                     osdAnno.on('cancelSelected', () => {
-                        if (osdViewer) osdViewer.setMouseNavEnabled(true);
                         document.querySelectorAll('.arwai-aziv-annotation-card-item').forEach(c => c.classList.remove('arwai-aziv-selected-card'));
                     });
 
@@ -1197,15 +1236,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (!isReadOnly) {
                         const currentPostId = parseInt(wrap.getAttribute('data-post-id'), 10) || 0;
                         osdAnno.on('createAnnotation', (annotation) => {
-                            if (osdViewer) osdViewer.setMouseNavEnabled(true);
                             saveAnnotation(currentAtt.attachment_id, currentPostId, annotation);
                         });
                         osdAnno.on('updateAnnotation', (annotation) => {
-                            if (osdViewer) osdViewer.setMouseNavEnabled(true);
                             saveAnnotation(currentAtt.attachment_id, currentPostId, annotation);
                         });
                         osdAnno.on('deleteAnnotation', (annotation) => {
-                            if (osdViewer) osdViewer.setMouseNavEnabled(true);
                             deleteAnnotation(currentAtt.attachment_id, annotation);
                         });
                     }
@@ -1237,6 +1273,33 @@ document.addEventListener('DOMContentLoaded', () => {
                         osdAnno.setAnnotations(data);
                         osdAnno.setVisible(notesVisible);
                         updateNotesButtonsState(data.length);
+
+                        // Make SVG annotations keyboard focusable and accessible to screen readers
+                        setTimeout(() => {
+                            const container = document.getElementById(`${wrapId}-osd-canvas`);
+                            if (!container) return;
+                            const gElems = container.querySelectorAll('.a9s-annotation');
+                            gElems.forEach((g, idx) => {
+                                const annoId = g.getAttribute('data-id');
+                                const anno = data.find(a => a.id === annoId);
+                                let bodyText = `Annotation ${idx + 1}`;
+                                if (anno && anno.body && anno.body.length > 0) {
+                                    const txtBody = anno.body.find(b => b.type === 'TextualBody' || b.purpose === 'commenting');
+                                    if (txtBody && txtBody.value) bodyText += `: ${txtBody.value}`;
+                                }
+                                g.setAttribute('tabindex', '0');
+                                g.setAttribute('role', 'button');
+                                g.setAttribute('aria-label', bodyText);
+
+                                g.onkeydown = (ev) => {
+                                    if (ev.key === 'Enter' || ev.key === ' ') {
+                                        ev.preventDefault();
+                                        ev.stopPropagation();
+                                        if (osdAnno) osdAnno.selectAnnotation(annoId);
+                                    }
+                                };
+                            });
+                        }, 300);
                     }
                 })
                 .catch(err => {
@@ -1295,15 +1358,53 @@ document.addEventListener('DOMContentLoaded', () => {
                 .catch(err => console.error('Error deleting OSD annotation:', err));
         }
 
+        function cycleOsdAnnotation(direction = 1) {
+            if (!osdAnno) return;
+            const annos = osdAnno.getAnnotations();
+            if (!annos || annos.length === 0) {
+                announceOsdStatus('No annotations on this image');
+                return;
+            }
+
+            const selected = osdAnno.getSelected();
+            let targetIndex = 0;
+
+            if (selected) {
+                const currentIndex = annos.findIndex(a => a.id === selected.id);
+                if (currentIndex !== -1) {
+                    targetIndex = (currentIndex + direction + annos.length) % annos.length;
+                }
+            } else if (direction < 0) {
+                targetIndex = annos.length - 1;
+            }
+
+            const targetAnno = annos[targetIndex];
+            if (targetAnno && targetAnno.id) {
+                osdAnno.selectAnnotation(targetAnno.id);
+                let label = `Selected annotation ${targetIndex + 1} of ${annos.length}`;
+                if (targetAnno.body && targetAnno.body.length > 0) {
+                    const comment = targetAnno.body.find(b => b.type === 'TextualBody' || b.purpose === 'commenting');
+                    if (comment && comment.value) label += `: ${comment.value}`;
+                }
+                announceOsdStatus(label);
+            }
+        }
+
         // Automatic Instant Re-fetch & Sync of Simple Viewer & Gutenberg Cards on Modal Close
         function closeOsdModal() {
             if (osdModal) osdModal.style.display = 'none';
+            setBackgroundInert(false);
             if (osdAnno) { try { osdAnno.destroy(); } catch (e) { } osdAnno = null; }
             if (osdViewer) { try { osdViewer.destroy(); } catch (e) { } osdViewer = null; }
 
             const currentAttId = images[activeIndex].attachment_id;
             loadMainAnnotations(currentAttId);
             refreshAnnotationCards(currentAttId);
+
+            if (previousActiveElement && typeof previousActiveElement.focus === 'function') {
+                previousActiveElement.focus();
+            }
+            announceOsdStatus('Closed full screen image viewer');
         }
 
         initMainAnnotorious();
@@ -1328,13 +1429,93 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        document.addEventListener('keydown', (e) => {
+        document.addEventListener('focusin', (e) => {
             if (osdModal && osdModal.style.display === 'flex') {
-                if (e.key === 'Escape') closeOsdModal();
-                if (e.key === 'ArrowLeft' && osdViewer) osdViewer.goToPage(Math.max(0, osdViewer.currentPage() - 1));
-                if (e.key === 'ArrowRight' && osdViewer) osdViewer.goToPage(Math.min(images.length - 1, osdViewer.currentPage() + 1));
+                if (!osdModal.contains(e.target)) {
+                    e.stopPropagation();
+                    const focusables = getOsdFocusables();
+                    if (focusables.length > 0) {
+                        focusables[0].focus();
+                    }
+                }
             }
         });
+
+        document.addEventListener('keydown', (e) => {
+            if (osdModal && osdModal.style.display === 'flex') {
+                // Do not intercept input when typing inside forms or text fields
+                if (e.target && e.target.matches('input, textarea, select, [contenteditable]')) {
+                    if (e.key === 'Escape') {
+                        e.target.blur();
+                    }
+                    return;
+                }
+
+                // Modal Focus Trap
+                if (e.key === 'Tab') {
+                    const focusables = getOsdFocusables();
+                    if (focusables.length > 0) {
+                        const first = focusables[0];
+                        const last = focusables[focusables.length - 1];
+                        if (!osdModal.contains(document.activeElement)) {
+                            e.preventDefault();
+                            first.focus();
+                        } else if (e.shiftKey && document.activeElement === first) {
+                            e.preventDefault();
+                            last.focus();
+                        } else if (!e.shiftKey && document.activeElement === last) {
+                            e.preventDefault();
+                            first.focus();
+                        }
+                    } else {
+                        e.preventDefault();
+                    }
+                }
+
+                if (e.key === 'Escape') {
+                    e.preventDefault();
+                    if (osdAnno && osdAnno.getSelected()) {
+                        osdAnno.cancelSelected();
+                        announceOsdStatus('Deselected annotation');
+                    } else {
+                        closeOsdModal();
+                    }
+                } else if (e.key === 'a' || e.key === 'A' || (e.altKey && e.key === 'ArrowDown')) {
+                    e.preventDefault();
+                    cycleOsdAnnotation(e.shiftKey ? -1 : 1);
+                } else if (e.altKey && e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    cycleOsdAnnotation(-1);
+                } else if (e.key === 'PageUp' || e.key === '[') {
+                    e.preventDefault();
+                    if (osdViewer && osdViewer.currentPage() > 0) {
+                        osdViewer.goToPage(osdViewer.currentPage() - 1);
+                    }
+                } else if (e.key === 'PageDown' || e.key === ']') {
+                    e.preventDefault();
+                    if (osdViewer && osdViewer.currentPage() < images.length - 1) {
+                        osdViewer.goToPage(osdViewer.currentPage() + 1);
+                    }
+                } else if (e.key === '+' || e.key === '=') {
+                    e.preventDefault();
+                    if (osdViewer && osdViewer.viewport) osdViewer.viewport.zoomBy(1.25);
+                } else if (e.key === '-' || e.key === '_') {
+                    e.preventDefault();
+                    if (osdViewer && osdViewer.viewport) osdViewer.viewport.zoomBy(0.8);
+                } else if (e.key === '0' || e.key === 'Home') {
+                    e.preventDefault();
+                    if (osdViewer && osdViewer.viewport) osdViewer.viewport.goHome();
+                } else if (e.key === 'r' || e.key === 'R') {
+                    e.preventDefault();
+                    if (osdViewer && osdViewer.viewport) {
+                        const rot = (osdViewer.viewport.getRotation() + (e.shiftKey ? -90 : 90)) % 360;
+                        osdViewer.viewport.setRotation(rot);
+                        announceOsdStatus(`Image rotated ${rot} degrees`);
+                    }
+                }
+            }
+        });
+
     }
 
     // Bind Floating Toolbars
@@ -1352,7 +1533,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (btnNotes) {
             btnNotes.onclick = () => {
-                toggleNotesCallback();
+                const isVisible = toggleNotesCallback();
+                btnNotes.setAttribute('aria-pressed', isVisible ? 'true' : 'false');
+                announceOsdStatus(isVisible ? 'Annotations visible' : 'Annotations hidden');
             };
         }
         if (btnPrev) btnPrev.onclick = () => osdViewer && osdViewer.goToPage(Math.max(0, osdViewer.currentPage() - 1));
@@ -1366,6 +1549,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (btnRotRight) btnRotRight.onclick = () => osdViewer && osdViewer.viewport && osdViewer.viewport.setRotation(osdViewer.viewport.getRotation() + 90);
 
         if (osdViewer) {
+            let zoomAnnounceTimeout = null;
             const updateOsdNav = () => {
                 const current = osdViewer.currentPage();
                 const total = osdViewer.tileSources.length;
@@ -1379,6 +1563,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     btnNext.style.opacity = current === total - 1 ? '0.3' : '';
                     btnNext.style.cursor = current === total - 1 ? 'not-allowed' : '';
                 }
+                announceOsdStatus(`Showing image ${current + 1} of ${total}`);
             };
             const updateOsdZoom = () => {
                 if (!osdViewer.viewport) return;
@@ -1397,6 +1582,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     btnZoomOut.style.opacity = atMin ? '0.3' : '';
                     btnZoomOut.style.cursor = atMin ? 'not-allowed' : '';
                 }
+                clearTimeout(zoomAnnounceTimeout);
+                zoomAnnounceTimeout = setTimeout(() => {
+                    announceOsdStatus(`Zoom level ${Math.round(zoom * 100)}%`);
+                }, 400);
             };
             osdViewer.addHandler('page', updateOsdNav);
             osdViewer.addHandler('zoom', updateOsdZoom);
@@ -1406,6 +1595,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
+
 
     // Local Viewer Timezone Date Formatter Helper
     function formatLocalTime(dateInput) {

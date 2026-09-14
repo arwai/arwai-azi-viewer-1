@@ -168,14 +168,8 @@ if (!empty($tag_colors)) {
                  data-annotation-id="<?php echo esc_attr($anno_id); ?>" 
                  data-attachment-id="<?php echo esc_attr($att_id); ?>" 
                  style="<?php echo $card_style_attr; ?>">
-                <div class="arwai-aziv-card-header-bar">
+                <div class="arwai-aziv-card-header-bar" style="justify-content:<?php echo esc_attr($flex_alignment); ?>;">
                     <span class="arwai-aziv-card-badge-circle" style="<?php echo esc_attr($badge_style_attr); ?>"><?php echo (int) $badge_num; ?></span>
-                    <div class="arwai-aziv-card-author-meta">
-                        <strong class="arwai-aziv-author-name arwai-aziv-user-name" data-display="<?php echo esc_attr($creator); ?>" data-login="<?php echo esc_attr($user_login); ?>" data-fullname="<?php echo esc_attr($full_name); ?>" style="cursor: pointer;"><?php echo esc_html($creator); ?></strong>
-                        <?php if ($created) : ?>
-                            <span class="arwai-aziv-created-time"><?php echo esc_html($created); ?></span>
-                        <?php endif; ?>
-                    </div>
                 </div>
 
                 <div class="arwai-aziv-card-body-text">
@@ -189,12 +183,19 @@ if (!empty($tag_colors)) {
                 </div>
 
                 <?php if (!empty($tags)) : ?>
-                    <div class="arwai-aziv-card-tags-footer">
+                    <div class="arwai-aziv-card-tags-footer" style="justify-content:<?php echo esc_attr($flex_alignment); ?>;">
                         <?php foreach ($tags as $tag_val) : ?>
                             <span class="arwai-aziv-card-tag-badge">#<?php echo esc_html($tag_val); ?></span>
                         <?php endforeach; ?>
                     </div>
                 <?php endif; ?>
+
+                <div class="arwai-aziv-card-author-meta" style="justify-content:<?php echo esc_attr($flex_alignment); ?>;">
+                    <strong class="arwai-aziv-author-name arwai-aziv-user-name" data-display="<?php echo esc_attr($creator); ?>" data-login="<?php echo esc_attr($user_login); ?>" data-fullname="<?php echo esc_attr($full_name); ?>" style="cursor: pointer;"><?php echo esc_html($creator); ?></strong>
+                    <?php if ($created) : ?>
+                        <span class="arwai-aziv-created-time"><?php echo esc_html($created); ?></span>
+                    <?php endif; ?>
+                </div>
             </div>
         <?php endforeach; ?>
     <?php endif; ?>

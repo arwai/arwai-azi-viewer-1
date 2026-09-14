@@ -14354,8 +14354,8 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "src_sequence_filmstrip_block_attributes_align",
-      "community": 24,
-      "community_name": "Annotorious Vendor",
+      "community": 128,
+      "community_name": "align",
       "norm_label": "align"
     },
     {
@@ -14365,8 +14365,8 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "src_sequence_filmstrip_block_align_type",
-      "community": 24,
-      "community_name": "Annotorious Vendor",
+      "community": 128,
+      "community_name": "align",
       "norm_label": "type"
     },
     {
@@ -14376,8 +14376,8 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "src_sequence_filmstrip_block_align_default",
-      "community": 24,
-      "community_name": "Annotorious Vendor",
+      "community": 128,
+      "community_name": "align",
       "norm_label": "default"
     },
     {
@@ -14684,8 +14684,8 @@
       "source_location": "L97",
       "_origin": "ast",
       "id": "src_sequence_filmstrip_block_attributes_containerborderwidth",
-      "community": 128,
-      "community_name": "align",
+      "community": 24,
+      "community_name": "Annotorious Vendor",
       "norm_label": "containerborderwidth"
     },
     {
@@ -14695,8 +14695,8 @@
       "source_location": "L98",
       "_origin": "ast",
       "id": "src_sequence_filmstrip_block_containerborderwidth_type",
-      "community": 128,
-      "community_name": "align",
+      "community": 24,
+      "community_name": "Annotorious Vendor",
       "norm_label": "type"
     },
     {
@@ -14706,8 +14706,8 @@
       "source_location": "L99",
       "_origin": "ast",
       "id": "src_sequence_filmstrip_block_containerborderwidth_default",
-      "community": 128,
-      "community_name": "align",
+      "community": 24,
+      "community_name": "Annotorious Vendor",
       "norm_label": "default"
     },
     {
@@ -16969,7 +16969,7 @@
       "label": "bindOsdFloatingToolbars()",
       "file_type": "code",
       "source_file": "src/viewer/view.js",
-      "source_location": "L1522",
+      "source_location": "L1550",
       "_origin": "ast",
       "id": "src_viewer_view_bindosdfloatingtoolbars",
       "community": 112,
@@ -16980,7 +16980,7 @@
       "label": "formatLocalTime()",
       "file_type": "code",
       "source_file": "src/viewer/view.js",
-      "source_location": "L1601",
+      "source_location": "L1629",
       "_origin": "ast",
       "id": "src_viewer_view_formatlocaltime",
       "community": 112,
@@ -16991,7 +16991,7 @@
       "label": "escapeHTML()",
       "file_type": "code",
       "source_file": "src/viewer/view.js",
-      "source_location": "L1608",
+      "source_location": "L1636",
       "_origin": "ast",
       "id": "src_viewer_view_escapehtml",
       "community": 112,
@@ -51121,7 +51121,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/viewer/view.js",
-      "source_location": "L1522",
+      "source_location": "L1550",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_viewer_view",
@@ -51132,7 +51132,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/viewer/view.js",
-      "source_location": "L1608",
+      "source_location": "L1636",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_viewer_view",
@@ -51154,7 +51154,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/viewer/view.js",
-      "source_location": "L1601",
+      "source_location": "L1629",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_viewer_view",

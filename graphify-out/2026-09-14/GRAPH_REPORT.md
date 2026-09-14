@@ -1,7 +1,7 @@
 # Graph Report - arwai-azi-viewer  (2026-09-14)
 
 ## Corpus Check
-- 43 files · ~44,183 words
+- 43 files · ~44,267 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -259,7 +259,7 @@ Nodes (3): hoverBackgroundColor, default, type
 
 ### Community 24 - "Annotorious Vendor"
 Cohesion: 0.20
-Nodes (10): default, type, attributes, align, containerBorderStyle, targetViewerId, default, type (+2 more)
+Nodes (10): attributes, containerBorderStyle, containerBorderWidth, targetViewerId, default, type, default, type (+2 more)
 
 ### Community 25 - "Annotorious Vendor"
 Cohesion: 0.67
@@ -587,7 +587,7 @@ Nodes (102): a(), A1(), b(), bd(), C(), de(), dn(), $e() (+94 more)
 
 ### Community 128 - "align"
 Cohesion: 0.67
-Nodes (3): containerBorderWidth, default, type
+Nodes (3): default, type, align
 
 ### Community 132 - "cd"
 Cohesion: 0.50
