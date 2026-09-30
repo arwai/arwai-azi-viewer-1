@@ -49,6 +49,231 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
+    // --- Card Stack Layout Shift & Toggle Helpers ---
+    function updateStackedCardPositions(grid, selectedCardIndex = null, isExpanded = false) {
+        if (!grid) return;
+        const isStacked = grid.classList.contains('arwai-aziv-cards-stacked') || grid.getAttribute('data-layout-mode') === 'stacked';
+        const cards = Array.from(grid.querySelectorAll('.arwai-aziv-annotation-card-item'));
+        const headerEl = grid.querySelector('.arwai-aziv-cards-block-header');
+        
+        let headerHeight = 0;
+        if (headerEl && window.getComputedStyle(headerEl).display !== 'none') {
+            headerHeight = (headerEl.offsetHeight || 36) + 16;
+        }
+
+        if (!isStacked) {
+            cards.forEach(c => {
+                c.style.position = '';
+                c.style.top = '';
+                c.style.left = '';
+                c.style.right = '';
+                c.style.width = '';
+                c.style.transform = '';
+                c.style.zIndex = '';
+            });
+            grid.style.height = '';
+            grid.style.paddingBottom = '';
+            return;
+        }
+
+        const step = 48; // Exposed top header height for each card in stack
+        let selectedShift = 0;
+
+        if (selectedCardIndex !== null && selectedCardIndex !== undefined && selectedCardIndex >= 0) {
+            const selectedCard = cards[selectedCardIndex];
+            if (selectedCard) {
+                const cardHeight = selectedCard.offsetHeight || selectedCard.scrollHeight || 120;
+                selectedShift = Math.max(0, cardHeight - step + 12);
+            }
+        }
+
+        cards.forEach((c, i) => {
+            const isSelected = (selectedCardIndex !== null && selectedCardIndex !== undefined && i === selectedCardIndex);
+
+            c.style.position = 'absolute';
+            c.style.left = '0';
+            c.style.right = '0';
+            c.style.width = '100%';
+            c.style.top = `${headerHeight}px`;
+
+            // Ascending z-index so Card 1 renders on top of Card 0 (exposing Card 0's top header),
+            // Card 2 renders on top of Card 1 (exposing Card 1's top header), etc.
+            // Selected card gets z-index 100 to sit at topmost layer.
+            c.style.zIndex = isSelected ? 100 : (i + 1);
+
+            let yOffset = i * step;
+            if (selectedCardIndex !== null && selectedCardIndex !== undefined && selectedCardIndex >= 0 && i > selectedCardIndex) {
+                yOffset += selectedShift;
+            }
+
+            c.style.transform = `translateY(${yOffset}px)`;
+        });
+
+        // Compute total dynamic height of the stack container
+        let totalHeight = headerHeight;
+        if (cards.length > 0) {
+            const lastIdx = cards.length - 1;
+            let lastY = lastIdx * step;
+            if (selectedCardIndex !== null && selectedCardIndex !== undefined && selectedCardIndex >= 0 && lastIdx > selectedCardIndex) {
+                lastY += selectedShift;
+            }
+            const lastCard = cards[lastIdx];
+            const lastCardHeight = lastCard ? (lastCard.offsetHeight || lastCard.scrollHeight || 120) : 120;
+            totalHeight = headerHeight + lastY + lastCardHeight + 20;
+        }
+
+        grid.style.height = `${totalHeight}px`;
+    }
+
+
+    function bindLayoutToggleButtons(grid) {
+        if (!grid) return;
+        const header = grid.querySelector('.arwai-aziv-cards-block-header');
+        if (!header) return;
+
+        const btnSpread = header.querySelector('.arwai-aziv-btn-spread');
+        const btnStacked = header.querySelector('.arwai-aziv-btn-stacked');
+
+        if (btnSpread && !btnSpread.dataset.bound) {
+            btnSpread.dataset.bound = '1';
+            btnSpread.addEventListener('click', (e) => {
+                e.preventDefault();
+                btnSpread.classList.add('active');
+                btnSpread.setAttribute('aria-pressed', 'true');
+                if (btnStacked) {
+                    btnStacked.classList.remove('active');
+                    btnStacked.setAttribute('aria-pressed', 'false');
+                }
+                animateLayoutTransition(grid, false);
+            });
+        }
+
+        if (btnStacked && !btnStacked.dataset.bound) {
+            btnStacked.dataset.bound = '1';
+            btnStacked.addEventListener('click', (e) => {
+                e.preventDefault();
+                btnStacked.classList.add('active');
+                btnStacked.setAttribute('aria-pressed', 'true');
+                if (btnSpread) {
+                    btnSpread.classList.remove('active');
+                    btnSpread.setAttribute('aria-pressed', 'false');
+                }
+                animateLayoutTransition(grid, true);
+            });
+        }
+    }
+
+    function animateLayoutTransition(grid, toStacked) {
+        const DURATION = 600;
+        const EASE = 'cubic-bezier(0.4, 0, 0.2, 1)';
+        const cards = Array.from(grid.querySelectorAll('.arwai-aziv-annotation-card-item'));
+        if (cards.length === 0) {
+            if (toStacked) {
+                grid.setAttribute('data-layout-mode', 'stacked');
+                grid.classList.add('arwai-aziv-cards-stacked');
+                updateStackedCardPositions(grid, null);
+            } else {
+                grid.setAttribute('data-layout-mode', 'spread');
+                grid.classList.remove('arwai-aziv-cards-stacked');
+            }
+            return;
+        }
+
+        // FLIP Step 1: Record current (First) pixel positions
+        const firsts = cards.map(c => c.getBoundingClientRect());
+
+        // Disable transitions so layout switch is instant
+        cards.forEach(c => {
+            c.style.transition = 'none';
+            c.style.willChange = 'transform';
+        });
+
+        // Step 2: Apply target layout immediately
+        if (toStacked) {
+            grid.setAttribute('data-layout-mode', 'stacked');
+            grid.classList.add('arwai-aziv-cards-stacked');
+            const activeCard = grid.querySelector('.arwai-aziv-annotation-card-item.arwai-aziv-selected-card');
+            const activeIdx = activeCard ? cards.indexOf(activeCard) : null;
+            updateStackedCardPositions(grid, activeIdx);
+        } else {
+            grid.setAttribute('data-layout-mode', 'spread');
+            cards.forEach(c => {
+                c.style.position = '';
+                c.style.top = '';
+                c.style.left = '';
+                c.style.right = '';
+                c.style.width = '';
+                c.style.transform = '';
+                c.style.zIndex = '';
+            });
+            grid.style.height = '';
+            grid.classList.remove('arwai-aziv-cards-stacked');
+        }
+
+        // Force reflow so browser computes new (Last) layout
+        void grid.offsetHeight;
+
+        // Step 3: Measure Last (final) positions
+        const lasts = cards.map(c => c.getBoundingClientRect());
+
+        // Step 4: Invert — translate each card so it visually appears at its First position.
+        // NO scale: scaling distorts text, badges, and borders. Only position moves.
+        cards.forEach((c, i) => {
+            const dy = firsts[i].top - lasts[i].top;
+            const dx = firsts[i].left - lasts[i].left;
+
+            if (toStacked) {
+                // Cards are now in stacked absolute+transform position.
+                // Extract the stacked translateY so we can restore it after animation.
+                const currentTransform = c.style.transform || '';
+                const match = currentTransform.match(/translateY\(([^)]+)px\)/);
+                const stackedY = match ? parseFloat(match[1]) : 0;
+                c.setAttribute('data-stacked-y', stackedY);
+                // Offset back to visual First position (grid location)
+                c.style.transform = `translateY(${stackedY + dy}px) translateX(${dx}px)`;
+            } else {
+                // Cards are now in grid flow (no transform).
+                // Shift them to look like they're still in stacked position.
+                c.style.transform = `translateY(${dy}px) translateX(${dx}px)`;
+            }
+        });
+
+        // Step 5: Play — animate to final natural position (zero offset)
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                cards.forEach((c, i) => {
+                    const delay = i * 25;
+                    c.style.transitionDelay = `${delay}ms`;
+                    c.style.transition = `transform ${DURATION}ms ${EASE}`;
+
+                    if (toStacked) {
+                        const stackedY = parseFloat(c.getAttribute('data-stacked-y') || '0');
+                        c.style.transform = `translateY(${stackedY}px)`;
+                    } else {
+                        c.style.transform = '';
+                    }
+                });
+            });
+        });
+
+        // Cleanup after animation completes
+        const cleanupTime = DURATION + cards.length * 25 + 80;
+        setTimeout(() => {
+            cards.forEach(c => {
+                c.style.transition = '';
+                c.style.transitionDelay = '';
+                c.style.willChange = '';
+                c.removeAttribute('data-stacked-y');
+            });
+        }, cleanupTime);
+    }
+
+    // Initialize all existing static grid instances
+    document.querySelectorAll('.arwai-aziv-cards-grid').forEach(grid => {
+        bindLayoutToggleButtons(grid);
+        updateStackedCardPositions(grid, null);
+    });
+
     // --- Username Click-to-Toggle Full Name & Parentheses Helper ---
     document.addEventListener('click', (e) => {
         // Do not deselect anything if click occurred inside OSD modal or Annotorious elements
@@ -80,9 +305,10 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Deselect card and annotation if clicking outside cards and viewers
-        if (!e.target.closest('.arwai-aziv-annotation-card-item') && !e.target.closest('.arwai-aziv-frontend-wrap')) {
+        // Deselect card and annotation if clicking outside cards, header buttons, and viewers
+        if (!e.target.closest('.arwai-aziv-annotation-card-item') && !e.target.closest('.arwai-aziv-frontend-wrap') && !e.target.closest('.arwai-aziv-cards-block-header')) {
             document.querySelectorAll('.arwai-aziv-annotation-card-item').forEach(c => c.classList.remove('arwai-aziv-selected-card'));
+            document.querySelectorAll('.arwai-aziv-cards-grid').forEach(grid => updateStackedCardPositions(grid, null));
             window.dispatchEvent(new CustomEvent('image-annotator:cancel-selected'));
         }
 
@@ -446,11 +672,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (cardEl) {
                         cardEl.classList.add('arwai-aziv-selected-card');
                         cardEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        const grid = cardEl.closest('.arwai-aziv-cards-grid');
+                        if (grid) {
+                            const cards = Array.from(grid.querySelectorAll('.arwai-aziv-annotation-card-item'));
+                            const idx = cards.indexOf(cardEl);
+                            updateStackedCardPositions(grid, idx);
+                        }
                     }
                 });
 
                 mainAnno.on('cancelSelected', () => {
                     document.querySelectorAll('.arwai-aziv-annotation-card-item').forEach(c => c.classList.remove('arwai-aziv-selected-card'));
+                    document.querySelectorAll('.arwai-aziv-cards-grid').forEach(grid => updateStackedCardPositions(grid, null));
                 });
 
                 loadMainAnnotations(images[activeIndex].attachment_id);
@@ -626,10 +859,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 .then(annotations => {
                     cardGrids.forEach(grid => {
                         grid.style.display = notesVisible ? 'block' : 'none';
-                        grid.innerHTML = '';
+                        const layoutMode = grid.getAttribute('data-layout-mode') || 'spread';
+                        const showToggle = grid.getAttribute('data-show-layout-toggle') !== '0';
+
+                        let headerHtml = '';
+                        if (showToggle) {
+                            headerHtml = `
+                                <div class="arwai-aziv-cards-block-header">
+                                    <div class="arwai-aziv-cards-layout-toggle" role="group" aria-label="Card layout mode">
+                                        <button type="button" class="arwai-aziv-btn-spread ${layoutMode === 'spread' ? 'active' : ''}" title="Grid View" aria-pressed="${layoutMode === 'spread' ? 'true' : 'false'}">
+                                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                                            <span>Grid</span>
+                                        </button>
+                                        <button type="button" class="arwai-aziv-btn-stacked ${layoutMode === 'stacked' ? 'active' : ''}" title="Stacked View" aria-pressed="${layoutMode === 'stacked' ? 'true' : 'false'}">
+                                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="5" rx="1"/><rect x="2" y="10" width="20" height="5" rx="1"/><rect x="2" y="17" width="20" height="5" rx="1"/></svg>
+                                            <span>Stacked</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            `;
+                        }
+
+                        grid.innerHTML = headerHtml;
 
                         if (!Array.isArray(annotations) || annotations.length === 0) {
-                            grid.innerHTML = '<div class="arwai-aziv-empty-cards"><p>No annotations for this image.</p></div>';
+                            grid.innerHTML += '<div class="arwai-aziv-empty-cards"><p>No annotations for this image.</p></div>';
+                            bindLayoutToggleButtons(grid);
+                            updateStackedCardPositions(grid, null);
                             return;
                         }
 
@@ -768,39 +1024,91 @@ document.addEventListener('DOMContentLoaded', () => {
                                     const cardMaxLines = parseInt(getCardOverride('data-card-max-lines', card_styles.card_max_lines || '3'), 10) || 3;
                                     bodyEl.style.setProperty('--card-max-lines', cardMaxLines);
 
-                                    // Measure line height to determine if text overflows line clamp limit
-                                    const computedStyle = window.getComputedStyle(bodyEl);
-                                    let lineHeight = parseFloat(computedStyle.lineHeight);
-                                    if (isNaN(lineHeight)) {
-                                        lineHeight = (parseFloat(computedStyle.fontSize) || 13) * 1.5;
-                                    }
-                                    const maxAllowedHeight = lineHeight * cardMaxLines + 6;
+                                    const setupTruncation = () => {
+                                        // Measure line height to determine if text overflows line clamp limit
+                                        const computedStyle = window.getComputedStyle(bodyEl);
+                                        let lineHeight = parseFloat(computedStyle.lineHeight);
+                                        if (isNaN(lineHeight)) {
+                                            lineHeight = (parseFloat(computedStyle.fontSize) || 13) * 1.5;
+                                        }
+                                        const maxAllowedHeight = lineHeight * cardMaxLines + 6;
 
-                                    if (bodyEl.scrollHeight > maxAllowedHeight) {
-                                        bodyEl.classList.add('arwai-aziv-is-truncatable');
-                                        bodyEl.style.maxHeight = `${maxAllowedHeight}px`;
+                                        // If element is hidden, force a measurement via temporary visibility trick
+                                        let measuredScrollHeight = bodyEl.scrollHeight;
+                                        if (measuredScrollHeight === 0) {
+                                            const savedVis = grid.style.visibility;
+                                            const savedDisplay = grid.style.display;
+                                            grid.style.visibility = 'hidden';
+                                            grid.style.display = 'block';
+                                            measuredScrollHeight = bodyEl.scrollHeight;
+                                            grid.style.display = savedDisplay;
+                                            grid.style.visibility = savedVis;
+                                        }
 
-                                        const btn = document.createElement('button');
-                                        btn.type = 'button';
-                                        btn.className = 'arwai-aziv-card-expand-btn';
-                                        btn.innerText = readMoreText;
-                                        btn.addEventListener('click', (e) => {
-                                            e.stopPropagation();
-                                            const isExpanded = bodyEl.classList.toggle('arwai-aziv-is-expanded');
-                                            if (isExpanded) {
-                                                bodyEl.style.maxHeight = `${bodyEl.scrollHeight + 10}px`;
-                                            } else {
-                                                bodyEl.style.maxHeight = `${maxAllowedHeight}px`;
-                                                card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                                            }
-                                            btn.innerText = isExpanded ? showLessText : readMoreText;
-                                        });
-                                        bodyEl.after(btn);
-                                    }
+                                        if (measuredScrollHeight > maxAllowedHeight) {
+                                            bodyEl.classList.add('arwai-aziv-is-truncatable');
+                                            bodyEl.style.maxHeight = `${maxAllowedHeight}px`;
+
+                                            const btn = document.createElement('button');
+                                            btn.type = 'button';
+                                            btn.className = 'arwai-aziv-card-expand-btn';
+                                            btn.innerText = readMoreText;
+                                            btn.addEventListener('click', (e) => {
+                                                e.stopPropagation();
+                                                const isExpanded = bodyEl.classList.toggle('arwai-aziv-is-expanded');
+                                                if (isExpanded) {
+                                                    bodyEl.style.maxHeight = `${bodyEl.scrollHeight + 10}px`;
+                                                    btn.innerText = showLessText;
+                                                    const cards = Array.from(grid.querySelectorAll('.arwai-aziv-annotation-card-item'));
+                                                    const cardIndex = cards.indexOf(card);
+                                                    // Recalculate after a frame so the expanded height is rendered
+                                                    requestAnimationFrame(() => {
+                                                        updateStackedCardPositions(grid, cardIndex, true);
+                                                    });
+                                                } else {
+                                                    bodyEl.style.maxHeight = `${maxAllowedHeight}px`;
+                                                    btn.innerText = readMoreText;
+                                                    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                                                    const cards = Array.from(grid.querySelectorAll('.arwai-aziv-annotation-card-item'));
+                                                    const cardIndex = cards.indexOf(card);
+                                                    // Wait for CSS max-height transition to finish before recalculating
+                                                    const onTransitionEnd = (ev) => {
+                                                        if (ev.propertyName === 'max-height') {
+                                                            bodyEl.removeEventListener('transitionend', onTransitionEnd);
+                                                            updateStackedCardPositions(grid, cardIndex, false);
+                                                        }
+                                                    };
+                                                    bodyEl.addEventListener('transitionend', onTransitionEnd);
+                                                    // Fallback: if transition doesn't fire (e.g. no transition set), recalculate after 400ms
+                                                    setTimeout(() => {
+                                                        bodyEl.removeEventListener('transitionend', onTransitionEnd);
+                                                        updateStackedCardPositions(grid, cardIndex, false);
+                                                    }, 420);
+                                                }
+                                            });
+                                            bodyEl.after(btn);
+                                        }
+                                    };
+
+                                    // Defer measurement to next frame so browser has laid out the card,
+                                    // even if the grid is display:none at this moment (annotations hidden by default)
+                                    requestAnimationFrame(setupTruncation);
                                 }
                             }
 
-                            card.addEventListener('click', () => {
+                            card.addEventListener('click', (e) => {
+                                const isAlreadySelected = card.classList.contains('arwai-aziv-selected-card');
+                                const isStacked = grid.classList.contains('arwai-aziv-cards-stacked') || grid.getAttribute('data-layout-mode') === 'stacked';
+
+                                if (isAlreadySelected && isStacked) {
+                                    card.classList.remove('arwai-aziv-selected-card');
+                                    updateStackedCardPositions(grid, null);
+                                    if (mainAnno) {
+                                        try { mainAnno.cancelSelected(); } catch (err) {}
+                                    }
+                                    return;
+                                }
+
                                 if (mainAnno) {
                                     const annoObj = mainAnno.getAnnotations().find(a => a.id === annoId);
                                     if (annoObj) {
@@ -809,8 +1117,15 @@ document.addEventListener('DOMContentLoaded', () => {
                                 }
                                 document.querySelectorAll('.arwai-aziv-annotation-card-item').forEach(c => c.classList.remove('arwai-aziv-selected-card'));
                                 card.classList.add('arwai-aziv-selected-card');
+
+                                const cards = Array.from(grid.querySelectorAll('.arwai-aziv-annotation-card-item'));
+                                const cardIndex = cards.indexOf(card);
+                                updateStackedCardPositions(grid, cardIndex);
                             });
                         });
+
+                        bindLayoutToggleButtons(grid);
+                        updateStackedCardPositions(grid, null);
                     });
                 })
                 .catch(err => console.error('Error refreshing annotation cards:', err));
@@ -901,13 +1216,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (Math.abs(deltaX) >= 50) {
                             if (deltaX < 0) {
                                 if (activeIndex < images.length - 1) switchSlide(activeIndex + 1);
-                                else switchSlide(activeIndex);
+                                else carouselTrack.style.transform = `translateX(${-activeIndex * 100}%)`;
                             } else {
                                 if (activeIndex > 0) switchSlide(activeIndex - 1);
-                                else switchSlide(activeIndex);
+                                else carouselTrack.style.transform = `translateX(${-activeIndex * 100}%)`;
                             }
                         } else {
-                            switchSlide(activeIndex);
+                            carouselTrack.style.transform = `translateX(${-activeIndex * 100}%)`;
                         }
                     }
                 }, { passive: true });
@@ -938,13 +1253,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (Math.abs(deltaX) >= 50) {
                         if (deltaX < 0) {
                             if (activeIndex < images.length - 1) switchSlide(activeIndex + 1);
-                            else switchSlide(activeIndex);
+                            else carouselTrack.style.transform = `translateX(${-activeIndex * 100}%)`;
                         } else {
                             if (activeIndex > 0) switchSlide(activeIndex - 1);
-                            else switchSlide(activeIndex);
+                            else carouselTrack.style.transform = `translateX(${-activeIndex * 100}%)`;
                         }
                     } else {
-                        switchSlide(activeIndex);
+                        carouselTrack.style.transform = `translateX(${-activeIndex * 100}%)`;
                     }
                 };
 

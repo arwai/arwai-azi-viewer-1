@@ -532,13 +532,145 @@
     color: #64748b;
 }
 
-/* 5. Gutenberg Annotation Cards Grid Block (CSS Masonry Layout) */
+/* 5. Gutenberg Annotation Cards Grid Block (CSS Masonry & Stacked Layout) */
+.arwai-aziv-cards-block-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+    width: 100%;
+    column-span: all;
+    -webkit-column-span: all;
+    break-inside: avoid;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 200;
+}
+
+.arwai-aziv-cards-layout-toggle {
+    display: inline-flex;
+    align-items: center;
+    background: #e2e8f0;
+    /* border-radius: 20px; */
+    padding: 3px;
+    gap: 2px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 210;
+}
+
+.arwai-aziv-cards-layout-toggle button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    /* border-radius: 16px; */
+    border: none;
+    background: transparent;
+    color: #475569;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    line-height: 1;
+}
+
+.arwai-aziv-cards-layout-toggle button:hover {
+    color: #0f172a;
+}
+
+.arwai-aziv-cards-layout-toggle button.active {
+    background: #ffffff;
+    color: #2563eb;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+
 .arwai-aziv-cards-grid {
     display: none;
     column-count: 2;
     column-gap: var(--card-gap, 16px);
     box-sizing: border-box;
     width: 100%;
+}
+
+/* Stacked View Mode Overrides */
+.arwai-aziv-cards-grid.arwai-aziv-cards-stacked {
+    display: block !important;
+    column-count: auto !important;
+    column-gap: 0 !important;
+    position: relative !important;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px !important;
+    padding-top: 0px !important;
+    transition: height 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.arwai-aziv-cards-stacked .arwai-aziv-cards-block-header {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    position: relative !important;
+    z-index: 250 !important;
+    margin-bottom: 16px !important;
+}
+
+.arwai-aziv-cards-stacked .arwai-aziv-annotation-card-item {
+    display: block !important;
+    width: 100% !important;
+    height: 120px !important;
+    min-height: 120px !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    position: absolute !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12) !important;
+    cursor: pointer;
+    overflow: hidden !important;
+    transition: height 0.4s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    will-change: transform;
+}
+
+.arwai-aziv-cards-stacked .arwai-aziv-annotation-card-item.arwai-aziv-selected-card {
+    height: auto !important;
+    min-height: 120px !important;
+    overflow: visible !important;
+}
+
+.arwai-aziv-cards-stacked .arwai-aziv-card-header-bar {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-bottom: 0.3rem !important;
+    margin-top: 0.3rem !important;
+    float: left !important;
+    margin-right: 10px !important;
+    height: 24px !important;
+    width: auto !important;
+}
+
+.arwai-aziv-cards-stacked .arwai-aziv-card-badge-circle {
+    transform: none !important;
+    margin: 0 !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    flex-shrink: 0 !important;
+}
+
+.arwai-aziv-cards-stacked .arwai-aziv-card-body-text {
+    display: block !important;
+    margin: 0 !important;
+}
+
+.arwai-aziv-cards-stacked .arwai-aziv-card-body-text p {
+    display: inline !important;
+    margin: 0 !important;
+    line-height: 24px !important;
+}
+
+.arwai-aziv-cards-stacked .arwai-aziv-card-tags-footer,
+.arwai-aziv-cards-stacked .arwai-aziv-card-author-meta {
+    clear: both !important;
 }
 
 /* Ensure Annotation List Block is always visible in Gutenberg Block Editor canvas */
@@ -696,6 +828,13 @@
     border-style: var(--card-border-style, solid) !important;
     box-shadow: var(--card-hover-shadow, 0 8px 22px rgba(0, 0, 0, 0.15));
     transform: translateY(-3px);
+
+    .arwai-aziv-card-badge-circle {
+        transform: translate(-1.2rem, -1.2rem) scale(1.1);
+        border-color: var(--card-hover-border, var(--card-border-color, #cbd5e1)) !important;
+        border-width: var(--card-border-width, 0px) !important;
+        border-style: var(--card-border-style, solid) !important;
+    }
 }
 
 .arwai-aziv-annotation-card-item.arwai-aziv-selected-card {
@@ -705,6 +844,13 @@
     border-width: var(--card-border-width, 1px) !important;
     border-style: var(--card-border-style, solid) !important;
     box-shadow: var(--card-selected-shadow, 0 8px 24px rgba(0, 0, 0, 0.2)) !important;
+
+    .arwai-aziv-card-badge-circle {
+        transform: translate(-1.2rem, -1.2rem) scale(1.1) !important;
+        border-color: var(--card-selected-border, #2563eb) !important;
+        border-width: var(--card-border-width, 1px) !important;
+        border-style: var(--card-border-style, solid) !important;
+    }
 }
 
 
@@ -727,7 +873,10 @@
     font-weight: 700;
     flex-shrink: 0;
     transform: translate(-1.2rem, -1.2rem);
+    border: transparent;
+    transition: transform 0.1s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
+
 
 .arwai-aziv-card-author-meta {
     display: flex;
@@ -851,8 +1000,8 @@
     transform: scale(1.1);
 }
 
-.a9s-annotation.selected foreignObject .arwai-aziv-circular-badge,
-.a9s-annotation.selected foreignObject label {
+.a9s-annotation.selected .a9s-inner foreignObject .arwai-aziv-circular-badge,
+.a9s-annotation.selected .a9s-inner foreignObject label {
     box-shadow: var(--tag-selected-badge-shadow, 0 4px 12px rgba(0, 0, 0, 0.25)) !important;
     transform: scale(1.1);
 }

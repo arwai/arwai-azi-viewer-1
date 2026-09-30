@@ -32,8 +32,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_le",
-      "community": 126,
-      "community_name": "CS",
+      "community": 75,
+      "community_name": "bn",
       "norm_label": "le()"
     },
     {
@@ -76,8 +76,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_r",
-      "community": 22,
-      "community_name": "Database Layer",
+      "community": 108,
+      "community_name": "align",
       "norm_label": "$r()"
     },
     {
@@ -131,8 +131,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_xr",
-      "community": 77,
-      "community_name": "Ke",
+      "community": 75,
+      "community_name": "bn",
       "norm_label": "xr()"
     },
     {
@@ -142,8 +142,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_dn",
-      "community": 126,
-      "community_name": "CS",
+      "community": 75,
+      "community_name": "bn",
       "norm_label": "dn()"
     },
     {
@@ -252,8 +252,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_pr",
-      "community": 126,
-      "community_name": "CS",
+      "community": 75,
+      "community_name": "bn",
       "norm_label": "pr()"
     },
     {
@@ -263,8 +263,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_ri",
-      "community": 126,
-      "community_name": "CS",
+      "community": 37,
+      "community_name": "Annotorious Vendor",
       "norm_label": "ri()"
     },
     {
@@ -285,8 +285,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_ni",
-      "community": 45,
-      "community_name": "Di",
+      "community": 51,
+      "community_name": "_tileReadyHandler",
       "norm_label": "ni()"
     },
     {
@@ -296,8 +296,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_li",
-      "community": 45,
-      "community_name": "Di",
+      "community": 51,
+      "community_name": "_tileReadyHandler",
       "norm_label": "li()"
     },
     {
@@ -307,8 +307,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_qc",
-      "community": 22,
-      "community_name": "Database Layer",
+      "community": 75,
+      "community_name": "bn",
       "norm_label": "qc()"
     },
     {
@@ -351,8 +351,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_vt",
-      "community": 77,
-      "community_name": "Ke",
+      "community": 51,
+      "community_name": "_tileReadyHandler",
       "norm_label": "vt()"
     },
     {
@@ -384,8 +384,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_tr",
-      "community": 26,
-      "community_name": "Annotorious Vendor",
+      "community": 51,
+      "community_name": "_tileReadyHandler",
       "norm_label": "tr()"
     },
     {
@@ -417,8 +417,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_e",
-      "community": 126,
-      "community_name": "CS",
+      "community": 22,
+      "community_name": "Database Layer",
       "norm_label": "$e()"
     },
     {
@@ -439,8 +439,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_he",
-      "community": 126,
-      "community_name": "CS",
+      "community": 26,
+      "community_name": "Annotorious Vendor",
       "norm_label": "he()"
     },
     {
@@ -450,8 +450,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_xe",
-      "community": 126,
-      "community_name": "CS",
+      "community": 26,
+      "community_name": "Annotorious Vendor",
       "norm_label": "xe()"
     },
     {
@@ -494,8 +494,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_nf",
-      "community": 48,
-      "community_name": "Jn",
+      "community": 20,
+      "community_name": "Annotorious Vendor",
       "norm_label": "nf()"
     },
     {
@@ -505,8 +505,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_hn",
-      "community": 48,
-      "community_name": "Jn",
+      "community": 20,
+      "community_name": "Annotorious Vendor",
       "norm_label": "hn()"
     },
     {
@@ -516,8 +516,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_kr",
-      "community": 48,
-      "community_name": "Jn",
+      "community": 20,
+      "community_name": "Annotorious Vendor",
       "norm_label": "kr()"
     },
     {
@@ -604,7 +604,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_ra",
-      "community": 9,
+      "community": 37,
       "community_name": "Annotorious Vendor",
       "norm_label": "ra()"
     },
@@ -791,8 +791,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_o",
-      "community": 126,
-      "community_name": "CS",
+      "community": 51,
+      "community_name": "_tileReadyHandler",
       "norm_label": "o()"
     },
     {
@@ -824,8 +824,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_t",
-      "community": 77,
-      "community_name": "Ke",
+      "community": 51,
+      "community_name": "_tileReadyHandler",
       "norm_label": "t()"
     },
     {
@@ -956,7 +956,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_ia",
-      "community": 9,
+      "community": 37,
       "community_name": "Annotorious Vendor",
       "norm_label": "ia()"
     },
@@ -1033,8 +1033,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_nd",
-      "community": 126,
-      "community_name": "CS",
+      "community": 51,
+      "community_name": "_tileReadyHandler",
       "norm_label": "nd()"
     },
     {
@@ -1088,8 +1088,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_sd",
-      "community": 77,
-      "community_name": "Ke",
+      "community": 9,
+      "community_name": "Annotorious Vendor",
       "norm_label": "sd()"
     },
     {
@@ -1110,8 +1110,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_ba",
-      "community": 77,
-      "community_name": "Ke",
+      "community": 9,
+      "community_name": "Annotorious Vendor",
       "norm_label": "ba()"
     },
     {
@@ -1121,8 +1121,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_ld",
-      "community": 51,
-      "community_name": "_tileReadyHandler",
+      "community": 9,
+      "community_name": "Annotorious Vendor",
       "norm_label": "ld()"
     },
     {
@@ -1198,8 +1198,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_vd",
-      "community": 51,
-      "community_name": "_tileReadyHandler",
+      "community": 9,
+      "community_name": "Annotorious Vendor",
       "norm_label": "vd()"
     },
     {
@@ -1253,8 +1253,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_bd",
-      "community": 126,
-      "community_name": "CS",
+      "community": 37,
+      "community_name": "Annotorious Vendor",
       "norm_label": "bd()"
     },
     {
@@ -1264,8 +1264,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_d",
-      "community": 77,
-      "community_name": "Ke",
+      "community": 51,
+      "community_name": "_tileReadyHandler",
       "norm_label": "_d()"
     },
     {
@@ -1308,8 +1308,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_to",
-      "community": 77,
-      "community_name": "Ke",
+      "community": 9,
+      "community_name": "Annotorious Vendor",
       "norm_label": "to()"
     },
     {
@@ -1319,8 +1319,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_xd",
-      "community": 126,
-      "community_name": "CS",
+      "community": 51,
+      "community_name": "_tileReadyHandler",
       "norm_label": "xd()"
     },
     {
@@ -1341,8 +1341,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_on",
-      "community": 126,
-      "community_name": "CS",
+      "community": 51,
+      "community_name": "_tileReadyHandler",
       "norm_label": "on()"
     },
     {
@@ -1363,8 +1363,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_n",
-      "community": 126,
-      "community_name": "CS",
+      "community": 19,
+      "community_name": "OpenSeadragon Vendor",
       "norm_label": "n()"
     },
     {
@@ -1418,8 +1418,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_s",
-      "community": 126,
-      "community_name": "CS",
+      "community": 19,
+      "community_name": "OpenSeadragon Vendor",
       "norm_label": "s()"
     },
     {
@@ -1429,8 +1429,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_c",
-      "community": 126,
-      "community_name": "CS",
+      "community": 19,
+      "community_name": "OpenSeadragon Vendor",
       "norm_label": "c()"
     },
     {
@@ -1484,8 +1484,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_fe",
-      "community": 9,
-      "community_name": "Annotorious Vendor",
+      "community": 22,
+      "community_name": "Database Layer",
       "norm_label": "fe()"
     },
     {
@@ -1539,8 +1539,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_ie",
-      "community": 59,
-      "community_name": "Ts",
+      "community": 101,
+      "community_name": "SequenceFilmstripBlock",
       "norm_label": "ie()"
     },
     {
@@ -1550,8 +1550,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_te",
-      "community": 126,
-      "community_name": "CS",
+      "community": 26,
+      "community_name": "Annotorious Vendor",
       "norm_label": "te()"
     },
     {
@@ -1561,8 +1561,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_ln",
-      "community": 59,
-      "community_name": "Ts",
+      "community": 101,
+      "community_name": "SequenceFilmstripBlock",
       "norm_label": "ln()"
     },
     {
@@ -1572,8 +1572,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_re",
-      "community": 59,
-      "community_name": "Ts",
+      "community": 101,
+      "community_name": "SequenceFilmstripBlock",
       "norm_label": "re()"
     },
     {
@@ -1583,8 +1583,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_we",
-      "community": 126,
-      "community_name": "CS",
+      "community": 22,
+      "community_name": "Database Layer",
       "norm_label": "we()"
     },
     {
@@ -1605,8 +1605,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_ya",
-      "community": 51,
-      "community_name": "_tileReadyHandler",
+      "community": 9,
+      "community_name": "Annotorious Vendor",
       "norm_label": "ya()"
     },
     {
@@ -1616,8 +1616,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_za",
-      "community": 51,
-      "community_name": "_tileReadyHandler",
+      "community": 9,
+      "community_name": "Annotorious Vendor",
       "norm_label": "za()"
     },
     {
@@ -1990,8 +1990,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_u",
-      "community": 51,
-      "community_name": "_tileReadyHandler",
+      "community": 9,
+      "community_name": "Annotorious Vendor",
       "norm_label": "_u()"
     },
     {
@@ -2001,8 +2001,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_bg",
-      "community": 51,
-      "community_name": "_tileReadyHandler",
+      "community": 9,
+      "community_name": "Annotorious Vendor",
       "norm_label": "bg()"
     },
     {
@@ -2188,8 +2188,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_a",
-      "community": 126,
-      "community_name": "CS",
+      "community": 2,
+      "community_name": "Annotorious Vendor",
       "norm_label": "a()"
     },
     {
@@ -2199,8 +2199,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_l",
-      "community": 126,
-      "community_name": "CS",
+      "community": 2,
+      "community_name": "Annotorious Vendor",
       "norm_label": "l()"
     },
     {
@@ -2221,8 +2221,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_zu",
-      "community": 22,
-      "community_name": "Database Layer",
+      "community": 108,
+      "community_name": "align",
       "norm_label": "zu"
     },
     {
@@ -2232,8 +2232,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_zu_constructor",
-      "community": 22,
-      "community_name": "Database Layer",
+      "community": 108,
+      "community_name": "align",
       "norm_label": ".constructor()"
     },
     {
@@ -2243,8 +2243,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_zu_componentdidmount",
-      "community": 22,
-      "community_name": "Database Layer",
+      "community": 108,
+      "community_name": "align",
       "norm_label": ".componentdidmount()"
     },
     {
@@ -2254,8 +2254,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_zu_render",
-      "community": 22,
-      "community_name": "Database Layer",
+      "community": 108,
+      "community_name": "align",
       "norm_label": ".render()"
     },
     {
@@ -2606,8 +2606,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_l0",
-      "community": 126,
-      "community_name": "CS",
+      "community": 51,
+      "community_name": "_tileReadyHandler",
       "norm_label": "l0()"
     },
     {
@@ -2617,8 +2617,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_c0",
-      "community": 77,
-      "community_name": "Ke",
+      "community": 51,
+      "community_name": "_tileReadyHandler",
       "norm_label": "c0()"
     },
     {
@@ -2628,8 +2628,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_f0",
-      "community": 77,
-      "community_name": "Ke",
+      "community": 51,
+      "community_name": "_tileReadyHandler",
       "norm_label": "f0()"
     },
     {
@@ -2672,8 +2672,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_pl",
-      "community": 9,
-      "community_name": "Annotorious Vendor",
+      "community": 22,
+      "community_name": "Database Layer",
       "norm_label": "pl()"
     },
     {
@@ -2716,8 +2716,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_h0",
-      "community": 9,
-      "community_name": "Annotorious Vendor",
+      "community": 22,
+      "community_name": "Database Layer",
       "norm_label": "h0()"
     },
     {
@@ -2771,8 +2771,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_y0",
-      "community": 9,
-      "community_name": "Annotorious Vendor",
+      "community": 22,
+      "community_name": "Database Layer",
       "norm_label": "y0()"
     },
     {
@@ -2826,8 +2826,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_eb",
-      "community": 59,
-      "community_name": "Ts",
+      "community": 101,
+      "community_name": "SequenceFilmstripBlock",
       "norm_label": "eb()"
     },
     {
@@ -2837,8 +2837,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_kl",
-      "community": 59,
-      "community_name": "Ts",
+      "community": 101,
+      "community_name": "SequenceFilmstripBlock",
       "norm_label": "kl()"
     },
     {
@@ -2848,8 +2848,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_tb",
-      "community": 19,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 9,
+      "community_name": "Annotorious Vendor",
       "norm_label": "tb()"
     },
     {
@@ -2859,8 +2859,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_nb",
-      "community": 19,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 9,
+      "community_name": "Annotorious Vendor",
       "norm_label": "nb()"
     },
     {
@@ -2870,8 +2870,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_rb",
-      "community": 19,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 9,
+      "community_name": "Annotorious Vendor",
       "norm_label": "rb()"
     },
     {
@@ -2881,8 +2881,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_hr",
-      "community": 19,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 51,
+      "community_name": "_tileReadyHandler",
       "norm_label": "hr()"
     },
     {
@@ -2914,8 +2914,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_ab",
-      "community": 40,
-      "community_name": "Zn",
+      "community": 22,
+      "community_name": "Database Layer",
       "norm_label": "ab()"
     },
     {
@@ -2936,8 +2936,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_gr",
-      "community": 40,
-      "community_name": "Zn",
+      "community": 22,
+      "community_name": "Database Layer",
       "norm_label": "gr()"
     },
     {
@@ -3002,8 +3002,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_pb",
-      "community": 40,
-      "community_name": "Zn",
+      "community": 22,
+      "community_name": "Database Layer",
       "norm_label": "pb()"
     },
     {
@@ -3222,8 +3222,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_cc",
-      "community": 140,
-      "community_name": "filmstripBorderRadius",
+      "community": 22,
+      "community_name": "Database Layer",
       "norm_label": "cc()"
     },
     {
@@ -3233,8 +3233,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_fc",
-      "community": 140,
-      "community_name": "filmstripBorderRadius",
+      "community": 2,
+      "community_name": "Annotorious Vendor",
       "norm_label": "fc()"
     },
     {
@@ -3255,8 +3255,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_v1",
-      "community": 140,
-      "community_name": "filmstripBorderRadius",
+      "community": 74,
+      "community_name": "viewer/edit.js",
       "norm_label": "v1()"
     },
     {
@@ -3288,8 +3288,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_mc",
-      "community": 140,
-      "community_name": "filmstripBorderRadius",
+      "community": 22,
+      "community_name": "Database Layer",
       "norm_label": "mc()"
     },
     {
@@ -3299,8 +3299,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_vc",
-      "community": 140,
-      "community_name": "filmstripBorderRadius",
+      "community": 22,
+      "community_name": "Database Layer",
       "norm_label": "vc()"
     },
     {
@@ -3310,8 +3310,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_gc",
-      "community": 22,
-      "community_name": "Database Layer",
+      "community": 140,
+      "community_name": "filmstripBorderRadius",
       "norm_label": "gc()"
     },
     {
@@ -3343,8 +3343,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_ns",
-      "community": 22,
-      "community_name": "Database Layer",
+      "community": 76,
+      "community_name": "draw",
       "norm_label": "ns()"
     },
     {
@@ -3431,8 +3431,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_hs_constructor",
-      "community": 126,
-      "community_name": "CS",
+      "community": 139,
+      "community_name": "filmstripBorderColor",
       "norm_label": ".constructor()"
     },
     {
@@ -3442,8 +3442,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_hs_componentwillreceiveprops",
-      "community": 126,
-      "community_name": "CS",
+      "community": 139,
+      "community_name": "filmstripBorderColor",
       "norm_label": ".componentwillreceiveprops()"
     },
     {
@@ -3497,8 +3497,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_ys",
-      "community": 140,
-      "community_name": "filmstripBorderRadius",
+      "community": 9,
+      "community_name": "Annotorious Vendor",
       "norm_label": "ys()"
     },
     {
@@ -3508,8 +3508,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_bs",
-      "community": 140,
-      "community_name": "filmstripBorderRadius",
+      "community": 9,
+      "community_name": "Annotorious Vendor",
       "norm_label": "bs()"
     },
     {
@@ -3739,8 +3739,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_sn_isequal",
-      "community": 126,
-      "community_name": "CS",
+      "community": 139,
+      "community_name": "filmstripBorderColor",
       "norm_label": ".isequal()"
     },
     {
@@ -3794,8 +3794,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_cs_constructor",
-      "community": 126,
-      "community_name": "CS",
+      "community": 42,
+      "community_name": "t",
       "norm_label": ".constructor()"
     },
     {
@@ -3838,8 +3838,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_nc_constructor",
-      "community": 126,
-      "community_name": "CS",
+      "community": 2,
+      "community_name": "Annotorious Vendor",
       "norm_label": ".constructor()"
     },
     {
@@ -3860,8 +3860,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_bi_constructor",
-      "community": 126,
-      "community_name": "CS",
+      "community": 2,
+      "community_name": "Annotorious Vendor",
       "norm_label": ".constructor()"
     },
     {
@@ -3937,8 +3937,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_ps_destroy",
-      "community": 126,
-      "community_name": "CS",
+      "community": 19,
+      "community_name": "OpenSeadragon Vendor",
       "norm_label": ".destroy()"
     },
     {
@@ -3948,8 +3948,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_cr_constructor",
-      "community": 126,
-      "community_name": "CS",
+      "community": 2,
+      "community_name": "Annotorious Vendor",
       "norm_label": ".constructor()"
     },
     {
@@ -3970,8 +3970,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_uc",
-      "community": 75,
-      "community_name": "bn",
+      "community": 126,
+      "community_name": "CS",
       "norm_label": "uc"
     },
     {
@@ -3981,8 +3981,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_uc_constructor",
-      "community": 75,
-      "community_name": "bn",
+      "community": 126,
+      "community_name": "CS",
       "norm_label": ".constructor()"
     },
     {
@@ -3992,8 +3992,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_uc_element",
-      "community": 75,
-      "community_name": "bn",
+      "community": 126,
+      "community_name": "CS",
       "norm_label": ".element()"
     },
     {
@@ -4025,8 +4025,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_ms_constructor",
-      "community": 126,
-      "community_name": "CS",
+      "community": 2,
+      "community_name": "Annotorious Vendor",
       "norm_label": ".constructor()"
     },
     {
@@ -4113,8 +4113,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_fs_constructor",
-      "community": 126,
-      "community_name": "CS",
+      "community": 2,
+      "community_name": "Annotorious Vendor",
       "norm_label": ".constructor()"
     },
     {
@@ -4146,8 +4146,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_ns_constructor",
-      "community": 126,
-      "community_name": "CS",
+      "community": 139,
+      "community_name": "filmstripBorderColor",
       "norm_label": ".constructor()"
     },
     {
@@ -4157,8 +4157,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_ns_componentdidmount",
-      "community": 22,
-      "community_name": "Database Layer",
+      "community": 76,
+      "community_name": "draw",
       "norm_label": ".componentdidmount()"
     },
     {
@@ -4168,8 +4168,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_ns_componentwillunmount",
-      "community": 45,
-      "community_name": "Di",
+      "community": 76,
+      "community_name": "draw",
       "norm_label": ".componentwillunmount()"
     },
     {
@@ -4179,8 +4179,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_ns_disableeditor",
-      "community": 22,
-      "community_name": "Database Layer",
+      "community": 76,
+      "community_name": "draw",
       "norm_label": ".disableeditor()"
     },
     {
@@ -4190,8 +4190,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_ns_disableselect",
-      "community": 22,
-      "community_name": "Database Layer",
+      "community": 76,
+      "community_name": "draw",
       "norm_label": ".disableselect()"
     },
     {
@@ -4201,8 +4201,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_ns_formatters",
-      "community": 22,
-      "community_name": "Database Layer",
+      "community": 76,
+      "community_name": "draw",
       "norm_label": ".formatters()"
     },
     {
@@ -4212,8 +4212,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_ns_readonly",
-      "community": 22,
-      "community_name": "Database Layer",
+      "community": 76,
+      "community_name": "draw",
       "norm_label": ".readonly()"
     },
     {
@@ -4223,8 +4223,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_ns_widgets",
-      "community": 22,
-      "community_name": "Database Layer",
+      "community": 76,
+      "community_name": "draw",
       "norm_label": ".widgets()"
     },
     {
@@ -4234,8 +4234,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_ns_render",
-      "community": 22,
-      "community_name": "Database Layer",
+      "community": 75,
+      "community_name": "bn",
       "norm_label": ".render()"
     },
     {
@@ -4245,8 +4245,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_gc_constructor",
-      "community": 22,
-      "community_name": "Database Layer",
+      "community": 75,
+      "community_name": "bn",
       "norm_label": ".constructor()"
     },
     {
@@ -4256,8 +4256,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_gc_disableeditor",
-      "community": 22,
-      "community_name": "Database Layer",
+      "community": 140,
+      "community_name": "filmstripBorderRadius",
       "norm_label": ".disableeditor()"
     },
     {
@@ -4267,8 +4267,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_gc_disableselect",
-      "community": 22,
-      "community_name": "Database Layer",
+      "community": 140,
+      "community_name": "filmstripBorderRadius",
       "norm_label": ".disableselect()"
     },
     {
@@ -4278,8 +4278,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_gc_formatters",
-      "community": 22,
-      "community_name": "Database Layer",
+      "community": 140,
+      "community_name": "filmstripBorderRadius",
       "norm_label": ".formatters()"
     },
     {
@@ -4289,8 +4289,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_gc_readonly",
-      "community": 22,
-      "community_name": "Database Layer",
+      "community": 140,
+      "community_name": "filmstripBorderRadius",
       "norm_label": ".readonly()"
     },
     {
@@ -4300,8 +4300,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_annotorious_min_gc_widgets",
-      "community": 22,
-      "community_name": "Database Layer",
+      "community": 140,
+      "community_name": "filmstripBorderRadius",
       "norm_label": ".widgets()"
     },
     {
@@ -4322,8 +4322,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_at",
-      "community": 58,
-      "community_name": "Px",
+      "community": 19,
+      "community_name": "OpenSeadragon Vendor",
       "norm_label": "at()"
     },
     {
@@ -4333,8 +4333,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_bs",
-      "community": 54,
-      "community_name": "Annotorious Vendor",
+      "community": 19,
+      "community_name": "OpenSeadragon Vendor",
       "norm_label": "bs()"
     },
     {
@@ -4344,8 +4344,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_se",
-      "community": 58,
-      "community_name": "Px",
+      "community": 19,
+      "community_name": "OpenSeadragon Vendor",
       "norm_label": "se()"
     },
     {
@@ -4355,8 +4355,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_wn",
-      "community": 58,
-      "community_name": "Px",
+      "community": 19,
+      "community_name": "OpenSeadragon Vendor",
       "norm_label": "wn()"
     },
     {
@@ -4377,8 +4377,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_ye",
-      "community": 58,
-      "community_name": "Px",
+      "community": 67,
+      "community_name": "overrideHoverFillColor",
       "norm_label": "ye()"
     },
     {
@@ -4388,8 +4388,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_zt",
-      "community": 126,
-      "community_name": "CS",
+      "community": 19,
+      "community_name": "OpenSeadragon Vendor",
       "norm_label": "zt()"
     },
     {
@@ -4399,8 +4399,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_ss",
-      "community": 126,
-      "community_name": "CS",
+      "community": 19,
+      "community_name": "OpenSeadragon Vendor",
       "norm_label": "ss()"
     },
     {
@@ -4410,8 +4410,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_hr",
-      "community": 13,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 135,
+      "community_name": "Sn",
       "norm_label": "hr()"
     },
     {
@@ -4421,8 +4421,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_kn",
-      "community": 126,
-      "community_name": "CS",
+      "community": 19,
+      "community_name": "OpenSeadragon Vendor",
       "norm_label": "kn()"
     },
     {
@@ -4432,8 +4432,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_es",
-      "community": 126,
-      "community_name": "CS",
+      "community": 19,
+      "community_name": "OpenSeadragon Vendor",
       "norm_label": "es()"
     },
     {
@@ -4443,8 +4443,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_xs",
-      "community": 126,
-      "community_name": "CS",
+      "community": 13,
+      "community_name": "OpenSeadragon Vendor",
       "norm_label": "xs()"
     },
     {
@@ -4531,8 +4531,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_dr",
-      "community": 58,
-      "community_name": "Px",
+      "community": 19,
+      "community_name": "OpenSeadragon Vendor",
       "norm_label": "dr()"
     },
     {
@@ -4553,8 +4553,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_sd",
-      "community": 54,
-      "community_name": "Annotorious Vendor",
+      "community": 19,
+      "community_name": "OpenSeadragon Vendor",
       "norm_label": "sd()"
     },
     {
@@ -4564,8 +4564,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_os",
-      "community": 126,
-      "community_name": "CS",
+      "community": 19,
+      "community_name": "OpenSeadragon Vendor",
       "norm_label": "os()"
     },
     {
@@ -4575,8 +4575,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_ds",
-      "community": 126,
-      "community_name": "CS",
+      "community": 19,
+      "community_name": "OpenSeadragon Vendor",
       "norm_label": "ds()"
     },
     {
@@ -4597,8 +4597,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_bn",
-      "community": 58,
-      "community_name": "Px",
+      "community": 67,
+      "community_name": "overrideHoverFillColor",
       "norm_label": "bn()"
     },
     {
@@ -4608,8 +4608,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_rs",
-      "community": 58,
-      "community_name": "Px",
+      "community": 67,
+      "community_name": "overrideHoverFillColor",
       "norm_label": "rs()"
     },
     {
@@ -4619,8 +4619,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_ld",
-      "community": 58,
-      "community_name": "Px",
+      "community": 19,
+      "community_name": "OpenSeadragon Vendor",
       "norm_label": "ld()"
     },
     {
@@ -4630,8 +4630,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_sn",
-      "community": 13,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 135,
+      "community_name": "Sn",
       "norm_label": "sn()"
     },
     {
@@ -4696,8 +4696,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_is",
-      "community": 126,
-      "community_name": "CS",
+      "community": 59,
+      "community_name": "Ts",
       "norm_label": "is()"
     },
     {
@@ -4817,8 +4817,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_us",
-      "community": 13,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 168,
+      "community_name": "Wo",
       "norm_label": "us()"
     },
     {
@@ -4872,8 +4872,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_n",
-      "community": 126,
-      "community_name": "CS",
+      "community": 2,
+      "community_name": "Annotorious Vendor",
       "norm_label": "_n()"
     },
     {
@@ -4894,8 +4894,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_zs",
-      "community": 126,
-      "community_name": "CS",
+      "community": 118,
+      "community_name": "hr",
       "norm_label": "zs()"
     },
     {
@@ -4916,8 +4916,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_fd",
-      "community": 58,
-      "community_name": "Px",
+      "community": 67,
+      "community_name": "overrideHoverFillColor",
       "norm_label": "fd()"
     },
     {
@@ -4927,8 +4927,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_pd",
-      "community": 58,
-      "community_name": "Px",
+      "community": 67,
+      "community_name": "overrideHoverFillColor",
       "norm_label": "pd()"
     },
     {
@@ -4938,8 +4938,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_br",
-      "community": 58,
-      "community_name": "Px",
+      "community": 67,
+      "community_name": "overrideHoverFillColor",
       "norm_label": "br()"
     },
     {
@@ -4949,8 +4949,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_qs",
-      "community": 58,
-      "community_name": "Px",
+      "community": 67,
+      "community_name": "overrideHoverFillColor",
       "norm_label": "qs()"
     },
     {
@@ -5026,8 +5026,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_la",
-      "community": 58,
-      "community_name": "Px",
+      "community": 67,
+      "community_name": "overrideHoverFillColor",
       "norm_label": "la()"
     },
     {
@@ -5081,8 +5081,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_r",
-      "community": 126,
-      "community_name": "CS",
+      "community": 37,
+      "community_name": "Annotorious Vendor",
       "norm_label": "r()"
     },
     {
@@ -5114,8 +5114,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_i",
-      "community": 126,
-      "community_name": "CS",
+      "community": 51,
+      "community_name": "_tileReadyHandler",
       "norm_label": "i()"
     },
     {
@@ -5224,8 +5224,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_ba",
-      "community": 13,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 162,
+      "community_name": "ef",
       "norm_label": "ba()"
     },
     {
@@ -5235,8 +5235,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_nd",
-      "community": 13,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 162,
+      "community_name": "ef",
       "norm_label": "nd()"
     },
     {
@@ -5246,8 +5246,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_id",
-      "community": 126,
-      "community_name": "CS",
+      "community": 13,
+      "community_name": "OpenSeadragon Vendor",
       "norm_label": "id()"
     },
     {
@@ -5268,8 +5268,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_zd",
-      "community": 126,
-      "community_name": "CS",
+      "community": 37,
+      "community_name": "Annotorious Vendor",
       "norm_label": "zd()"
     },
     {
@@ -5290,8 +5290,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_jd",
-      "community": 13,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 166,
+      "community_name": "xa",
       "norm_label": "jd()"
     },
     {
@@ -5334,8 +5334,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_xa",
-      "community": 13,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 166,
+      "community_name": "xa",
       "norm_label": "xa()"
     },
     {
@@ -5356,8 +5356,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_ef",
-      "community": 13,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 164,
+      "community_name": "Ea",
       "norm_label": "ef()"
     },
     {
@@ -5466,8 +5466,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_uf",
-      "community": 126,
-      "community_name": "CS",
+      "community": 13,
+      "community_name": "OpenSeadragon Vendor",
       "norm_label": "uf()"
     },
     {
@@ -5477,8 +5477,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_be",
-      "community": 13,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 132,
+      "community_name": "cd",
       "norm_label": "be()"
     },
     {
@@ -5488,8 +5488,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_cf",
-      "community": 13,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 132,
+      "community_name": "cd",
       "norm_label": "cf()"
     },
     {
@@ -5499,8 +5499,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_hf",
-      "community": 13,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 132,
+      "community_name": "cd",
       "norm_label": "hf()"
     },
     {
@@ -5521,8 +5521,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_ri_constructor",
-      "community": 126,
-      "community_name": "CS",
+      "community": 2,
+      "community_name": "Annotorious Vendor",
       "norm_label": ".constructor()"
     },
     {
@@ -5730,8 +5730,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_bf",
-      "community": 13,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 164,
+      "community_name": "Ea",
       "norm_label": "bf()"
     },
     {
@@ -6082,8 +6082,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_my",
-      "community": 13,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 144,
+      "community_name": "gy",
       "norm_label": "my()"
     },
     {
@@ -6093,8 +6093,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_gy",
-      "community": 13,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 144,
+      "community_name": "gy",
       "norm_label": "gy()"
     },
     {
@@ -6115,8 +6115,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_yy",
-      "community": 13,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 144,
+      "community_name": "gy",
       "norm_label": "yy()"
     },
     {
@@ -6742,8 +6742,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_uw",
-      "community": 126,
-      "community_name": "CS",
+      "community": 37,
+      "community_name": "Annotorious Vendor",
       "norm_label": "uw()"
     },
     {
@@ -6753,8 +6753,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_cw",
-      "community": 126,
-      "community_name": "CS",
+      "community": 13,
+      "community_name": "OpenSeadragon Vendor",
       "norm_label": "cw()"
     },
     {
@@ -6764,8 +6764,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_hw",
-      "community": 126,
-      "community_name": "CS",
+      "community": 51,
+      "community_name": "_tileReadyHandler",
       "norm_label": "hw()"
     },
     {
@@ -6808,8 +6808,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_lc",
-      "community": 13,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 165,
+      "community_name": "ib",
       "norm_label": "lc()"
     },
     {
@@ -6852,8 +6852,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_vw",
-      "community": 13,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 165,
+      "community_name": "ib",
       "norm_label": "vw()"
     },
     {
@@ -6874,8 +6874,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_bo",
-      "community": 13,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 135,
+      "community_name": "Sn",
       "norm_label": "bo()"
     },
     {
@@ -6885,8 +6885,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_an",
-      "community": 126,
-      "community_name": "CS",
+      "community": 130,
+      "community_name": "Cc",
       "norm_label": "an()"
     },
     {
@@ -6973,8 +6973,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_cc",
-      "community": 126,
-      "community_name": "CS",
+      "community": 130,
+      "community_name": "Cc",
       "norm_label": "cc()"
     },
     {
@@ -6984,8 +6984,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_pc",
-      "community": 13,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 130,
+      "community_name": "Cc",
       "norm_label": "pc()"
     },
     {
@@ -6995,8 +6995,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_ui",
-      "community": 13,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 130,
+      "community_name": "Cc",
       "norm_label": "ui()"
     },
     {
@@ -7028,8 +7028,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_pt",
-      "community": 126,
-      "community_name": "CS",
+      "community": 51,
+      "community_name": "_tileReadyHandler",
       "norm_label": "pt()"
     },
     {
@@ -7039,8 +7039,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_eb",
-      "community": 13,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 37,
+      "community_name": "Annotorious Vendor",
       "norm_label": "eb()"
     },
     {
@@ -7050,8 +7050,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_ac",
-      "community": 126,
-      "community_name": "CS",
+      "community": 37,
+      "community_name": "Annotorious Vendor",
       "norm_label": "ac()"
     },
     {
@@ -7061,8 +7061,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_oe",
-      "community": 126,
-      "community_name": "CS",
+      "community": 37,
+      "community_name": "Annotorious Vendor",
       "norm_label": "oe()"
     },
     {
@@ -7083,8 +7083,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_tb",
-      "community": 37,
-      "community_name": "Annotorious Vendor",
+      "community": 13,
+      "community_name": "OpenSeadragon Vendor",
       "norm_label": "tb()"
     },
     {
@@ -7094,8 +7094,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_nb",
-      "community": 37,
-      "community_name": "Annotorious Vendor",
+      "community": 13,
+      "community_name": "OpenSeadragon Vendor",
       "norm_label": "nb()"
     },
     {
@@ -7105,8 +7105,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_ib",
-      "community": 37,
-      "community_name": "Annotorious Vendor",
+      "community": 13,
+      "community_name": "OpenSeadragon Vendor",
       "norm_label": "ib()"
     },
     {
@@ -7127,8 +7127,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_rb",
-      "community": 13,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 167,
+      "community_name": "Mw",
       "norm_label": "rb()"
     },
     {
@@ -7138,8 +7138,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_ob",
-      "community": 13,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 167,
+      "community_name": "Mw",
       "norm_label": "ob()"
     },
     {
@@ -7303,8 +7303,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_wo",
-      "community": 13,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 168,
+      "community_name": "Wo",
       "norm_label": "wo()"
     },
     {
@@ -7314,8 +7314,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_ls",
-      "community": 13,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 118,
+      "community_name": "hr",
       "norm_label": "ls()"
     },
     {
@@ -7325,8 +7325,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_qc",
-      "community": 13,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 118,
+      "community_name": "hr",
       "norm_label": "qc()"
     },
     {
@@ -7380,8 +7380,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_oh",
-      "community": 82,
-      "community_name": "ch",
+      "community": 37,
+      "community_name": "Annotorious Vendor",
       "norm_label": "oh()"
     },
     {
@@ -7391,8 +7391,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_sh",
-      "community": 126,
-      "community_name": "CS",
+      "community": 37,
+      "community_name": "Annotorious Vendor",
       "norm_label": "sh()"
     },
     {
@@ -7402,8 +7402,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_ah",
-      "community": 126,
-      "community_name": "CS",
+      "community": 118,
+      "community_name": "hr",
       "norm_label": "ah()"
     },
     {
@@ -7435,8 +7435,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_hh",
-      "community": 82,
-      "community_name": "ch",
+      "community": 37,
+      "community_name": "Annotorious Vendor",
       "norm_label": "hh()"
     },
     {
@@ -7578,8 +7578,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_pe_constructor",
-      "community": 126,
-      "community_name": "CS",
+      "community": 73,
+      "community_name": "loadingMethod",
       "norm_label": ".constructor()"
     },
     {
@@ -7765,8 +7765,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_start",
-      "community": 126,
-      "community_name": "CS",
+      "community": 37,
+      "community_name": "Annotorious Vendor",
       "norm_label": "start()"
     },
     {
@@ -7853,8 +7853,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_jn_isequal",
-      "community": 126,
-      "community_name": "CS",
+      "community": 73,
+      "community_name": "loadingMethod",
       "norm_label": ".isequal()"
     },
     {
@@ -8150,8 +8150,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_bh_constructor",
-      "community": 126,
-      "community_name": "CS",
+      "community": 2,
+      "community_name": "Annotorious Vendor",
       "norm_label": ".constructor()"
     },
     {
@@ -8172,8 +8172,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_ss_constructor",
-      "community": 126,
-      "community_name": "CS",
+      "community": 2,
+      "community_name": "Annotorious Vendor",
       "norm_label": ".constructor()"
     },
     {
@@ -8183,8 +8183,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_ss_isdrawing",
-      "community": 126,
-      "community_name": "CS",
+      "community": 19,
+      "community_name": "OpenSeadragon Vendor",
       "norm_label": ".isdrawing()"
     },
     {
@@ -8260,8 +8260,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_me_destroy",
-      "community": 126,
-      "community_name": "CS",
+      "community": 2,
+      "community_name": "Annotorious Vendor",
       "norm_label": ".destroy()"
     },
     {
@@ -8282,8 +8282,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_or_constructor",
-      "community": 126,
-      "community_name": "CS",
+      "community": 2,
+      "community_name": "Annotorious Vendor",
       "norm_label": ".constructor()"
     },
     {
@@ -8359,8 +8359,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_ge_constructor",
-      "community": 126,
-      "community_name": "CS",
+      "community": 2,
+      "community_name": "Annotorious Vendor",
       "norm_label": ".constructor()"
     },
     {
@@ -8403,8 +8403,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_qe_constructor",
-      "community": 126,
-      "community_name": "CS",
+      "community": 37,
+      "community_name": "Annotorious Vendor",
       "norm_label": ".constructor()"
     },
     {
@@ -8436,8 +8436,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_xh",
-      "community": 126,
-      "community_name": "CS",
+      "community": 13,
+      "community_name": "OpenSeadragon Vendor",
       "norm_label": "xh()"
     },
     {
@@ -8502,8 +8502,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_qe_clear",
-      "community": 126,
-      "community_name": "CS",
+      "community": 33,
+      "community_name": "OpenSeadragon Vendor",
       "norm_label": ".clear()"
     },
     {
@@ -8711,8 +8711,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_tx",
-      "community": 126,
-      "community_name": "CS",
+      "community": 2,
+      "community_name": "Annotorious Vendor",
       "norm_label": "tx()"
     },
     {
@@ -8777,8 +8777,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_sx_constructor",
-      "community": 126,
-      "community_name": "CS",
+      "community": 37,
+      "community_name": "Annotorious Vendor",
       "norm_label": ".constructor()"
     },
     {
@@ -8799,8 +8799,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_kh_constructor",
-      "community": 126,
-      "community_name": "CS",
+      "community": 2,
+      "community_name": "Annotorious Vendor",
       "norm_label": ".constructor()"
     },
     {
@@ -8843,8 +8843,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_tx_constructor",
-      "community": 126,
-      "community_name": "CS",
+      "community": 2,
+      "community_name": "Annotorious Vendor",
       "norm_label": ".constructor()"
     },
     {
@@ -8854,8 +8854,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_tx_resize",
-      "community": 126,
-      "community_name": "CS",
+      "community": 2,
+      "community_name": "Annotorious Vendor",
       "norm_label": ".resize()"
     },
     {
@@ -8887,8 +8887,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_px_constructor",
-      "community": 126,
-      "community_name": "CS",
+      "community": 73,
+      "community_name": "loadingMethod",
       "norm_label": ".constructor()"
     },
     {
@@ -8909,8 +8909,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "assets_vendor_annotorious_openseadragon_annotorious_min_px_componentwillunmount",
-      "community": 58,
-      "community_name": "Px",
+      "community": 67,
+      "community_name": "overrideHoverFillColor",
       "norm_label": ".componentwillunmount()"
     },
     {
@@ -9118,8 +9118,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_e",
-      "community": 126,
-      "community_name": "CS",
+      "community": 37,
+      "community_name": "Annotorious Vendor",
       "norm_label": "e()"
     },
     {
@@ -9140,8 +9140,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_constructor",
-      "community": 41,
-      "community_name": "openseadragon.min.js",
+      "community": 18,
+      "community_name": "Annotorious Vendor",
       "norm_label": "constructor()"
     },
     {
@@ -9162,8 +9162,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_maketranslation",
-      "community": 76,
-      "community_name": "draw",
+      "community": 41,
+      "community_name": "openseadragon.min.js",
       "norm_label": "maketranslation()"
     },
     {
@@ -9173,8 +9173,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_makerotation",
-      "community": 76,
-      "community_name": "draw",
+      "community": 41,
+      "community_name": "openseadragon.min.js",
       "norm_label": "makerotation()"
     },
     {
@@ -9184,8 +9184,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_makescaling",
-      "community": 76,
-      "community_name": "draw",
+      "community": 41,
+      "community_name": "openseadragon.min.js",
       "norm_label": "makescaling()"
     },
     {
@@ -9195,8 +9195,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_multiply",
-      "community": 76,
-      "community_name": "draw",
+      "community": 41,
+      "community_name": "openseadragon.min.js",
       "norm_label": "multiply()"
     },
     {
@@ -9239,8 +9239,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_s",
-      "community": 126,
-      "community_name": "CS",
+      "community": 2,
+      "community_name": "Annotorious Vendor",
       "norm_label": "s()"
     },
     {
@@ -9338,7 +9338,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_w",
-      "community": 21,
+      "community": 19,
       "community_name": "OpenSeadragon Vendor",
       "norm_label": "w()"
     },
@@ -9349,8 +9349,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_x",
-      "community": 21,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 126,
+      "community_name": "CS",
       "norm_label": "x()"
     },
     {
@@ -9393,8 +9393,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_o",
-      "community": 126,
-      "community_name": "CS",
+      "community": 75,
+      "community_name": "bn",
       "norm_label": "o()"
     },
     {
@@ -9404,8 +9404,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_k",
-      "community": 21,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 126,
+      "community_name": "CS",
       "norm_label": "k()"
     },
     {
@@ -9437,8 +9437,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_l",
-      "community": 21,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 126,
+      "community_name": "CS",
       "norm_label": "l()"
     },
     {
@@ -9459,8 +9459,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_u",
-      "community": 21,
-      "community_name": "OpenSeadragon Vendor",
+      "community": 126,
+      "community_name": "CS",
       "norm_label": "u()"
     },
     {
@@ -9591,8 +9591,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_draw",
-      "community": 76,
-      "community_name": "draw",
+      "community": 41,
+      "community_name": "openseadragon.min.js",
       "norm_label": "draw()"
     },
     {
@@ -9613,8 +9613,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_destroy",
-      "community": 41,
-      "community_name": "openseadragon.min.js",
+      "community": 131,
+      "community_name": ".draw",
       "norm_label": "destroy()"
     },
     {
@@ -9635,8 +9635,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_setimagesmoothingenabled",
-      "community": 41,
-      "community_name": "openseadragon.min.js",
+      "community": 131,
+      "community_name": ".draw",
       "norm_label": "setimagesmoothingenabled()"
     },
     {
@@ -9657,8 +9657,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_clear",
-      "community": 76,
-      "community_name": "draw",
+      "community": 41,
+      "community_name": "openseadragon.min.js",
       "norm_label": "clear()"
     },
     {
@@ -9668,8 +9668,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_checkforapioverrides",
-      "community": 41,
-      "community_name": "openseadragon.min.js",
+      "community": 18,
+      "community_name": "Annotorious Vendor",
       "norm_label": "_checkforapioverrides()"
     },
     {
@@ -9712,8 +9712,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_raisetiledimagedrawnevent",
-      "community": 76,
-      "community_name": "draw",
+      "community": 41,
+      "community_name": "openseadragon.min.js",
       "norm_label": "_raisetiledimagedrawnevent()"
     },
     {
@@ -9723,8 +9723,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_raisedrawererrorevent",
-      "community": 41,
-      "community_name": "openseadragon.min.js",
+      "community": 18,
+      "community_name": "Annotorious Vendor",
       "norm_label": "_raisedrawererrorevent()"
     },
     {
@@ -9778,8 +9778,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_t_createdrawingelement",
-      "community": 41,
-      "community_name": "openseadragon.min.js",
+      "community": 43,
+      "community_name": "t",
       "norm_label": "._createdrawingelement()"
     },
     {
@@ -9789,8 +9789,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_t_draw",
-      "community": 60,
-      "community_name": "_drawDebugInfoOnTile",
+      "community": 131,
+      "community_name": ".draw",
       "norm_label": ".draw()"
     },
     {
@@ -10119,8 +10119,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_constructor_boundtotileready",
-      "community": 41,
-      "community_name": "openseadragon.min.js",
+      "community": 18,
+      "community_name": "Annotorious Vendor",
       "norm_label": "._boundtotileready()"
     },
     {
@@ -10130,8 +10130,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_constructor_boundtoimageunloaded",
-      "community": 41,
-      "community_name": "openseadragon.min.js",
+      "community": 18,
+      "community_name": "Annotorious Vendor",
       "norm_label": "._boundtoimageunloaded()"
     },
     {
@@ -10141,8 +10141,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_getbackupcanvasdrawer",
-      "community": 76,
-      "community_name": "draw",
+      "community": 41,
+      "community_name": "openseadragon.min.js",
       "norm_label": "_getbackupcanvasdrawer()"
     },
     {
@@ -10174,8 +10174,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_gettiledata",
-      "community": 76,
-      "community_name": "draw",
+      "community": 41,
+      "community_name": "openseadragon.min.js",
       "norm_label": "_gettiledata()"
     },
     {
@@ -10185,8 +10185,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_texturefilter",
-      "community": 41,
-      "community_name": "openseadragon.min.js",
+      "community": 18,
+      "community_name": "Annotorious Vendor",
       "norm_label": "_texturefilter()"
     },
     {
@@ -10196,8 +10196,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_setuprenderer",
-      "community": 41,
-      "community_name": "openseadragon.min.js",
+      "community": 18,
+      "community_name": "Annotorious Vendor",
       "norm_label": "_setuprenderer()"
     },
     {
@@ -10207,8 +10207,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_makefirstpassshaderprogram",
-      "community": 41,
-      "community_name": "openseadragon.min.js",
+      "community": 18,
+      "community_name": "Annotorious Vendor",
       "norm_label": "_makefirstpassshaderprogram()"
     },
     {
@@ -10218,8 +10218,8 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_makesecondpassshaderprogram",
-      "community": 76,
-      "community_name": "draw",
+      "community": 41,
+      "community_name": "openseadragon.min.js",
       "norm_label": "_makesecondpassshaderprogram()"
     },
     {
@@ -10229,8 +10229,8 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_resizerenderer",
-      "community": 41,
-      "community_name": "openseadragon.min.js",
+      "community": 18,
+      "community_name": "Annotorious Vendor",
       "norm_label": "_resizerenderer()"
     },
     {
@@ -10240,8 +10240,8 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_setupcanvases",
-      "community": 41,
-      "community_name": "openseadragon.min.js",
+      "community": 18,
+      "community_name": "Annotorious Vendor",
       "norm_label": "_setupcanvases()"
     },
     {
@@ -10251,8 +10251,8 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_setupcanvases_resizehandler",
-      "community": 41,
-      "community_name": "openseadragon.min.js",
+      "community": 18,
+      "community_name": "Annotorious Vendor",
       "norm_label": "._resizehandler()"
     },
     {
@@ -10262,8 +10262,8 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_makequadvertexbuffer",
-      "community": 41,
-      "community_name": "openseadragon.min.js",
+      "community": 18,
+      "community_name": "Annotorious Vendor",
       "norm_label": "_makequadvertexbuffer()"
     },
     {
@@ -10273,8 +10273,8 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_tilereadyhandler",
-      "community": 41,
-      "community_name": "openseadragon.min.js",
+      "community": 18,
+      "community_name": "Annotorious Vendor",
       "norm_label": "_tilereadyhandler()"
     },
     {
@@ -10284,8 +10284,8 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_calculateoverlapfraction",
-      "community": 76,
-      "community_name": "draw",
+      "community": 41,
+      "community_name": "openseadragon.min.js",
       "norm_label": "_calculateoverlapfraction()"
     },
     {
@@ -10295,8 +10295,8 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_unloadtextures",
-      "community": 41,
-      "community_name": "openseadragon.min.js",
+      "community": 131,
+      "community_name": ".draw",
       "norm_label": "_unloadtextures()"
     },
     {
@@ -10306,8 +10306,8 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_uploadimagedata",
-      "community": 41,
-      "community_name": "openseadragon.min.js",
+      "community": 18,
+      "community_name": "Annotorious Vendor",
       "norm_label": "_uploadimagedata()"
     },
     {
@@ -10317,8 +10317,8 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_imageunloadedhandler",
-      "community": 41,
-      "community_name": "openseadragon.min.js",
+      "community": 18,
+      "community_name": "Annotorious Vendor",
       "norm_label": "_imageunloadedhandler()"
     },
     {
@@ -10328,8 +10328,8 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_cleanupimagedata",
-      "community": 41,
-      "community_name": "openseadragon.min.js",
+      "community": 18,
+      "community_name": "Annotorious Vendor",
       "norm_label": "_cleanupimagedata()"
     },
     {
@@ -10471,8 +10471,8 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "assets_vendor_openseadragon_openseadragon_min_settainted",
-      "community": 41,
-      "community_name": "openseadragon.min.js",
+      "community": 18,
+      "community_name": "Annotorious Vendor",
       "norm_label": "settainted()"
     },
     {
@@ -12176,8 +12176,8 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "src_action_toolbar_block_attributes_targetviewerid",
-      "community": 85,
-      "community_name": "cardMinWidth",
+      "community": 46,
+      "community_name": "Includes Module",
       "norm_label": "targetviewerid"
     },
     {
@@ -12187,8 +12187,8 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "src_action_toolbar_block_targetviewerid_type",
-      "community": 85,
-      "community_name": "cardMinWidth",
+      "community": 46,
+      "community_name": "Includes Module",
       "norm_label": "type"
     },
     {
@@ -12198,8 +12198,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "src_action_toolbar_block_targetviewerid_default",
-      "community": 85,
-      "community_name": "cardMinWidth",
+      "community": 46,
+      "community_name": "Includes Module",
       "norm_label": "default"
     },
     {
@@ -12209,8 +12209,8 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "src_action_toolbar_block_attributes_showannotationsbtn",
-      "community": 91,
-      "community_name": "action-pill/block.json",
+      "community": 40,
+      "community_name": "Zn",
       "norm_label": "showannotationsbtn"
     },
     {
@@ -12220,8 +12220,8 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "src_action_toolbar_block_showannotationsbtn_type",
-      "community": 91,
-      "community_name": "action-pill/block.json",
+      "community": 40,
+      "community_name": "Zn",
       "norm_label": "type"
     },
     {
@@ -12231,8 +12231,8 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "src_action_toolbar_block_showannotationsbtn_default",
-      "community": 91,
-      "community_name": "action-pill/block.json",
+      "community": 40,
+      "community_name": "Zn",
       "norm_label": "default"
     },
     {
@@ -12275,8 +12275,8 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "src_action_toolbar_block_attributes_showinfobtn",
-      "community": 20,
-      "community_name": "Annotorious Vendor",
+      "community": 91,
+      "community_name": "action-pill/block.json",
       "norm_label": "showinfobtn"
     },
     {
@@ -12286,8 +12286,8 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "src_action_toolbar_block_showinfobtn_type",
-      "community": 20,
-      "community_name": "Annotorious Vendor",
+      "community": 91,
+      "community_name": "action-pill/block.json",
       "norm_label": "type"
     },
     {
@@ -12297,8 +12297,8 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "src_action_toolbar_block_showinfobtn_default",
-      "community": 20,
-      "community_name": "Annotorious Vendor",
+      "community": 91,
+      "community_name": "action-pill/block.json",
       "norm_label": "default"
     },
     {
@@ -13067,8 +13067,8 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "src_annotation_list_block_attributes",
-      "community": 18,
-      "community_name": "Annotorious Vendor",
+      "community": 158,
+      "community_name": "showInfoBtn",
       "norm_label": "attributes"
     },
     {
@@ -13078,8 +13078,8 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "src_annotation_list_block_attributes_align",
-      "community": 156,
-      "community_name": "showAnnotationsBtn",
+      "community": 158,
+      "community_name": "showInfoBtn",
       "norm_label": "align"
     },
     {
@@ -13089,8 +13089,8 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "src_annotation_list_block_align_type",
-      "community": 156,
-      "community_name": "showAnnotationsBtn",
+      "community": 158,
+      "community_name": "showInfoBtn",
       "norm_label": "type"
     },
     {
@@ -13100,8 +13100,8 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "src_annotation_list_block_align_default",
-      "community": 156,
-      "community_name": "showAnnotationsBtn",
+      "community": 158,
+      "community_name": "showInfoBtn",
       "norm_label": "default"
     },
     {
@@ -13243,8 +13243,8 @@
       "source_location": "L83",
       "_origin": "ast",
       "id": "src_annotation_list_block_attributes_gridjustifycontent",
-      "community": 171,
-      "community_name": "gridJustifyContent",
+      "community": 158,
+      "community_name": "showInfoBtn",
       "norm_label": "gridjustifycontent"
     },
     {
@@ -13254,8 +13254,8 @@
       "source_location": "L84",
       "_origin": "ast",
       "id": "src_annotation_list_block_gridjustifycontent_type",
-      "community": 171,
-      "community_name": "gridJustifyContent",
+      "community": 158,
+      "community_name": "showInfoBtn",
       "norm_label": "type"
     },
     {
@@ -13265,8 +13265,8 @@
       "source_location": "L85",
       "_origin": "ast",
       "id": "src_annotation_list_block_gridjustifycontent_default",
-      "community": 171,
-      "community_name": "gridJustifyContent",
+      "community": 158,
+      "community_name": "showInfoBtn",
       "norm_label": "default"
     },
     {
@@ -13474,8 +13474,8 @@
       "source_location": "L111",
       "_origin": "ast",
       "id": "src_annotation_list_block_attributes_hovertextcolor",
-      "community": 18,
-      "community_name": "Annotorious Vendor",
+      "community": 154,
+      "community_name": "hoverTextColor",
       "norm_label": "hovertextcolor"
     },
     {
@@ -13485,8 +13485,8 @@
       "source_location": "L112",
       "_origin": "ast",
       "id": "src_annotation_list_block_hovertextcolor_type",
-      "community": 18,
-      "community_name": "Annotorious Vendor",
+      "community": 154,
+      "community_name": "hoverTextColor",
       "norm_label": "type"
     },
     {
@@ -13496,8 +13496,8 @@
       "source_location": "L113",
       "_origin": "ast",
       "id": "src_annotation_list_block_hovertextcolor_default",
-      "community": 18,
-      "community_name": "Annotorious Vendor",
+      "community": 154,
+      "community_name": "hoverTextColor",
       "norm_label": "default"
     },
     {
@@ -13507,8 +13507,8 @@
       "source_location": "L115",
       "_origin": "ast",
       "id": "src_annotation_list_block_attributes_hoverbordercolor",
-      "community": 18,
-      "community_name": "Annotorious Vendor",
+      "community": 145,
+      "community_name": "hoverBorderColor",
       "norm_label": "hoverbordercolor"
     },
     {
@@ -13518,8 +13518,8 @@
       "source_location": "L116",
       "_origin": "ast",
       "id": "src_annotation_list_block_hoverbordercolor_type",
-      "community": 18,
-      "community_name": "Annotorious Vendor",
+      "community": 145,
+      "community_name": "hoverBorderColor",
       "norm_label": "type"
     },
     {
@@ -13529,8 +13529,8 @@
       "source_location": "L117",
       "_origin": "ast",
       "id": "src_annotation_list_block_hoverbordercolor_default",
-      "community": 18,
-      "community_name": "Annotorious Vendor",
+      "community": 145,
+      "community_name": "hoverBorderColor",
       "norm_label": "default"
     },
     {
@@ -13672,8 +13672,8 @@
       "source_location": "L135",
       "_origin": "ast",
       "id": "src_annotation_list_block_attributes_cardbordercolor",
-      "community": 18,
-      "community_name": "Annotorious Vendor",
+      "community": 48,
+      "community_name": "Jn",
       "norm_label": "cardbordercolor"
     },
     {
@@ -13683,8 +13683,8 @@
       "source_location": "L136",
       "_origin": "ast",
       "id": "src_annotation_list_block_cardbordercolor_type",
-      "community": 18,
-      "community_name": "Annotorious Vendor",
+      "community": 48,
+      "community_name": "Jn",
       "norm_label": "type"
     },
     {
@@ -13694,8 +13694,8 @@
       "source_location": "L137",
       "_origin": "ast",
       "id": "src_annotation_list_block_cardbordercolor_default",
-      "community": 18,
-      "community_name": "Annotorious Vendor",
+      "community": 48,
+      "community_name": "Jn",
       "norm_label": "default"
     },
     {
@@ -13738,8 +13738,8 @@
       "source_location": "L143",
       "_origin": "ast",
       "id": "src_annotation_list_block_attributes_cardborderstyle",
-      "community": 90,
-      "community_name": "annotation-list/edit.js",
+      "community": 156,
+      "community_name": "showAnnotationsBtn",
       "norm_label": "cardborderstyle"
     },
     {
@@ -13749,8 +13749,8 @@
       "source_location": "L144",
       "_origin": "ast",
       "id": "src_annotation_list_block_cardborderstyle_type",
-      "community": 90,
-      "community_name": "annotation-list/edit.js",
+      "community": 156,
+      "community_name": "showAnnotationsBtn",
       "norm_label": "type"
     },
     {
@@ -13760,6 +13760,72 @@
       "source_location": "L145",
       "_origin": "ast",
       "id": "src_annotation_list_block_cardborderstyle_default",
+      "community": 156,
+      "community_name": "showAnnotationsBtn",
+      "norm_label": "default"
+    },
+    {
+      "label": "layoutMode",
+      "file_type": "code",
+      "source_file": "src/annotation-list/block.json",
+      "source_location": "L147",
+      "_origin": "ast",
+      "id": "src_annotation_list_block_attributes_layoutmode",
+      "community": 157,
+      "community_name": "layoutMode",
+      "norm_label": "layoutmode"
+    },
+    {
+      "label": "type",
+      "file_type": "code",
+      "source_file": "src/annotation-list/block.json",
+      "source_location": "L148",
+      "_origin": "ast",
+      "id": "src_annotation_list_block_layoutmode_type",
+      "community": 157,
+      "community_name": "layoutMode",
+      "norm_label": "type"
+    },
+    {
+      "label": "default",
+      "file_type": "code",
+      "source_file": "src/annotation-list/block.json",
+      "source_location": "L149",
+      "_origin": "ast",
+      "id": "src_annotation_list_block_layoutmode_default",
+      "community": 157,
+      "community_name": "layoutMode",
+      "norm_label": "default"
+    },
+    {
+      "label": "showLayoutToggle",
+      "file_type": "code",
+      "source_file": "src/annotation-list/block.json",
+      "source_location": "L151",
+      "_origin": "ast",
+      "id": "src_annotation_list_block_attributes_showlayouttoggle",
+      "community": 90,
+      "community_name": "annotation-list/edit.js",
+      "norm_label": "showlayouttoggle"
+    },
+    {
+      "label": "type",
+      "file_type": "code",
+      "source_file": "src/annotation-list/block.json",
+      "source_location": "L152",
+      "_origin": "ast",
+      "id": "src_annotation_list_block_showlayouttoggle_type",
+      "community": 90,
+      "community_name": "annotation-list/edit.js",
+      "norm_label": "type"
+    },
+    {
+      "label": "default",
+      "file_type": "code",
+      "source_file": "src/annotation-list/block.json",
+      "source_location": "L153",
+      "_origin": "ast",
+      "id": "src_annotation_list_block_showlayouttoggle_default",
       "community": 90,
       "community_name": "annotation-list/edit.js",
       "norm_label": "default"
@@ -14354,8 +14420,8 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "src_sequence_filmstrip_block_attributes_align",
-      "community": 128,
-      "community_name": "align",
+      "community": 24,
+      "community_name": "Annotorious Vendor",
       "norm_label": "align"
     },
     {
@@ -14365,8 +14431,8 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "src_sequence_filmstrip_block_align_type",
-      "community": 128,
-      "community_name": "align",
+      "community": 24,
+      "community_name": "Annotorious Vendor",
       "norm_label": "type"
     },
     {
@@ -14376,8 +14442,8 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "src_sequence_filmstrip_block_align_default",
-      "community": 128,
-      "community_name": "align",
+      "community": 24,
+      "community_name": "Annotorious Vendor",
       "norm_label": "default"
     },
     {
@@ -14453,8 +14519,8 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "src_sequence_filmstrip_block_attributes_hidefilmstripmobile",
-      "community": 119,
-      "community_name": "ah",
+      "community": 85,
+      "community_name": "cardMinWidth",
       "norm_label": "hidefilmstripmobile"
     },
     {
@@ -14464,8 +14530,8 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "src_sequence_filmstrip_block_hidefilmstripmobile_type",
-      "community": 119,
-      "community_name": "ah",
+      "community": 85,
+      "community_name": "cardMinWidth",
       "norm_label": "type"
     },
     {
@@ -14475,8 +14541,8 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "src_sequence_filmstrip_block_hidefilmstripmobile_default",
-      "community": 119,
-      "community_name": "ah",
+      "community": 85,
+      "community_name": "cardMinWidth",
       "norm_label": "default"
     },
     {
@@ -14618,8 +14684,8 @@
       "source_location": "L89",
       "_origin": "ast",
       "id": "src_sequence_filmstrip_block_attributes_hoverbordercolor",
-      "community": 162,
-      "community_name": "ef",
+      "community": 113,
+      "community_name": "hS",
       "norm_label": "hoverbordercolor"
     },
     {
@@ -14629,8 +14695,8 @@
       "source_location": "L90",
       "_origin": "ast",
       "id": "src_sequence_filmstrip_block_hoverbordercolor_type",
-      "community": 162,
-      "community_name": "ef",
+      "community": 113,
+      "community_name": "hS",
       "norm_label": "type"
     },
     {
@@ -14640,8 +14706,8 @@
       "source_location": "L91",
       "_origin": "ast",
       "id": "src_sequence_filmstrip_block_hoverbordercolor_default",
-      "community": 162,
-      "community_name": "ef",
+      "community": 113,
+      "community_name": "hS",
       "norm_label": "default"
     },
     {
@@ -14684,8 +14750,8 @@
       "source_location": "L97",
       "_origin": "ast",
       "id": "src_sequence_filmstrip_block_attributes_containerborderwidth",
-      "community": 24,
-      "community_name": "Annotorious Vendor",
+      "community": 128,
+      "community_name": "align",
       "norm_label": "containerborderwidth"
     },
     {
@@ -14695,8 +14761,8 @@
       "source_location": "L98",
       "_origin": "ast",
       "id": "src_sequence_filmstrip_block_containerborderwidth_type",
-      "community": 24,
-      "community_name": "Annotorious Vendor",
+      "community": 128,
+      "community_name": "align",
       "norm_label": "type"
     },
     {
@@ -14706,8 +14772,8 @@
       "source_location": "L99",
       "_origin": "ast",
       "id": "src_sequence_filmstrip_block_containerborderwidth_default",
-      "community": 24,
-      "community_name": "Annotorious Vendor",
+      "community": 128,
+      "community_name": "align",
       "norm_label": "default"
     },
     {
@@ -15795,8 +15861,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_viewer_block_supports_align",
-      "community": 108,
-      "community_name": "align",
+      "community": 53,
+      "community_name": "supports",
       "norm_label": "align"
     },
     {
@@ -15806,8 +15872,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_viewer_block_json_ref_left",
-      "community": 108,
-      "community_name": "align",
+      "community": 53,
+      "community_name": "supports",
       "norm_label": "left"
     },
     {
@@ -15817,8 +15883,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_viewer_block_json_ref_center",
-      "community": 108,
-      "community_name": "align",
+      "community": 53,
+      "community_name": "supports",
       "norm_label": "center"
     },
     {
@@ -15828,8 +15894,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_viewer_block_json_ref_right",
-      "community": 108,
-      "community_name": "align",
+      "community": 53,
+      "community_name": "supports",
       "norm_label": "right"
     },
     {
@@ -15839,8 +15905,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_viewer_block_json_ref_wide",
-      "community": 108,
-      "community_name": "align",
+      "community": 53,
+      "community_name": "supports",
       "norm_label": "wide"
     },
     {
@@ -15850,8 +15916,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_viewer_block_json_ref_full",
-      "community": 108,
-      "community_name": "align",
+      "community": 53,
+      "community_name": "supports",
       "norm_label": "full"
     },
     {
@@ -15938,8 +16004,8 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "src_viewer_block_supports_spacing",
-      "community": 132,
-      "community_name": "cd",
+      "community": 53,
+      "community_name": "supports",
       "norm_label": "spacing"
     },
     {
@@ -15949,8 +16015,8 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "src_viewer_block_spacing_margin",
-      "community": 132,
-      "community_name": "cd",
+      "community": 53,
+      "community_name": "supports",
       "norm_label": "margin"
     },
     {
@@ -15960,8 +16026,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "src_viewer_block_spacing_padding",
-      "community": 132,
-      "community_name": "cd",
+      "community": 53,
+      "community_name": "supports",
       "norm_label": "padding"
     },
     {
@@ -15971,8 +16037,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "src_viewer_block_spacing_blockgap",
-      "community": 132,
-      "community_name": "cd",
+      "community": 53,
+      "community_name": "supports",
       "norm_label": "blockgap"
     },
     {
@@ -15982,8 +16048,8 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "src_viewer_block_supports_border",
-      "community": 101,
-      "community_name": "SequenceFilmstripBlock",
+      "community": 53,
+      "community_name": "supports",
       "norm_label": "border"
     },
     {
@@ -15993,8 +16059,8 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "src_viewer_block_border_color",
-      "community": 101,
-      "community_name": "SequenceFilmstripBlock",
+      "community": 53,
+      "community_name": "supports",
       "norm_label": "color"
     },
     {
@@ -16004,8 +16070,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "src_viewer_block_border_radius",
-      "community": 101,
-      "community_name": "SequenceFilmstripBlock",
+      "community": 53,
+      "community_name": "supports",
       "norm_label": "radius"
     },
     {
@@ -16015,8 +16081,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "src_viewer_block_border_style",
-      "community": 101,
-      "community_name": "SequenceFilmstripBlock",
+      "community": 53,
+      "community_name": "supports",
       "norm_label": "style"
     },
     {
@@ -16026,8 +16092,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "src_viewer_block_border_width",
-      "community": 101,
-      "community_name": "SequenceFilmstripBlock",
+      "community": 53,
+      "community_name": "supports",
       "norm_label": "width"
     },
     {
@@ -16037,8 +16103,8 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "src_viewer_block_border_experimentalskipserialization",
-      "community": 101,
-      "community_name": "SequenceFilmstripBlock",
+      "community": 53,
+      "community_name": "supports",
       "norm_label": "__experimentalskipserialization"
     },
     {
@@ -16048,8 +16114,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "src_viewer_block_supports_typography",
-      "community": 67,
-      "community_name": "overrideHoverFillColor",
+      "community": 53,
+      "community_name": "supports",
       "norm_label": "typography"
     },
     {
@@ -16059,8 +16125,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "src_viewer_block_typography_fontsize",
-      "community": 67,
-      "community_name": "overrideHoverFillColor",
+      "community": 53,
+      "community_name": "supports",
       "norm_label": "fontsize"
     },
     {
@@ -16070,8 +16136,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "src_viewer_block_typography_lineheight",
-      "community": 67,
-      "community_name": "overrideHoverFillColor",
+      "community": 53,
+      "community_name": "supports",
       "norm_label": "lineheight"
     },
     {
@@ -16081,8 +16147,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "src_viewer_block_typography_fontfamily",
-      "community": 67,
-      "community_name": "overrideHoverFillColor",
+      "community": 53,
+      "community_name": "supports",
       "norm_label": "fontfamily"
     },
     {
@@ -16092,8 +16158,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "src_viewer_block_typography_experimentalfontfamily",
-      "community": 67,
-      "community_name": "overrideHoverFillColor",
+      "community": 53,
+      "community_name": "supports",
       "norm_label": "__experimentalfontfamily"
     },
     {
@@ -16103,8 +16169,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "src_viewer_block_typography_fontweight",
-      "community": 67,
-      "community_name": "overrideHoverFillColor",
+      "community": 53,
+      "community_name": "supports",
       "norm_label": "fontweight"
     },
     {
@@ -16114,8 +16180,8 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "src_viewer_block_typography_fontstyle",
-      "community": 67,
-      "community_name": "overrideHoverFillColor",
+      "community": 53,
+      "community_name": "supports",
       "norm_label": "fontstyle"
     },
     {
@@ -16125,8 +16191,8 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "src_viewer_block_typography_letterspacing",
-      "community": 67,
-      "community_name": "overrideHoverFillColor",
+      "community": 53,
+      "community_name": "supports",
       "norm_label": "letterspacing"
     },
     {
@@ -16224,8 +16290,8 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "src_viewer_block_attributes",
-      "community": 70,
-      "community_name": "showFilmstrip",
+      "community": 117,
+      "community_name": "Ts",
       "norm_label": "attributes"
     },
     {
@@ -16268,8 +16334,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "src_viewer_block_attributes_height",
-      "community": 113,
-      "community_name": "hS",
+      "community": 160,
+      "community_name": "overrideBadgeBg",
       "norm_label": "height"
     },
     {
@@ -16279,8 +16345,8 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "src_viewer_block_height_type",
-      "community": 113,
-      "community_name": "hS",
+      "community": 160,
+      "community_name": "overrideBadgeBg",
       "norm_label": "type"
     },
     {
@@ -16290,8 +16356,8 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "src_viewer_block_height_default",
-      "community": 113,
-      "community_name": "hS",
+      "community": 160,
+      "community_name": "overrideBadgeBg",
       "norm_label": "default"
     },
     {
@@ -16367,8 +16433,8 @@
       "source_location": "L80",
       "_origin": "ast",
       "id": "src_viewer_block_attributes_osdimagesize",
-      "community": 118,
-      "community_name": "hr",
+      "community": 161,
+      "community_name": "viewerId",
       "norm_label": "osdimagesize"
     },
     {
@@ -16378,8 +16444,8 @@
       "source_location": "L81",
       "_origin": "ast",
       "id": "src_viewer_block_osdimagesize_type",
-      "community": 118,
-      "community_name": "hr",
+      "community": 161,
+      "community_name": "viewerId",
       "norm_label": "type"
     },
     {
@@ -16389,8 +16455,8 @@
       "source_location": "L82",
       "_origin": "ast",
       "id": "src_viewer_block_osdimagesize_default",
-      "community": 118,
-      "community_name": "hr",
+      "community": 161,
+      "community_name": "viewerId",
       "norm_label": "default"
     },
     {
@@ -16466,8 +16532,8 @@
       "source_location": "L92",
       "_origin": "ast",
       "id": "src_viewer_block_attributes_viewerid",
-      "community": 161,
-      "community_name": "viewerId",
+      "community": 117,
+      "community_name": "Ts",
       "norm_label": "viewerid"
     },
     {
@@ -16477,8 +16543,8 @@
       "source_location": "L93",
       "_origin": "ast",
       "id": "src_viewer_block_viewerid_type",
-      "community": 161,
-      "community_name": "viewerId",
+      "community": 117,
+      "community_name": "Ts",
       "norm_label": "type"
     },
     {
@@ -16488,8 +16554,8 @@
       "source_location": "L94",
       "_origin": "ast",
       "id": "src_viewer_block_viewerid_default",
-      "community": 161,
-      "community_name": "viewerId",
+      "community": 117,
+      "community_name": "Ts",
       "norm_label": "default"
     },
     {
@@ -16499,8 +16565,8 @@
       "source_location": "L96",
       "_origin": "ast",
       "id": "src_viewer_block_attributes_infomessage",
-      "community": 46,
-      "community_name": "Includes Module",
+      "community": 117,
+      "community_name": "Ts",
       "norm_label": "infomessage"
     },
     {
@@ -16510,8 +16576,8 @@
       "source_location": "L97",
       "_origin": "ast",
       "id": "src_viewer_block_infomessage_type",
-      "community": 46,
-      "community_name": "Includes Module",
+      "community": 117,
+      "community_name": "Ts",
       "norm_label": "type"
     },
     {
@@ -16521,8 +16587,8 @@
       "source_location": "L98",
       "_origin": "ast",
       "id": "src_viewer_block_infomessage_default",
-      "community": 46,
-      "community_name": "Includes Module",
+      "community": 117,
+      "community_name": "Ts",
       "norm_label": "default"
     },
     {
@@ -16598,8 +16664,8 @@
       "source_location": "L108",
       "_origin": "ast",
       "id": "src_viewer_block_attributes_overridebadgebg",
-      "community": 160,
-      "community_name": "overrideBadgeBg",
+      "community": 119,
+      "community_name": "ah",
       "norm_label": "overridebadgebg"
     },
     {
@@ -16609,8 +16675,8 @@
       "source_location": "L109",
       "_origin": "ast",
       "id": "src_viewer_block_overridebadgebg_type",
-      "community": 160,
-      "community_name": "overrideBadgeBg",
+      "community": 119,
+      "community_name": "ah",
       "norm_label": "type"
     },
     {
@@ -16620,8 +16686,8 @@
       "source_location": "L110",
       "_origin": "ast",
       "id": "src_viewer_block_overridebadgebg_default",
-      "community": 160,
-      "community_name": "overrideBadgeBg",
+      "community": 119,
+      "community_name": "ah",
       "norm_label": "default"
     },
     {
@@ -16955,10 +17021,32 @@
       "norm_label": "fetchannotationsforattachment()"
     },
     {
+      "label": "updateStackedCardPositions()",
+      "file_type": "code",
+      "source_file": "src/viewer/view.js",
+      "source_location": "L53",
+      "_origin": "ast",
+      "id": "src_viewer_view_updatestackedcardpositions",
+      "community": 112,
+      "community_name": "Ie",
+      "norm_label": "updatestackedcardpositions()"
+    },
+    {
+      "label": "bindLayoutToggleButtons()",
+      "file_type": "code",
+      "source_file": "src/viewer/view.js",
+      "source_location": "L128",
+      "_origin": "ast",
+      "id": "src_viewer_view_bindlayouttogglebuttons",
+      "community": 112,
+      "community_name": "Ie",
+      "norm_label": "bindlayouttogglebuttons()"
+    },
+    {
       "label": "initFrontendViewer()",
       "file_type": "code",
       "source_file": "src/viewer/view.js",
-      "source_location": "L198",
+      "source_location": "L325",
       "_origin": "ast",
       "id": "src_viewer_view_initfrontendviewer",
       "community": 112,
@@ -16969,7 +17057,7 @@
       "label": "bindOsdFloatingToolbars()",
       "file_type": "code",
       "source_file": "src/viewer/view.js",
-      "source_location": "L1550",
+      "source_location": "L1712",
       "_origin": "ast",
       "id": "src_viewer_view_bindosdfloatingtoolbars",
       "community": 112,
@@ -16980,7 +17068,7 @@
       "label": "formatLocalTime()",
       "file_type": "code",
       "source_file": "src/viewer/view.js",
-      "source_location": "L1629",
+      "source_location": "L1791",
       "_origin": "ast",
       "id": "src_viewer_view_formatlocaltime",
       "community": 112,
@@ -16991,7 +17079,7 @@
       "label": "escapeHTML()",
       "file_type": "code",
       "source_file": "src/viewer/view.js",
-      "source_location": "L1636",
+      "source_location": "L1798",
       "_origin": "ast",
       "id": "src_viewer_view_escapehtml",
       "community": 112,
@@ -41562,7 +41650,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "src/viewer/view.js",
-      "source_location": "L397",
+      "source_location": "L524",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_viewer_view_initfrontendviewer",
@@ -47302,6 +47390,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/annotation-list/block.json",
+      "source_location": "L147",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_annotation_list_block_attributes",
+      "target": "src_annotation_list_block_attributes_layoutmode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/annotation-list/block.json",
       "source_location": "L95",
       "weight": 1.0,
       "_origin": "ast",
@@ -47351,6 +47450,17 @@
       "_origin": "ast",
       "source": "src_annotation_list_block_attributes",
       "target": "src_annotation_list_block_attributes_selectedtextcolor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/annotation-list/block.json",
+      "source_location": "L151",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_annotation_list_block_attributes",
+      "target": "src_annotation_list_block_attributes_showlayouttoggle",
       "confidence_score": 1.0
     },
     {
@@ -47838,6 +47948,50 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/annotation-list/block.json",
+      "source_location": "L149",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_annotation_list_block_attributes_layoutmode",
+      "target": "src_annotation_list_block_layoutmode_default",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/annotation-list/block.json",
+      "source_location": "L148",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_annotation_list_block_attributes_layoutmode",
+      "target": "src_annotation_list_block_layoutmode_type",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/annotation-list/block.json",
+      "source_location": "L153",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_annotation_list_block_attributes_showlayouttoggle",
+      "target": "src_annotation_list_block_showlayouttoggle_default",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/annotation-list/block.json",
+      "source_location": "L152",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_annotation_list_block_attributes_showlayouttoggle",
+      "target": "src_annotation_list_block_showlayouttoggle_type",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -47846,7 +48000,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_annotation_list_index",
-      "target": "src_annotation_list_block_cardborderstyle_default",
+      "target": "src_annotation_list_block_showlayouttoggle_default",
       "confidence_score": 1.0
     },
     {
@@ -51121,7 +51275,18 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/viewer/view.js",
-      "source_location": "L1550",
+      "source_location": "L128",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_viewer_view",
+      "target": "src_viewer_view_bindlayouttogglebuttons",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/viewer/view.js",
+      "source_location": "L1712",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_viewer_view",
@@ -51132,7 +51297,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/viewer/view.js",
-      "source_location": "L1636",
+      "source_location": "L1798",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_viewer_view",
@@ -51154,7 +51319,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/viewer/view.js",
-      "source_location": "L1629",
+      "source_location": "L1791",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_viewer_view",
@@ -51165,11 +51330,34 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/viewer/view.js",
-      "source_location": "L198",
+      "source_location": "L325",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_viewer_view",
       "target": "src_viewer_view_initfrontendviewer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/viewer/view.js",
+      "source_location": "L53",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_viewer_view",
+      "target": "src_viewer_view_updatestackedcardpositions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/viewer/view.js",
+      "source_location": "L148",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_viewer_view_bindlayouttogglebuttons",
+      "target": "src_viewer_view_updatestackedcardpositions",
       "confidence_score": 1.0
     },
     {
@@ -51493,5 +51681,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "bcb70f35adc28a6b7feac559d4ad334bbf4dd1fa"
+  "built_at_commit": "c2078f0db87f5dd05fbd8584222f7c39fc40728f"
 }

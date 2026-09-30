@@ -180,6 +180,21 @@ export default function Edit(props) {
                         options={viewerOptions}
                         onChange={(val) => setAttributes({ targetViewerId: val })}
                     />
+                    <SelectControl
+                        label={__('Card Layout Mode', 'arwai-azi-viewer')}
+                        value={attributes.layoutMode || 'spread'}
+                        options={[
+                            { label: __('Spread out Grid (Default)', 'arwai-azi-viewer'), value: 'spread' },
+                            { label: __('Stacked Cards Stack', 'arwai-azi-viewer'), value: 'stacked' },
+                        ]}
+                        onChange={(val) => setAttributes({ layoutMode: val })}
+                    />
+                    <ToggleControl
+                        label={__('Show Top-Right Layout Toggle Button', 'arwai-azi-viewer')}
+                        help={__('Allows frontend users to toggle between Spread and Stacked views.', 'arwai-azi-viewer')}
+                        checked={attributes.showLayoutToggle !== undefined ? attributes.showLayoutToggle : true}
+                        onChange={(val) => setAttributes({ showLayoutToggle: val })}
+                    />
                     <RangeControl
                         label={__('Grid Columns', 'arwai-azi-viewer')}
                         value={attributes.columns}
@@ -315,7 +330,7 @@ export default function Edit(props) {
 
             <div {...blockProps}>
                 <div
-                    className={`arwai-aziv-cards-grid cols-${attributes.columns || 2} arwai-aziv-cards-wysiwyg-preview`}
+                    className={`arwai-aziv-cards-grid cols-${attributes.columns || 2} arwai-aziv-cards-wysiwyg-preview ${attributes.layoutMode === 'stacked' ? 'arwai-aziv-cards-stacked' : ''}`}
                     style={{
                         display: 'block',
                         gap: nativeGap,
@@ -329,6 +344,30 @@ export default function Edit(props) {
                         '--card-border-color': nativeBorderColor || '#cbd5e1',
                     }}
                 >
+                    {(attributes.showLayoutToggle !== false) && (
+                        <div className="arwai-aziv-cards-block-header">
+                            <div className="arwai-aziv-cards-layout-toggle" role="group" aria-label={__('Card layout mode', 'arwai-azi-viewer')}>
+                                <button
+                                    type="button"
+                                    className={`arwai-aziv-btn-spread ${(!attributes.layoutMode || attributes.layoutMode === 'spread') ? 'active' : ''}`}
+                                    onClick={() => setAttributes({ layoutMode: 'spread' })}
+                                    title={__('Grid View', 'arwai-azi-viewer')}
+                                >
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                                    <span>{__('Grid', 'arwai-azi-viewer')}</span>
+                                </button>
+                                <button
+                                    type="button"
+                                    className={`arwai-aziv-btn-stacked ${(attributes.layoutMode === 'stacked') ? 'active' : ''}`}
+                                    onClick={() => setAttributes({ layoutMode: 'stacked' })}
+                                    title={__('Stacked View', 'arwai-azi-viewer')}
+                                >
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="5" rx="1"/><rect x="2" y="10" width="20" height="5" rx="1"/><rect x="2" y="17" width="20" height="5" rx="1"/></svg>
+                                    <span>{__('Stacked', 'arwai-azi-viewer')}</span>
+                                </button>
+                            </div>
+                        </div>
+                    )}
                     {/* Card 1: Standard State */}
                     <div
                         className="arwai-aziv-annotation-card-item"
@@ -352,6 +391,7 @@ export default function Edit(props) {
                             position: 'relative',
                             display: 'flex',
                             flexDirection: 'column',
+                            zIndex: attributes.layoutMode === 'stacked' ? 10 : undefined,
                             '--card-bg': nativeBg || '#1e293b',
                             '--card-text': nativeText || '#f8fafc',
                             '--card-border-radius': nativeBorderRadius,
@@ -412,6 +452,7 @@ export default function Edit(props) {
                             boxSizing: 'border-box',
                             display: 'flex',
                             flexDirection: 'column',
+                            zIndex: attributes.layoutMode === 'stacked' ? 9 : undefined,
                             '--card-bg': attributes.hoverBackgroundColor || nativeBg || '#334155',
                             '--card-text': attributes.hoverTextColor || nativeText || '#f8fafc',
                             '--card-border-radius': nativeBorderRadius,
@@ -455,6 +496,7 @@ export default function Edit(props) {
                                 boxSizing: 'border-box',
                                 display: 'flex',
                                 flexDirection: 'column',
+                                zIndex: attributes.layoutMode === 'stacked' ? 8 : undefined,
                                 '--card-bg': attributes.selectedBackgroundColor || nativeBg || '#0f172a',
                                 '--card-text': attributes.selectedTextColor || nativeText || '#ffffff',
                                 '--card-border-radius': nativeBorderRadius,
@@ -499,10 +541,12 @@ export default function Edit(props) {
                                 boxSizing: 'border-box',
                                 display: 'flex',
                                 flexDirection: 'column',
+                                zIndex: attributes.layoutMode === 'stacked' ? 7 : undefined,
                                 '--card-bg': nativeBg || '#1e293b',
                                 '--card-text': nativeText || '#f8fafc',
                                 '--card-border-radius': nativeBorderRadius,
                                 '--card-border-width': nativeBorderWidth,
+                                '--card-border-style': nativeBorderStyle,
                                 '--card-border-style': nativeBorderStyle,
                                 '--card-border-color': nativeBorderColor || '#cbd5e1',
                                 '--card-shadow': nativeShadow

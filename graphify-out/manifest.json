@@ -10,8 +10,8 @@
     "semantic_hash": ""
   },
   "includes/Blocks/AnnotationListBlock.php": {
-    "mtime": 1789139713.8885636,
-    "ast_hash": "8b68b0bc09a0d2fa3700c756b91985ff",
+    "mtime": 1789420913.851984,
+    "ast_hash": "3462c215f6550b096c7bbc90fbd3988c",
     "semantic_hash": ""
   },
   "includes/Blocks/ViewerBlock.php": {
@@ -40,8 +40,8 @@
     "semantic_hash": ""
   },
   "templates/annotation-cards-list.php": {
-    "mtime": 1789317196.100617,
-    "ast_hash": "94def94dc364098146835d3b70a73335",
+    "mtime": 1789420921.8788133,
+    "ast_hash": "446e5b929a183e8879c6349e1159246b",
     "semantic_hash": ""
   },
   "templates/frontend-viewer.php": {
@@ -75,13 +75,13 @@
     "semantic_hash": ""
   },
   "src/annotation-list/block.json": {
-    "mtime": 1789010775.2762942,
-    "ast_hash": "fdf1c26044b7bb53767abd3ff6e9b892",
+    "mtime": 1789420861.384266,
+    "ast_hash": "24cb731f3c4b2962cdd1b2c38442e12f",
     "semantic_hash": ""
   },
   "src/annotation-list/edit.js": {
-    "mtime": 1789317211.5775824,
-    "ast_hash": "75625b05643f98bd1e7648aed7c6736f",
+    "mtime": 1789421291.5883086,
+    "ast_hash": "ad1e244908c44c2839684fa735e17a99",
     "semantic_hash": ""
   },
   "src/annotation-list/index.js": {
@@ -105,8 +105,8 @@
     "semantic_hash": ""
   },
   "src/viewer/view.js": {
-    "mtime": 1789411336.040552,
-    "ast_hash": "df08d051493d5f7c3821f0544b27146c",
+    "mtime": 1789656582.6971414,
+    "ast_hash": "7ff1e08f4aad89c77137b72486596567",
     "semantic_hash": ""
   },
   "CLAUDE.md": {

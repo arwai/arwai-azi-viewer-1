@@ -65,6 +65,18 @@ if (!empty($tag_colors)) {
      data-override-card-selected-border-color="<?php echo esc_attr($card_styles['card_selected_border'] ?? ''); ?>"
      data-override-card-selected-shadow="<?php echo esc_attr($card_styles['card_selected_shadow'] ?? ''); ?>"
      style="display: none; gap:<?php echo esc_attr($card_styles['card_gap'] ?? '16px'); ?>; --grid-justify-content:<?php echo esc_attr($card_styles['grid_justify_content'] ?? 'start'); ?>; --card-min-width:<?php echo esc_attr($card_styles['card_min_width'] ?? '280px'); ?>; --card-max-width:<?php echo esc_attr($card_styles['card_max_width'] ?? '100%'); ?>;">
+    <div class="arwai-aziv-cards-block-header" <?php if (isset($show_layout_toggle) && !$show_layout_toggle) echo 'style="display:none;"'; ?>>
+        <div class="arwai-aziv-cards-layout-toggle" role="group" aria-label="<?php esc_attr_e('Card layout mode', 'arwai-azi-viewer'); ?>">
+            <button type="button" class="arwai-aziv-btn-spread <?php echo (!isset($layout_mode) || $layout_mode === 'spread') ? 'active' : ''; ?>" title="<?php esc_attr_e('Grid View', 'arwai-azi-viewer'); ?>" aria-pressed="<?php echo (!isset($layout_mode) || $layout_mode === 'spread') ? 'true' : 'false'; ?>">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                <span><?php esc_html_e('Grid', 'arwai-azi-viewer'); ?></span>
+            </button>
+            <button type="button" class="arwai-aziv-btn-stacked <?php echo (isset($layout_mode) && $layout_mode === 'stacked') ? 'active' : ''; ?>" title="<?php esc_attr_e('Stacked View', 'arwai-azi-viewer'); ?>" aria-pressed="<?php echo (isset($layout_mode) && $layout_mode === 'stacked') ? 'true' : 'false'; ?>">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="5" rx="1"/><rect x="2" y="10" width="20" height="5" rx="1"/><rect x="2" y="17" width="20" height="5" rx="1"/></svg>
+                <span><?php esc_html_e('Stacked', 'arwai-azi-viewer'); ?></span>
+            </button>
+        </div>
+    </div>
     <?php if (empty($all_annotations)) : ?>
         <div class="arwai-aziv-empty-cards">
             <p><?php esc_html_e('No annotations found for this post.', 'arwai-azi-viewer'); ?></p>

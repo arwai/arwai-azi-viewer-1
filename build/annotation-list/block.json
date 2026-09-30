@@ -143,6 +143,14 @@
     "cardBorderStyle": {
       "type": "string",
       "default": "solid"
+    },
+    "layoutMode": {
+      "type": "string",
+      "default": "spread"
+    },
+    "showLayoutToggle": {
+      "type": "boolean",
+      "default": true
     }
   }
 }

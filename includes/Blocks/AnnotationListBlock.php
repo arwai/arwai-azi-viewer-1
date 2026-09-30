@@ -158,8 +158,6 @@ class AnnotationListBlock {
         $card_styles['card_max_width']      = !empty($attributes['cardMaxWidth']) ? self::parse_unit($attributes['cardMaxWidth']) : ($card_styles['card_max_width'] ?? '100%');
         $card_styles['grid_justify_content'] = !empty($attributes['gridJustifyContent']) ? $attributes['gridJustifyContent'] : ($card_styles['grid_justify_content'] ?? 'start');
         $card_styles['read_more_text']      = !empty($attributes['readMoreText']) ? $attributes['readMoreText'] : ($card_styles['read_more_text'] ?? '...Read More');
-        $card_styles['show_less_text']      = !empty($attributes['showLessText']) ? $attributes['showLessText'] : ($card_styles['show_less_text'] ?? 'Show Less');
-
         $align       = !empty($attributes['align']) ? sanitize_html_class($attributes['align']) : '';
         $align_class = !empty($align) ? 'align' . $align : '';
 
@@ -171,14 +169,24 @@ class AnnotationListBlock {
             }
         }
 
+        $layout_mode        = !empty($attributes['layoutMode']) ? sanitize_text_field($attributes['layoutMode']) : 'spread';
+        $show_layout_toggle = isset($attributes['showLayoutToggle']) ? (bool) $attributes['showLayoutToggle'] : true;
+
+        $grid_class = 'arwai-aziv-cards-grid cols-' . (int) $columns . ' ' . $align_class;
+        if ($layout_mode === 'stacked') {
+            $grid_class .= ' arwai-aziv-cards-stacked';
+        }
+
         $wrapper_attributes = get_block_wrapper_attributes([
-            'class'                     => 'arwai-aziv-cards-grid cols-' . (int) $columns . ' ' . $align_class,
+            'class'                     => $grid_class,
             'id'                        => $unique_id,
             'data-post-id'              => $post_id,
             'data-enable-truncation'     => $card_styles['enable_truncation'] ? '1' : '0',
             'data-card-max-lines'        => (int) $card_styles['card_max_lines'],
             'data-read-more-text'        => $card_styles['read_more_text'],
             'data-show-less-text'        => $card_styles['show_less_text'],
+            'data-layout-mode'          => $layout_mode,
+            'data-show-layout-toggle'   => $show_layout_toggle ? '1' : '0',
             'style'                      => sprintf(
                 'display: none; --card-min-width:%s; --card-max-width:%s; --card-max-lines:%d; --grid-justify-content:%s; --card-gap:%s; column-gap:%s;',
                 esc_attr($card_styles['card_min_width']),
